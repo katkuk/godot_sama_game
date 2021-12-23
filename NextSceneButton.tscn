@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Katkuk-Regular.tres" type="DynamicFont" id=1]
+
+[node name="NextSceneButton" type="Button"]
+margin_left = 1492.73
+margin_top = 1407.88
+margin_right = 2030.73
+margin_bottom = 1528.88
+custom_fonts/font = ExtResource( 1 )
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
