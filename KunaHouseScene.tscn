@@ -1,19 +1,62 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Textures/KunaHouse/houseReference.png" type="Texture" id=1]
-[ext_resource path="res://Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=2]
-[ext_resource path="res://Textures/KunaHouse/KunaHouse-2.png" type="Texture" id=3]
-[ext_resource path="res://Textures/KunaHouse/KunaHouse-1.png" type="Texture" id=4]
-[ext_resource path="res://Textures/KunaHouse/KunaHouse-0.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/KunaHouse/houseReference.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-0.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Kuna/kunaIde.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Kuna.gd" type="Script" id=7]
 
-[node name="Node" type="Node"]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.6
+height = 57.247
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 3.44155
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kuna/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Kuna/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk_Left"
+
+[node name="World" type="Node"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 4895.0
 color = Color( 0.882353, 0.603922, 0.266667, 1 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="HouseReference" type="Sprite" parent="."]
@@ -77,17 +120,6 @@ scale = Vector2( 0.818182, 0.818182 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
-
-[node name="KunaPlaceholder" type="ColorRect" parent="."]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.294065
-anchor_bottom = 0.905875
-rect_pivot_offset = Vector2( 477, 342 )
-color = Color( 0.737255, 0.172549, 0.0627451, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="MapIconsPlaceholders" type="Node" parent="."]
 
@@ -210,3 +242,27 @@ color = Color( 0.984375, 0.944053, 0.339224, 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="Kuna" type="KinematicBody2D" parent="."]
+position = Vector2( 697, 1002 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Kuna"]
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 6 )
+hframes = 3
+vframes = 3
+
+[node name="Collision" type="CollisionShape2D" parent="Kuna"]
+position = Vector2( 23.75, 23.682 )
+scale = Vector2( 12, 12 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kuna"]
+root_node = NodePath("../..")
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+anims/Walk_Left = SubResource( 4 )
