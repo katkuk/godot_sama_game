@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Textures/KunaHouse/houseReference.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Textures/Kuna/kunaIde.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Kuna.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=8]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -111,33 +112,16 @@ animations = [ {
 radius = 12.6042
 height = 52.2387
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
-length = 2.2
-loop = true
-
-[sub_resource type="Animation" id=3]
-length = 0.001
-
-[sub_resource type="Animation" id=4]
-resource_name = "Walk_Left"
-length = 1.6
-loop = true
-
-[sub_resource type="Animation" id=5]
-resource_name = "Walk_Right"
-length = 1.6
-loop = true
-
 [node name="World" type="Node"]
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1536.0
 margin_right = 4895.0
+mouse_filter = 2
 color = Color( 0.882353, 0.603922, 0.266667, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -205,124 +189,19 @@ region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 
 [node name="MapIconsPlaceholders" type="Node" parent="."]
 
-[node name="1" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 496.0
-margin_top = -173.0
-margin_right = 496.0
-margin_bottom = -173.0
-rect_pivot_offset = Vector2( 38, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
+[node name="TextureButton" type="TextureButton" parent="MapIconsPlaceholders"]
+anchor_left = 0.512
+anchor_top = 0.319
+anchor_right = 0.512
+anchor_bottom = 0.319
+margin_left = -47.6881
+margin_top = -49.092
+margin_right = 16.3119
+margin_bottom = 15.908
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 9 )
 __meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="2" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 730.0
-margin_top = -143.0
-margin_right = 730.0
-margin_bottom = -143.0
-rect_pivot_offset = Vector2( 39, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="3" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 796.0
-margin_top = 25.0
-margin_right = 796.0
-margin_bottom = 25.0
-rect_pivot_offset = Vector2( 39, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="4" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 892.0
-margin_top = -265.0
-margin_right = 892.0
-margin_bottom = -265.0
-rect_pivot_offset = Vector2( 37, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="5" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 1082.0
-margin_top = -240.0
-margin_right = 1082.0
-margin_bottom = -240.0
-rect_pivot_offset = Vector2( 37, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="6" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 895.0
-margin_top = 171.0
-margin_right = 895.0
-margin_bottom = 171.0
-rect_pivot_offset = Vector2( 37, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="7" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 942.0
-margin_top = -416.0
-margin_right = 942.0
-margin_bottom = -416.0
-rect_pivot_offset = Vector2( 37, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="8" type="ColorRect" parent="MapIconsPlaceholders"]
-anchor_left = 0.170414
-anchor_top = 0.390887
-anchor_right = 0.205935
-anchor_bottom = 0.431655
-margin_left = 1308.0
-margin_top = -216.0
-margin_right = 1308.0
-margin_bottom = -216.0
-rect_pivot_offset = Vector2( 37, 34 )
-color = Color( 0.984375, 0.944053, 0.339224, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Kuna" type="KinematicBody2D" parent="."]
@@ -343,9 +222,8 @@ position = Vector2( 9, 25 )
 scale = Vector2( 12, 12 )
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Kuna"]
-root_node = NodePath("../..")
-anims/Idle = SubResource( 2 )
-anims/RESET = SubResource( 3 )
-anims/Walk_Left = SubResource( 4 )
-anims/Walk_Right = SubResource( 5 )
+[node name="Camera2D" type="Camera2D" parent="Kuna"]
+offset = Vector2( 200, -170 )
+current = true
+
+[connection signal="animation_finished" from="Kuna/AnimatedSprite" to="Kuna" method="_on_AnimatedSprite_animation_finished"]
