@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kunaWalking.png-f50a5b531543aefaf7ab5e9df84622e1.stex"
+path="res://.import/kunaIde.png-2efb9a98b39ffd33f81c71d844248d8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Kuna/kunaWalking.png"
-dest_files=[ "res://.import/kunaWalking.png-f50a5b531543aefaf7ab5e9df84622e1.stex" ]
+source_file="res://Assets/Textures/Kuna/kunaIde.png"
+dest_files=[ "res://.import/kunaIde.png-2efb9a98b39ffd33f81c71d844248d8b.stex" ]
 
 [params]
 

@@ -5,9 +5,10 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-0.png" type="Texture" id=5]
-[ext_resource path="res://Kuna/kunaIde.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Kuna/kunaIde.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Kuna.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=8]
+
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
