@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Textures/KunaHouse/houseReference.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Kuna.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=8]
 [ext_resource path="res://Assets/icon.png" type="Texture" id=9]
-
+[ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=10]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -113,7 +113,9 @@ animations = [ {
 radius = 12.6042
 height = 52.2387
 
-[node name="World" type="Node"]
+[node name="KunaHouseScene" type="Node"]
+script = ExtResource( 10 )
+scene_name = "KunaHouse"
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -190,7 +192,7 @@ region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 
 [node name="MapIconsPlaceholders" type="Node" parent="."]
 
-[node name="TextureButton" type="TextureButton" parent="MapIconsPlaceholders"]
+[node name="CarolineStory" type="TextureButton" parent="MapIconsPlaceholders"]
 anchor_left = 0.512
 anchor_top = 0.319
 anchor_right = 0.512
@@ -200,6 +202,19 @@ margin_top = -49.092
 margin_right = 16.3119
 margin_bottom = 15.908
 rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OtherStory" type="TextureButton" parent="MapIconsPlaceholders"]
+margin_left = 1653.0
+margin_top = 421.0
+margin_right = 1717.0
+margin_bottom = 485.0
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -208,9 +223,6 @@ __meta__ = {
 [node name="Kuna" type="KinematicBody2D" parent="."]
 position = Vector2( 697, 1002 )
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Kuna"]
 scale = Vector2( 1.6, 1.6 )
@@ -224,7 +236,10 @@ scale = Vector2( 12, 12 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Kuna"]
-offset = Vector2( 200, -170 )
+offset = Vector2( 400, -170 )
 current = true
+smoothing_enabled = true
 
+[connection signal="pressed" from="MapIconsPlaceholders/CarolineStory" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
+[connection signal="pressed" from="MapIconsPlaceholders/OtherStory" to="." method="_on_NewStoryButton_pressed" binds= [ "Other" ]]
 [connection signal="animation_finished" from="Kuna/AnimatedSprite" to="Kuna" method="_on_AnimatedSprite_animation_finished"]
