@@ -1,13 +1,16 @@
 extends KinematicBody2D
 
 export(int) var max_speed = 900
-var speed = 0
 export(int) var acceleration = 1200
+export(int) var max_idle_delay = 15
+export(int) var min_idle_delay = 5
+var speed = 0
 var move_direction
 var moving = false #boolean that will activate movement and reset speed to 0 if players is standing still
 var destination = Vector2() #location where the mouse click happened
 var movement = Vector2() #the movement that we will push to the engine
 onready var animatedSprite = $AnimatedSprite
+onready var camera = $Camera2D
 var can_idle = false
 var timer = null
 
@@ -45,10 +48,12 @@ func MovementLoop(delta):
 			#Kuna walking left
 			animatedSprite.animation = "Walk"
 			animatedSprite.flip_h = true
+			
 		elif destination.x > position.x:
 			#Kuna walking right
 			animatedSprite.animation = "Walk"
 			animatedSprite.flip_h = false
+			
 		speed += acceleration * delta
 		if speed > max_speed:
 			speed = max_speed
@@ -69,7 +74,7 @@ func _process(_delta): #runs as often as it can
 	pass
 
 func getRandomDelay():
-	var n = randi() % (15 - 5) + 5
+	var n = randi() % (max_idle_delay - min_idle_delay) + min_idle_delay
 	print("I will idle in: ",  n, "s")
 	return n
 

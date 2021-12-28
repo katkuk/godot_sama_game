@@ -1,9 +1,11 @@
 extends Node
 
-signal level_changed(level_name)
+signal scene_changed(scene_name)
 
-export (String) var level_name = "level" 
+export (String) var scene_name = "scene" 
 
-func _on_NextSceneButton_pressed():
-	emit_signal("level_changed", level_name)
+func _on_NewStoryButton_pressed(btn_name: String) -> void:
+	emit_signal("scene_changed", scene_name, btn_name)
+	print("emiting signal " + scene_name)
+	#print(btn_name)
 	

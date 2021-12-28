@@ -7,6 +7,7 @@ margin_left = 1492.73
 margin_top = 1407.88
 margin_right = 2030.73
 margin_bottom = 1528.88
+mouse_default_cursor_shape = 2
 custom_fonts/font = ExtResource( 1 )
 text = "NEXT"
 __meta__ = {

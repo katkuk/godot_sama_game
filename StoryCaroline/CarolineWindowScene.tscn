@@ -5,11 +5,11 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=5]
-[ext_resource path="res://Assets/Katkuk-Regular.tres" type="DynamicFont" id=6]
+[ext_resource path="res://NextSceneButton.tscn" type="PackedScene" id=6]
 
 [node name="CarolineWindowScene" type="Node"]
 script = ExtResource( 5 )
-level_name = "CarolineWindowScene"
+scene_name = "CarolineWindowScene"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -166,15 +166,10 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 1493.68, -4.50284, 399.041, 923.023 )
 
-[node name="NextSceneButton" type="Button" parent="."]
-margin_left = 1424.34
-margin_top = 1350.38
-margin_right = 1962.34
-margin_bottom = 1471.38
-custom_fonts/font = ExtResource( 6 )
-text = "NEXT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="NextSceneButton" parent="." instance=ExtResource( 6 )]
+margin_left = 1560.0
+margin_top = 1443.0
+margin_right = 2098.0
+margin_bottom = 1564.0
 
-[connection signal="pressed" from="NextSceneButton" to="." method="_on_NextSceneButton_pressed"]
+[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]

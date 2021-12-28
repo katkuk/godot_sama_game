@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://StoryCaroline/Wave1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://StoryDragonsEye/small fly anim--.png" type="Texture" id=2]
 [ext_resource path="res://StoryDragonsEye/reel_.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=4]
+[ext_resource path="res://NextSceneButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "wa e"
@@ -141,6 +143,7 @@ tracks/1/keys = {
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 58.7329, 184.208 )
+script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -1123.0
@@ -210,3 +213,12 @@ anims/dragon = SubResource( 5 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="small fly anim--"]
 anims/POSITION = SubResource( 6 )
+
+[node name="NextSceneButton" parent="." instance=ExtResource( 5 )]
+margin_left = 1495.27
+margin_top = 1252.79
+margin_right = 2033.27
+margin_bottom = 1373.79
+text = "HOME"
+
+[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Home" ]]
