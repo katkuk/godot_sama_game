@@ -6,6 +6,8 @@ onready var color = $ColorRect/Color
 var spongeSelected = false
 onready var sponge = $ColorRect/Sponge
 onready var canvas = $Area2D
+onready var animationPlayerSponge = $ColorRect/Sponge/AnimationPlayer
+onready var particles = $ColorRect/Sponge/Particles2D
 
 
 const Colore = preload("res://Games/GameCaroline/Color.tscn")
@@ -65,8 +67,12 @@ func _on_Sponge_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			spongeSelected = true
+			animationPlayerSponge.play("rotate")
+			particles.emitting = true
 		else:
 			spongeSelected = false
+			animationPlayerSponge.play("rotateBack")
+			particles.emitting = false
 			
 				
 func followMouse():
