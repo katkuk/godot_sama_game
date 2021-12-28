@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Textures/KunaHouse/houseReference.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/Kuna.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=8]
 [ext_resource path="res://Assets/icon.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -112,7 +113,9 @@ animations = [ {
 radius = 12.6042
 height = 52.2387
 
-[node name="World" type="Node"]
+[node name="KunaHouseScene" type="Node"]
+script = ExtResource( 10 )
+scene_name = "KunaHouseScene"
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -187,29 +190,9 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 
-[node name="MapIconsPlaceholders" type="Node" parent="."]
-
-[node name="TextureButton" type="TextureButton" parent="MapIconsPlaceholders"]
-anchor_left = 0.512
-anchor_top = 0.319
-anchor_right = 0.512
-anchor_bottom = 0.319
-margin_left = -47.6881
-margin_top = -49.092
-margin_right = 16.3119
-margin_bottom = 15.908
-rect_scale = Vector2( 1.5, 1.5 )
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Kuna" type="KinematicBody2D" parent="."]
 position = Vector2( 697, 1002 )
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Kuna"]
 scale = Vector2( 1.6, 1.6 )
@@ -226,4 +209,40 @@ shape = SubResource( 18 )
 offset = Vector2( 200, -170 )
 current = true
 
+[node name="MapIconsPlaceholders" type="Node" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="MapIconsPlaceholders"]
+anchor_left = 0.512
+anchor_top = 0.319
+anchor_right = 0.512
+anchor_bottom = 0.319
+margin_left = -47.6881
+margin_top = -49.092
+margin_right = 16.3119
+margin_bottom = 15.908
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="MapIconsPlaceholders"]
+anchor_left = 0.512
+anchor_top = 0.319
+anchor_right = 0.512
+anchor_bottom = 0.319
+margin_left = 526.312
+margin_top = -110.092
+margin_right = 590.312
+margin_bottom = -45.0919
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="animation_finished" from="Kuna/AnimatedSprite" to="Kuna" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="pressed" from="MapIconsPlaceholders/TextureButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
+[connection signal="pressed" from="MapIconsPlaceholders/TextureButton2" to="." method="_on_NewStoryButton_pressed" binds= [ "Other" ]]
