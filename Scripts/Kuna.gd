@@ -13,6 +13,7 @@ onready var animatedSprite = $AnimatedSprite
 onready var camera = $Camera2D
 var can_idle = false
 var timer = null
+export(bool) var kunaSceneIsActive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +34,8 @@ func _unhandled_input(event):
 		timer.stop()
 
 func _physics_process(delta): #every second
-	MovementLoop(delta)
+	if kunaSceneIsActive == true:
+		MovementLoop(delta)
 
 func MovementLoop(delta):
 	if moving == false && can_idle == true:

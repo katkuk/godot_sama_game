@@ -206,8 +206,8 @@ scale = Vector2( 12, 12 )
 shape = SubResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="Kuna"]
+visible = false
 offset = Vector2( 200, -170 )
-current = true
 
 [node name="MapIconsPlaceholders" type="Node" parent="."]
 

@@ -1,6 +1,6 @@
 extends Node
 
-signal scene_changed(scene_name)
+signal scene_changed(scene_name, btn_name)
 
 export (String) var scene_name = "scene" 
 

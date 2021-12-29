@@ -1,0 +1,222 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://StoryCaroline/Wave1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://StoryDragonsEye/small fly anim--.png" type="Texture" id=2]
+[ext_resource path="res://StoryDragonsEye/reel_.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=4]
+[ext_resource path="res://NextSceneButton.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "wa e"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "wa e"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "wa e"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "wa e"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2499.31, 419.893 ), Vector2( 1008.89, 265.439 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -4.75498, -20.7831, -7.0 ]
+}
+
+[node name="DragonTest2" type="Node2D"]
+script = ExtResource( 4 )
+scene_name = "DragonTest2"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 2224.0
+margin_bottom = 1668.0
+color = Color( 0, 0.27451, 0.423529, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="reel_" type="Sprite" parent="."]
+position = Vector2( 1092, 910 )
+scale = Vector2( 0.43951, 0.43951 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( 275, 112 )
+frame = 14
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite"]
+autoplay = "wa e"
+playback_speed = 0.4
+"anims/wa e" = SubResource( 1 )
+
+[node name="Sprite2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2049, 812 )
+frame = 15
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite2"]
+autoplay = "wa e"
+playback_speed = 0.4
+"anims/wa e" = SubResource( 2 )
+
+[node name="Sprite3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 154, 861 )
+frame = 13
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite3"]
+autoplay = "wa e"
+playback_speed = 0.4
+"anims/wa e" = SubResource( 3 )
+
+[node name="Sprite4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 639, 1486 )
+frame = 13
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite4"]
+autoplay = "wa e"
+playback_speed = 0.4
+"anims/wa e" = SubResource( 4 )
+
+[node name="small fly anim--" type="Sprite" parent="."]
+position = Vector2( 1196, 449 )
+rotation = -0.0829901
+scale = Vector2( 1.5654, 1.62225 )
+texture = ExtResource( 2 )
+offset = Vector2( -89.4717, -45.2962 )
+hframes = 2
+vframes = 4
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="small fly anim--"]
+autoplay = "dragon"
+anims/dragon = SubResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="small fly anim--"]
+anims/POSITION = SubResource( 6 )
+
+[node name="NextSceneButton" parent="." instance=ExtResource( 5 )]
+margin_left = 1601.0
+margin_top = 1475.0
+margin_right = 2132.0
+margin_bottom = 1590.0
+text = "HOME"
+
+[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Home" ]]
