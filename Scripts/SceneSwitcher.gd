@@ -1,7 +1,8 @@
 extends Node
 
 onready var current_scene = $KunaHouseScene
-onready var book = $Book
+onready var book = $Book1
+onready var bookAnimationPlayer = $Book1/BookAnimationPlayer
 var current_story
 var next_scene
 var storyList = {
@@ -10,6 +11,7 @@ var storyList = {
 	"Other": { 1 : "res://TestScenes/DragonTest2.tscn"},
 	"Kuna": {1 : "res://KunaHouseScene.tscn"}
 	}
+
 
 func _ready() -> void:
 	current_scene.connect("scene_changed", self, "handle_scene_changed")
@@ -46,20 +48,30 @@ func handle_scene_changed(current_scene_name: String, story_name: String):
 #use with true if you want to keep the kuna scene and load on top
 #use with false when switching between scenes in a story
 func switchScene(current_story : String, index : int, keepOldScene : bool):
-	next_scene = load(storyList[current_story][index]).instance()
-	add_child(next_scene)
-	#this will be animation instead
-	book.visible = true
-	next_scene.connect("scene_changed", self, "handle_scene_changed")
-	if keepOldScene == false:
+	if keepOldScene == true:
+		bookAnimationPlayer.play("animateIn")
+		yield(get_node("Book1/BookAnimationPlayer"), "animation_finished")
+		book.play("bookCoverOpen")
+		yield(book, "animation_finished")
+		next_scene = load(storyList[current_story][index]).instance()
+		add_child(next_scene)
+		next_scene.connect("scene_changed", self, "handle_scene_changed")
+	elif keepOldScene == false:
 		current_scene.queue_free()
+		book.play("bookFlip")
+		yield(book, "animation_finished")
+		next_scene = load(storyList[current_story][index]).instance()
+		add_child(next_scene)
+		next_scene.connect("scene_changed", self, "handle_scene_changed")
+
 	current_scene = next_scene
 	current_scene.set_global_scale(Vector2(0.83, 0.83))
 	current_scene.set_global_position(Vector2(140,150))
 
 #kills current scene and goes to Kuna
 func goToHomeScene():
-	book.visible = false
+	#book.visible = false
+	bookAnimationPlayer.play("animateOut")
 	current_scene.queue_free()
 	current_scene = $KunaHouseScene
 	$KunaHouseScene.connect("scene_changed", self, "handle_scene_changed")

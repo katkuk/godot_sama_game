@@ -1,16 +1,123 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/SceneSwitcher.gd" type="Script" id=1]
 [ext_resource path="res://KunaHouseScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-9.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-7.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-6.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-8.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "bookCoverOpen",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "bookFlip",
+"speed": 6.0
+} ]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animateIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -562.835, 776 ), Vector2( 905.489, 776 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -13.8926, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "animateOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 905.489, 776 ), Vector2( -562.835, 776 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -13.8926 ]
+}
 
 [node name="SceneSwitcher" type="Node"]
 script = ExtResource( 1 )
 
 [node name="KunaHouseScene" parent="." instance=ExtResource( 2 )]
 
-[node name="Book" type="Sprite" parent="."]
-visible = false
-position = Vector2( 905.489, 776 )
-scale = Vector2( 1.31495, 1.31495 )
-texture = ExtResource( 5 )
+[node name="Book1" type="AnimatedSprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -562.835, 776 )
+rotation = -0.242472
+scale = Vector2( 1.33631, 1.33631 )
+frames = SubResource( 3 )
+animation = "bookCoverOpen"
+
+[node name="BookAnimationPlayer" type="AnimationPlayer" parent="Book1"]
+anims/animateIn = SubResource( 1 )
+anims/animateOut = SubResource( 2 )
