@@ -14,6 +14,8 @@ onready var camera = $Camera2D
 var can_idle = false
 var timer = null
 export(bool) var kunaSceneIsActive = true
+var is_going_to_interact : bool
+var interactable_object 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,12 +28,6 @@ func _ready():
 		add_child(timer)
 		timer.start()
 
-func _unhandled_input(event):
-	if event.is_action_pressed("Click"):
-		moving = true
-		destination.x = get_global_mouse_position().x #x from the click
-		destination.y = position.y #always same as Kuna node
-		timer.stop()
 
 func _physics_process(delta): #every second
 	if kunaSceneIsActive == true:
@@ -44,7 +40,6 @@ func MovementLoop(delta):
 	elif moving == false && can_idle == false:
 		speed = 0
 		animatedSprite.animation = "Stand"
-
 	elif moving == true:
 		if destination.x < position.x:
 			#Kuna walking left
@@ -55,11 +50,11 @@ func MovementLoop(delta):
 			#Kuna walking right
 			animatedSprite.animation = "Walk"
 			animatedSprite.flip_h = false
-			
+				
 		speed += acceleration * delta
 		if speed > max_speed:
 			speed = max_speed
-	
+		
 	movement = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 10:
 		movement = move_and_slide(movement)
@@ -89,3 +84,9 @@ func _on_AnimatedSprite_animation_finished():
 		
 		
 	
+
+#func _on_ThingsInside_input_event(viewport, event, shape_idx):
+#	if event.is_action_pressed("Click"):
+#		print("signal signalled")
+#		moving = false
+

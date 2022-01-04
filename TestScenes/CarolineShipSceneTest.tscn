@@ -115,9 +115,9 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="CarolineShipScene" type="Node2D"]
+[node name="CarolineShipSceneTest" type="Node2D"]
 script = ExtResource( 3 )
-scene_name = "CarolineShipScene"
+scene_name = "CarolineShipSceneTest"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -174,4 +174,4 @@ anims/boom = SubResource( 5 )
 [node name="NextSceneButton" parent="." instance=ExtResource( 7 )]
 text = "HOME"
 
-[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
+[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Home" ]]
