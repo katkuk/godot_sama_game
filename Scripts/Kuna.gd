@@ -25,6 +25,7 @@ func _ready():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	add_child(timer)
 	change_state(STAND)
+	
 
 func _physics_process(delta): #every second
 	if kunaSceneIsActive == true:
@@ -42,6 +43,7 @@ func NewMovementLoop(delta):
 			move_to_destination(delta)
 
 func move_to_destination(delta):
+	#print("STATE IS: " + str(state))
 	if destination.x < position.x:
 		animatedSprite.flip_h = true
 	elif destination.x > position.x:
@@ -55,6 +57,8 @@ func move_to_destination(delta):
 	if position.distance_to(destination) > 10:
 		movement = move_and_slide(movement)
 	else:
+		if state == INTERACT:
+			interactable_object.interact()
 		change_state(STAND)
 
 func _on_Timer_timeout():
@@ -82,10 +86,10 @@ func change_state(newState):
 		IDLE:
 			animatedSprite.play("Idle")
 		WALK:
-			timer.stop()
+			#timer.stop()
 			animatedSprite.play("Walk")
 		INTERACT:
-			timer.stop()
+			#timer.stop()
 			animatedSprite.play("Walk")
 
 #func OLDMovementLoop(delta):
