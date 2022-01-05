@@ -123,9 +123,8 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=18]
-radius = 12.6042
-height = 52.2387
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 12.6667, 39.125 )
 
 [node name="KunaHouseScene" type="Node"]
 script = ExtResource( 10 )
@@ -276,14 +275,14 @@ animation = "Stand"
 playing = true
 
 [node name="Collision" type="CollisionShape2D" parent="Control/Kuna"]
-position = Vector2( 9, 25 )
+position = Vector2( 5.00006, 28.5 )
 scale = Vector2( 12, 12 )
-shape = SubResource( 18 )
+shape = SubResource( 23 )
 
 [node name="Camera2D" type="Camera2D" parent="Control/Kuna"]
-visible = false
 offset = Vector2( 200, -170 )
 current = true
+smoothing_enabled = true
 script = ExtResource( 11 )
 
 [connection signal="input_event" from="Control/InteractionObjects" to="Control" method="_on_InteractionObjects_input_event"]
