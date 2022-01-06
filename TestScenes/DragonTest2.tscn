@@ -217,6 +217,5 @@ margin_left = 1601.0
 margin_top = 1475.0
 margin_right = 2132.0
 margin_bottom = 1590.0
-text = "HOME"
 
-[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Home" ]]
+[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Other" ]]

@@ -1,6 +1,7 @@
 extends Node
 
 onready var current_scene = $KunaHouseScene
+onready var kuna = $KunaHouseScene/Control/Kuna
 onready var book = $Book1
 onready var bookAnimationPlayer = $Book1/BookAnimationPlayer
 var current_story
@@ -8,7 +9,8 @@ var next_scene
 var storyList = {
 	"Caroline" : { 1 : "res://TestScenes/CarolineWindowSceneTest.tscn",
 			2 : "res://TestScenes/CarolineShipSceneTest.tscn"},
-	"Other": { 1 : "res://TestScenes/DragonTest2.tscn"},
+	"Other": { 1 : "res://TestScenes/DragonTest2.tscn",
+			2 : "res://TestScenes/CarolineShipSceneTest.tscn"},
 	"Kuna": {1 : "res://KunaHouseScene.tscn"}
 	}
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 	current_scene.connect("scene_changed", self, "handle_scene_changed")
 	
 func handle_scene_changed(current_scene_name: String, story_name: String):
-	print("Got signal, current scene " + current_scene_name)
+	print("Got signal, current scene " + current_scene.name)
 	print("Got signal, story " + story_name)
 	current_story = story_name
 	
@@ -25,26 +27,27 @@ func handle_scene_changed(current_scene_name: String, story_name: String):
 		#load the first scene in the new story
 		switchScene(current_story, 1, true)
 		#kuna stops taking input and idling
-		$KunaHouseScene.get_node("Kuna").kunaSceneIsActive = false
+		kuna.kunaSceneIsActive = false
+	
+	elif story_name == "Home":
+		#if the clicked btn has value home, go to Kuna house scene
+		goToHomeScene()
 
 	elif current_scene.name != "KunaHouseScene" && story_name != "Home":
 		#if this is the last scene in this story go back to Kuna
 		#else load next scene in the story
 		for scene in storyList[current_story]:
+			print(storyList[current_story][scene])
 			if current_scene.name in storyList[current_story][scene]:
 				if scene >= storyList[current_story].size():
 					print("this is the last scene in the story, return to Kuna")
 					goToHomeScene()
+					break
 				else:
 					var new_index = scene + 1
-					print(new_index)
-					print(storyList[current_story][new_index])
 					switchScene(current_story, new_index, false)
-				break
-	elif story_name == "Home":
-		#if the clicked btn has value home, go to Kuna house scene
-		goToHomeScene()
-
+					break
+	
 #use with true if you want to keep the kuna scene and load on top
 #use with false when switching between scenes in a story
 func switchScene(current_story : String, index : int, keepOldScene : bool):
@@ -70,11 +73,9 @@ func switchScene(current_story : String, index : int, keepOldScene : bool):
 
 #kills current scene and goes to Kuna
 func goToHomeScene():
-	#book.visible = false
 	bookAnimationPlayer.play("animateOut")
 	current_scene.queue_free()
 	current_scene = $KunaHouseScene
-	$KunaHouseScene.connect("scene_changed", self, "handle_scene_changed")
 	#kuna takes input and can idle again
-	$KunaHouseScene.get_node("Kuna").kunaSceneIsActive = true
+	kuna.kunaSceneIsActive = true
 
