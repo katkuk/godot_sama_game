@@ -73,8 +73,6 @@ func getRandomDelay():
 func _on_AnimatedSprite_animation_finished():
 	if animatedSprite.animation == "Idle":
 		change_state(STAND)
-	elif animatedSprite.animation == "Walk":
-		change_state(STAND)		
 
 func change_state(newState):
 	state = newState

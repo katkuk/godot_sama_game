@@ -9,6 +9,7 @@ func _unhandled_input(event):
 		return
 	kuna.destination.x = get_global_mouse_position().x #x from the click
 	kuna.destination.y = kuna.position.y #always same as Kuna node
+	#print("click was at " + str(get_global_mouse_position().x))
 	#print("kuna script click")
 	kuna.change_state(WALK)
 	kuna.timer.stop()
