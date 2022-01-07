@@ -14,6 +14,7 @@ func _ready():
 		object.connect("focus", self, "set_camera")
 		object.connect("unfocus", self, "release_camera")
 
+
 func _physics_process(delta):
 	self.set_position(Vector2(target.get_position().x, player.get_position().y))
 	

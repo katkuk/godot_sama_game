@@ -10,12 +10,13 @@ var moving = false #boolean that will activate movement and reset speed to 0 if 
 var destination = Vector2() #location where the mouse click happened
 var movement = Vector2() #the movement that we will push to the engine
 onready var animatedSprite = $AnimatedSprite
-onready var camera = $Camera2D
+onready var camera = get_parent().get_node("Camera2D")
 var timer = null
 export(bool) var kunaSceneIsActive = true
 var interactable_object
 enum {STAND, IDLE, WALK, INTERACT}
 var state = STAND
+var is_going_to_interact : bool
 
 # Called when the node enters the scene tree for the first time
 func _ready():
@@ -29,9 +30,9 @@ func _ready():
 
 func _physics_process(delta): #every second
 	if kunaSceneIsActive == true:
-		NewMovementLoop(delta)
+		MovementLoop(delta)
 
-func NewMovementLoop(delta):
+func MovementLoop(delta):
 	match state:
 		STAND:
 			speed = 0
@@ -40,7 +41,7 @@ func NewMovementLoop(delta):
 		WALK:
 			move_to_destination(delta)
 		INTERACT:
-			move_to_destination(delta)
+			speed = 0
 
 func move_to_destination(delta):
 	#print("STATE IS: " + str(state))
@@ -57,18 +58,20 @@ func move_to_destination(delta):
 	if position.distance_to(destination) > 10:
 		movement = move_and_slide(movement)
 	else:
-		if state == INTERACT:
+		if is_going_to_interact:
 			interactable_object.interact()
-		change_state(STAND)
-
-func _on_Timer_timeout():
-	print("TIME TO IDLE")
-	change_state(IDLE)
+			change_state(INTERACT)
+		else:
+			change_state(STAND)
 
 func getRandomDelay():
 	var n = randi() % (max_idle_delay - min_idle_delay) + min_idle_delay
 	print("I will idle in: ",  n, "s")
 	return n
+
+func _on_Timer_timeout():
+	print("TIME TO IDLE")
+	change_state(IDLE)
 
 func _on_AnimatedSprite_animation_finished():
 	if animatedSprite.animation == "Idle":
@@ -84,11 +87,9 @@ func change_state(newState):
 		IDLE:
 			animatedSprite.play("Idle")
 		WALK:
-			#timer.stop()
 			animatedSprite.play("Walk")
 		INTERACT:
-			#timer.stop()
-			animatedSprite.play("Walk")
+			animatedSprite.play("Stand")
 
 #func OLDMovementLoop(delta):
 #	if moving == false && can_idle == true:
