@@ -20,8 +20,8 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/cutoff = 1.0
-shader_param/smooth_size = 0.037
+shader_param/cutoff = 0.759
+shader_param/smooth_size = 0.044
 shader_param/mask = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]

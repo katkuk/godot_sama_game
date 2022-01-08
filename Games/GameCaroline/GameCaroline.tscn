@@ -94,7 +94,7 @@ __meta__ = {
 
 [node name="Sponge" type="Area2D" parent="ColorRect"]
 position = Vector2( 543.808, 1249.2 )
-rotation = -3.12938
+rotation = -3.74359
 scale = Vector2( 0.752862, 0.785649 )
 z_index = 101
 
@@ -111,7 +111,9 @@ process_material = SubResource( 1 )
 texture = ExtResource( 3 )
 
 [node name="Sponge" type="Sprite" parent="ColorRect/Sponge"]
+position = Vector2( 84.0653, 131.276 )
 texture = ExtResource( 1 )
+offset = Vector2( -84.0653, -131.276 )
 region_enabled = true
 region_rect = Rect2( 1526.08, 210.914, 212.717, 297.661 )
 
@@ -120,25 +122,9 @@ rotation = -0.0645087
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Sponge"]
+playback_speed = 3.0
 anims/rotate = SubResource( 3 )
 anims/rotateBack = SubResource( 4 )
-
-[node name="Brush" type="Sprite" parent="ColorRect"]
-position = Vector2( 349.491, 1152.5 )
-rotation = 0.00140721
-scale = Vector2( 0.839325, 0.839325 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1528.49, 511.007, 105.953, 541.328 )
-
-[node name="BrushTip" type="Sprite" parent="ColorRect/Brush"]
-position = Vector2( -1.05994, -209.774 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1634.56, 613.914, 103.504, 149.889 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Lines" type="Sprite" parent="ColorRect"]
 self_modulate = Color( 0.137255, 0.12549, 0.12549, 1 )
@@ -171,6 +157,22 @@ position = Vector2( 355.077, 782.263 )
 
 [node name="Position2D6" type="Position2D" parent="ColorRect/ColorSpawnPoints"]
 position = Vector2( 576.141, 779.596 )
+
+[node name="Brush" type="Sprite" parent="ColorRect"]
+position = Vector2( 395.963, 904.641 )
+rotation = 0.00140721
+scale = Vector2( 0.839325, 0.839325 )
+z_index = 105
+texture = ExtResource( 1 )
+offset = Vector2( -54.9527, 295.385 )
+region_enabled = true
+region_rect = Rect2( 1528.49, 511.007, 105.953, 541.328 )
+
+[node name="BrushTip" type="Sprite" parent="ColorRect/Brush"]
+position = Vector2( -57.0934, 94.9698 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1634.56, 613.914, 103.504, 149.889 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 1488.97, 832.781 )
