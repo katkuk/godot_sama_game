@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var kuna = $Kuna
+onready var camera = $Camera2D
 enum {STAND, IDLE, WALK, INTERACT}
 
 func _unhandled_input(event):
@@ -9,7 +10,12 @@ func _unhandled_input(event):
 		return
 	kuna.destination.x = get_global_mouse_position().x #x from the click
 	kuna.destination.y = kuna.position.y #always same as Kuna node
+	#print("click was at " + str(get_global_mouse_position().x))
 	#print("kuna script click")
+	if kuna.is_going_to_interact:
+		camera.release_camera()
+		kuna.is_going_to_interact = false
+
 	kuna.change_state(WALK)
 	kuna.timer.stop()
 
@@ -23,7 +29,8 @@ func _on_InteractionObjects_input_event(viewport, event, shape_idx):
 	#print("coordinates ", kuna.interactable_object.get_shape().get_extents().x) #this is half of the width of the col shape
 	kuna.destination.x = kuna.interactable_object.position.x - kuna.interactable_object.get_shape().get_extents().x - 150
 	kuna.destination.y = kuna.position.y
-	kuna.change_state(INTERACT)
+	kuna.is_going_to_interact = true
+	kuna.change_state(WALK)
 	kuna.timer.stop()
 	
 	
