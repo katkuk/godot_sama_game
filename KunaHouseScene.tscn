@@ -26,46 +26,6 @@ extents = Vector2( 262, 598.5 )
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 659.5, 490.5 )
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 682, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1364, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 682, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1364, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 1364, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 682, 682 )
-
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 8 )
@@ -106,22 +66,62 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 682, 1364, 682, 682 )
 
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 682, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1364, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 682, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1364, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 1364, 682, 682 )
+
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 2 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 10.0
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
 }, {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "Stand",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 2 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=23]
@@ -203,6 +203,45 @@ region_rect = Rect2( 9.48718, 274.135, 1983.94, 1681.67 )
 visible = false
 offset = Vector2( 0, 150 )
 
+[node name="MapUI" type="Control" parent="Control/InteractionObjects/Map_CollishionShape"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureButton" type="TextureButton" parent="Control/InteractionObjects/Map_CollishionShape/MapUI" groups=["MapIcons"]]
+anchor_left = 0.512
+anchor_top = 0.319
+anchor_right = 0.512
+anchor_bottom = 0.319
+margin_left = -291.168
+margin_top = -181.852
+margin_right = -227.168
+margin_bottom = -116.852
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="Control/InteractionObjects/Map_CollishionShape/MapUI" groups=["MapIcons"]]
+anchor_left = 0.512
+anchor_top = 0.319
+anchor_right = 0.512
+anchor_bottom = 0.319
+margin_left = 282.832
+margin_top = -242.852
+margin_right = 346.832
+margin_bottom = -177.852
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Gramophone_CollisionShape" type="CollisionShape2D" parent="Control/InteractionObjects" groups=["InteractionObjects"]]
 position = Vector2( 2348.5, 970.5 )
 shape = SubResource( 20 )
@@ -245,42 +284,6 @@ position = Vector2( 697, 1000 )
 scale = Vector2( 0.918656, 0.918657 )
 texture = ExtResource( 2 )
 
-[node name="MapIconsPlaceholders" type="Node2D" parent="Control"]
-position = Vector2( 1167, 566 )
-z_index = 2
-
-[node name="TextureButton" type="TextureButton" parent="Control/MapIconsPlaceholders"]
-anchor_left = 0.512
-anchor_top = 0.319
-anchor_right = 0.512
-anchor_bottom = 0.319
-margin_left = -47.6881
-margin_top = -49.092
-margin_right = 16.3119
-margin_bottom = 15.908
-rect_scale = Vector2( 1.5, 1.5 )
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureButton2" type="TextureButton" parent="Control/MapIconsPlaceholders"]
-anchor_left = 0.512
-anchor_top = 0.319
-anchor_right = 0.512
-anchor_bottom = 0.319
-margin_left = 526.312
-margin_top = -110.092
-margin_right = 590.312
-margin_bottom = -45.0919
-rect_scale = Vector2( 1.5, 1.5 )
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Kuna" type="KinematicBody2D" parent="Control"]
 position = Vector2( 697, 1002 )
 z_index = 2
@@ -298,6 +301,6 @@ scale = Vector2( 12, 12 )
 shape = SubResource( 23 )
 
 [connection signal="input_event" from="Control/InteractionObjects" to="Control" method="_on_InteractionObjects_input_event"]
-[connection signal="pressed" from="Control/MapIconsPlaceholders/TextureButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
-[connection signal="pressed" from="Control/MapIconsPlaceholders/TextureButton2" to="." method="_on_NewStoryButton_pressed" binds= [ "Other" ]]
+[connection signal="pressed" from="Control/InteractionObjects/Map_CollishionShape/MapUI/TextureButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
+[connection signal="pressed" from="Control/InteractionObjects/Map_CollishionShape/MapUI/TextureButton2" to="." method="_on_NewStoryButton_pressed" binds= [ "Other" ]]
 [connection signal="animation_finished" from="Control/Kuna/AnimatedSprite" to="Control/Kuna" method="_on_AnimatedSprite_animation_finished"]

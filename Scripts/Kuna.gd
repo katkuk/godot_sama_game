@@ -90,31 +90,3 @@ func change_state(newState):
 			animatedSprite.play("Walk")
 		INTERACT:
 			animatedSprite.play("Stand")
-
-#func OLDMovementLoop(delta):
-#	if moving == false && can_idle == true:
-#		speed = 0
-#		animatedSprite.animation = "Idle"
-#	elif moving == false && can_idle == false:
-#		speed = 0
-#		animatedSprite.animation = "Stand"
-#	elif moving == true:
-#		if destination.x < position.x:
-#			#Kuna walking left
-#			animatedSprite.animation = "Walk"
-#			animatedSprite.flip_h = true
-#
-#		elif destination.x > position.x:
-#			#Kuna walking right
-#			animatedSprite.animation = "Walk"
-#			animatedSprite.flip_h = false
-#
-#		speed += acceleration * delta
-#		if speed > max_speed:
-#			speed = max_speed
-#
-#	movement = position.direction_to(destination) * speed
-#	if position.distance_to(destination) > 10:
-#		movement = move_and_slide(movement)
-#	else:
-#		moving = false

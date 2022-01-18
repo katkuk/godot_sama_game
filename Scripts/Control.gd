@@ -8,6 +8,9 @@ func _unhandled_input(event):
 	#ignore all inputs other than click
 	if !Input.is_action_pressed("Click"):
 		return
+	if kuna.kunaSceneIsActive == false:
+		#dont register any clicks if kunaScene is not active
+		return
 	kuna.destination.x = get_global_mouse_position().x #x from the click
 	kuna.destination.y = kuna.position.y #always same as Kuna node
 	#print("click was at " + str(get_global_mouse_position().x))
@@ -15,6 +18,7 @@ func _unhandled_input(event):
 	if kuna.is_going_to_interact:
 		camera.release_camera()
 		kuna.is_going_to_interact = false
+		kuna.interactable_object.leaveInteraction()
 
 	kuna.change_state(WALK)
 	kuna.timer.stop()
