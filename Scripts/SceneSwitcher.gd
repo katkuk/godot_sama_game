@@ -24,6 +24,7 @@ func handle_scene_changed(current_scene_name: String, story_name: String):
 	current_story = story_name
 	
 	if current_scene.name == "KunaHouseScene":
+		print("loading first scene from " + story_name)
 		#load the first scene in the new story
 		switchScene(current_story, 1, true)
 		#kuna stops taking input and idling
@@ -45,6 +46,7 @@ func handle_scene_changed(current_scene_name: String, story_name: String):
 					break
 				else:
 					var new_index = scene + 1
+					print("index is: ", str(new_index))
 					switchScene(current_story, new_index, false)
 					break
 	
@@ -56,6 +58,7 @@ func switchScene(current_story : String, index : int, keepOldScene : bool):
 		yield(get_node("Book1/BookAnimationPlayer"), "animation_finished")
 		book.play("bookCoverOpen")
 		yield(book, "animation_finished")
+		print("loading this: " + storyList[current_story][index])
 		next_scene = load(storyList[current_story][index]).instance()
 		add_child(next_scene)
 		next_scene.connect("scene_changed", self, "handle_scene_changed")
@@ -68,8 +71,8 @@ func switchScene(current_story : String, index : int, keepOldScene : bool):
 		next_scene.connect("scene_changed", self, "handle_scene_changed")
 
 	current_scene = next_scene
-	current_scene.set_global_scale(Vector2(0.83, 0.83))
-	current_scene.set_global_position(Vector2(140,150))
+	current_scene.set_global_scale(Vector2(0.81, 0.81))
+	current_scene.set_global_position(Vector2(490,135))
 
 #kills current scene and goes to Kuna
 func goToHomeScene():

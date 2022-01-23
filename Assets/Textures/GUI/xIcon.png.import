@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrowsAndX.png-12a8478697b8a46c390798c394144a34.stex"
+path="res://.import/xIcon.png-0998ab57e1506068b1279f77d5d79db1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/GUI/arrowsAndX.png"
-dest_files=[ "res://.import/arrowsAndX.png-12a8478697b8a46c390798c394144a34.stex" ]
+source_file="res://Assets/Textures/GUI/xIcon.png"
+dest_files=[ "res://.import/xIcon.png-0998ab57e1506068b1279f77d5d79db1.stex" ]
 
 [params]
 

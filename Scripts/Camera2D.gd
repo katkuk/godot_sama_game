@@ -31,7 +31,6 @@ func _ready():
 		object.connect("focus", self, "set_camera")
 
 func _physics_process(delta):
-	print(can_zoom)
 	#if the target is player move with offset, if its object we want to center the camera 
 	if target == player:
 		_check_facing()
