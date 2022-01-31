@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/Ship2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/StoryCaroline/waveAnimation.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim2.png" type="Texture" id=6]
-[ext_resource path="res://NextSceneButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GUI scenes/NextSceneButton.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true

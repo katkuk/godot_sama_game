@@ -4,7 +4,7 @@
 [ext_resource path="res://StoryDragonsEye/small fly anim--.png" type="Texture" id=2]
 [ext_resource path="res://StoryDragonsEye/reel_.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=4]
-[ext_resource path="res://NextSceneButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI scenes/NextSceneButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "wa e"

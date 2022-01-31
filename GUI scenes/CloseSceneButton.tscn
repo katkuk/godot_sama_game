@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/xIcon.png" type="Texture" id=1]
+
+[node name="CloseSceneButton" type="TextureButton"]
+margin_left = 1912.0
+margin_top = 117.0
+margin_right = 2333.0
+margin_bottom = 510.0
+rect_scale = Vector2( 0.3, 0.3 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
