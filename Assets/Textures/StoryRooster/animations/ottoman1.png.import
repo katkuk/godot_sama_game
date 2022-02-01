@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ottoman2.png-92c3d32a6af1349d2853a732a58b41f5.stex"
+path="res://.import/ottoman1.png-54e8049e019cbac105e53254466fcc13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/StoryRooster/New folder/ottoman2.png"
-dest_files=[ "res://.import/ottoman2.png-92c3d32a6af1349d2853a732a58b41f5.stex" ]
+source_file="res://Assets/Textures/StoryRooster/animations/ottoman1.png"
+dest_files=[ "res://.import/ottoman1.png-54e8049e019cbac105e53254466fcc13.stex" ]
 
 [params]
 

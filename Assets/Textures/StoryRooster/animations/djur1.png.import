@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chickenWalking.png-f4af9b2f26a519fdb6ac274a4627a53a.stex"
+path="res://.import/djur1.png-199de933fcf67695f40f64b729e72e7f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/StoryRooster/New folder/chickenWalking.png"
-dest_files=[ "res://.import/chickenWalking.png-f4af9b2f26a519fdb6ac274a4627a53a.stex" ]
+source_file="res://Assets/Textures/StoryRooster/animations/djur1.png"
+dest_files=[ "res://.import/djur1.png-199de933fcf67695f40f64b729e72e7f.stex" ]
 
 [params]
 
