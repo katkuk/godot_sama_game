@@ -4,6 +4,8 @@ onready var current_scene = $KunaHouseScene
 onready var kuna = $KunaHouseScene/Control/Kuna
 onready var book = $Book1
 onready var bookAnimationPlayer = $Book1/BookAnimationPlayer
+onready var transitionShaderAP = $Book1/TransitionShader/TransitionShaderAP
+onready var bookBackground = $Book1/BookBackground
 var current_story
 var next_scene
 var storyList = {
@@ -55,14 +57,18 @@ func handle_scene_changed(current_scene_name: String, story_name: String):
 func switchScene(current_story : String, index : int, keepOldScene : bool):
 	if keepOldScene == true:
 		bookAnimationPlayer.play("animateIn")
+		bookBackground.visible = true
 		yield(get_node("Book1/BookAnimationPlayer"), "animation_finished")
 		book.play("bookCoverOpen")
 		yield(book, "animation_finished")
 		print("loading this: " + storyList[current_story][index])
+		transitionShaderAP.play("fadeIn")
 		next_scene = load(storyList[current_story][index]).instance()
 		add_child(next_scene)
 		next_scene.connect("scene_changed", self, "handle_scene_changed")
 	elif keepOldScene == false:
+		transitionShaderAP.play_backwards("fadeIn")
+		yield(transitionShaderAP, "animation_finished")
 		current_scene.queue_free()
 		book.play("bookFlip")
 		yield(book, "animation_finished")
@@ -71,8 +77,9 @@ func switchScene(current_story : String, index : int, keepOldScene : bool):
 		next_scene.connect("scene_changed", self, "handle_scene_changed")
 
 	current_scene = next_scene
-	current_scene.set_global_scale(Vector2(0.81, 0.81))
-	current_scene.set_global_position(Vector2(490,135))
+	current_scene.set_global_scale(Vector2(0.95, 0.90))
+	current_scene.set_global_position(Vector2(355,35))
+	current_scene.rotate(deg2rad(1.5))
 
 #kills current scene and goes to Kuna
 func goToHomeScene():

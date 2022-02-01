@@ -40,11 +40,12 @@ tracks/0/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
+z_index = 10
 
 [node name="Sky" type="ColorRect" parent="."]
-margin_left = -67.6697
+margin_left = -68.0
 margin_top = -39.0
-margin_right = 2528.33
+margin_right = 2229.0
 margin_bottom = 1537.0
 color = Color( 0.117647, 0.690196, 0.811765, 1 )
 __meta__ = {
@@ -54,8 +55,8 @@ __meta__ = {
 [node name="Floor" type="ColorRect" parent="."]
 margin_left = -65.0
 margin_top = 695.0
-margin_right = 2531.0
-margin_bottom = 1537.0
+margin_right = 2228.0
+margin_bottom = 1719.0
 color = Color( 0.67451, 0.309804, 0.388235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,15 +113,15 @@ region_enabled = true
 region_rect = Rect2( -19.4519, -12.9861, 2082.47, 686.023 )
 
 [node name="Cannon" type="Sprite" parent="."]
-position = Vector2( 1647.69, 785.181 )
+position = Vector2( 1455.97, 785.181 )
 scale = Vector2( 1.01041, 1.01041 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1154.19, 1115.68, 632.98, 539.795 )
 
 [node name="chickenWalking" type="Sprite" parent="."]
-position = Vector2( 2717, 863.954 )
-scale = Vector2( 0.647854, 0.647854 )
+position = Vector2( 2698.5, 886.522 )
+scale = Vector2( 0.593603, 0.593603 )
 texture = ExtResource( 4 )
 hframes = 3
 vframes = 2
@@ -135,8 +136,8 @@ autoplay = "runThrough1"
 anims/runThrough1 = SubResource( 2 )
 
 [node name="Basket" type="Sprite" parent="."]
-position = Vector2( 1039.21, 1219.06 )
-scale = Vector2( 0.902896, 0.902897 )
+position = Vector2( 1056.79, 1298.1 )
+scale = Vector2( 0.979341, 0.979342 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -9.65085, 682.423, 1164.95, 484.85 )
@@ -208,17 +209,17 @@ region_enabled = true
 region_rect = Rect2( -3.19342, 1401.28, 993.149, 164.881 )
 
 [node name="Girl" type="Sprite" parent="."]
-position = Vector2( 344.462, 1056.83 )
+position = Vector2( 361.124, 1075.63 )
 rotation = 3.1223
-scale = Vector2( 0.90644, -0.90644 )
+scale = Vector2( 1.08356, -1.08356 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 865.193, 1043.06, 585.522, 878.604 )
 
 [node name="Guy" type="Sprite" parent="."]
-position = Vector2( 2050.03, 1071.03 )
+position = Vector2( 1823.3, 1114.95 )
 rotation = 0.00802642
-scale = Vector2( 0.87306, 0.87306 )
+scale = Vector2( 1.16735, 1.16735 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 139.266, 1048.09, 715.237, 896.562 )
