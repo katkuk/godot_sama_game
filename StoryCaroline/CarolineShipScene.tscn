@@ -146,6 +146,7 @@ texture = ExtResource( 5 )
 position = Vector2( 1054.42, 773.397 )
 scale = Vector2( 0.600465, 0.600465 )
 frames = SubResource( 3 )
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -173,6 +174,5 @@ frame = 2
 anims/boom = SubResource( 5 )
 
 [node name="NextSceneButton" parent="." instance=ExtResource( 7 )]
-text = "HOME"
 
 [connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Home" ]]

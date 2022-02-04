@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+z_index = 10
+
+[node name="Sky" type="ColorRect" parent="."]
+margin_left = -55.0
+margin_top = -46.0
+margin_right = 2276.0
+margin_bottom = 1530.0
+color = Color( 0.117647, 0.690196, 0.811765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fortress" type="Sprite" parent="."]
+position = Vector2( 1316.33, 869.66 )
+rotation = -0.0186384
+scale = Vector2( 1.07411, 1.01851 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -8.82626, -23.7208, 1942.05, 799.66 )
+
+[node name="doorLeft" type="Sprite" parent="Fortress"]
+position = Vector2( 294.9, 266.186 )
+rotation = -1.56643
+scale = Vector2( 1.0116, 0.869354 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.127, 1762.4, 225.78, 103.179 )
+
+[node name="doorRight" type="Sprite" parent="Fortress"]
+position = Vector2( 372.555, 265.015 )
+rotation = -0.0105617
+scale = Vector2( 0.983788, 1.00789 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1782, 1114.38, 95.577, 221.482 )
+
+[node name="GrassRect" type="ColorRect" parent="."]
+margin_left = -67.0
+margin_top = 1272.0
+margin_right = 2306.0
+margin_bottom = 1744.0
+color = Color( 0.00392157, 0.498039, 0.32549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grass1" type="Sprite" parent="GrassRect"]
+position = Vector2( 917.24, -12.1016 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -15.4, 785.093, 1846.29, 140.089 )
+
+[node name="grass2" type="Sprite" parent="GrassRect"]
+position = Vector2( 2048.66, -27.4371 )
+rotation = 0.0841958
+scale = Vector2( 0.359092, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -12.6771, 918.04, 1815.7, 134.358 )
+
+[node name="GrassTexture" type="Sprite" parent="GrassRect"]
+position = Vector2( 1988.7, 105.24 )
+rotation = -1.65377
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -4.45882, 1931.67, 109.526, 69.6984 )
+
+[node name="GrassTexture8" type="Sprite" parent="GrassRect"]
+position = Vector2( 120.546, 260.44 )
+rotation = -1.65377
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -4.45882, 1931.67, 109.526, 69.6984 )
+
+[node name="GrassTexture2" type="Sprite" parent="GrassRect"]
+position = Vector2( 1581.04, 174.083 )
+rotation = 0.0105489
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1748.06, 1066.9, 108.573, 225.577 )
+
+[node name="GrassTexture3" type="Sprite" parent="GrassRect"]
+position = Vector2( 2132.06, -48.8244 )
+rotation = 0.0105489
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1358.15, 1917.53, 49.2308, 106.235 )
+
+[node name="GrassTexture4" type="Sprite" parent="GrassRect"]
+position = Vector2( 2214.03, 109.295 )
+scale = Vector2( 0.877892, 0.877892 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 987.764, 1400.95, 107.138, 104.228 )
+
+[node name="GrassTexture5" type="Sprite" parent="GrassRect"]
+position = Vector2( 360.075, -28.3555 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 987.764, 1400.95, 107.138, 104.228 )
+
+[node name="GrassTexture7" type="Sprite" parent="GrassRect"]
+position = Vector2( 806.504, 219.645 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1497.26, 1679.53, 258.265, 201.932 )
+
+[node name="Cloud1" type="Sprite" parent="."]
+position = Vector2( 605.223, 461.79 )
+rotation = -0.0412696
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -4.21109, 1059.53, 1099.11, 288.71 )
+
+[node name="Cloud2" type="Sprite" parent="."]
+position = Vector2( 1675.51, 442.762 )
+rotation = 0.0294083
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -6.90309, 1351.37, 970.559, 294.263 )
+
+[node name="Cloud4" type="Sprite" parent="."]
+position = Vector2( 1166.53, 262.003 )
+rotation = 0.0294083
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -13.6638, 1641.95, 498.529, 244.542 )
+
+[node name="Cloud5" type="Sprite" parent="."]
+position = Vector2( 129.298, 313.217 )
+rotation = 1.59667
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 962.2, 1518.7, 125.686, 165.562 )

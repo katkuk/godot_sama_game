@@ -1,0 +1,286 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur1.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "walking"
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "walking"
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walking"
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "walking"
+length = 0.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="Node2D" type="Node2D"]
+z_index = 10
+
+[node name="Sky" type="ColorRect" parent="."]
+margin_left = -68.0
+margin_top = -39.0
+margin_right = 5378.0
+margin_bottom = 1537.0
+color = Color( 0.117647, 0.690196, 0.811765, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Fortress" type="Sprite" parent="."]
+position = Vector2( 4249.85, 936.627 )
+rotation = 0.000650935
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -8.82626, -23.7208, 1942.05, 799.66 )
+
+[node name="GrassRect" type="ColorRect" parent="."]
+margin_left = -53.6863
+margin_top = 1272.11
+margin_right = 5400.31
+margin_bottom = 1849.11
+color = Color( 0.00392157, 0.498039, 0.32549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grass1" type="Sprite" parent="GrassRect"]
+position = Vector2( 917.24, -12.1016 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -15.4, 785.093, 1846.29, 140.089 )
+
+[node name="grass2" type="Sprite" parent="GrassRect"]
+position = Vector2( 2628.48, -28.1016 )
+rotation = 0.032352
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -12.6771, 918.04, 1815.7, 134.358 )
+
+[node name="grass3" type="Sprite" parent="GrassRect"]
+position = Vector2( 4404.93, -9.84265 )
+rotation = -1.55997
+scale = Vector2( 1, 1.1297 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1927.65, -14.4829, 112.201, 1835.73 )
+
+[node name="GrassTexture" type="Sprite" parent="GrassRect"]
+position = Vector2( 3125.28, -63.0245 )
+rotation = -1.65377
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -4.45882, 1931.67, 109.526, 69.6984 )
+
+[node name="GrassTexture8" type="Sprite" parent="GrassRect"]
+position = Vector2( 5272.19, -63.0245 )
+rotation = -1.65377
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -4.45882, 1931.67, 109.526, 69.6984 )
+
+[node name="GrassTexture2" type="Sprite" parent="GrassRect"]
+position = Vector2( 2413.91, 140.409 )
+rotation = 0.0105489
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1748.06, 1066.9, 108.573, 225.577 )
+
+[node name="GrassTexture3" type="Sprite" parent="GrassRect"]
+position = Vector2( 1950.63, -61.4236 )
+rotation = 0.0105489
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1358.15, 1917.53, 49.2308, 106.235 )
+
+[node name="GrassTexture4" type="Sprite" parent="GrassRect"]
+position = Vector2( 3350.61, -58.9695 )
+scale = Vector2( 0.877892, 0.877892 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 987.764, 1400.95, 107.138, 104.228 )
+
+[node name="GrassTexture5" type="Sprite" parent="GrassRect"]
+position = Vector2( 360.075, -28.3555 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 987.764, 1400.95, 107.138, 104.228 )
+
+[node name="GrassTexture6" type="Sprite" parent="GrassRect"]
+position = Vector2( 4688.08, 219.645 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1497.26, 1679.53, 258.265, 201.932 )
+
+[node name="GrassTexture7" type="Sprite" parent="GrassRect"]
+position = Vector2( 806.504, 219.645 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1497.26, 1679.53, 258.265, 201.932 )
+
+[node name="Cloud1" type="Sprite" parent="."]
+position = Vector2( 605.223, 461.79 )
+rotation = -0.0412696
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -4.21109, 1059.53, 1099.11, 288.71 )
+
+[node name="Cloud2" type="Sprite" parent="."]
+position = Vector2( 1675.51, 442.762 )
+rotation = 0.0294083
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -6.90309, 1351.37, 970.559, 294.263 )
+
+[node name="Cloud3" type="Sprite" parent="."]
+position = Vector2( 1675.51, 442.762 )
+rotation = 0.0294083
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -6.90309, 1351.37, 970.559, 294.263 )
+
+[node name="Cloud4" type="Sprite" parent="."]
+position = Vector2( 1166.53, 262.003 )
+rotation = 0.0294083
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -13.6638, 1641.95, 498.529, 244.542 )
+
+[node name="Cloud5" type="Sprite" parent="."]
+position = Vector2( 129.298, 313.217 )
+rotation = 1.59667
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 962.2, 1518.7, 125.686, 165.562 )
+
+[node name="doorLeft" type="Sprite" parent="."]
+position = Vector2( 4497.31, 1148.71 )
+rotation = -1.56554
+scale = Vector2( 0.805381, 0.729909 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 273.127, 1762.4, 225.78, 103.179 )
+
+[node name="doorRight" type="Sprite" parent="."]
+position = Vector2( 4562.51, 1147.82 )
+rotation = -0.00936413
+scale = Vector2( 0.825984, 0.802424 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1782, 1114.38, 95.577, 221.482 )
+
+[node name="djur1" type="Sprite" parent="."]
+position = Vector2( 2268.3, 976.145 )
+scale = Vector2( 1.50012, 1.50012 )
+texture = ExtResource( 7 )
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="djur1"]
+playback_speed = 1.5
+anims/walking = SubResource( 1 )
+
+[node name="djur2" type="Sprite" parent="."]
+position = Vector2( 2780.58, 1013.71 )
+scale = Vector2( 1.41238, 1.41238 )
+texture = ExtResource( 3 )
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="djur2"]
+playback_speed = 1.5
+anims/walking = SubResource( 2 )
+
+[node name="djur3" type="Sprite" parent="."]
+position = Vector2( 3216.48, 989.239 )
+scale = Vector2( 1.53125, 1.53125 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="djur3"]
+playback_speed = 1.5
+anims/walking = SubResource( 3 )
+
+[node name="djur4" type="Sprite" parent="."]
+position = Vector2( 3667.17, 1010.44 )
+scale = Vector2( 1.43185, 1.43185 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="djur4"]
+playback_speed = 1.5
+anims/walking = SubResource( 4 )

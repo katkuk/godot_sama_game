@@ -113,7 +113,7 @@ region_enabled = true
 region_rect = Rect2( -19.4519, -12.9861, 2082.47, 686.023 )
 
 [node name="Cannon" type="Sprite" parent="."]
-position = Vector2( 1455.97, 785.181 )
+position = Vector2( 1429.11, 689.141 )
 scale = Vector2( 1.01041, 1.01041 )
 texture = ExtResource( 1 )
 region_enabled = true
