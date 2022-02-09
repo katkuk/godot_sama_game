@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=1]
+
+[node name="ingredient10" type="Area2D"]
+
+[node name="ingredient3" type="Sprite" parent="."]
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 300.863, 146.818, 161.602, 156.201 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -50.3563, -10.271, -28.5295, 35.3668, 23.061, 35.3668, 45.6815, -11.0647, 3.6153, -51.9403 )
