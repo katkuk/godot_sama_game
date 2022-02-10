@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=2]
@@ -24,6 +24,9 @@ _data = {
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 511.35, 238.831, 8.40896, -48.772, -8.40896, 48.772, 450.106, 320.292, 0, 0, 0, 0, 441.414, 481.882, 0, 0, 0, 0, 406.188, 898.625 )
 }
+
+[sub_resource type="Animation" id=5]
+resource_name = "test"
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -87,7 +90,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D"]
 position = Vector2( 594.453, 925.977 )
-rotation = 1.5708
+rotation = 1.62203
 offset = 786.16
 
 [node name="Path2D2" type="Path2D" parent="waterfallOptions"]
@@ -96,14 +99,14 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D2"]
 position = Vector2( 1051.62, 197.362 )
-rotation = 0.24691
+rotation = 0.246929
 
 [node name="Path2D3" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D3"]
 position = Vector2( 1055.34, 191.698 )
-rotation = 0.407572
+rotation = 0.407592
 
 [node name="Path2D4" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 4 )
@@ -111,3 +114,12 @@ curve = SubResource( 4 )
 [node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D4"]
 position = Vector2( 511.35, 238.831 )
 rotation = 2.55349
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ingredientsFallingAnimPlayer" type="AnimationPlayer" parent="."]
+anims/test = SubResource( 5 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
