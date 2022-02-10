@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=2]
@@ -25,8 +25,25 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 511.35, 238.831, 8.40896, -48.772, -8.40896, 48.772, 450.106, 320.292, 0, 0, 0, 0, 441.414, 481.882, 0, 0, 0, 0, 406.188, 898.625 )
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "test"
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1298.42, 181.595, -18, -46, 18, 46, 1398.42, 243.595, 2, -38, -2, 38, 1414.42, 393.595, 0, 0, 0, 0, 1416.42, 487.595, 0, 0, 0, 0, 1396.42, 913.595 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1303.45, 184.83, -15.453, -15.453, 15.453, 15.453, 1373.3, 218.809, -3.56608, -43.9816, 3.56608, 43.9816, 1405.39, 301.87, -7.13215, -23.7738, 7.13215, 23.7738, 1416.72, 488.757, -23.9729, -31.4645, 23.9729, 31.4645, 1488.45, 518.961, -5.94346, -48.7364, 5.94346, 48.7364, 1528.09, 609.573, 0, 0, 0, 0, 1550.75, 919.164 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1303.96, 182.019, -13.4543, -43.7266, 13.4543, 43.7266, 1396.46, 247.609, 1.68179, -43.7266, -1.68179, 43.7266, 1418.32, 491.468, 0, -10.0908, 0, 10.0908, 1404.87, 609.194, 23.5451, -10.0908, -23.5451, 10.0908, 1334.23, 631.057, 18.4997, -18.4997, -18.4997, 18.4997, 1270.33, 678.147, 0, -57.181, 0, 57.181, 1243.42, 784.1, 0, 0, 0, 0, 1250.14, 928.735 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1299.43, 185.335, -17.9797, -37.4577, 17.9797, 37.4577, 1386.34, 239.274, 0, -23.9729, 0, 23.9729, 1414.8, 368.129, 0, -14.9831, 0, 14.9831, 1416.3, 480.502, -17.9797, -11.9865, 17.9797, 11.9865, 1464.25, 495.485, -10.4882, -13.4848, 10.4882, 13.4848, 1512.19, 541.932, -23.9729, -17.9797, 23.9729, 17.9797, 1584.11, 567.404, -5.99323, -40.4543, 5.99323, 40.4543, 1644.04, 658.8, 0, 0, 0, 0, 1665.02, 918.008 )
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -64,20 +81,21 @@ position = Vector2( 818.487, 1325.2 )
 [node name="Position2D5" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 1000.12, 1325.2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Kuna" type="KinematicBody2D" parent="."]
 position = Vector2( 431.954, 886.965 )
 input_pickable = true
+collision_mask = 2
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kuna"]
 self_modulate = Color( 1, 1, 1, 0.145098 )
 position = Vector2( -14.242, 10.5051 )
 polygon = PoolVector2Array( -102.103, -68.469, -2.76501, -41.5299, 121.267, -78.5712, 131.369, -0.560059, 2.28607, 41.5322, -114.45, -3.36621 )
 
-[node name="kuna" type="Sprite" parent="KinematicBody2D"]
+[node name="kuna" type="Sprite" parent="Kuna"]
 position = Vector2( 12.4037, -21.8998 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -85,41 +103,33 @@ region_rect = Rect2( 0, 0, 292.796, 142.275 )
 
 [node name="waterfallOptions" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="waterfallOptions"]
+[node name="Path2D1" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D"]
-position = Vector2( 594.453, 925.977 )
-rotation = 1.62203
-offset = 786.16
 
 [node name="Path2D2" type="Path2D" parent="waterfallOptions"]
 scale = Vector2( 0.997337, 1 )
 curve = SubResource( 2 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D2"]
-position = Vector2( 1051.62, 197.362 )
-rotation = 0.246929
-
 [node name="Path2D3" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 3 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D3"]
-position = Vector2( 1055.34, 191.698 )
-rotation = 0.407592
 
 [node name="Path2D4" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 4 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="waterfallOptions/Path2D4"]
-position = Vector2( 511.35, 238.831 )
-rotation = 2.55349
+[node name="Path2D" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 5 )
+
+[node name="Path2D5" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 6 )
+
+[node name="Path2D6" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 7 )
+
+[node name="Path2D7" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 8 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="ingredientsFallingAnimPlayer" type="AnimationPlayer" parent="."]
-anims/test = SubResource( 5 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

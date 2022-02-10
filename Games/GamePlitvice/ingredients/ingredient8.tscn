@@ -3,6 +3,7 @@
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=1]
 
 [node name="ingredient8" type="Area2D"]
+collision_layer = 2
 
 [node name="ingredient5" type="Sprite" parent="."]
 scale = Vector2( 0.6, 0.6 )
@@ -12,3 +13,5 @@ region_rect = Rect2( 142.897, 302.677, 153.704, 186.159 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -39.465, -37.355, -31.215, -8.60498, -42.465, -0.35498, -38.215, 14.395, -26.715, 27.395, -16.215, 30.645, -5.46497, 20.395, 8.78503, 47.395, 18.035, 46.645, 18.535, 30.145, 30.535, 25.145, 40.035, 9.14502, 30.785, -12.605, 42.785, -25.605, 28.035, -50.855, 9.53503, -38.355, -4.96497, -50.855 )
+
+[connection signal="area_entered" from="." to="." method="_on_ingredient8_area_entered"]

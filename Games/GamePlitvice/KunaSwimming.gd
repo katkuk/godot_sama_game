@@ -13,7 +13,8 @@ func _physics_process(delta):
 		var direction_vector = (last_mouse_pos - global_position)
 		
 		if direction_vector.length() < 3:
-			return
-			
+			return			
 		move_and_slide(direction_vector.normalized() * speed)
+		
+			
 

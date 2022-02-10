@@ -6,12 +6,8 @@ onready var currentPath = null
 onready var ingredientArray2 = []
 onready var animPlayerIngredients = $ingredientsFallingAnimPlayer
 
-#var t := 0.0
 
 func _process(delta):
-	#t += delta
-	#$waterfallOptions/Path2D/PathFollow2D.offset = t * 200.0
-	#currentPath.offset = t * 200.0
 	pass
 
 func _ready():
@@ -29,9 +25,7 @@ func getRequiredIngredients():
 	var i = -1
 	for position in positions:
 		i = i+1
-		#ingredientArray2[i].global_position = position.global_position
 		var whereItBe = ingredientArray2[i];
-		#print (whereItBe)
 		var Ingredient = load(whereItBe)
 		var ingredient = Ingredient.instance()
 		var main = get_tree().current_scene
@@ -48,27 +42,35 @@ func generateFallingIngredients():
 	animateFallingIngredient(waterfallOptions[0], ingredientArray2[0])
 	
 func animateFallingIngredient(waterfallOption, ingredient):
-	print(waterfallOption)
-	currentPath = waterfallOption.get_node("PathFollow2D")
+	var newPathFollow = PathFollow2D.new()
+	waterfallOption.add_child(newPathFollow)
+	currentPath = newPathFollow
 	var FallingIngredient = load(ingredient)
 	var fallingIngredient = FallingIngredient.instance()
 	currentPath.add_child(fallingIngredient)
-	#createAnimation
+	#print(newPathFollow)
+	#createAnimationplayer and animation
+	var animationPlayer = AnimationPlayer.new()
 	var animation = Animation.new()
+	currentPath.add_child(animationPlayer)
 	animation.set_length(1)
 	animation.add_track(0)
 	var waterfallOptionName = waterfallOption.get_name()
-	animation.track_set_path(0, "waterfallOptions/"+ waterfallOptionName +"/PathFollow2D:unit_offset")
+	#print(newPathFollow.get_path())
+	var newPathFollowName = str(newPathFollow.get_path())
+	newPathFollowName = newPathFollowName.replace("/root/Node2D/waterfallOptions", "")
+	#print(newPathFollowName)
+	animation.track_set_path(0,"/root/Node2D/waterfallOptions"+newPathFollowName +"/:unit_offset")
 	animation.track_insert_key(0,0.0,0.0)
 	animation.track_insert_key(0,1.0,1.0)
-	animPlayerIngredients.add_animation("falling", animation)
-	animPlayerIngredients.set_speed_scale(0.2)
-	animPlayerIngredients.play("falling")
-	
-	
-	#currentPath.set_unit_offset(0)
-
+	animationPlayer.add_animation("falling", animation)
+	animationPlayer.set_speed_scale(0.2)
+	animationPlayer.play("falling")
+	#handleRemovingErrything
+	yield(animationPlayer, "animation_finished")
+	newPathFollow.queue_free()
 	
 func _on_Timer_timeout():
 	generateFallingIngredients()
 	pass
+
