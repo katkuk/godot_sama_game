@@ -4,22 +4,25 @@ onready var ingredientPositions = $requiredIngPositions
 onready var waterfallOptionsGroup = $waterfallOptions
 onready var currentPath = null
 onready var ingredientArray2 = []
+onready var requiredIngrediendArray = []
 onready var animPlayerIngredients = $ingredientsFallingAnimPlayer
-
 
 func _process(delta):
 	pass
-
+	
 func _ready():
 	for n in range(1,11):
 		var scene = "res://Games/GamePlitvice/ingredients/ingredient"+str(n)+".tscn"
-		ingredientArray2.push_front(scene)
-		
+		ingredientArray2.push_front(scene)	
 	randomize()
 	ingredientArray2.shuffle()
+	requiredIngrediendArray = ingredientArray2.slice(0,4,1)
+	for i in requiredIngrediendArray:
+		print("REQUIRED:" + i)
 	getRequiredIngredients()
 	generateFallingIngredients()
 	
+
 func getRequiredIngredients():
 	var positions = ingredientPositions.get_children()
 	var i = -1
@@ -32,7 +35,7 @@ func getRequiredIngredients():
 		main.add_child(ingredient)
 		ingredient.global_position = position.global_position
 
-		
+
 func generateFallingIngredients():
 	var waterfallOptions = waterfallOptionsGroup.get_children()
 	randomize()
@@ -74,3 +77,14 @@ func _on_Timer_timeout():
 	generateFallingIngredients()
 	pass
 
+func _on_kunaArea2D_area_entered(area):
+	#print(area.filename)
+	#for ingredient in requiredIngrediendArray:
+	#	if ingredient == area.filename:
+	#		print("twas required")
+			
+	if requiredIngrediendArray.has(area.filename):
+		print("twas required")
+	else:
+		print("NOP")
+	

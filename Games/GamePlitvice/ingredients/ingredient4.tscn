@@ -13,5 +13,3 @@ region_rect = Rect2( 146.838, 489.943, 169.891, 222.982 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -40.857, 53.8768, -31.0571, 27.5953, -28.8298, -0.468018, 0.569824, -33.4313, 47.342, -50.3583, 44.6693, -26.3041, 32.6422, 3.98651, -5.66644, 33.8316, -11.9028, 39.177, -26.6026, 68.5767, -41.3024, 63.2313 )
-
-[connection signal="area_entered" from="." to="." method="_on_ingredient4_area_entered"]

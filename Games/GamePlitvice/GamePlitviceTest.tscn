@@ -101,6 +101,11 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 292.796, 142.275 )
 
+[node name="kunaArea2D" type="Area2D" parent="Kuna"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kuna/kunaArea2D"]
+polygon = PoolVector2Array( -113.837, -47.8294, -131.087, -35.9333, -118.001, -14.5202, -120.975, 11.0566, -34.728, 45.5554, 88.992, 29.4956, 99.1038, 3.32404, 156.8, -2.62402, 147.878, -34.7437, 71.7426, -24.0371, 134.792, -79.949, 30.1061, -49.019 )
+
 [node name="waterfallOptions" type="Node2D" parent="."]
 
 [node name="Path2D1" type="Path2D" parent="waterfallOptions"]
@@ -132,4 +137,5 @@ curve = SubResource( 8 )
 wait_time = 2.0
 autostart = true
 
+[connection signal="area_entered" from="Kuna/kunaArea2D" to="." method="_on_kunaArea2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
