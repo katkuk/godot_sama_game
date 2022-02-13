@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/KlekStory/backgroundplaceholder.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/KlekStory/backgroundPlaceholderLayout.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/MemoryGame.gd" type="Script" id=3]
+
+[node name="MemoryGame" type="Node2D"]
+
+[node name="Backgroundplaceholder" type="Sprite" parent="."]
+position = Vector2( 1112, 1057 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MaybeLayout" type="Sprite" parent="Backgroundplaceholder"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="Game" type="Control" parent="."]
+margin_right = 2224.0
+margin_bottom = 1668.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Game"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = 150.0
+margin_right = -150.0
+margin_bottom = -650.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
