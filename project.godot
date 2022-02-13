@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Sama game"
-run/main_scene="res://SceneSwitcher.tscn"
+run/main_scene="res://Scenes/SceneSwitcher.tscn"
 config/icon="res://Assets/icon.png"
 
 [display]
