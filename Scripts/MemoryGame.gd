@@ -107,6 +107,9 @@ func matchCardsAndScore():
 	card2.matched = true
 	card1 = null
 	card2 = null
+	
+	if score == deck.size()/2:
+		restartMemoryGame()
 
 
 
