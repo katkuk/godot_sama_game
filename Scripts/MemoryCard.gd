@@ -9,11 +9,13 @@ var suit
 var value
 var faceTexture
 var backTexture
+var matched
 
 #constructor
 func _init(var s, var v):
 	suit = s
 	value = v
+	matched = false
 	faceTexture = load("res://Assets/Textures/KlekStory/MemoryCardFace_"+str(suit)+".png")
 	backTexture = preload("res://Assets/Textures/KlekStory/MemoryCardBackTexture.png")
 	set_normal_texture(backTexture)
