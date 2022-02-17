@@ -1,88 +1,291 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Textures/GamePlitvice/test-0.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-0.png" type="Texture" id=2]
 [ext_resource path="res://Games/GamePlitvice/GamePlitviceTest.gd" type="Script" id=3]
 [ext_resource path="res://Games/GamePlitvice/KunaSwimming.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Textures/GamePlitvice/kunaAnimations.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/GamePlitvice/waves.png" type="Texture" id=7]
 
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 509.341, 236.625, 8.90899, -16.0362, -8.90899, 16.0362, 468.359, 275.825, -3.56359, -8.90899, 3.56359, 8.90899, 452.323, 332.842, -17.818, -10.6908, 17.818, 10.6908, 536.068, 357.787, 0, 0, 0, 0, 568.218, 397.974, -1.41745, -10.5495, 1.41745, 10.5495, 577.049, 430.841, 0, 0, 0, 0, 587.74, 648.22, 0, 0, 0, 0, 594.453, 925.979 )
+[sub_resource type="Animation" id=1]
+resource_name = "waves"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1051.62, 197.362, -17.4614, -25.3984, 17.4614, 25.3984, 1124.64, 235.46, 0, -49.2094, 0, 49.2094, 1146.87, 327.529, 1.5874, -57.1464, -1.5874, 57.1464, 1151.63, 462.458, 0, 0, 0, 0, 1132.58, 919.63 )
+[sub_resource type="Animation" id=2]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 21, 20, 18 ]
 }
 
-[sub_resource type="Curve2D" id=3]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1055.34, 191.698, -20.4907, -38.3086, 20.4907, 38.3086, 1127.42, 250.431, 0, 0, 0, 0, 1147.44, 394.594, 28.5088, -2.6727, -28.5088, 2.6727, 1083.37, 407.942, 16.0362, -16.0362, -16.0362, 16.0362, 1007.29, 450.657, 5.34539, -36.5268, -5.34539, 36.5268, 976.585, 517.399, 0, 0, 0, 0, 979.255, 673.576, 0, 0, 0, 0, 980.167, 923.692 )
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
 }
 
-[sub_resource type="Curve2D" id=4]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 511.35, 238.831, 8.40896, -48.772, -8.40896, 48.772, 450.106, 320.292, 0, 0, 0, 0, 441.414, 481.882, 0, 0, 0, 0, 406.188, 898.625 )
+[sub_resource type="Animation" id=4]
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17, 16, 15, 14, 13, 12, 11, 10 ]
 }
 
 [sub_resource type="Curve2D" id=5]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1298.42, 181.595, -18, -46, 18, 46, 1398.42, 243.595, 2, -38, -2, 38, 1414.42, 393.595, 0, 0, 0, 0, 1416.42, 487.595, 0, 0, 0, 0, 1396.42, 913.595 )
+"points": PoolVector2Array( -32.0724, -24.9452, 32.0724, 24.9452, 374.287, 25.8623, -28.5088, -92.6535, 28.5088, 92.6535, 459.813, 143.461, 0, 0, 0, 0, 486.54, 590.692, 1.7818, 64.1447, -1.7818, -64.1447, 474.068, 1258.87 )
 }
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1303.45, 184.83, -15.453, -15.453, 15.453, 15.453, 1373.3, 218.809, -3.56608, -43.9816, 3.56608, 43.9816, 1405.39, 301.87, -7.13215, -23.7738, 7.13215, 23.7738, 1416.72, 488.757, -23.9729, -31.4645, 23.9729, 31.4645, 1488.45, 518.961, -5.94346, -48.7364, 5.94346, 48.7364, 1528.09, 609.573, 0, 0, 0, 0, 1550.75, 919.164 )
+"points": PoolVector2Array( 0, 0, 0, 0, 384.978, 34.7713, -42.7631, -64.1447, 42.7631, 64.1447, 445.559, 98.916, -10.6908, -33.8541, 10.6908, 33.8541, 493.668, 585.347, -42.7631, -62.3629, 42.7631, 62.3629, 702.138, 626.328, 0, -87.3081, 0, 87.3081, 744.901, 882.907, 0, 0, 0, 0, 737.774, 1228.58 )
 }
 
 [sub_resource type="Curve2D" id=7]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1303.96, 182.019, -13.4543, -43.7266, 13.4543, 43.7266, 1396.46, 247.609, 1.68179, -43.7266, -1.68179, 43.7266, 1418.32, 491.468, 0, -10.0908, 0, 10.0908, 1404.87, 609.194, 23.5451, -10.0908, -23.5451, 10.0908, 1334.23, 631.057, 18.4997, -18.4997, -18.4997, 18.4997, 1270.33, 678.147, 0, -57.181, 0, 57.181, 1243.42, 784.1, 0, 0, 0, 0, 1250.14, 928.735 )
+"points": PoolVector2Array( 0, 0, 0, 0, 744.901, 123.861, -40.9813, -81.9627, 40.9813, 81.9627, 860.718, 200.478, 0, -97.9989, 0, 97.9989, 905.263, 416.076, 0, 0, 0, 0, 919.517, 1226.79 )
 }
 
 [sub_resource type="Curve2D" id=8]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1299.43, 185.335, -17.9797, -37.4577, 17.9797, 37.4577, 1386.34, 239.274, 0, -23.9729, 0, 23.9729, 1414.8, 368.129, 0, -14.9831, 0, 14.9831, 1416.3, 480.502, -17.9797, -11.9865, 17.9797, 11.9865, 1464.25, 495.485, -10.4882, -13.4848, 10.4882, 13.4848, 1512.19, 541.932, -23.9729, -17.9797, 23.9729, 17.9797, 1584.11, 567.404, -5.99323, -40.4543, 5.99323, 40.4543, 1644.04, 658.8, 0, 0, 0, 0, 1665.02, 918.008 )
+"points": PoolVector2Array( 0, 0, 0, 0, 744.901, 125.643, -26.727, -87.3081, 26.727, 87.3081, 864.281, 209.387, 23.1634, -21.3816, -23.1634, 21.3816, 905.263, 412.512, 58.7993, -58.7993, -58.7993, 58.7993, 678.975, 473.093, -1.7818, -78.3991, 1.7818, 78.3991, 616.612, 718.981, 0, 0, 0, 0, 618.393, 1248.18 )
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 952.621, 134.8, -49.0815, -13.2142, 49.0815, 13.2142, 1052.67, 104.596, -22.653, -41.5305, 22.653, 41.5305, 1160.27, 180.106, -13.2142, -60.408, 13.2142, 60.408, 1218.79, 355.667, 0, 0, 0, 0, 1245.22, 1231.58 )
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 948.845, 134.8, -49.0815, -9.43874, 49.0815, 9.43874, 1058.33, 100.821, -9.43874, -49.0815, 9.43874, 49.0815, 1198.03, 253.728, 13.2142, -13.2142, -13.2142, 13.2142, 1218.79, 361.33, 37.755, -39.6427, -37.755, 39.6427, 1128.18, 406.636, 0, 0, 0, 0, 1088.54, 716.227, 0, 0, 0, 0, 1103.64, 1225.92 )
+}
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 961.33, 128.278, -46.0346, -15.874, 46.0346, 15.874, 1066.21, 104.305, -11.1118, -50.7968, 11.1118, 50.7968, 1202.56, 258.631, 14.2866, -11.1118, -14.2866, 11.1118, 1214.54, 363.513, 34.9228, -28.5732, -34.9228, 28.5732, 1138.03, 400.93, 14.2866, -20.6362, -14.2866, 20.6362, 1080.51, 733.255, 52.3842, -19.0488, -52.3842, 19.0488, 900.713, 776.35, 15.874, -50.7968, -15.874, 50.7968, 750.883, 878.235, 0, 0, 0, 0, 728.475, 1240.83 )
+}
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -55.0436, 430.53, -53.8174, -62.2263, 53.8174, 62.2263, 78.4403, 494.602, -20.1815, -84.0896, 20.1815, 84.0896, 153.191, 676.14, 0, 0, 0, 0, 197.379, 1250.86 )
+}
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -43.1175, 428.459, -33.6359, -26.9087, 33.6359, 26.9087, 61.1536, 480.595, -18.4997, -10.0908, 18.4997, 10.0908, 126.744, 547.867, -72.3171, -42.0448, 72.3171, 42.0448, 276.423, 571.412, -6.72717, -70.6353, 6.72717, 70.6353, 358.831, 885.907, 0, 0, 0, 0, 355.467, 1232.36 )
+}
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -49.8447, 413.323, -42.0448, -31.9541, 42.0448, 31.9541, 49.3811, 468.822, -20.1815, -13.4543, 20.1815, 13.4543, 133.471, 551.23, -90.8168, -23.5451, 90.8168, 23.5451, 269.696, 568.048, -15.1361, -15.1361, 15.1361, 15.1361, 355.467, 887.589, -31.9541, -45.4084, 31.9541, 45.4084, 468.147, 946.452, 0, 0, 0, 0, 474.875, 1228.99 )
+}
+
+[sub_resource type="Curve2D" id=15]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1473.53, 9.69498, 0, 0, 0, 0, 1505.62, 764.795, 11.3265, -18.8775, -11.3265, 18.8775, 1513.17, 857.294, 20.7652, -16.9897, -20.7652, 16.9897, 1367.81, 906.376, 15.102, -11.3265, -15.102, 11.3265, 1337.61, 1006.43, 15.102, -33.9795, -15.102, 33.9795, 1252.66, 1038.52, 0, 0, 0, 0, 1245.11, 1227.29 )
+}
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1481.08, -5.40701, 9.43874, -16.9897, -9.43874, 16.9897, 1513.17, 859.182, 30.204, -22.653, -30.204, 22.653, 1382.92, 889.386, 0, 0, 0, 0, 1345.16, 1004.54, 0, 0, 0, 0, 1333.83, 1234.84 )
+}
+
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1481.08, 4.03174, 0, 0, 0, 0, 1507.51, 847.855, 0, 0, 0, 0, 1501.84, 1232.96 )
+}
+
+[sub_resource type="Curve2D" id=18]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1481.08, 5.91949, -11.3265, -15.102, 11.3265, 15.102, 1516.95, 770.458, -28.3162, -16.9897, 28.3162, 16.9897, 1588.68, 791.223, -13.2142, -41.5305, 13.2142, 41.5305, 1654.75, 847.855, 0, 0, 0, 0, 1669.85, 1240.51 )
+}
+
+[sub_resource type="Curve2D" id=19]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1639.65, -3.51926, 0, 0, 0, 0, 1650.98, 445.765, 0, 0, 0, 0, 1666.08, 1232.96 )
+}
+
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1637.76, -1.63151, -11.3265, -13.2142, 11.3265, 13.2142, 1671.74, 921.478, -66.0712, -32.0917, 66.0712, 32.0917, 1777.46, 963.008, 0, 0, 0, 0, 1824.65, 1236.73 )
+}
+
+[sub_resource type="Curve2D" id=21]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1633.99, 2.14399, 0, 0, 0, 0, 1654.75, 430.663, -49.0815, -26.4285, 49.0815, 26.4285, 1800.11, 449.54, -26.4285, -107.602, 26.4285, 107.602, 1894.5, 679.846, 0, 0, 0, 0, 1913.37, 1227.29 )
+}
+
+[sub_resource type="Curve2D" id=22]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2000.21, 7.80724, 0, 0, 0, 0, 2037.97, 1225.41 )
+}
+
+[sub_resource type="Curve2D" id=23]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2002.1, 4.03174, 3.7755, -30.204, -3.7755, 30.204, 2022.86, 676.07, 39.6427, -26.4285, -39.6427, 26.4285, 1881.28, 711.938, 3.7755, -94.3874, -3.7755, 94.3874, 1820.87, 893.161, 0, 0, 0, 0, 1813.32, 1242.39 )
 }
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 1094.54, 666.131 )
-scale = Vector2( 1.08029, 0.676217 )
-texture = ExtResource( 1 )
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -27.0
+margin_right = 1836.0
+margin_bottom = 282.0
+color = Color( 0.105882, 0.756863, 0.741176, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="purpleBg" type="Sprite" parent="."]
+position = Vector2( 1111.13, 94.3233 )
+scale = Vector2( 1.16668, 1.05654 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -19.315, -30.3247, 2086.08, 233.963 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="paper" type="Sprite" parent="."]
-position = Vector2( 790.863, 1319.84 )
-rotation = 1.56889
-scale = Vector2( 1, 1.1682 )
+[node name="purpleRect" type="ColorRect" parent="purpleBg"]
+anchor_right = 0.00191755
+margin_left = -1044.0
+margin_top = 104.0
+margin_right = 1043.0
+margin_bottom = 1086.0
+color = Color( 0.666667, 0.223529, 0.321569, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="waterRect" type="ColorRect" parent="purpleBg"]
+margin_left = -1046.0
+margin_top = 1079.0
+margin_right = 1054.0
+margin_bottom = 1532.0
+color = Color( 0, 0.694118, 0.482353, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="waterfalls" type="Sprite" parent="."]
+position = Vector2( 1019.26, 616.168 )
+scale = Vector2( 1.05412, 1.13049 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 1.98639, 712.377, 229.642, 1250.52 )
+region_rect = Rect2( 8.13278, 443.306, 2057.31, 1098.15 )
+
+[node name="waves" type="Sprite" parent="."]
+position = Vector2( 1114.52, 1200.18 )
+scale = Vector2( 1.09944, 1 )
+texture = ExtResource( 7 )
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="waves"]
+autoplay = "waves"
+playback_speed = 0.4
+anims/waves = SubResource( 1 )
+
+[node name="paper" type="Sprite" parent="."]
+position = Vector2( 1099.19, 1505.83 )
+scale = Vector2( 0.997231, 0.910054 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -5.89432, -8.87155, 926.082, 215.775 )
+
+[node name="paperEnd1" type="Sprite" parent="."]
+position = Vector2( 1563.57, 1505.83 )
+rotation = 1.56658
+scale = Vector2( 0.910054, 0.910054 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -3.87964, 1975.83, 250.615, 80.386 )
+
+[node name="paperEnd2" type="Sprite" parent="."]
+position = Vector2( 639.75, 1505.83 )
+rotation = 1.56658
+scale = Vector2( 0.910054, 0.910054 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 309.783, 1978.98, 244.311, 74.8693 )
 
 [node name="requiredIngPositions" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="requiredIngPositions"]
-position = Vector2( 241.632, 1325.2 )
+position = Vector2( 754.571, 1509.02 )
 
 [node name="Position2D2" type="Position2D" parent="requiredIngPositions"]
-position = Vector2( 438.402, 1325.2 )
+position = Vector2( 917.706, 1514.07 )
 
 [node name="Position2D3" type="Position2D" parent="requiredIngPositions"]
-position = Vector2( 621.717, 1325.2 )
+position = Vector2( 1090.93, 1514.07 )
 
 [node name="Position2D4" type="Position2D" parent="requiredIngPositions"]
-position = Vector2( 818.487, 1325.2 )
+position = Vector2( 1267.52, 1510.71 )
 
 [node name="Position2D5" type="Position2D" parent="requiredIngPositions"]
-position = Vector2( 1000.12, 1325.2 )
+position = Vector2( 1430.65, 1510.71 )
 
 [node name="Kuna" type="KinematicBody2D" parent="."]
-position = Vector2( 431.954, 886.965 )
+position = Vector2( 466.782, 1249.96 )
+scale = Vector2( 1.36, 1.36 )
 input_pickable = true
 collision_mask = 2
 script = ExtResource( 4 )
@@ -91,51 +294,102 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kuna"]
+visible = false
 self_modulate = Color( 1, 1, 1, 0.145098 )
 position = Vector2( -14.242, 10.5051 )
-polygon = PoolVector2Array( -102.103, -68.469, -2.76501, -41.5299, 121.267, -78.5712, 131.369, -0.560059, 2.28607, 41.5322, -114.45, -3.36621 )
+polygon = PoolVector2Array( 56.7317, -70.925, -2.06851, -73.0439, -26.4362, -83.1088, -24.3172, -57.6817, -34.3821, -47.6168, -21.1389, -34.9033, -25.3767, -6.82751, -14.2523, 4.8266, -17.4307, 20.7186, 24.9478, 29.1943, 67.3263, 20.1888, 66.7966, 5.35632, 78.9804, -7.88696, 75.802, -24.3087, 86.9264, -33.3141, 90.6345, -47.0871, 79.5102, -61.9196, 81.0993, -84.1683, 66.2669, -89.4656 )
 
 [node name="kuna" type="Sprite" parent="Kuna"]
 position = Vector2( 12.4037, -21.8998 )
-texture = ExtResource( 2 )
-region_enabled = true
+scale = Vector2( 0.614741, 0.614741 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 6
+frame = 14
 region_rect = Rect2( 0, 0, 292.796, 142.275 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kuna/kuna"]
+autoplay = "swim"
+playback_speed = 0.5
+anims/bonk = SubResource( 2 )
+anims/submerge = SubResource( 3 )
+anims/swim = SubResource( 4 )
 
 [node name="kunaArea2D" type="Area2D" parent="Kuna"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kuna/kunaArea2D"]
-polygon = PoolVector2Array( -113.837, -47.8294, -131.087, -35.9333, -118.001, -14.5202, -120.975, 11.0566, -34.728, 45.5554, 88.992, 29.4956, 99.1038, 3.32404, 156.8, -2.62402, 147.878, -34.7437, 71.7426, -24.0371, 134.792, -79.949, 30.1061, -49.019 )
+visible = false
+polygon = PoolVector2Array( -43.8566, -68.8956, -27.9646, -73.6631, -16.3105, -66.7767, 38.7816, -65.1874, 55.7329, -80.02, 65.2682, -57.2415, 74.2736, -36.582, 52.0249, -9.56567, 51.4951, 28.575, 11.7652, 38.6399, -31.6727, 27.5156, -36.9701, 10.0344, -40.1484, -10.0954, -39.089, -22.2792, -47.5647, -36.0522, -38.0295, -48.7658 )
 
 [node name="waterfallOptions" type="Node2D" parent="."]
-
-[node name="Path2D1" type="Path2D" parent="waterfallOptions"]
-curve = SubResource( 1 )
-
-[node name="Path2D2" type="Path2D" parent="waterfallOptions"]
-scale = Vector2( 0.997337, 1 )
-curve = SubResource( 2 )
-
-[node name="Path2D3" type="Path2D" parent="waterfallOptions"]
-curve = SubResource( 3 )
-
-[node name="Path2D4" type="Path2D" parent="waterfallOptions"]
-curve = SubResource( 4 )
 
 [node name="Path2D" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 5 )
 
-[node name="Path2D5" type="Path2D" parent="waterfallOptions"]
+[node name="Path2D2" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 6 )
 
-[node name="Path2D6" type="Path2D" parent="waterfallOptions"]
+[node name="Path2D3" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 7 )
 
-[node name="Path2D7" type="Path2D" parent="waterfallOptions"]
+[node name="Path2D4" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 8 )
+
+[node name="Path2D5" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 9 )
+
+[node name="Path2D6" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 10 )
+
+[node name="Path2D7" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 11 )
+
+[node name="Path2D8" type="Path2D" parent="waterfallOptions"]
+position = Vector2( 10.0908, 1.68182 )
+curve = SubResource( 12 )
+
+[node name="Path2D9" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 13 )
+
+[node name="Path2D10" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 14 )
+
+[node name="Path2D11" type="Path2D" parent="waterfallOptions"]
+position = Vector2( 5.66333, -7.55103 )
+curve = SubResource( 15 )
+
+[node name="Path2D12" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 16 )
+
+[node name="Path2D13" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 17 )
+
+[node name="Path2D14" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 18 )
+
+[node name="Path2D15" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 19 )
+
+[node name="Path2D16" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 20 )
+
+[node name="Path2D17" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 21 )
+
+[node name="Path2D18" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 22 )
+
+[node name="Path2D19" type="Path2D" parent="waterfallOptions"]
+curve = SubResource( 23 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="test-0" type="Sprite" parent="."]
+position = Vector2( 2746.03, 256.238 )
+scale = Vector2( 0.249658, 0.249658 )
+texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="Kuna/kunaArea2D" to="." method="_on_kunaArea2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

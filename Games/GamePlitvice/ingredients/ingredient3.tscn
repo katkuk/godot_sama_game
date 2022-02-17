@@ -1,15 +1,22 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Textures/GamePlitvice/test-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-1.png" type="Texture" id=1]
 
 [node name="ingredient3" type="Area2D"]
 collision_layer = 2
 
-[node name="ingredient11" type="Sprite" parent="."]
-scale = Vector2( 0.6, 0.6 )
+[node name="green" type="Sprite" parent="."]
+visible = false
+position = Vector2( -9.44643, 9.18155 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 314.494, 574.329, 156.479, 145.302 )
+region_rect = Rect2( 1569.74, 939.031, 386.122, 352.058 )
+
+[node name="ingredient11" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1401.33, 313.532, 309.313, 266.747 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -43.3594, -1.81616, -3.04626, 44.2878, 41.2759, -3.15253, 25.4625, -29.434, -29.7732, -30.3249 )
+position = Vector2( 2.00226, -6.34049 )
+polygon = PoolVector2Array( -179.033, -34.745, -119.543, -127.909, 56.6839, -130.154, 121.787, -111.072, 158.828, -41.4797, 124.032, 10.1535, -11.7863, 151.584, -62.2971, 115.665 )

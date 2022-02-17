@@ -5,7 +5,10 @@ onready var waterfallOptionsGroup = $waterfallOptions
 onready var currentPath = null
 onready var ingredientArray2 = []
 onready var requiredIngrediendArray = []
-onready var animPlayerIngredients = $ingredientsFallingAnimPlayer
+var positionedRequiredIngredients = []
+onready var kunaAP = $Kuna/kuna/AnimationPlayer
+onready var branches = ["res://Games/GamePlitvice/branches/branch1.tscn","res://Games/GamePlitvice/branches/branch2.tscn","res://Games/GamePlitvice/branches/branch3.tscn","res://Games/GamePlitvice/branches/branch4.tscn"]
+onready var branchCounter = 3
 
 func _process(delta):
 	pass
@@ -17,11 +20,8 @@ func _ready():
 	randomize()
 	ingredientArray2.shuffle()
 	requiredIngrediendArray = ingredientArray2.slice(0,4,1)
-	for i in requiredIngrediendArray:
-		print("REQUIRED:" + i)
 	getRequiredIngredients()
 	generateFallingIngredients()
-	
 
 func getRequiredIngredients():
 	var positions = ingredientPositions.get_children()
@@ -32,26 +32,43 @@ func getRequiredIngredients():
 		var Ingredient = load(whereItBe)
 		var ingredient = Ingredient.instance()
 		var main = get_tree().current_scene
+		ingredient.scale = Vector2(0.4, 0.4)
 		main.add_child(ingredient)
+		positionedRequiredIngredients.push_front(ingredient)
 		ingredient.global_position = position.global_position
 
 
 func generateFallingIngredients():
 	var waterfallOptions = waterfallOptionsGroup.get_children()
-	randomize()
-	ingredientArray2.shuffle()
+	var object = null
+	requiredIngrediendArray.shuffle()
 	randomize()
 	waterfallOptions.shuffle()
-	animateFallingIngredient(waterfallOptions[0], ingredientArray2[0])
+	randomize()
+	if branchCounter > 0:
+		var whichBranch = [0,1,2,3]
+		whichBranch.shuffle()
+		randomize()
+		object = branches[whichBranch[0]]
+		branchCounter = branchCounter - 1
+	else:
+		object = requiredIngrediendArray[0]
+		var howManyBranches = [2,3,4]
+		randomize()
+		howManyBranches.shuffle()
+		print("new branch count:" + str(howManyBranches[0]))
+		branchCounter = howManyBranches[0]
 	
-func animateFallingIngredient(waterfallOption, ingredient):
+	animateFallingObject(waterfallOptions[0], object)
+	
+func animateFallingObject(waterfallOption, object):
 	var newPathFollow = PathFollow2D.new()
 	waterfallOption.add_child(newPathFollow)
 	currentPath = newPathFollow
-	var FallingIngredient = load(ingredient)
+	var FallingIngredient = load(object)
 	var fallingIngredient = FallingIngredient.instance()
+	fallingIngredient.scale = Vector2(0.4, 0.4)
 	currentPath.add_child(fallingIngredient)
-	#print(newPathFollow)
 	#createAnimationplayer and animation
 	var animationPlayer = AnimationPlayer.new()
 	var animation = Animation.new()
@@ -78,13 +95,12 @@ func _on_Timer_timeout():
 	pass
 
 func _on_kunaArea2D_area_entered(area):
-	#print(area.filename)
-	#for ingredient in requiredIngrediendArray:
-	#	if ingredient == area.filename:
-	#		print("twas required")
-			
 	if requiredIngrediendArray.has(area.filename):
-		print("twas required")
+		for ing in positionedRequiredIngredients:
+			if ing.filename == area.filename:
+				ing.get_child(0).visible = true
 	else:
 		print("NOP")
-	
+		kunaAP.play("bonk")
+		yield(kunaAP, "animation_finished")
+		kunaAP.play("swim")
