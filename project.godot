@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "TextureButton",
+"class": "MemoryCard",
+"language": "GDScript",
+"path": "res://Scripts/MemoryCard.gd"
+} ]
+_global_script_class_icons={
+"MemoryCard": ""
+}
+
 [application]
 
 config/name="Sama game"
 run/main_scene="res://Scenes/SceneSwitcher.tscn"
 config/icon="res://Assets/icon.png"
+
+[autoload]
+
+MemoryGameManager="*res://Scripts/MemoryGameManager.gd"
 
 [display]
 

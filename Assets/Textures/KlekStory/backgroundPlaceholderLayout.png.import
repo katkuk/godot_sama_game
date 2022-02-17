@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/memoryGameStuff-2.png-ef35903b573c0319756968771ec4370f.stex"
+path="res://.import/backgroundPlaceholderLayout.png-de3608e98e2c662c4e670d8bb7cd5112.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/KlekStory/memoryGameStuff-2.png"
-dest_files=[ "res://.import/memoryGameStuff-2.png-ef35903b573c0319756968771ec4370f.stex" ]
+source_file="res://Assets/Textures/KlekStory/backgroundPlaceholderLayout.png"
+dest_files=[ "res://.import/backgroundPlaceholderLayout.png-de3608e98e2c662c4e670d8bb7cd5112.stex" ]
 
 [params]
 

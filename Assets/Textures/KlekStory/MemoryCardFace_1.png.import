@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/memoryGameStuff-5.png-9328d12bc8fc63bd4d8a9bfaa3dd0e1e.stex"
+path="res://.import/MemoryCardFace_1.png-74ebcc48b0b610d796c7a29ed97a5b57.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/KlekStory/memoryGameStuff-5.png"
-dest_files=[ "res://.import/memoryGameStuff-5.png-9328d12bc8fc63bd4d8a9bfaa3dd0e1e.stex" ]
+source_file="res://Assets/Textures/KlekStory/MemoryCardFace_1.png"
+dest_files=[ "res://.import/MemoryCardFace_1.png-74ebcc48b0b610d796c7a29ed97a5b57.stex" ]
 
 [params]
 

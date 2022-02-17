@@ -9,11 +9,11 @@ onready var bookBackground = $Book1/BookBackground
 var current_story
 var next_scene
 var storyList = {
-	"Caroline" : { 1 : "res://TestScenes/CarolineWindowSceneTest.tscn",
-			2 : "res://TestScenes/CarolineShipSceneTest.tscn"},
-	"Other": { 1 : "res://TestScenes/DragonTest2.tscn",
-			2 : "res://TestScenes/CarolineShipSceneTest.tscn"},
-	"Kuna": {1 : "res://KunaHouseScene.tscn"}
+	"Caroline" : { 1 : "res://Scenes/TestScenes/CarolineWindowSceneTest.tscn",
+			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+	"Other": { 1 : "res://Scenes/TestScenes/DragonTest2.tscn",
+			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+	"Kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
 	}
 
 
