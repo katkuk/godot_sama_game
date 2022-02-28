@@ -1,6 +1,5 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Assets/Textures/GamePlitvice/test-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-0.png" type="Texture" id=2]
 [ext_resource path="res://Games/GamePlitvice/GamePlitviceTest.gd" type="Script" id=3]
 [ext_resource path="res://Games/GamePlitvice/KunaSwimming.gd" type="Script" id=4]
@@ -285,7 +284,7 @@ position = Vector2( 1430.65, 1510.71 )
 
 [node name="Kuna" type="KinematicBody2D" parent="."]
 position = Vector2( 466.782, 1249.96 )
-scale = Vector2( 1.36, 1.36 )
+scale = Vector2( 1.28322, 1.37655 )
 input_pickable = true
 collision_mask = 2
 script = ExtResource( 4 )
@@ -300,8 +299,8 @@ position = Vector2( -14.242, 10.5051 )
 polygon = PoolVector2Array( 56.7317, -70.925, -2.06851, -73.0439, -26.4362, -83.1088, -24.3172, -57.6817, -34.3821, -47.6168, -21.1389, -34.9033, -25.3767, -6.82751, -14.2523, 4.8266, -17.4307, 20.7186, 24.9478, 29.1943, 67.3263, 20.1888, 66.7966, 5.35632, 78.9804, -7.88696, 75.802, -24.3087, 86.9264, -33.3141, 90.6345, -47.0871, 79.5102, -61.9196, 81.0993, -84.1683, 66.2669, -89.4656 )
 
 [node name="kuna" type="Sprite" parent="Kuna"]
-position = Vector2( 12.4037, -21.8998 )
-scale = Vector2( 0.614741, 0.614741 )
+position = Vector2( 12.4037, -12.341 )
+scale = Vector2( 0.733711, 0.733711 )
 texture = ExtResource( 5 )
 hframes = 4
 vframes = 6
@@ -385,11 +384,6 @@ curve = SubResource( 23 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="test-0" type="Sprite" parent="."]
-position = Vector2( 2746.03, 256.238 )
-scale = Vector2( 0.249658, 0.249658 )
-texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="Kuna/kunaArea2D" to="." method="_on_kunaArea2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
