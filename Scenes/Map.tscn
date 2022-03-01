@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Wave2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Book1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/MapManager.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/GUI scenes/CloseSceneButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GUI scenes/PreviousSceneButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI scenes/NextSceneButton.tscn" type="PackedScene" id=9]
 
 [node name="MapScene" type="Node2D"]
+
+[node name="MapManager" type="Node2D" parent="."]
+script = ExtResource( 6 )
 
 [node name="mapBackground" type="Sprite" parent="."]
 position = Vector2( 1114.18, 842.293 )
@@ -17,7 +25,45 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="plusButton" type="Sprite" parent="."]
+[node name="MapIcons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Caroline" type="TextureButton" parent="MapIcons"]
+margin_left = 1119.0
+margin_top = 453.0
+margin_right = 1183.0
+margin_bottom = 517.0
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dragon" type="TextureButton" parent="MapIcons"]
+margin_left = 1178.0
+margin_top = 1164.0
+margin_right = 1242.0
+margin_bottom = 1228.0
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapGUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plusButton" type="Sprite" parent="MapGUI"]
 self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
 position = Vector2( 2078.22, 769.57 )
 scale = Vector2( 0.4, 0.4 )
@@ -25,7 +71,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1112.2, -5.46244, 470.439, 458.059 )
 
-[node name="minusButton" type="Sprite" parent="."]
+[node name="minusButton" type="Sprite" parent="MapGUI"]
 self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
 position = Vector2( 2078.72, 1001.61 )
 rotation = -1.57433
@@ -34,7 +80,9 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1579.2, 0.140194, 470.566, 456.001 )
 
-[node name="tree1" type="Sprite" parent="."]
+[node name="CroatiaVisuals" type="Node2D" parent="."]
+
+[node name="tree1" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 967.871, 740.224 )
 rotation = -0.13711
 scale = Vector2( 0.236057, 0.236057 )
@@ -42,7 +90,7 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1423.95, -3.37205, 323.685, 512.695 )
 
-[node name="tree3" type="Sprite" parent="."]
+[node name="tree3" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1313.19, 1194.15 )
 rotation = -0.111809
 scale = Vector2( 0.222601, 0.236057 )
@@ -50,7 +98,7 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1423.95, -3.37205, 323.685, 512.695 )
 
-[node name="tree2" type="Sprite" parent="."]
+[node name="tree2" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1025.37, 645.789 )
 rotation = -1.69901
 scale = Vector2( 0.191272, 0.191272 )
@@ -58,7 +106,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -11.7899, -8.45966, 583.237, 330.134 )
 
-[node name="mountain1" type="Sprite" parent="."]
+[node name="mountain1" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 917.368, 861.869 )
 rotation = -1.44783
 scale = Vector2( 0.485814, 0.485814 )
@@ -66,7 +114,7 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 754.232, -40.5407, 671.686, 655.928 )
 
-[node name="mountain3" type="Sprite" parent="."]
+[node name="mountain3" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 593.412, 524.291 )
 rotation = -0.0912975
 scale = Vector2( 0.480001, 0.480001 )
@@ -74,21 +122,21 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 523.082, 528.419, 204.436, 289.766 )
 
-[node name="mountain4" type="Sprite" parent="."]
+[node name="mountain4" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1094.03, 320.003 )
 scale = Vector2( 0.44, 0.44 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 726.088, 616.18, 401.413, 328.221 )
 
-[node name="mountain5" type="Sprite" parent="."]
+[node name="mountain5" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1113.31, 1079.77 )
 scale = Vector2( 0.48, 0.48 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1127.6, 605.497, 296.418, 355.129 )
 
-[node name="mountain6" type="Sprite" parent="."]
+[node name="mountain6" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 807.509, 585.208 )
 rotation = -1.52059
 scale = Vector2( 0.43418, 0.43418 )
@@ -96,7 +144,7 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1423.92, 508.269, 369.549, 411.292 )
 
-[node name="fields" type="Sprite" parent="."]
+[node name="fields" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1711.31, 585.208 )
 rotation = -0.146974
 scale = Vector2( 0.43418, 0.43418 )
@@ -104,14 +152,14 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 3.34895, -12.8905, 751.906, 535.294 )
 
-[node name="mountain2" type="Sprite" parent="."]
+[node name="mountain2" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1392.01, 560.008 )
 scale = Vector2( 0.440001, 0.440001 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( -6.09357, 522.81, 533.803, 348.646 )
 
-[node name="tree4" type="Sprite" parent="."]
+[node name="tree4" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 884.608, 1002.15 )
 rotation = -1.54074
 scale = Vector2( 0.191272, 0.191272 )
@@ -119,19 +167,58 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 576.114, -3.34222, 537.271, 418.055 )
 
-[node name="Sprite" parent="." instance=ExtResource( 3 )]
+[node name="Sprite" parent="CroatiaVisuals" instance=ExtResource( 3 )]
 self_modulate = Color( 0.156863, 0.682353, 0.752941, 1 )
 position = Vector2( 622.456, 1208.9 )
 
-[node name="Sprite2" parent="." instance=ExtResource( 3 )]
+[node name="Sprite2" parent="CroatiaVisuals" instance=ExtResource( 3 )]
 self_modulate = Color( 0.156863, 0.682353, 0.752941, 1 )
 position = Vector2( 1072.3, 1525.19 )
 
-[node name="Sprite3" parent="." instance=ExtResource( 3 )]
+[node name="Sprite3" parent="CroatiaVisuals" instance=ExtResource( 3 )]
 self_modulate = Color( 0.156863, 0.682353, 0.752941, 1 )
 position = Vector2( 260.912, 940.588 )
 
-[node name="Book1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2020.04, 1363.5 )
+[node name="BookGUI" type="Node2D" parent="."]
+z_index = 100
 
-[node name="Book2" parent="." instance=ExtResource( 4 )]
+[node name="Container" type="Control" parent="BookGUI"]
+margin_right = 2224.0
+margin_bottom = 1668.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CloseSceneButton" parent="BookGUI/Container" instance=ExtResource( 7 )]
+margin_left = 1837.0
+margin_top = 166.0
+margin_right = 2258.0
+margin_bottom = 559.0
+
+[node name="NextSceneButton" parent="BookGUI/Container" instance=ExtResource( 9 )]
+margin_left = 1806.0
+margin_top = 1324.0
+margin_right = 2389.0
+margin_bottom = 1717.0
+
+[node name="PreviousSceneButton" parent="BookGUI/Container" instance=ExtResource( 8 )]
+margin_left = 224.0
+margin_top = 1332.0
+margin_right = 807.0
+margin_bottom = 1725.0
+
+[node name="Book1" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="TransitionShader" parent="Book1" index="1"]
+visible = false
+self_modulate = Color( 1, 1, 1, 1 )
+color = Color( 0.937255, 0.937255, 0.898039, 0 )
+
+[connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
+[connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]
+[connection signal="pressed" from="BookGUI/Container/CloseSceneButton" to="MapManager" method="_on_CloseSceneButton_pressed"]
+[connection signal="pressed" from="BookGUI/Container/NextSceneButton" to="MapManager" method="_on_NextSceneButton_pressed"]
+[connection signal="pressed" from="BookGUI/Container/PreviousSceneButton" to="MapManager" method="_on_PreviousSceneButton_pressed"]
+
+[editable path="Book1"]
