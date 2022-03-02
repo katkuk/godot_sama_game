@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
@@ -22,14 +22,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "bookFlip",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "bookCoverOpen",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "bookFlip",
 "speed": 6.0
 } ]
 
@@ -82,6 +82,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "bookCoverOpen" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -222,6 +246,34 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "bookCoverOpen"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "bookCoverOpen" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
 [sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 render_mode unshaded;
@@ -276,8 +328,7 @@ tracks/1/keys = {
 [node name="MapManager" type="Node2D" parent="."]
 show_behind_parent = true
 rotation = 1.49012e-08
-scale = Vector2( 1, 1 )
-z_index = 14
+z_index = -4
 script = ExtResource( 6 )
 
 [node name="mapBackground" type="Sprite" parent="."]
@@ -446,14 +497,13 @@ position = Vector2( 260.912, 940.588 )
 
 [node name="Book1" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -562.835, 776 )
+position = Vector2( 1215, 739 )
 rotation = -0.242472
 scale = Vector2( 1.28413, 1.36003 )
 z_index = 15
 z_as_relative = false
 frames = SubResource( 1 )
 animation = "bookCoverOpen"
-frame = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -462,6 +512,7 @@ __meta__ = {
 anims/RESET = SubResource( 2 )
 anims/animateIn = SubResource( 3 )
 anims/animateOut = SubResource( 4 )
+anims/bookCoverOpen = SubResource( 8 )
 
 [node name="ScenePlaceholder" type="Node2D" parent="Book1"]
 show_behind_parent = true
@@ -479,7 +530,6 @@ z_index = -5
 texture = ExtResource( 19 )
 
 [node name="Node2D" type="Node2D" parent="Book1"]
-scale = Vector2( 1, 1 )
 z_index = -1
 
 [node name="TransitionShader" type="ColorRect" parent="Book1/Node2D"]
@@ -529,6 +579,7 @@ margin_top = 1375.57
 margin_right = 882.623
 margin_bottom = 1768.57
 rect_scale = Vector2( -0.3, 0.3 )
+flip_h = false
 
 [connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
 [connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]
