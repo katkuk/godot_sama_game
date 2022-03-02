@@ -141,7 +141,6 @@ tracks/1/keys = {
 }
 
 [node name="DragonTest2" type="Node2D"]
-z_index = 10
 script = ExtResource( 4 )
 scene_name = "DragonTest2"
 

@@ -5,16 +5,18 @@ var next_scene #used for storing next scene
 var current_story #used for storing current story, when no story is playing this is null
 var storyList = {
 	"caroline" : { 1 : "res://Scenes/TestScenes/CarolineWindowSceneTest.tscn",
-			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+			2 : "res://Scenes/TestScenes/DragonTest2.tscn",
+			3 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
 	"dragon": { 1 : "res://Scenes/TestScenes/DragonTest2.tscn",
 			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
 	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
 	}
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
-onready var transitionShaderAP = get_parent().get_node("Book1/TransitionShader/TransitionShaderAP")
+onready var transitionShaderAP = get_parent().get_node("Book1/Node2D/TransitionShader/TransitionShaderAP")
 onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
+onready var ScenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
 
 func _ready():
 	bookGUI.visible = false;
@@ -23,15 +25,17 @@ func _on_MapIcon_pressed(story: String):
 	print("story name is: " + story)
 	print(current_scene)
 	current_story = story
-	#animateBookIn()
-	displayBookGUI(true)
-	loadScene(story, 1, true)
+	animateBookIn(current_story)
+	#displayBookGUI(true)
+	#loadScene(story, 1, true)
 
-func animateBookIn():
+func animateBookIn(story):
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
 	book.play("bookCoverOpen")
 	yield(book, "animation_finished")
+	displayBookGUI(true)
+	loadScene(story, 1, true)
 
 func loadScene(story : String, index : int, keepOldScene : bool):
 	if keepOldScene == false:
@@ -40,7 +44,11 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 	next_scene = load(storyList[story][index]).instance()
 	#use this instead when the book is positioned properly
 	#book.add_child(next_scene)
-	add_child(next_scene)
+	transitionShaderAP.play("fadeIn")
+	#yield(transitionShaderAP, "animation_finished")
+	ScenePlaceholder.add_child(next_scene)
+	#ScenePlaceholder.set_z_index(-4)
+	#ScenePlaceholder.set_z_as_relative(true)
 	next_scene.set_global_scale(Vector2(0.95, 0.91))
 	next_scene.set_global_position(Vector2(70,35))
 	#next_scene.set_global_position(Vector2(200,220))
@@ -67,7 +75,7 @@ func updateBookGUI():
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 
 func _on_CloseSceneButton_pressed():
-	#bookAnimationPlayer.play_backwards("animateIn")
+	bookAnimationPlayer.play_backwards("animateIn")
 	current_scene.queue_free()
 	current_scene = null
 	current_story = null

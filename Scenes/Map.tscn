@@ -1,18 +1,283 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Wave2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Book1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-5.png" type="Texture" id=4]
 [ext_resource path="res://Assets/icon.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/MapManager.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/GUI scenes/CloseSceneButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI scenes/PreviousSceneButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/GUI scenes/NextSceneButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-7.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-9.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-4.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-6.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-8.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Textures/KunaHouse/book_export-2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Textures/KunaHouse/shaderTexture-1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Textures/KunaHouse/bookBackground.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "bookFlip",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "bookCoverOpen",
+"speed": 6.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1215, 739 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BookBackground:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Node2D/TransitionShader:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -562.835, 776 ), Vector2( 939.104, 753.271 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -13.8926, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BookBackground:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Node2D/TransitionShader:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ScenePlaceholder:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 570.573, -454.521 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 905.489, 776 ), Vector2( -562.835, 776 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -13.8926 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BookBackground:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Node2D/TransitionShader:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float cutoff: hint_range(0.0, 1.0);
+uniform float smooth_size : hint_range(0.0, 1.0);
+uniform sampler2D mask : hint_albedo;
+
+void fragment()
+{
+	float value = texture(mask, UV).r;
+	float alpha = smoothstep(cutoff, cutoff + smooth_size, (value + smooth_size) / (1.0 + smooth_size));
+	COLOR = vec4(COLOR.rgb, alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/cutoff = 0.0
+shader_param/smooth_size = 0.044
+shader_param/mask = ExtResource( 18 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "fadeIn"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="MapScene" type="Node2D"]
 
 [node name="MapManager" type="Node2D" parent="."]
+show_behind_parent = true
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+z_index = 14
 script = ExtResource( 6 )
 
 [node name="mapBackground" type="Sprite" parent="."]
@@ -179,6 +444,62 @@ position = Vector2( 1072.3, 1525.19 )
 self_modulate = Color( 0.156863, 0.682353, 0.752941, 1 )
 position = Vector2( 260.912, 940.588 )
 
+[node name="Book1" type="AnimatedSprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -562.835, 776 )
+rotation = -0.242472
+scale = Vector2( 1.28413, 1.36003 )
+z_index = 15
+z_as_relative = false
+frames = SubResource( 1 )
+animation = "bookCoverOpen"
+frame = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BookAnimationPlayer" type="AnimationPlayer" parent="Book1"]
+anims/RESET = SubResource( 2 )
+anims/animateIn = SubResource( 3 )
+anims/animateOut = SubResource( 4 )
+
+[node name="ScenePlaceholder" type="Node2D" parent="Book1"]
+show_behind_parent = true
+position = Vector2( 570.573, -454.521 )
+scale = Vector2( 0.776298, 0.737853 )
+z_index = -4
+
+[node name="BookBackground" type="Sprite" parent="Book1"]
+self_modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+position = Vector2( 122.869, 55.2348 )
+rotation = 0.0228167
+scale = Vector2( 7.02939, 4.68134 )
+z_index = -5
+texture = ExtResource( 19 )
+
+[node name="Node2D" type="Node2D" parent="Book1"]
+scale = Vector2( 1, 1 )
+z_index = -1
+
+[node name="TransitionShader" type="ColorRect" parent="Book1/Node2D"]
+self_modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 6 )
+margin_left = -680.0
+margin_top = -520.0
+margin_right = 969.0
+margin_bottom = 599.0
+rect_rotation = 1.24781
+mouse_filter = 2
+color = Color( 0.937255, 0.937255, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TransitionShaderAP" type="AnimationPlayer" parent="Book1/Node2D/TransitionShader"]
+playback_speed = 2.0
+anims/fadeIn = SubResource( 7 )
+
 [node name="BookGUI" type="Node2D" parent="."]
 z_index = 100
 
@@ -190,35 +511,27 @@ __meta__ = {
 }
 
 [node name="CloseSceneButton" parent="BookGUI/Container" instance=ExtResource( 7 )]
-margin_left = 1837.0
-margin_top = 166.0
-margin_right = 2258.0
-margin_bottom = 559.0
+margin_left = 1993.57
+margin_top = 170.657
+margin_right = 2414.57
+margin_bottom = 563.657
+rect_scale = Vector2( 0.26, 0.26 )
 
 [node name="NextSceneButton" parent="BookGUI/Container" instance=ExtResource( 9 )]
-margin_left = 1806.0
-margin_top = 1324.0
-margin_right = 2389.0
-margin_bottom = 1717.0
+margin_left = 1909.41
+margin_top = 1404.82
+margin_right = 2492.41
+margin_bottom = 1797.82
 
 [node name="PreviousSceneButton" parent="BookGUI/Container" instance=ExtResource( 8 )]
-margin_left = 224.0
-margin_top = 1332.0
-margin_right = 807.0
-margin_bottom = 1725.0
-
-[node name="Book1" parent="." instance=ExtResource( 4 )]
-visible = false
-
-[node name="TransitionShader" parent="Book1" index="1"]
-visible = false
-self_modulate = Color( 1, 1, 1, 1 )
-color = Color( 0.937255, 0.937255, 0.898039, 0 )
+margin_left = 299.623
+margin_top = 1375.57
+margin_right = 882.623
+margin_bottom = 1768.57
+rect_scale = Vector2( -0.3, 0.3 )
 
 [connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
 [connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]
 [connection signal="pressed" from="BookGUI/Container/CloseSceneButton" to="MapManager" method="_on_CloseSceneButton_pressed"]
 [connection signal="pressed" from="BookGUI/Container/NextSceneButton" to="MapManager" method="_on_NextSceneButton_pressed"]
 [connection signal="pressed" from="BookGUI/Container/PreviousSceneButton" to="MapManager" method="_on_PreviousSceneButton_pressed"]
-
-[editable path="Book1"]

@@ -115,7 +115,6 @@ tracks/2/keys = {
 }
 
 [node name="CarolineShipSceneTest" type="Node2D"]
-z_index = 10
 script = ExtResource( 3 )
 scene_name = "CarolineShipSceneTest"
 
@@ -144,7 +143,7 @@ texture = ExtResource( 5 )
 position = Vector2( 1054.42, 773.397 )
 scale = Vector2( 0.600465, 0.600465 )
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
