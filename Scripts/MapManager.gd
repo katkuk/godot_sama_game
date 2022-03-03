@@ -16,42 +16,30 @@ onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlay
 onready var transitionShaderAP = get_parent().get_node("Book1/Node2D/TransitionShader/TransitionShaderAP")
 onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
-onready var ScenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
+onready var scenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
 
 func _ready():
 	bookGUI.visible = false;
 
 func _on_MapIcon_pressed(story: String):
-	print("story name is: " + story)
-	print(current_scene)
 	current_story = story
-	animateBookIn(current_story)
-	#displayBookGUI(true)
-	#loadScene(story, 1, true)
-
-func animateBookIn(story):
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
-	book.play("bookCoverOpen")
-	yield(book, "animation_finished")
+	bookAnimationPlayer.play("bookCoverOpen")
+	yield(bookAnimationPlayer, "animation_finished")
 	displayBookGUI(true)
 	loadScene(story, 1, true)
 
 func loadScene(story : String, index : int, keepOldScene : bool):
 	if keepOldScene == false:
+		scenePlaceholder.remove_child(current_scene)
 		current_scene.queue_free()
-		
+
 	next_scene = load(storyList[story][index]).instance()
-	#use this instead when the book is positioned properly
-	#book.add_child(next_scene)
 	transitionShaderAP.play("fadeIn")
-	#yield(transitionShaderAP, "animation_finished")
-	ScenePlaceholder.add_child(next_scene)
-	#ScenePlaceholder.set_z_index(-4)
-	#ScenePlaceholder.set_z_as_relative(true)
+	scenePlaceholder.add_child(next_scene)
 	next_scene.set_global_scale(Vector2(0.95, 0.91))
 	next_scene.set_global_position(Vector2(70,35))
-	#next_scene.set_global_position(Vector2(200,220))
 	next_scene.rotate(deg2rad(1.5))
 	current_scene = next_scene
 	updateBookGUI()
@@ -62,12 +50,12 @@ func displayBookGUI(display : bool):
 func updateBookGUI():
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
-			print(scene)
 			if scene >= storyList[current_story].size():
-				print("this is the last scene in the story")
+				#print("this is the last scene in the story")
 				bookGUI.get_node("Container/NextSceneButton").visible = false;
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 			elif scene == 1:
+				#print("this is the first scene in the story")
 				bookGUI.get_node("Container/NextSceneButton").visible = true;
 				bookGUI.get_node("Container/PreviousSceneButton").visible = false;
 			else:
