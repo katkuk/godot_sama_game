@@ -22,14 +22,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "bookFlip",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "bookCoverOpen",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "bookFlip",
 "speed": 6.0
 } ]
 
@@ -276,7 +276,6 @@ tracks/1/keys = {
 [node name="MapManager" type="Node2D" parent="."]
 show_behind_parent = true
 rotation = 1.49012e-08
-scale = Vector2( 1, 1 )
 z_index = 14
 script = ExtResource( 6 )
 
@@ -479,7 +478,6 @@ z_index = -5
 texture = ExtResource( 19 )
 
 [node name="Node2D" type="Node2D" parent="Book1"]
-scale = Vector2( 1, 1 )
 z_index = -1
 
 [node name="TransitionShader" type="ColorRect" parent="Book1/Node2D"]
