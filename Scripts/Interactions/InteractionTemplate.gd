@@ -1,21 +1,17 @@
 extends CollisionShape2D
 signal focus
+signal displayPlayBtn
 var is_active : bool
 
 func _ready():
-	for icon in get_tree().get_nodes_in_group("MapIcons"):
-		icon.visible = false
+	pass
 
 func interact():
 	print("TIME TO INTERACT")
 	emit_signal("focus", self)
+	emit_signal("displayPlayBtn", self)
 	is_active = true
-	
-	for icon in get_tree().get_nodes_in_group("MapIcons"):
-		icon.visible = true
 
 
 func leaveInteraction():
 	is_active = false
-	for icon in get_tree().get_nodes_in_group("MapIcons"):
-		icon.visible = false

@@ -20,7 +20,6 @@ var zoom_min = Vector2(.200001, .200001)
 var zoom_max = Vector2(2,2)
 var zoom_speed = Vector2(.2,.2)
 
-
 func _ready():
 	target = player
 	print("ready camera " + str(prev_camera_pos))

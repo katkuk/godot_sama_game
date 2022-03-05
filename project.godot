@@ -26,7 +26,7 @@ config/icon="res://Assets/icon.png"
 
 [autoload]
 
-MemoryGameManager="*res://Scripts/MemoryGameManager.gd"
+Global="*res://Scripts/global.gd"
 
 [display]
 
