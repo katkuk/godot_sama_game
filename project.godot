@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "TextureButton",
 "class": "MemoryCard",
 "language": "GDScript",
-"path": "res://Scripts/MemoryCard.gd"
+"path": "res://Scripts/Games/GameKlek/MemoryCard.gd"
 } ]
 _global_script_class_icons={
 "MemoryCard": ""
@@ -23,10 +23,6 @@ _global_script_class_icons={
 config/name="Sama game"
 run/main_scene="res://Scenes/SceneSwitcher.tscn"
 config/icon="res://Assets/icon.png"
-
-[autoload]
-
-Global="*res://Scripts/global.gd"
 
 [display]
 

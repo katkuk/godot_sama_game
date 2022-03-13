@@ -1,0 +1,325 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterStoryElements-0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/chickenWalking.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur6.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/djur7.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Stories/StoryRooster/PeopleInFortress.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterNew-1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterNew-0.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/StoryRooster/roosterNew-2.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Stories/StoryRooster/text3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Textures/StoryRooster/animations/mouthAnims.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "walking"
+length = 0.55
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "runThrough1"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -326.799, 863.954 ), Vector2( 2898.8, 863.954 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.9, 1, 1.1, 1.2, 1.5, 1.6, 1.8, 1.9, 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 5, 5, 2, 3, 4, 5, 5, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.6, 1.7, 1.8, 2.4, 2.7, 2.8, 3.2, 3.3, 3.4, 3.7, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 0 ]
+}
+
+[node name="Node2D" type="Node2D"]
+z_index = 10
+script = ExtResource( 7 )
+
+[node name="Sky" type="ColorRect" parent="."]
+margin_left = -68.0
+margin_top = -39.0
+margin_right = 2229.0
+margin_bottom = 1537.0
+mouse_filter = 2
+color = Color( 0.117647, 0.690196, 0.811765, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Floor" type="ColorRect" parent="."]
+margin_left = -65.0
+margin_top = 809.0
+margin_right = 2228.0
+margin_bottom = 1719.0
+mouse_filter = 2
+color = Color( 0.67451, 0.309804, 0.388235, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+margin_left = 395.0
+margin_top = -189.0
+margin_right = 1964.0
+margin_bottom = 135.0
+mouse_filter = 2
+color = Color( 0.67451, 0.309804, 0.388235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tiles" type="Sprite" parent="Floor"]
+position = Vector2( 1571.85, 206.877 )
+scale = Vector2( 1.58781, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -10.4587, 1677.05, 279.246, 176.778 )
+
+[node name="tiles2" type="Sprite" parent="Floor"]
+position = Vector2( 298.607, 575.018 )
+scale = Vector2( 1.82645, 1.82645 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 185.602, 1558.02, 379.778, 121.387 )
+
+[node name="tiles6" type="Sprite" parent="Floor"]
+position = Vector2( 1010.61, -28.9822 )
+scale = Vector2( 0.504136, 0.504136 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 185.602, 1558.02, 379.778, 121.387 )
+
+[node name="tiles4" type="Sprite" parent="Floor"]
+position = Vector2( 1675.94, 630.739 )
+scale = Vector2( 2.31216, 2.55002 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 185.602, 1558.02, 379.778, 121.387 )
+
+[node name="tiles5" type="Sprite" parent="Floor"]
+position = Vector2( 656.955, 140.006 )
+rotation = -1.58525
+scale = Vector2( 0.590082, 0.962091 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1832.13, 790.9, 97.3511, 280.764 )
+
+[node name="tiles3" type="Sprite" parent="Floor"]
+position = Vector2( 1824.03, 65.167 )
+scale = Vector2( 0.24311, 0.221909 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -43.5234, 1169.71, 599.163, 165.104 )
+
+[node name="Clouds" type="Sprite" parent="."]
+position = Vector2( 1076.34, 359.328 )
+rotation = -0.0412696
+scale = Vector2( 0.8396, 0.796141 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -12.9134, -21.0038, 1818.46, 628.958 )
+
+[node name="Fortress" type="Sprite" parent="."]
+position = Vector2( 1104.76, 544.629 )
+scale = Vector2( 1.11674, 1.03508 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( -0.734802, -31.898, 2020.41, 933.596 )
+
+[node name="Cannon" type="Sprite" parent="."]
+position = Vector2( 2638.78, 1028.9 )
+scale = Vector2( 1.01041, 1.01041 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1154.19, 1115.68, 632.98, 539.795 )
+
+[node name="chickenWalking" type="Sprite" parent="."]
+position = Vector2( -382.799, 1027.95 )
+scale = Vector2( 0.593603, 0.593603 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="chickenWalking"]
+autoplay = "walking"
+anims/walking = SubResource( 1 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="chickenWalking"]
+anims/runThrough1 = SubResource( 2 )
+
+[node name="Basket" type="Sprite" parent="."]
+position = Vector2( 1043.34, 1035.74 )
+scale = Vector2( 0.979341, 0.979342 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( -11.2618, -16.6896, 1169.29, 535.139 )
+
+[node name="Corn" type="Sprite" parent="Basket"]
+position = Vector2( 75.6301, -85.9257 )
+rotation = 2.55927
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 167.262, 1768.84, 375.527, 172.833 )
+
+[node name="OrangeCarrot" type="Sprite" parent="Basket"]
+position = Vector2( -234.514, -292.635 )
+rotation = -2.51186
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 3.17418, 1577.19, 714.094, 449.777 )
+
+[node name="Potato3" type="Sprite" parent="Basket"]
+position = Vector2( 200.239, -70.7723 )
+rotation = -2.73615
+scale = Vector2( 1.05429, 1.05429 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( -1.54534, 1763.8, 168.505, 184.707 )
+
+[node name="Apple" type="Sprite" parent="Basket"]
+position = Vector2( 268.713, -8.79994 )
+rotation = -0.000405073
+scale = Vector2( 1.05429, 1.05429 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 1763.71, 1728.73, 156.22, 213.184 )
+
+[node name="Potato1" type="Sprite" parent="Basket"]
+position = Vector2( 393.947, 33.8634 )
+rotation = -2.45641
+scale = Vector2( 1.05429, 1.05429 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 1174.8, 1775.56, 147.826, 205.495 )
+
+[node name="Potato2" type="Sprite" parent="Basket"]
+position = Vector2( -257.676, 2.44531 )
+rotation = -3.13574
+scale = Vector2( 1.05429, 1.05429 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 629.504, 1754.59, 196.271, 169.363 )
+
+[node name="BasketOnTop" type="Sprite" parent="Basket"]
+position = Vector2( 60.4423, 87.118 )
+rotation = -1.53089
+scale = Vector2( 1, 1.00161 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 1867.58, -23.2711, 181.339, 1012.34 )
+
+[node name="PurpleCarrot" type="Area2D" parent="Basket"]
+position = Vector2( -160.834, -54.5198 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PurpleCarrotSprite" type="Sprite" parent="Basket/PurpleCarrot"]
+position = Vector2( -0.0552979, -6.62036 )
+rotation = -0.934504
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+offset = Vector2( 7.52856, -64.4937 )
+region_enabled = true
+region_rect = Rect2( 1646.77, 1153.62, 298.216, 880.913 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Basket/PurpleCarrot"]
+visible = false
+polygon = PoolVector2Array( -286.175, -173.637, -361.902, -250.446, -433.302, -397.572, -412.747, -444.09, -368.393, -420.29, -342.43, -379.182, -326.202, -393.245, -301.321, -374.854, -292.666, -352.136, -279.684, -368.364, -254.803, -322.927, -242.903, -322.927, -231.003, -309.946, -221.267, -319.682, -210.448, -316.437, -198.549, -177.965, -53.5856, -87.0927, 142.222, 4.86121, 141.141, 35.1521, 93.5408, 41.6429, -12.4768, 24.334, -128.231, -18.9385, -233.167, -62.2109, -250.475, -107.647, -352.166, -118.465, -408.42, -142.265, -415.993, -173.637, -403.011, -170.392, -415.993, -203.928 )
+
+[node name="girl" type="Sprite" parent="."]
+position = Vector2( 392.037, 865.398 )
+scale = Vector2( -1.50313, 1.50313 )
+texture = ExtResource( 6 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="girl"]
+anims/idle = SubResource( 3 )
+
+[node name="mouthArea1" type="Area2D" parent="girl"]
+
+[node name="mouthGirl" type="Sprite" parent="girl/mouthArea1"]
+position = Vector2( 36.3768, -150.598 )
+scale = Vector2( 0.101755, 0.101755 )
+texture = ExtResource( 12 )
+vframes = 11
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="girl/mouthArea1"]
+polygon = PoolVector2Array( 59.7284, -157.782, 57.355, -141.958, 28.0823, -130.487, 8.69901, -145.519, 14.6327, -167.275, 35.2027, -170.836 )
+
+[node name="guy" type="Sprite" parent="."]
+position = Vector2( 1693.41, 934.938 )
+scale = Vector2( 1.57647, 1.57647 )
+texture = ExtResource( 5 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="guy"]
+autoplay = "idle"
+anims/idle = SubResource( 4 )
+
+[node name="Label" parent="." instance=ExtResource( 11 )]
+margin_left = 104.0
+margin_top = 1437.0
+margin_right = 1446.0
+margin_bottom = 1823.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+
+[connection signal="input_event" from="Basket/PurpleCarrot" to="." method="_on_PurpleCarrot_input_event"]
+[connection signal="area_entered" from="girl/mouthArea1" to="." method="_on_mouthArea1_area_entered"]

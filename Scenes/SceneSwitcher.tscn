@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/SceneSwitcher.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/KunaHouseScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/KunaHouse/KunaHouseScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-5.png" type="Texture" id=5]

@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship3.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Stories/StoryCaroline/CarolineShipScene.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/WaveParticles1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/Shoot.tscn" type="PackedScene" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "boom"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "boom"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+font_data = ExtResource( 7 )
+
+[node name="CarolineShipScene" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Shoot" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1774.84, 222.738 )
+z_index = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 100.0
+anchor_bottom = 100.0
+margin_right = 2226.0
+margin_bottom = 1667.0
+mouse_filter = 2
+color = Color( 0.105882, 0.247059, 0.403922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveParticles1" parent="." instance=ExtResource( 5 )]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1146.71, 866.845 )
+scale = Vector2( 0.600465, 0.600465 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Boom 1" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1384.21, 914.343 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boom 1"]
+anims/boom = SubResource( 2 )
+
+[node name="Boom 2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1190.55, 952.441 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boom 2"]
+anims/boom = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 103.0
+margin_right = 1141.0
+margin_bottom = 487.0
+custom_fonts/font = SubResource( 4 )
+text = "Once upon a time a beautiful town called Rijeka was attacked by the British army.
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
