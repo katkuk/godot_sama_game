@@ -67,6 +67,17 @@ func displayBookGUI(display : bool):
 	bookGUI.visible = display
 
 func updateBookGUI():
+	var GUIcolor
+	if "GUIColorHex" in current_scene:
+		GUIcolor = current_scene.GUIColorHex
+	else:
+		GUIcolor = "#ffffff"
+	#update colors
+	bookGUI.get_node("Container/NextSceneButton").set_modulate(Color(GUIcolor))
+	bookGUI.get_node("Container/PreviousSceneButton").set_modulate(Color(GUIcolor))
+	bookGUI.get_node("Container/CloseSceneButton").set_modulate(Color(GUIcolor))
+	
+	#update visibility
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			if scene >= storyList[current_story].size():
@@ -80,7 +91,6 @@ func updateBookGUI():
 			else:
 				bookGUI.get_node("Container/NextSceneButton").visible = true;
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
-
 
 func _on_CloseSceneButton_pressed():
 	bookAnimationPlayer.play_backwards("animateIn")
