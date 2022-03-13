@@ -12,6 +12,7 @@ func _unhandled_input(event):
 
 func _on_Button_pressed():
 	print("Btn pressed")
+	Global.loadScene("map")
 	
 
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/KunaHouse/PlayMinigameScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/GUI/PlayMinigameScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/GUI/xIcon.png" type="Texture" id=3]
 

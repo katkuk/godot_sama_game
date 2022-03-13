@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Sama game"
-run/main_scene="res://Scenes/SceneSwitcher.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://Assets/icon.png"
+
+[autoload]
+
+Global="*res://Scripts/global.gd"
 
 [display]
 
