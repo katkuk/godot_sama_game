@@ -40,7 +40,7 @@ func _ready():
 	bookGUI.visible = false;
 
 func _on_MapIcon_pressed(story: String):
-	print("clicked on btn with story: " + story)
+	#print("clicked on btn with story: " + story)
 	current_story = story
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
@@ -53,7 +53,7 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 	if keepOldScene == false:
 		scenePlaceholder.remove_child(current_scene)
 		current_scene.queue_free()
-	print("loading scene: " + str(index) + ", from story: " + story)
+	#print("loading scene: " + str(index) + ", from story: " + story)
 	next_scene = load(storyList[story][index]).instance()
 	transitionShaderAP.play("fadeIn")
 	scenePlaceholder.add_child(next_scene)
@@ -90,19 +90,13 @@ func _on_CloseSceneButton_pressed():
 	displayBookGUI(false)
 
 func _on_NextSceneButton_pressed():
-	print("clicked next")
 	for scene in storyList[current_story]:
-		print("here")
-		print(storyList[current_story][scene])
-		print(current_scene.name)
 		if current_scene.name in storyList[current_story][scene]:
-			print("Current scene name: " + str(current_scene.name) + " scene index is: " + str(scene))
 			var new_index = scene + 1
 			loadScene(current_story, new_index, false)
 			break
 
 func _on_PreviousSceneButton_pressed():
-	print("clicked previous")
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			var new_index = scene - 1
