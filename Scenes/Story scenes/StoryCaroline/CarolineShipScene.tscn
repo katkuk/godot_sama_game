@@ -115,6 +115,7 @@ anchor_right = 100.0
 anchor_bottom = 100.0
 margin_right = 2226.0
 margin_bottom = 1667.0
+mouse_filter = 2
 color = Color( 0.105882, 0.247059, 0.403922, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,6 +127,7 @@ __meta__ = {
 position = Vector2( 1146.71, 866.845 )
 scale = Vector2( 0.600465, 0.600465 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Boom 1" type="Sprite" parent="."]

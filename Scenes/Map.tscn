@@ -570,7 +570,7 @@ region_rect = Rect2( 1579.2, 0.140194, 470.566, 456.001 )
 
 [node name="Book1" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -562.835, 776 )
+position = Vector2( 1215, 739 )
 rotation = -0.242472
 scale = Vector2( 1.28413, 1.36003 )
 z_index = 15
@@ -667,6 +667,7 @@ z_index = 100
 [node name="Container" type="Control" parent="BookGUI"]
 margin_right = 2224.0
 margin_bottom = 1668.0
+mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": true

@@ -13,8 +13,6 @@ var current_story #used for storing current story, when no story is playing this
 #	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
 #	}
 
-
-
 var storyList = {
 	"caroline" : { 1 : "res://Scenes/Story scenes/StoryCaroline/CarolineShipScene.tscn",
 			2 : "res://Scenes/Story scenes/StoryCaroline/RijekaAttackedScene.tscn",
@@ -23,16 +21,14 @@ var storyList = {
 			5: "res://Scenes/Story scenes/StoryCaroline/RijekaDiscussionScene.tscn",
 			6: "res://Scenes/Story scenes/StoryCaroline/RijekaSavedScene.tscn",
 			7: "res://Scenes/Story scenes/StoryCaroline/CarolineBookGameScreen.tscn"},
-	"klek" : { 1 : "res://Scenes/Story scenes/StoryKlek/Magic Stuff.tscn",
-			2 : "res://Scenes/Story scenes/StoryKlek/KlekSittingOnhill.tscn",
+	"klek" : { 1 : "res://Scenes/Story scenes/StoryKlek/MagicStuff.tscn",
+			2 : "res://Scenes/Story scenes/StoryKlek/KlekSittingOnHill.tscn",
 			3 : "res://Scenes/Story scenes/StoryKlek/KlekAndVolos.tscn",
-			4: "res://Scenes/Story scenes/StoryKlek/Magic Stuff.tscn",
+			4: "res://Scenes/Story scenes/StoryKlek/VolosInClouds.tscn",
 			5: "res://Scenes/Story scenes/StoryKlek/KlekBecameMountain.tscn",
-			6: "res://Scenes/Story scenes/StoryKlek/KlekBookGameScreen.tscn"},
-	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
+			6: "res://Scenes/Story scenes/StoryKlek/KlekBookGameScreen.tscn"}
 	}
-	
-	
+
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
 onready var transitionShaderAP = get_parent().get_node("Book1/Node2D/TransitionShader/TransitionShaderAP")
@@ -40,14 +36,11 @@ onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
 onready var scenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
 
-
-
 func _ready():
 	bookGUI.visible = false;
-	#make it so that book doesnt block input 
-	
 
 func _on_MapIcon_pressed(story: String):
+	print("clicked on btn with story: " + story)
 	current_story = story
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
@@ -60,8 +53,7 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 	if keepOldScene == false:
 		scenePlaceholder.remove_child(current_scene)
 		current_scene.queue_free()
-	
-	
+	print("loading scene: " + str(index) + ", from story: " + story)
 	next_scene = load(storyList[story][index]).instance()
 	transitionShaderAP.play("fadeIn")
 	scenePlaceholder.add_child(next_scene)
@@ -100,14 +92,19 @@ func _on_CloseSceneButton_pressed():
 func _on_NextSceneButton_pressed():
 	print("clicked next")
 	for scene in storyList[current_story]:
-			if current_scene.name in storyList[current_story][scene]:
-					var new_index = scene + 1
-					loadScene(current_story, new_index, false)
-					break
+		print("here")
+		print(storyList[current_story][scene])
+		print(current_scene.name)
+		if current_scene.name in storyList[current_story][scene]:
+			print("Current scene name: " + str(current_scene.name) + " scene index is: " + str(scene))
+			var new_index = scene + 1
+			loadScene(current_story, new_index, false)
+			break
 
 func _on_PreviousSceneButton_pressed():
+	print("clicked previous")
 	for scene in storyList[current_story]:
-			if current_scene.name in storyList[current_story][scene]:
-					var new_index = scene - 1
-					loadScene(current_story, new_index, false)
-					break
+		if current_scene.name in storyList[current_story][scene]:
+			var new_index = scene - 1
+			loadScene(current_story, new_index, false)
+			break

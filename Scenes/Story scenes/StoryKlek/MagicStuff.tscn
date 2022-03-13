@@ -7,7 +7,7 @@
 size = 80
 font_data = ExtResource( 2 )
 
-[node name="Node2D" type="Node2D"]
+[node name="MagicStuff" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -39.0

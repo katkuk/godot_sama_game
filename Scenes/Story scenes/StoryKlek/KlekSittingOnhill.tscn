@@ -56,7 +56,7 @@ tracks/0/keys = {
 size = 80
 font_data = ExtResource( 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="KlekSittingOnHill" type="Node2D"]
 position = Vector2( 0, 14.2946 )
 
 [node name="Sky" type="ColorRect" parent="."]
@@ -139,6 +139,7 @@ visible = false
 position = Vector2( 1091.77, 905.097 )
 frames = SubResource( 1 )
 animation = "sleeping"
+frame = 4
 playing = true
 
 [node name="hill1" type="Sprite" parent="."]
