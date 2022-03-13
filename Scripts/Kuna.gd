@@ -18,17 +18,28 @@ enum {STAND, IDLE, WALK, INTERACT}
 var state = STAND
 var is_going_to_interact : bool
 
-# Called when the node enters the scene tree for the first time
 func _ready():
-	print("adding idle timer")
 	timer = Timer.new()
 	timer.set_one_shot(false)
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	add_child(timer)
 	change_state(STAND)
-	
 
-func _physics_process(delta): #every second
+func _unhandled_input(event):
+	if !event.is_action_pressed("Click"):
+		return
+	if kunaSceneIsActive == false:
+		return
+	destination.x = get_global_mouse_position().x
+	destination.y = position.y
+	if is_going_to_interact:
+		camera.release_camera()
+		is_going_to_interact = false
+		interactable_object.leaveInteraction()
+	change_state(WALK)
+	timer.stop()
+
+func _physics_process(delta):
 	if kunaSceneIsActive == true:
 		MovementLoop(delta)
 
