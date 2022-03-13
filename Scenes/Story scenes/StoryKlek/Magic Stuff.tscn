@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/KlekStory/spell.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -39.0
+margin_top = -32.0
+margin_right = 2256.0
+margin_bottom = 1704.0
+color = Color( 0.741176, 0.431373, 0.266667, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="star2" type="Sprite" parent="."]
+position = Vector2( 306.755, 780.823 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1534.72, 554.347, 369.501, 383.851 )
+
+[node name="star3" type="Sprite" parent="."]
+position = Vector2( 1299.88, 1432.22 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1514.05, 933.449, 190.788, 171.403 )
+
+[node name="star4" type="Sprite" parent="."]
+position = Vector2( 990.193, 375.031 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 862.301, 1099.42, 533.257, 561.015 )
+
+[node name="star5" type="Sprite" parent="."]
+position = Vector2( 1566.42, 662.423 )
+rotation = -0.758239
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -5.95776, 976.574, 868.527, 977.838 )
+
+[node name="star6" type="Sprite" parent="."]
+position = Vector2( 701.871, 1089.32 )
+rotation = -0.599473
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 948.601, 984.96 )
+
+[node name="mountain1" type="Sprite" parent="."]
+position = Vector2( 488.212, 446.635 )
+rotation = -0.622951
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 950.451, -4.22548, 688.094, 555.969 )
+
+[node name="mountain2" type="Sprite" parent="."]
+position = Vector2( 1776.46, 1238.07 )
+rotation = -0.852285
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 933.346, 548.461, 601.09, 559.086 )
+
+[node name="stones1" type="Sprite" parent="."]
+position = Vector2( 1785.76, 652.678 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1614.22, -13.2472, 191.649, 194.154 )
+
+[node name="stones2" type="Sprite" parent="."]
+position = Vector2( 583.991, 1165.23 )
+rotation = -0.605148
+scale = Vector2( 1.3927, 1.3927 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1140.3, 1649.4, 230.351, 154.132 )
+
+[node name="klek" type="Sprite" parent="."]
+position = Vector2( 1109.84, 884.483 )
+scale = Vector2( 1.22491, 1.22491 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1391.52, 1103.49, 484.985, 555.34 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 361.987
+margin_top = 1371.05
+margin_right = 1837.99
+margin_bottom = 1536.05
+custom_fonts/font = SubResource( 1 )
+text = "Volos thew a powerful spell on Klek. 
+Can you guess what the spell did? "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -33,12 +33,12 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=2]
 
 [node name="CarolineAnimSmalls" type="Sprite"]
-visible = false
 position = Vector2( 0.8909, 0 )
+z_index = 100
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
-frame = 10
+frame = 17
 __meta__ = {
 "_edit_group_": true
 }

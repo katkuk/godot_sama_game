@@ -1,0 +1,344 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Textures/KlekStory/klekSitting-0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-0.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "sleeping",
+"speed": 3.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "sitting"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "standUp"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 6, 7, 6, 7 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+font_data = ExtResource( 10 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 0, 14.2946 )
+
+[node name="Sky" type="ColorRect" parent="."]
+margin_top = 2.37842
+margin_right = 2215.0
+margin_bottom = 1674.38
+color = Color( 0.117647, 0.690196, 0.811765, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sky2" type="ColorRect" parent="."]
+margin_left = -42.0
+margin_top = 1499.75
+margin_right = 1682.0
+margin_bottom = 1676.75
+color = Color( 0.737255, 0.807843, 0.384314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds5" type="Sprite" parent="."]
+position = Vector2( 1160.51, -50.8263 )
+rotation = -9.44115
+scale = Vector2( 0.810167, 2.10273 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
+
+[node name="Clouds7" type="Sprite" parent="."]
+position = Vector2( 613.645, -199.462 )
+rotation = -9.81253
+scale = Vector2( 0.654599, 1.61527 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
+
+[node name="hill4" type="Sprite" parent="."]
+position = Vector2( 1078.57, 1120.24 )
+scale = Vector2( 1.063, 1.01451 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
+
+[node name="Clouds2" type="Sprite" parent="."]
+position = Vector2( 976.173, 716.348 )
+rotation = 2.78079
+scale = Vector2( 0.238925, 0.649458 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="Clouds9" type="Sprite" parent="."]
+position = Vector2( 1890.02, 449.224 )
+rotation = 5.81263
+scale = Vector2( 0.26866, 0.82803 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="Clouds10" type="Sprite" parent="."]
+position = Vector2( 735.654, 822.313 )
+rotation = 2.30789
+scale = Vector2( 0.0279063, 0.113621 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="Clouds11" type="Sprite" parent="."]
+position = Vector2( 675.76, 870.94 )
+rotation = 2.30789
+scale = Vector2( 0.0170324, 0.0693476 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="KlekSleeping" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1091.77, 905.097 )
+frames = SubResource( 1 )
+animation = "sleeping"
+playing = true
+
+[node name="hill1" type="Sprite" parent="."]
+position = Vector2( 1093.6, 1282.16 )
+scale = Vector2( 1.49939, 1.11048 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -19.1007, 1172.28, 1513.82, 591.658 )
+
+[node name="Clouds6" type="Sprite" parent="."]
+position = Vector2( 729.363, 236.189 )
+rotation = -1.6269
+scale = Vector2( 1.73332, 1.22393 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1091.55, 1047.94, 347.693, 746.517 )
+
+[node name="klekSitting-0" type="Sprite" parent="."]
+position = Vector2( 684.703, 776.467 )
+rotation = 0.0313687
+scale = Vector2( 1.64317, 1.64317 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="klekSitting-0"]
+autoplay = "sitting"
+anims/sitting = SubResource( 2 )
+anims/standUp = SubResource( 3 )
+
+[node name="Clouds4" type="Sprite" parent="."]
+position = Vector2( 1116.48, 101.777 )
+rotation = -1.53992
+scale = Vector2( 1.25726, 0.705782 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1091.55, 1047.94, 347.693, 746.517 )
+
+[node name="hill2" type="Sprite" parent="."]
+position = Vector2( 1312.08, 1314.17 )
+scale = Vector2( 1.50571, 1.53892 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -3.97583, 701.185, 1269.59, 470.384 )
+
+[node name="Clouds14" type="Sprite" parent="."]
+position = Vector2( 534.504, 147.783 )
+rotation = 9.51156
+scale = Vector2( 0.641552, 1.66631 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
+
+[node name="Clouds15" type="Sprite" parent="."]
+position = Vector2( 809.901, -2.23152 )
+rotation = 6.65134
+scale = Vector2( 0.364486, 1.19463 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
+
+[node name="Clouds3" type="Sprite" parent="."]
+position = Vector2( 1775.76, 202.149 )
+rotation = -0.00495451
+scale = Vector2( 0.994627, 1.95555 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -14.998, 1349.12, 983.141, 294.354 )
+
+[node name="Clouds8" type="Sprite" parent="."]
+position = Vector2( 436.404, 486.241 )
+rotation = 2.92887
+scale = Vector2( 0.274132, 0.667797 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="Clouds12" type="Sprite" parent="."]
+position = Vector2( 132.508, 282.955 )
+rotation = 2.42281
+scale = Vector2( 0.287258, 1.01078 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="tree1" type="Sprite" parent="."]
+position = Vector2( 1922.59, 1040.24 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
+
+[node name="tree3" type="Sprite" parent="."]
+position = Vector2( 1668.84, 1145.68 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
+
+[node name="tree4" type="Sprite" parent="."]
+position = Vector2( 218.103, 717.39 )
+scale = Vector2( 1.22258, 1.18154 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree5" type="Sprite" parent="."]
+position = Vector2( 121.237, 782.002 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 178.52, -4.96997, 78.5014, 127.836 )
+
+[node name="tree12" type="Sprite" parent="."]
+position = Vector2( 1487.53, 1073.38 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree13" type="Sprite" parent="."]
+position = Vector2( 1222.73, 1090.35 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 178.52, -4.96997, 78.5014, 127.836 )
+
+[node name="tree8" type="Sprite" parent="."]
+position = Vector2( 1391.48, 1015.83 )
+scale = Vector2( 1.29171, 1.22782 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
+
+[node name="tree6" type="Sprite" parent="."]
+position = Vector2( 130.554, 1281.26 )
+scale = Vector2( 1.6247, 1.57016 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
+
+[node name="tree9" type="Sprite" parent="."]
+position = Vector2( 117.766, 1496.81 )
+scale = Vector2( 1.29801, 1.25443 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree14" type="Sprite" parent="."]
+position = Vector2( 117.766, 1496.81 )
+scale = Vector2( 1.29801, 1.25443 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree2" type="Sprite" parent="."]
+self_modulate = Color( 0.842413, 0.964844, 0.252518, 1 )
+position = Vector2( 2078.99, 1136.31 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1609.05, -6.76615, 110.585, 202.935 )
+
+[node name="tree7" type="Sprite" parent="."]
+position = Vector2( 199.739, 1343.68 )
+scale = Vector2( 1.32565, 1.28115 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree11" type="Sprite" parent="."]
+position = Vector2( 947.369, 1505.79 )
+scale = Vector2( 1.23543, 1.19396 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree10" type="Sprite" parent="."]
+position = Vector2( 361.058, 1463.07 )
+scale = Vector2( 1.0616, 1.00909 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
+
+[node name="stuff2" type="Sprite" parent="."]
+position = Vector2( 985.474, 721.007 )
+rotation = 0.14842
+scale = Vector2( 0.533046, 0.470564 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -5.06355, 470.697, 362.86, 334.569 )
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color( 0.14902, 0.14902, 0.14902, 1 )
+margin_left = 1185.91
+margin_top = 1332.56
+margin_right = 2061.91
+margin_bottom = 1683.56
+custom_fonts/font = SubResource( 4 )
+text = "Klek the giant  was sitting on a hill below. His stomach rumbling from hunger."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

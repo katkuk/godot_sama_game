@@ -4,4 +4,7 @@
 
 [resource]
 size = 100
+outline_size = 100
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 1 )

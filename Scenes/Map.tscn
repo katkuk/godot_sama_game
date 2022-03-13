@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-2.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Textures/KunaHouse/shaderTexture-1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Textures/KunaHouse/bookBackground.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Textures/KunaHouse/hideEdges.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Textures/GUI/minus.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Textures/GUI/circle.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Textures/GUI/plus.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -109,7 +113,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 0.5
+length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
@@ -206,6 +210,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("HideEdges2:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.0228408, 0.501687, 0.520197 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.196078, 0.52549, 0.427451, 0 ), Color( 0.894118, 0.858824, 0.858824, 0 ), Color( 0.843137, 0.596078, 0.215686, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("HideEdges1:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.0217634, 0.501635, 0.520838 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.196078, 0.52549, 0.427451, 0 ), Color( 0.894118, 0.858824, 0.858824, 0 ), Color( 0.843137, 0.596078, 0.215686, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HideEdges3:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.0217634, 0.502275, 0.521478 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.196078, 0.52549, 0.427451, 0 ), Color( 0.894118, 0.858824, 0.858824, 0 ), Color( 0.843137, 0.596078, 0.215686, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.5
@@ -270,7 +310,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "bookCoverOpen"
 length = 0.4
 tracks/0/type = "value"
@@ -298,7 +338,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -313,14 +353,13 @@ void fragment()
 	COLOR = vec4(COLOR.rgb, alpha);
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 0.044
 shader_param/mask = ExtResource( 18 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "fadeIn"
+[sub_resource type="Animation" id=8]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
@@ -365,65 +404,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MapIcons" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Caroline" type="TextureButton" parent="MapIcons"]
-margin_left = 1119.0
-margin_top = 453.0
-margin_right = 1183.0
-margin_bottom = 517.0
-rect_scale = Vector2( 1.5, 1.5 )
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Dragon" type="TextureButton" parent="MapIcons"]
-margin_left = 1178.0
-margin_top = 1164.0
-margin_right = 1242.0
-margin_bottom = 1228.0
-rect_scale = Vector2( 1.5, 1.5 )
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MapGUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="plusButton" type="Sprite" parent="MapGUI"]
-self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
-position = Vector2( 2078.22, 769.57 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1112.2, -5.46244, 470.439, 458.059 )
-
-[node name="minusButton" type="Sprite" parent="MapGUI"]
-self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
-position = Vector2( 2078.72, 1001.61 )
-rotation = -1.57433
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1579.2, 0.140194, 470.566, 456.001 )
-
 [node name="CroatiaVisuals" type="Node2D" parent="."]
 
 [node name="tree1" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 967.871, 740.224 )
+position = Vector2( 972.628, 735.467 )
 rotation = -0.13711
 scale = Vector2( 0.236057, 0.236057 )
 texture = ExtResource( 2 )
@@ -477,7 +461,7 @@ region_enabled = true
 region_rect = Rect2( 1127.6, 605.497, 296.418, 355.129 )
 
 [node name="mountain6" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 807.509, 585.208 )
+position = Vector2( 801.509, 575.208 )
 rotation = -1.52059
 scale = Vector2( 0.43418, 0.43418 )
 texture = ExtResource( 2 )
@@ -519,9 +503,74 @@ position = Vector2( 1072.3, 1525.19 )
 self_modulate = Color( 0.156863, 0.682353, 0.752941, 1 )
 position = Vector2( 260.912, 940.588 )
 
+[node name="MapIcons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Caroline" type="TextureButton" parent="MapIcons"]
+margin_left = 609.744
+margin_top = 557.881
+margin_right = 673.744
+margin_bottom = 621.881
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Klek" type="TextureButton" parent="MapIcons"]
+margin_left = 815.66
+margin_top = 511.678
+margin_right = 879.66
+margin_bottom = 575.678
+rect_scale = Vector2( 1.5, 1.5 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapGUI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="circle" type="Sprite" parent="MapGUI"]
+self_modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 2074.69, 766.244 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 22 )
+
+[node name="circle2" type="Sprite" parent="MapGUI"]
+self_modulate = Color( 1, 1, 1, 0.458824 )
+position = Vector2( 2074.69, 1010.94 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 22 )
+
+[node name="plusButton" type="Sprite" parent="MapGUI"]
+self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
+position = Vector2( 2072.88, 769.57 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 23 )
+region_rect = Rect2( 1112.2, -5.46244, 470.439, 458.059 )
+
+[node name="minusButton" type="Sprite" parent="MapGUI"]
+self_modulate = Color( 0.160784, 0.560784, 0.384314, 1 )
+position = Vector2( 2070.28, 1016.44 )
+rotation = -3.1548
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 21 )
+region_rect = Rect2( 1579.2, 0.140194, 470.566, 456.001 )
+
 [node name="Book1" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 1215, 739 )
+position = Vector2( -562.835, 776 )
 rotation = -0.242472
 scale = Vector2( 1.28413, 1.36003 )
 z_index = 15
@@ -529,20 +578,51 @@ z_as_relative = false
 frames = SubResource( 1 )
 animation = "bookCoverOpen"
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
+
+[node name="HideEdges1" type="Sprite" parent="Book1"]
+self_modulate = Color( 0.309884, 0.579836, 0.497781, 0 )
+position = Vector2( 114.833, 696.096 )
+rotation = 0.0135233
+scale = Vector2( 7.87497, 0.585031 )
+z_index = 14
+z_as_relative = false
+texture = ExtResource( 20 )
+
+[node name="HideEdges2" type="Sprite" parent="Book1"]
+self_modulate = Color( 0.308557, 0.579202, 0.496961, 0 )
+position = Vector2( 1022.44, 82.011 )
+rotation = 1.58446
+scale = Vector2( 5.75548, 0.541727 )
+z_index = 14
+z_as_relative = false
+texture = ExtResource( 20 )
+
+[node name="HideEdges3" type="Sprite" parent="Book1"]
+self_modulate = Color( 0.309732, 0.579763, 0.497687, 0 )
+position = Vector2( 119.382, -575.831 )
+rotation = 3.17329
+scale = Vector2( 7.75411, 0.621215 )
+z_index = 14
+z_as_relative = false
+texture = ExtResource( 20 )
 
 [node name="BookAnimationPlayer" type="AnimationPlayer" parent="Book1"]
 anims/RESET = SubResource( 2 )
 anims/animateIn = SubResource( 3 )
 anims/animateOut = SubResource( 4 )
-anims/bookCoverOpen = SubResource( 8 )
+anims/bookCoverOpen = SubResource( 5 )
 
 [node name="ScenePlaceholder" type="Node2D" parent="Book1"]
 show_behind_parent = true
 position = Vector2( 570.573, -454.521 )
 scale = Vector2( 0.776298, 0.737853 )
 z_index = -4
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BookBackground" type="Sprite" parent="Book1"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -552,13 +632,19 @@ rotation = 0.0228167
 scale = Vector2( 7.02939, 4.68134 )
 z_index = -5
 texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Node2D" type="Node2D" parent="Book1"]
 z_index = -1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TransitionShader" type="ColorRect" parent="Book1/Node2D"]
 self_modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 6 )
+material = SubResource( 7 )
 margin_left = -680.0
 margin_top = -520.0
 margin_right = 969.0
@@ -567,12 +653,13 @@ rect_rotation = 1.24781
 mouse_filter = 2
 color = Color( 0.937255, 0.937255, 0.898039, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TransitionShaderAP" type="AnimationPlayer" parent="Book1/Node2D/TransitionShader"]
 playback_speed = 2.0
-anims/fadeIn = SubResource( 7 )
+anims/fadeIn = SubResource( 8 )
 
 [node name="BookGUI" type="Node2D" parent="."]
 z_index = 100
@@ -581,6 +668,7 @@ z_index = 100
 margin_right = 2224.0
 margin_bottom = 1668.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": true
 }
 
@@ -605,7 +693,7 @@ margin_bottom = 1768.57
 rect_scale = Vector2( -0.3, 0.3 )
 
 [connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
-[connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]
+[connection signal="pressed" from="MapIcons/Klek" to="MapManager" method="_on_MapIcon_pressed" binds= [ "klek" ]]
 [connection signal="pressed" from="BookGUI/Container/CloseSceneButton" to="MapManager" method="_on_CloseSceneButton_pressed"]
 [connection signal="pressed" from="BookGUI/Container/NextSceneButton" to="MapManager" method="_on_NextSceneButton_pressed"]
 [connection signal="pressed" from="BookGUI/Container/PreviousSceneButton" to="MapManager" method="_on_PreviousSceneButton_pressed"]

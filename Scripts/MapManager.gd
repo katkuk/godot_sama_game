@@ -3,14 +3,36 @@ extends Node2D
 var current_scene #used to store the scene which is being displayed, if no scene is displayed this should be null
 var next_scene #used for storing next scene
 var current_story #used for storing current story, when no story is playing this is null
+
+#var storyList = {
+#	"caroline" : { 1 : "res://Scenes/TestScenes/CarolineWindowSceneTest.tscn",
+#			2 : "res://Scenes/TestScenes/DragonTest2.tscn",
+#			3 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+#	"dragon": { 1 : "res://Scenes/TestScenes/DragonTest2.tscn",
+#			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+#	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
+#	}
+
+
+
 var storyList = {
-	"caroline" : { 1 : "res://Scenes/TestScenes/CarolineWindowSceneTest.tscn",
-			2 : "res://Scenes/TestScenes/DragonTest2.tscn",
-			3 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
-	"dragon": { 1 : "res://Scenes/TestScenes/DragonTest2.tscn",
-			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
+	"caroline" : { 1 : "res://Scenes/Story scenes/StoryCaroline/CarolineShipScene.tscn",
+			2 : "res://Scenes/Story scenes/StoryCaroline/RijekaAttackedScene.tscn",
+			3 : "res://Scenes/Story scenes/StoryCaroline/CarolineWindowScene.tscn",
+			4: "res://Scenes/Story scenes/StoryCaroline/RijekaCircleScene.tscn",
+			5: "res://Scenes/Story scenes/StoryCaroline/RijekaDiscussionScene.tscn",
+			6: "res://Scenes/Story scenes/StoryCaroline/RijekaSavedScene.tscn",
+			7: "res://Scenes/Story scenes/StoryCaroline/CarolineBookGameScreen.tscn"},
+	"klek" : { 1 : "res://Scenes/Story scenes/StoryKlek/Magic Stuff.tscn",
+			2 : "res://Scenes/Story scenes/StoryKlek/KlekSittingOnhill.tscn",
+			3 : "res://Scenes/Story scenes/StoryKlek/KlekAndVolos.tscn",
+			4: "res://Scenes/Story scenes/StoryKlek/Magic Stuff.tscn",
+			5: "res://Scenes/Story scenes/StoryKlek/KlekBecameMountain.tscn",
+			6: "res://Scenes/Story scenes/StoryKlek/KlekBookGameScreen.tscn"},
 	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
 	}
+	
+	
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
 onready var transitionShaderAP = get_parent().get_node("Book1/Node2D/TransitionShader/TransitionShaderAP")
@@ -18,8 +40,12 @@ onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
 onready var scenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
 
+
+
 func _ready():
 	bookGUI.visible = false;
+	#make it so that book doesnt block input 
+	
 
 func _on_MapIcon_pressed(story: String):
 	current_story = story
@@ -34,7 +60,8 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 	if keepOldScene == false:
 		scenePlaceholder.remove_child(current_scene)
 		current_scene.queue_free()
-
+	
+	
 	next_scene = load(storyList[story][index]).instance()
 	transitionShaderAP.play("fadeIn")
 	scenePlaceholder.add_child(next_scene)
@@ -62,6 +89,7 @@ func updateBookGUI():
 				bookGUI.get_node("Container/NextSceneButton").visible = true;
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 
+
 func _on_CloseSceneButton_pressed():
 	bookAnimationPlayer.play_backwards("animateIn")
 	current_scene.queue_free()
@@ -70,6 +98,7 @@ func _on_CloseSceneButton_pressed():
 	displayBookGUI(false)
 
 func _on_NextSceneButton_pressed():
+	print("clicked next")
 	for scene in storyList[current_story]:
 			if current_scene.name in storyList[current_story][scene]:
 					var new_index = scene + 1

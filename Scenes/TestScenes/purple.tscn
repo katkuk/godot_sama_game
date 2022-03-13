@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/KlekStory/wine.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/purple.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 6, 7, 6, 7, 6, 7 ]
+}
+
+[node name="purple" type="Sprite"]
+position = Vector2( 1107.26, 894.725 )
+scale = Vector2( 1.21373, 1.626 )
+texture = ExtResource( 2 )
+
+[node name="wine" type="Sprite" parent="."]
+position = Vector2( -3.0954, -5.44922 )
+scale = Vector2( 0.543327, 0.445641 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wine"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )

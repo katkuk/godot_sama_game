@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim3.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "Sea"
 length = 5.0
 loop = true
@@ -21,8 +22,7 @@ tracks/0/keys = {
 "values": [ -0.138226, 23.741 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Rotate"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ 108.052, -108.9 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -53,31 +53,39 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 
-[node name="RijekaCircleScene" type="Node"]
+[sub_resource type="DynamicFont" id=4]
+size = 80
+font_data = ExtResource( 4 )
+
+[node name="RijekaCircleScene" type="Node2D"]
+position = Vector2( 77.9121, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -123.0
+margin_top = -46.0
+margin_right = 2235.0
+margin_bottom = 1716.0
 color = Color( 0.0941176, 0.501961, 0.352941, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Sea" type="Sprite" parent="."]
-position = Vector2( 1060.99, 1325.05 )
+position = Vector2( 1011.4, 1459.47 )
 rotation = 0.0892773
-scale = Vector2( 1.00688, 1.01527 )
+scale = Vector2( 1.00688, 1.05608 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 20.1817, -9.66621, 1471.85, 1386.57 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sea"]
 autoplay = "Sea"
-anims/Sea = SubResource( 3 )
+anims/Sea = SubResource( 1 )
 
 [node name="RijekaCircle" type="Sprite" parent="."]
-position = Vector2( 1085.84, 1348.88 )
+position = Vector2( 1031.9, 1474.74 )
 rotation = 0.829874
 scale = Vector2( 0.935522, 0.935522 )
 texture = ExtResource( 1 )
@@ -88,10 +96,10 @@ region_rect = Rect2( -23.2366, -37.5771, 1997.03, 1525.88 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle"]
 autoplay = "Rotate"
 playback_speed = 0.05
-anims/Rotate = SubResource( 1 )
+anims/Rotate = SubResource( 2 )
 
 [node name="Caroline" type="Sprite" parent="."]
-position = Vector2( 1009.59, 727.855 )
+position = Vector2( 955.651, 853.713 )
 rotation = 0.0020832
 scale = Vector2( 0.935522, 0.935522 )
 texture = ExtResource( 2 )
@@ -102,4 +110,18 @@ frame = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Caroline"]
 autoplay = "Walk"
 playback_speed = 0.8
-anims/Walk = SubResource( 2 )
+anims/Walk = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 496.48
+margin_top = 234.627
+margin_right = 1635.48
+margin_bottom = 558.627
+custom_fonts/font = SubResource( 4 )
+text = "She left her house and walked down to the British commander. 
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

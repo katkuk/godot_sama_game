@@ -1,8 +1,7 @@
 extends Node
 
-const Fish = preload("res://StoryCaroline/Fish.tscn")
-const Wave = preload("res://StoryCaroline/Wave1.tscn")
-
+const Fish = preload("res://Scenes/Story scenes/StoryCaroline/Fish.tscn")
+const Wave = preload("res://Scenes/Story scenes/StoryCaroline/Wave1.tscn")
 
 func _input(event):
 	if event is InputEventMouseButton:

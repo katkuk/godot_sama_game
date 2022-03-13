@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/KlekStory/Untitled_Artwork.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/KlekStory/wine.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 7 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sky" type="ColorRect" parent="."]
+margin_right = 2226.0
+margin_bottom = 1671.0
+color = Color( 0.117647, 0.690196, 0.811765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clouds1" type="Sprite" parent="Sky"]
+position = Vector2( 961.702, 1222.96 )
+scale = Vector2( 1.71639, 2.41946 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -40.1831, 1058.74, 1130.06, 289.127 )
+
+[node name="clouds2" type="Sprite" parent="Sky"]
+position = Vector2( 1626.52, 1046.2 )
+scale = Vector2( 1.22543, 1.22543 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -2.46918, 1351.21, 965.432, 289.205 )
+
+[node name="clouds3" type="Sprite" parent="Sky"]
+position = Vector2( 756.269, 711.663 )
+rotation = 0.0454768
+scale = Vector2( 0.634621, 0.772372 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -7.85754, 1641.63, 494.834, 245.019 )
+
+[node name="clouds4" type="Sprite" parent="Sky"]
+position = Vector2( 486.985, 566.363 )
+rotation = 1.60599
+scale = Vector2( 1.16583, 1.07852 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 965.533, 1347.79, 116.418, 170.086 )
+
+[node name="volosPlaceholder" type="Sprite" parent="."]
+position = Vector2( 1171.72, 886.437 )
+texture = ExtResource( 3 )
+
+[node name="cloudsFront" type="Sprite" parent="."]
+position = Vector2( 1108.51, 1233.73 )
+scale = Vector2( 1.09949, 1.1052 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -14.391, 2.10131, 2074.98, 824.161 )
+
+[node name="cookies" type="Sprite" parent="."]
+position = Vector2( 1840.6, 979.214 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 762.717, -14.8807, 756.334, 601.016 )
+
+[node name="grapes" type="Sprite" parent="."]
+position = Vector2( 1632.53, 1180.08 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 356.011, 478.513, 583.886, 358.102 )
+
+[node name="chicken" type="Sprite" parent="."]
+position = Vector2( 1312.65, 1284.41 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -1.56859, 1228.42, 780.35, 472.379 )
+
+[node name="cake" type="Sprite" parent="."]
+position = Vector2( 542.105, 1132.7 )
+scale = Vector2( 0.547159, 0.547159 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 783.156, 1230.03, 513.804, 433.266 )
+
+[node name="potatos" type="Sprite" parent="."]
+position = Vector2( 1545.62, 1448.11 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 746.671, 177.934, 621.347, 300.154 )
+
+[node name="apples" type="Sprite" parent="."]
+position = Vector2( 322.638, 1236.17 )
+scale = Vector2( 0.661377, 0.661377 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 217.309, 243.298, 509.846, 471.221 )
+
+[node name="wineCap" type="Sprite" parent="."]
+position = Vector2( 877.138, 1042.97 )
+rotation = -0.0898235
+scale = Vector2( 0.608214, 0.608214 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -9.21384, -4.95335, 105.895, 73.3835 )
+
+[node name="wine" type="Sprite" parent="."]
+position = Vector2( 811.022, 919.193 )
+rotation = -0.0898235
+scale = Vector2( 0.7305, 0.7305 )
+texture = ExtResource( 4 )
+hframes = 4
+vframes = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = 113.0
+margin_top = 107.0
+margin_right = 1297.0
+margin_bottom = 431.0
+custom_fonts/font = SubResource( 1 )
+text = "On a sunny day long time ago slavic god Volos was having a delicious feast up in the clouds."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

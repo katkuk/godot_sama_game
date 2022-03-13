@@ -1,101 +1,131 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/LevelChangeSignal.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/GUI scenes/NextSceneButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Caroline.png" type="Texture" id=8]
 
-[node name="CarolineWindowScene" type="Node"]
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 6 )
+
+[node name="CarolineWindowScene" type="Node2D"]
+position = Vector2( 2.95654, 5.76019 )
 script = ExtResource( 5 )
 scene_name = "CarolineWindowScene"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 803.595
+margin_top = 393.918
+margin_right = 1431.6
+margin_bottom = 1135.92
 color = Color( 0.647059, 0.368627, 0.380392, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1378.0
-margin_top = -35.0
-margin_right = 45.0
-margin_bottom = 37.0
+margin_left = 56.0
+margin_top = -41.0
+margin_right = 2291.0
+margin_bottom = 373.0
 color = Color( 0.803922, 0.662745, 0.341176, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
+[node name="Caroline" type="Sprite" parent="."]
+position = Vector2( 1205.28, 968.183 )
+scale = Vector2( 1.09968, 1.09968 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 3
+
+[node name="mouth" type="Sprite" parent="Caroline"]
+position = Vector2( 8.87109, -152.119 )
+rotation = -0.0484033
+scale = Vector2( 0.213583, 0.213583 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 4
+
+[node name="eyes" type="Sprite" parent="Caroline"]
+position = Vector2( 16.4131, -83.3662 )
+rotation = -0.0484033
+scale = Vector2( 0.0577021, 0.0577021 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caroline"]
+
 [node name="ColorRect3" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -40.1716
-margin_top = -37.8285
-margin_right = -1345.17
-margin_bottom = 37.1715
+margin_left = -60.0
+margin_top = -36.0
+margin_right = 753.0
+margin_bottom = 1742.0
 color = Color( 0.803922, 0.662745, 0.341176, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 456.0
-margin_top = 1168.0
-margin_right = -302.0
-margin_bottom = 35.0
+margin_left = 628.595
+margin_top = 1137.92
+margin_right = 2561.6
+margin_bottom = 1741.92
 rect_scale = Vector2( 0.861683, 1 )
 color = Color( 0.803922, 0.662745, 0.341176, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect5" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 455.0
-margin_top = -34.0
-margin_right = -512.0
-margin_bottom = -1107.0
+margin_left = 1463.6
+margin_top = 194.918
+margin_right = 2293.6
+margin_bottom = 1355.92
 color = Color( 0.803922, 0.662745, 0.341176, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Bricks1" type="Sprite" parent="."]
-position = Vector2( 1721.63, 1322.37 )
+position = Vector2( 1788.23, 1265.29 )
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1138.91, 1894.44, 224.757, 143.263 )
 
 [node name="Bricks2" type="Sprite" parent="."]
-position = Vector2( 1443.84, 230.947 )
+position = Vector2( 1510.44, 173.865 )
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1362.53, 1894.44, 263.409, 143.263 )
 
 [node name="Bricks3" type="Sprite" parent="."]
-position = Vector2( 457.28, 1315.49 )
+position = Vector2( 523.875, 1258.41 )
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1807.99, 1870.49, 229.587, 154.092 )
 
 [node name="Bricks4" type="Sprite" parent="."]
-position = Vector2( 1871.14, 782.702 )
+position = Vector2( 1937.74, 725.62 )
 rotation = 1.57079
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 2 )
@@ -103,7 +133,7 @@ region_enabled = true
 region_rect = Rect2( 1637.59, 1897.25, 78.9142, 124.135 )
 
 [node name="Bricks5" type="Sprite" parent="."]
-position = Vector2( 190.9, 728.559 )
+position = Vector2( 257.495, 671.477 )
 rotation = 1.57079
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 4 )
@@ -111,7 +141,7 @@ region_enabled = true
 region_rect = Rect2( 1869.5, 1159.5, 143.896, 185.947 )
 
 [node name="Bricks6" type="Sprite" parent="."]
-position = Vector2( 553.49, 261.087 )
+position = Vector2( 620.085, 204.005 )
 rotation = 1.57079
 scale = Vector2( 1.13262, 1.13262 )
 texture = ExtResource( 4 )
@@ -120,21 +150,21 @@ region_rect = Rect2( 1794.24, 1241.46, 67.3406, 133.743 )
 
 [node name="Curtain" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.403922 )
-position = Vector2( 1016.99, 691.92 )
-scale = Vector2( 1.13176, 1.13176 )
+position = Vector2( 1083.59, 442.016 )
+scale = Vector2( 1.13176, 0.357373 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 926.721, 1464.49, 588.541, 498.327 )
 
 [node name="Window" type="Sprite" parent="."]
-position = Vector2( 1028.98, 808.788 )
-scale = Vector2( 1.13176, 1.13176 )
+position = Vector2( 1095.58, 798.849 )
+scale = Vector2( 1.13176, 1.25141 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 1009.52, -19.1913, 808.72, 788.363 )
 
 [node name="DoorRopen" type="Sprite" parent="."]
-position = Vector2( 1660.68, 773.019 )
+position = Vector2( 1727.28, 715.937 )
 rotation = -1.53958
 scale = Vector2( 1.09649, 1.09649 )
 texture = ExtResource( 2 )
@@ -151,7 +181,7 @@ region_enabled = true
 region_rect = Rect2( -7.32819, 1461.37, 928.172, 389.525 )
 
 [node name="DoorLopen" type="Sprite" parent="."]
-position = Vector2( 386.426, 754.753 )
+position = Vector2( 453.021, 697.671 )
 rotation = -1.57079
 scale = Vector2( 1.10094, 1.10094 )
 texture = ExtResource( 2 )
@@ -166,10 +196,15 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 1493.68, -4.50284, 399.041, 923.023 )
 
-[node name="NextSceneButton" parent="." instance=ExtResource( 6 )]
-margin_left = 1560.0
-margin_top = 1443.0
-margin_right = 2098.0
-margin_bottom = 1564.0
-
-[connection signal="pressed" from="NextSceneButton" to="." method="_on_NewStoryButton_pressed" binds= [ "Caroline" ]]
+[node name="Label" type="Label" parent="."]
+margin_left = 395.052
+margin_top = 1359.86
+margin_right = 1852.05
+margin_bottom = 1764.86
+custom_fonts/font = SubResource( 1 )
+text = "When a brave young woman called Caroline saw what was going on, she had to do something about it."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
