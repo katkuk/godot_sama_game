@@ -7,7 +7,7 @@ onready var ingredientArray2 = []
 onready var requiredIngrediendArray = []
 var positionedRequiredIngredients = []
 onready var kunaAP = $Kuna/kuna/AnimationPlayer
-onready var branches = ["res://Games/GamePlitvice/branches/branch1.tscn","res://Games/GamePlitvice/branches/branch2.tscn","res://Games/GamePlitvice/branches/branch3.tscn","res://Games/GamePlitvice/branches/branch4.tscn"]
+onready var branches = ["res://Scenes/Games/GamePlitvice/branches/branch1.tscn","res://Scenes/Games/GamePlitvice/branches/branch2.tscn","res://Scenes/Games/GamePlitvice/branches/branch3.tscn","res://Scenes/Games/GamePlitvice/branches/branch4.tscn"]
 onready var branchCounter = 3
 
 func _process(delta):
@@ -15,8 +15,8 @@ func _process(delta):
 	
 func _ready():
 	for n in range(1,11):
-		var scene = "res://Games/GamePlitvice/ingredients/ingredient"+str(n)+".tscn"
-		ingredientArray2.push_front(scene)	
+		var scene = "res://Scenes/Games/GamePlitvice/ingredients/ingredient"+str(n)+".tscn"
+		ingredientArray2.push_front(scene)
 	randomize()
 	ingredientArray2.shuffle()
 	requiredIngrediendArray = ingredientArray2.slice(0,4,1)

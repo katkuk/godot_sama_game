@@ -22,23 +22,85 @@ texture = ExtResource( 2 )
 [node name="Game" type="Control" parent="."]
 margin_right = 2224.0
 margin_bottom = 1668.0
+mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="Game"]
+[node name="GridContainer" type="GridContainer" parent="Game"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 150.0
-margin_top = 150.0
 margin_right = -150.0
-margin_bottom = -650.0
+margin_bottom = -861.0
+mouse_filter = 2
 columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Position1" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( -8.89999, 44.1 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position2" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 362.1, 44.1 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position3" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 739.1, 44.1 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position4" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 1114.1, 44.1 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position5" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 1491.1, 44.1 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position6" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( -8.89999, 431.2 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position7" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 362.1, 431.2 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position8" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 739.1, 431.2 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position9" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 1114.1, 431.2 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
+[node name="Position10" type="Position2D" parent="Game/GridContainer"]
+position = Vector2( 1491.1, 431.2 )
+__meta__ = {
+"_gizmo_extents_": 188.1
+}
+
 [node name="MemoryGameHUD" parent="Game" instance=ExtResource( 4 )]
+visible = false
 
 [editable path="Game/MemoryGameHUD"]

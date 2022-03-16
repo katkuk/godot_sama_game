@@ -34,6 +34,5 @@ func flip():
 		set_normal_texture(faceTexture)
 	else:
 		set_normal_texture(backTexture)
-		
 
 

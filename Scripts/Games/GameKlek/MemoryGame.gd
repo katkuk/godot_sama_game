@@ -1,7 +1,8 @@
 extends Control
 
-onready var Grid = $Grid
+onready var Grid = $GridContainer
 var deck = Array()
+var positions = Array()
 #cards to compare when flipped
 var card1 
 var card2
@@ -13,6 +14,7 @@ var restartBtn
 var shuffleBtn
 
 func _ready():
+	getPositions()
 	fillDeck()
 	shuffleDeck()
 	dealDeck()
@@ -46,14 +48,16 @@ func setupTimers():
 	matchTimer.set_one_shot(true)
 	add_child(matchTimer)
 
+func getPositions():
+	positions = Grid.get_children()
+
 func fillDeck():
 	var s = 1
 	var v = 1
 	while v < 3:
 		s = 1
 		while s < 6:
-			#print("suit is "+str(s)+", value is "+str(v))
-			deck.append(MemoryCard.new(s,v))
+			deck.append("res://Scenes/Games/GameKlek/MemoryCards/MemoryCard"+str(s)+".tscn")
 			s += 1
 		v += 1
 
@@ -68,20 +72,21 @@ func reshuffleDeck():
 			print(deck[c].value)
 
 func dealDeck():
-	var c = 0
-	while c < 10:
-		Grid.add_child(deck[c])
-		c += 1
+	var i = -1
+	for card in deck:
+		i = i+1
+		var klekCard = load(card).instance()
+		positions[i].add_child(klekCard)
 
 func chooseCard(var c):
 	if card1 == null:
 		card1 = c
 		card1.flip()
-		card1.set_disabled(true)
+		#card1.set_disabled(true)
 	elif card2 == null:
 		card2 = c
 		card2.flip() 
-		card2.set_disabled(true)
+		#card2.set_disabled(true)
 		checkCards()
 
 func checkCards():
@@ -93,8 +98,8 @@ func checkCards():
 func turnOverCards():
 	card1.flip()
 	card2.flip()
-	card1.set_disabled(false)
-	card2.set_disabled(false)
+	#card1.set_disabled(false)
+	#card2.set_disabled(false)
 	card1 = null
 	card2 = null
 

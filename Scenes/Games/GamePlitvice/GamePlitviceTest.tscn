@@ -285,8 +285,8 @@ position = Vector2( 1430.65, 1510.71 )
 [node name="Kuna" type="KinematicBody2D" parent="."]
 position = Vector2( 466.782, 1249.96 )
 scale = Vector2( 1.28322, 1.37655 )
-input_pickable = true
 collision_mask = 2
+input_pickable = true
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
