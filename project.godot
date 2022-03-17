@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "MemoryCard",
 "language": "GDScript",
 "path": "res://Scripts/Games/GameKlek/MemoryCard.gd"
+}, {
+"base": "Area2D",
+"class": "MemoryCardNew",
+"language": "GDScript",
+"path": "res://Scripts/Games/GameKlek/MemoryCard_new.gd"
 } ]
 _global_script_class_icons={
-"MemoryCard": ""
+"MemoryCard": "",
+"MemoryCardNew": ""
 }
 
 [application]

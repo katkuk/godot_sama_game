@@ -101,6 +101,5 @@ __meta__ = {
 }
 
 [node name="MemoryGameHUD" parent="Game" instance=ExtResource( 4 )]
-visible = false
 
 [editable path="Game/MemoryGameHUD"]

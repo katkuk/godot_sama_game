@@ -389,14 +389,14 @@ anims/fadeinCard = SubResource( 25 )
 anims/fadeout = SubResource( 10 )
 anims/flip = SubResource( 9 )
 
-[node name="Suit" type="AnimatedSprite" parent="Card"]
-scale = Vector2( 0.8, 0.8 )
+[node name="Suit" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.506745, 0.506745 )
 frames = SubResource( 19 )
 animation = "animate"
 centered = false
 offset = Vector2( 100, 100 )
 
-[node name="SuitAnimation" type="AnimationPlayer" parent="Card/Suit"]
+[node name="SuitAnimation" type="AnimationPlayer" parent="Suit"]
 anims/RESET = SubResource( 20 )
 anims/animate = SubResource( 21 )
 anims/fadein = SubResource( 22 )
