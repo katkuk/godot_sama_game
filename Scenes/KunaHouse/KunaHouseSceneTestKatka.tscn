@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-0.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/KunaHouse/KunaHouseManagerTestKatka.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Textures/KunaHouse/circle.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GameCaroline/bubble.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Kuna/kunaIde.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/KunaHouse/houseStuff-1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Textures/Kuna/kunaSitting.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Textures/KunaHouse/kunaSleeping.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Textures/KunaHouse/houseStuff-3.png" type="Texture" id=15]
@@ -20,7 +23,7 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/plantBig.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "playingMusic"
 length = 0.6
 loop = true
@@ -37,7 +40,7 @@ tracks/0/keys = {
 "values": [ 3, 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "plant"
 length = 0.85
 tracks/0/type = "value"
@@ -53,7 +56,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "sitting"
 length = 2.0
 loop = true
@@ -70,8 +73,7 @@ tracks/0/keys = {
 "values": [ -2.60064, 1.63511, -2.60064 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "sleeping"
+[sub_resource type="Animation" id=4]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -87,7 +89,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "plantMove"
 length = 0.8
 tracks/0/type = "value"
@@ -103,7 +105,57 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=6]
+resource_name = "plantMove"
+length = 0.85
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "idle"
+length = 4.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8, 1.1, 1.4, 1.7, 2, 2.3, 2.6, 2.9, 3.2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 0, 5, 6, 7, 6, 7, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walking"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 160.122, 99.2835 )
 
 [node name="KunaHouseScene" type="Node"]
@@ -214,8 +266,8 @@ texture = ExtResource( 18 )
 show_behind_parent = true
 margin_left = 1069.0
 margin_top = -876.0
-margin_right = 1842.0
-margin_bottom = -304.0
+margin_right = 1503.0
+margin_bottom = -367.0
 color = Color( 0.141176, 0.215686, 0.501961, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,7 +321,7 @@ frame = 3
 
 [node name="gramophoneAP" type="AnimationPlayer" parent="House/gramophone2/gramophone"]
 playback_speed = 0.8
-anims/playingMusic = SubResource( 3 )
+anims/playingMusic = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/gramophone2"]
 polygon = PoolVector2Array( 2170.19, 954.707, 2157.47, 569.062, 2424.46, 424.975, 2721.11, 797.906, 2848.24, 1170.84, 2543.12, 1348.83, 2199.85, 1208.98 )
@@ -298,7 +350,7 @@ region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 [node name="smallPlant" type="Area2D" parent="House"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/smallPlant"]
-anims/plant = SubResource( 4 )
+anims/plant = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/smallPlant"]
 polygon = PoolVector2Array( 3160.45, 1076.21, 3182.33, 1205.25, 3220.86, 1295.18, 3500.24, 1257.43, 3515.34, 1023.35, 3326.57, 819.471 )
@@ -337,7 +389,7 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/kunaChair"]
 autoplay = "sitting"
-anims/sitting = SubResource( 5 )
+anims/sitting = SubResource( 3 )
 
 [node name="kunaSleeping" type="Sprite" parent="House"]
 position = Vector2( 6852.26, 931.638 )
@@ -353,12 +405,156 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/kunaSleeping"]
 autoplay = "sleeping"
 playback_speed = 0.4
-anims/sleeping = SubResource( 1 )
+anims/sleeping = SubResource( 4 )
 
-[node name="tree" type="Sprite" parent="House"]
-position = Vector2( 5883.56, 838.882 )
+[node name="LittleLampsTop" type="Area2D" parent="House"]
+
+[node name="lightBubbles" type="Node2D" parent="House/LittleLampsTop"]
+
+[node name="bubble" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 1577.05, 99.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble2" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble"]
+self_modulate = Color( 0.952941, 0.635294, 0.980392, 0.341176 )
+position = Vector2( 1.57062, 0.785301 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble3" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 253.05, 191.092 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble4" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble3"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -1.37356, 0.099823 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble5" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
+position = Vector2( 2329.05, 211.092 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble6" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble5"]
+self_modulate = Color( 0.968627, 0.780392, 0.611765, 0.341176 )
+position = Vector2( 1.41827, -0.633087 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble7" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 3025.05, 91.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble8" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble7"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -2.44934, 2.8186 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble9" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
+position = Vector2( 3617.05, 83.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble10" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble9"]
+self_modulate = Color( 0.560784, 0.972549, 0.694118, 0.341176 )
+position = Vector2( -2.03345, 0.322594 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble11" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 5740.75, 177.379 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble12" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble11"]
+self_modulate = Color( 0.952941, 0.458824, 0.968627, 0.341176 )
+position = Vector2( 0.880615, -2.31644 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble13" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 6164.26, 632.364 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble14" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble13"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -0.785156, 4.34705 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble15" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
+position = Vector2( 5674.26, 778.364 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble16" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble15"]
+self_modulate = Color( 0.996078, 0.784314, 0.45098, 0.341176 )
+position = Vector2( -0.785645, 3.23645 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble17" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 6066.26, 1318.36 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble18" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble17"]
+self_modulate = Color( 0.784314, 0.505882, 0.972549, 0.341176 )
+position = Vector2( -0.7854, 3.05307 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble19" type="Sprite" parent="House/LittleLampsTop/lightBubbles"]
+self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
+position = Vector2( 5512.27, 1440.37 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="bubble20" type="Sprite" parent="House/LittleLampsTop/lightBubbles/bubble19"]
+self_modulate = Color( 0.631373, 0.94902, 0.568627, 0.341176 )
+position = Vector2( 3.18469, 7.63971 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 8 )
+
+[node name="tree" type="Sprite" parent="House/LittleLampsTop"]
+position = Vector2( 5883.53, 843.106 )
 rotation = -3.13527
-scale = Vector2( 1.32011, 1.32011 )
+scale = Vector2( 1.32011, 1.32646 )
 z_index = 5
 texture = ExtResource( 15 )
 region_enabled = true
@@ -367,26 +563,33 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="littleLampsTree" type="Sprite" parent="House/tree"]
+[node name="littleLampsTree" type="Sprite" parent="House/LittleLampsTop/tree"]
 position = Vector2( 29.5708, 16.3884 )
+z_index = 7
+z_as_relative = false
 texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( -7.63174, 191.78, 581.361, 1338.35 )
 
-[node name="littleLampsU" type="Sprite" parent="House"]
+[node name="littleLampsCorner" type="Sprite" parent="House/LittleLampsTop"]
+position = Vector2( 186.008, 174.26 )
+rotation = 1.02378
+scale = Vector2( 1.22482, 1.22482 )
+z_index = 7
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 395.254, 197.04, 189.114, 435.287 )
+
+[node name="littleLampsU" type="Sprite" parent="House/LittleLampsTop"]
 position = Vector2( 2600.85, 122.123 )
 scale = Vector2( 1.22482, 1.22482 )
+z_index = 7
 texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
 
-[node name="littleLampsCorner" type="Sprite" parent="House"]
-position = Vector2( 186.008, 174.26 )
-rotation = 1.02378
-scale = Vector2( 1.22482, 1.22482 )
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 395.254, 197.04, 189.114, 435.287 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/LittleLampsTop"]
+polygon = PoolVector2Array( -61.3746, 228.407, 94.6254, 232.407, 304.868, 253.686, 306.625, 132.407, 410.625, -27.5925, 1374.63, -39.5925, 1554.84, 171.807, 1732.38, 97.0559, 2259.64, 190.495, 2295.68, 278.594, 2403.78, 263.769, 2410.48, 201.173, 3186.63, 156.407, 3527.74, 110.404, 3621.18, 162.463, 3714.62, 101.061, 3882.63, -155.593, 5595.1, -87.3093, 5665.66, 164.675, 5857.17, 446.897, 5771.49, 734.159, 5574.95, 693.842, 5569.91, 905.508, 5675.74, 960.945, 5600.14, 1162.53, 5489.27, 1399.4, 5373.36, 1485.07, 5448.95, 1600.98, 5700.94, 1752.18, 5957.96, 1354.04, 6104.11, 1414.52, 6164.59, 1258.29, 6088.99, 996.223, 6109.15, 779.516, 6305.7, 628.326, 6225.06, 492.254, 6290.58, -127.627, 3326.75, -227.503, -176.089, -126.709 )
 
 [node name="plitviceIcon" type="Sprite" parent="House"]
 position = Vector2( 3055.87, 598.407 )
@@ -407,7 +610,7 @@ hframes = 3
 polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53, 5156.27, 1348.48, 5329.94, 1352.26, 5388.46, 1040.78, 5394.13, 653.793 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/flower2"]
-anims/plantMove = SubResource( 6 )
+anims/plantMove = SubResource( 5 )
 
 [node name="regocIcon" type="Sprite" parent="House"]
 position = Vector2( 3854.44, 1299.92 )
@@ -416,19 +619,66 @@ texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( -4.84692, 1745.27, 769.311, 307.009 )
 
-[node name="lampBedside" type="Sprite" parent="House"]
-position = Vector2( 7453.23, 489.192 )
-scale = Vector2( 0.533623, 0.533623 )
-texture = ExtResource( 23 )
-hframes = 2
+[node name="MoveHouseTween" type="Tween" parent="House"]
 
-[node name="plantBig" type="Sprite" parent="House"]
-position = Vector2( 7906.68, 793.098 )
+[node name="plantBigA" type="Area2D" parent="House"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/plantBigA"]
+position = Vector2( 469.871, 82.5449 )
+polygon = PoolVector2Array( 7264.11, 1329.5, 7565.72, 1316.8, 7733.98, 605.648, 7603.82, 278.644, 7283.16, 186.574, 7168.87, 602.473 )
+
+[node name="plantBig" type="Sprite" parent="House/plantBigA"]
+position = Vector2( 7903.51, 796.273 )
 scale = Vector2( 1.21812, 1.21812 )
 texture = ExtResource( 22 )
 hframes = 3
 
-[node name="MoveHouseTween" type="Tween" parent="House"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="House/plantBigA/plantBig"]
+anims/plantMove = SubResource( 6 )
+
+[node name="kuna" type="Area2D" parent="House"]
+position = Vector2( 1554.34, 1061.55 )
+scale = Vector2( 1.08616, 1.08616 )
+z_index = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/kuna"]
+polygon = PoolVector2Array( -126.298, -443.239, -188.937, -311.001, -161.097, -146.284, -172.697, 53.2321, -112.378, 452.265, 166.017, 459.224, 168.337, 296.827, 177.616, -58.126, 182.256, -290.122, 133.537, -443.239 )
+
+[node name="kunaIdle" type="Sprite" parent="House/kuna"]
+position = Vector2( -13.6317, -4.56982 )
+scale = Vector2( 1.45982, 1.45982 )
+texture = ExtResource( 9 )
+hframes = 3
+vframes = 3
+
+[node name="kunaIdleAP" type="AnimationPlayer" parent="House/kuna/kunaIdle"]
+anims/idle = SubResource( 7 )
+
+[node name="kunaWalking" type="Sprite" parent="House/kuna"]
+visible = false
+position = Vector2( -13.6317, -4.56982 )
+scale = Vector2( 1.45982, 1.45982 )
+texture = ExtResource( 11 )
+hframes = 3
+vframes = 3
+
+[node name="kunaWalkingAP" type="AnimationPlayer" parent="House/kuna/kunaWalking"]
+playback_speed = 0.9
+anims/walking = SubResource( 8 )
+
+[node name="lampBedsideA" type="Area2D" parent="House"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/lampBedsideA"]
+polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381, 7567.16, 698.778, 7597.39, 497.191, 7577.86, 319.247, 7456.28, 260.325 )
+
+[node name="lampBedside" type="Sprite" parent="House/lampBedsideA"]
+position = Vector2( 7453.23, 489.192 )
+scale = Vector2( 0.533623, 0.533623 )
+texture = ExtResource( 23 )
+hframes = 2
 
 [node name="HouseGUI" type="Node2D" parent="."]
 __meta__ = {
@@ -444,7 +694,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseGUI/HouseArrowRight"]
-shape = SubResource( 2 )
+shape = SubResource( 9 )
 
 [node name="right" type="Sprite" parent="HouseGUI/HouseArrowRight"]
 scale = Vector2( 0.391171, 0.391171 )
@@ -459,7 +709,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseGUI/HouseArrowLeft"]
-shape = SubResource( 2 )
+shape = SubResource( 9 )
 
 [node name="right" type="Sprite" parent="HouseGUI/HouseArrowLeft"]
 scale = Vector2( 0.391171, 0.391171 )
@@ -469,6 +719,10 @@ texture = ExtResource( 1 )
 [connection signal="input_event" from="House/gramophone2" to="KunaHouseManager" method="_on_gramophone2_input_event"]
 [connection signal="input_event" from="House/smallPlant" to="KunaHouseManager" method="_on_smallPlant_input_event"]
 [connection signal="input_event" from="House/lampAleks2" to="KunaHouseManager" method="_on_lampAleks2_input_event"]
+[connection signal="input_event" from="House/LittleLampsTop" to="KunaHouseManager" method="_on_LittleLampsTop_input_event"]
 [connection signal="input_event" from="House/flower2" to="KunaHouseManager" method="_on_flower2_input_event"]
+[connection signal="input_event" from="House/plantBigA" to="KunaHouseManager" method="_on_plantBigA_input_event"]
+[connection signal="input_event" from="House/kuna" to="KunaHouseManager" method="_on_kuna_input_event"]
+[connection signal="input_event" from="House/lampBedsideA" to="KunaHouseManager" method="_on_lampBedsideA_input_event"]
 [connection signal="input_event" from="HouseGUI/HouseArrowRight" to="KunaHouseManager" method="_on_HouseArrowRight_input_event"]
 [connection signal="input_event" from="HouseGUI/HouseArrowLeft" to="KunaHouseManager" method="_on_HouseArrowLeft_input_event"]
