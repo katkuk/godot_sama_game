@@ -21,10 +21,10 @@ var storyList = {
 			5: "res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.tscn",
 			6: "res://Scenes/Stories/StoryCaroline/RijekaSavedScene.tscn",
 			7: "res://Scenes/Stories/StoryCaroline/CarolineBookGameScreen.tscn"},
-	"klek" : { 1 : "res://Scenes/Stories/StoryKlek/MagicStuff.tscn",
+	"klek" : { 1 : "res://Scenes/Stories/StoryKlek/VolosInClouds.tscn",
 			2 : "res://Scenes/Stories/StoryKlek/KlekSittingOnHill.tscn",
 			3 : "res://Scenes/Stories/StoryKlek/KlekAndVolos.tscn",
-			4: "res://Scenes/Stories/StoryKlek/VolosInClouds.tscn",
+			4: "res://Scenes/Stories/StoryKlek/MagicStuff.tscn",
 			5: "res://Scenes/Stories/StoryKlek/KlekBecameMountain.tscn",
 			6: "res://Scenes/Stories/StoryKlek/KlekBookGameScreen.tscn"}
 	}
@@ -112,3 +112,5 @@ func _on_PreviousSceneButton_pressed():
 			var new_index = scene - 1
 			loadScene(current_story, new_index, false)
 			break
+
+

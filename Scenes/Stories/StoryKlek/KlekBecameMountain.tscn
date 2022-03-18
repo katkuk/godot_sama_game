@@ -18,7 +18,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 80
 font_data = ExtResource( 1 )
 
@@ -98,7 +98,7 @@ region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 position = Vector2( 1078.05, 737.93 )
 frames = SubResource( 1 )
 animation = "sleeping"
-frame = 3
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -210,7 +210,7 @@ margin_left = 1245.91
 margin_top = 1328.56
 margin_right = 2121.91
 margin_bottom = 1679.56
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "He was turned into a sleeping mountain, and he still sleeps to this day."
 autowrap = true
 __meta__ = {

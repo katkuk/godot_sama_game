@@ -1,10 +1,10 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Map/Wave2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Textures/KunaHouse/book_export-5.png" type="Texture" id=4]
-[ext_resource path="res://Assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/KlekStory/klekIcon.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Map/MapManager.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/GUI/CloseSceneButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GUI/PreviousSceneButton.tscn" type="PackedScene" id=8]
@@ -23,6 +23,35 @@
 [ext_resource path="res://Assets/Textures/GUI/minus.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Textures/GUI/circle.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/GUI/plus.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Textures/StoryCaroline/mapIcon.png" type="Texture" id=24]
+
+[sub_resource type="Animation" id=9]
+resource_name = "blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Klek:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.45, 0.45 ), Vector2( 0.4, 0.4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Caroline:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 0.88, 0.88 ), Vector2( 0.8, 0.8 ) ]
+}
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -407,7 +436,7 @@ __meta__ = {
 [node name="CroatiaVisuals" type="Node2D" parent="."]
 
 [node name="tree1" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 972.628, 735.467 )
+position = Vector2( 989.579, 731.229 )
 rotation = -0.13711
 scale = Vector2( 0.236057, 0.236057 )
 texture = ExtResource( 2 )
@@ -423,7 +452,7 @@ region_enabled = true
 region_rect = Rect2( 1423.95, -3.37205, 323.685, 512.695 )
 
 [node name="tree2" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 1025.37, 645.789 )
+position = Vector2( 1035.96, 654.265 )
 rotation = -1.69901
 scale = Vector2( 0.191272, 0.191272 )
 texture = ExtResource( 1 )
@@ -431,7 +460,7 @@ region_enabled = true
 region_rect = Rect2( -11.7899, -8.45966, 583.237, 330.134 )
 
 [node name="mountain1" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 917.368, 861.869 )
+position = Vector2( 947.033, 912.723 )
 rotation = -1.44783
 scale = Vector2( 0.485814, 0.485814 )
 texture = ExtResource( 2 )
@@ -439,9 +468,9 @@ region_enabled = true
 region_rect = Rect2( 754.232, -40.5407, 671.686, 655.928 )
 
 [node name="mountain3" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 593.412, 524.291 )
+position = Vector2( 566.343, 547.173 )
 rotation = -0.0912975
-scale = Vector2( 0.480001, 0.480001 )
+scale = Vector2( 0.400984, 0.400984 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 523.082, 528.419, 204.436, 289.766 )
@@ -454,19 +483,11 @@ region_enabled = true
 region_rect = Rect2( 726.088, 616.18, 401.413, 328.221 )
 
 [node name="mountain5" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 1113.31, 1079.77 )
+position = Vector2( 1149.33, 1126.39 )
 scale = Vector2( 0.48, 0.48 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1127.6, 605.497, 296.418, 355.129 )
-
-[node name="mountain6" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 801.509, 575.208 )
-rotation = -1.52059
-scale = Vector2( 0.43418, 0.43418 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 1423.92, 508.269, 369.549, 411.292 )
 
 [node name="fields" type="Sprite" parent="CroatiaVisuals"]
 position = Vector2( 1711.31, 585.208 )
@@ -484,9 +505,9 @@ region_enabled = true
 region_rect = Rect2( -6.09357, 522.81, 533.803, 348.646 )
 
 [node name="tree4" type="Sprite" parent="CroatiaVisuals"]
-position = Vector2( 884.608, 1002.15 )
+position = Vector2( 828.737, 984.695 )
 rotation = -1.54074
-scale = Vector2( 0.191272, 0.191272 )
+scale = Vector2( 0.230589, 0.230589 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 576.114, -3.34222, 537.271, 418.055 )
@@ -511,30 +532,37 @@ __meta__ = {
 }
 
 [node name="Caroline" type="TextureButton" parent="MapIcons"]
-margin_left = 609.744
-margin_top = 557.881
-margin_right = 673.744
-margin_bottom = 621.881
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 532.954
+margin_top = 318.205
+margin_right = 832.954
+margin_bottom = 698.205
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 148.567, 187.233 )
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Klek" type="TextureButton" parent="MapIcons"]
-margin_left = 815.66
-margin_top = 511.678
-margin_right = 879.66
-margin_bottom = 575.678
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 610.833
+margin_top = 252.308
+margin_right = 1165.83
+margin_bottom = 889.308
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 280.83, 330.83 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BlinkAP" type="AnimationPlayer" parent="MapIcons"]
+autoplay = "blink"
+anims/blink = SubResource( 9 )
+
 [node name="MapGUI" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

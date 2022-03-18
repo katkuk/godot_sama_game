@@ -3,7 +3,6 @@ extends Node
 const Fish = preload("res://Scenes/Stories/StoryCaroline/Fish.tscn")
 const Wave = preload("res://Scenes/Stories/StoryCaroline/Wave1.tscn")
 
-export(String) var GUIColorHex = "#d2cf17"
 
 func _unhandled_input(event):
 	if !event.is_action_pressed("Click"):

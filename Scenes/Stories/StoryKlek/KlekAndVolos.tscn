@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=2]
@@ -7,12 +7,14 @@
 [ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scenes/Stories/StoryKlek/KlekAndVolos.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 7 )
 
 [node name="KlekAndVolos" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Sky" type="ColorRect" parent="."]
 margin_right = 2226.0
