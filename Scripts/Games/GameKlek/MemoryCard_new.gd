@@ -4,7 +4,7 @@ onready var cardAnimationPlayer = get_node("Card/CardAnimation")
 onready var suitAnimationPlayer = get_node("Suit/SuitAnimation")
 onready var suitSprite = get_node("Suit")
 onready var cardSprite = get_node("Card")
-onready var MemoryGameManager = get_tree().get_root().get_node("MemoryGame/Game")
+onready var MemoryGameManager = get_parent().get_parent().get_parent()
 #suit is int value 1-5, reffers to the image e.g. cloud, witch etc
 var suit
 #value is 1-2, because we need 2 identical cards from each suit
@@ -18,6 +18,7 @@ func init(var s, var v):
 	matched = false
 
 func _ready():
+	#print(MemoryGameManager)
 	cardAnimationPlayer.play("fadein")
 	suitSprite.modulate = Color(255,255,255,0)
 	var anim = suitAnimationPlayer.get_animation("animate")

@@ -15,6 +15,7 @@ var restartBtn
 var shuffleBtn
 
 func _ready():
+	print_tree()
 	getPositions()
 	shufflePositions()
 	dealDeck()

@@ -57,41 +57,6 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 682, 682 )
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 682, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1364, 0, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 682, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1364, 682, 682, 682 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 1364, 682, 682 )
-
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 8 )
@@ -132,6 +97,41 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 682, 1364, 682, 682 )
 
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 682, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1364, 0, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 682, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1364, 682, 682, 682 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 1364, 682, 682 )
+
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
 "frames": [ SubResource( 5 ) ],
@@ -139,15 +139,15 @@ animations = [ {
 "name": "Stand",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 6 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 6 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=22]
@@ -201,7 +201,6 @@ __meta__ = {
 [node name="bigWindow" type="Sprite" parent="."]
 position = Vector2( 3895.43, 610.047 )
 rotation = 7.45058e-09
-scale = Vector2( 1, 1 )
 texture = ExtResource( 16 )
 hframes = 2
 vframes = 2
@@ -352,9 +351,7 @@ region_rect = Rect2( -0.111862, 1362.03, 1892.13, 254.377 )
 
 [node name="InteractionObjects" type="Area2D" parent="."]
 
-[node name="Map_CollishionShape" type="CollisionShape2D" parent="InteractionObjects" groups=[
-"InteractionObjects",
-]]
+[node name="Map_CollishionShape" type="CollisionShape2D" parent="InteractionObjects" groups=["InteractionObjects"]]
 self_modulate = Color( 1, 1, 1, 0.266667 )
 position = Vector2( 1319.28, 618.893 )
 shape = SubResource( 1 )
@@ -370,9 +367,7 @@ texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( -8.7395, -22.208, 2026.3, 1767.5 )
 
-[node name="Gramophone_CollisionShape" type="CollisionShape2D" parent="InteractionObjects" groups=[
-"InteractionObjects",
-]]
+[node name="Gramophone_CollisionShape" type="CollisionShape2D" parent="InteractionObjects" groups=["InteractionObjects"]]
 self_modulate = Color( 1, 1, 1, 0.207843 )
 position = Vector2( 2533.66, 854.312 )
 scale = Vector2( 1.04, 1.04 )

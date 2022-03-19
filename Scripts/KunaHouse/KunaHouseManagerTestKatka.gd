@@ -7,9 +7,12 @@ onready var arrowRight = get_parent().get_node("HouseGUI/HouseArrowRight")
 onready var arrowLeft = get_parent().get_node("HouseGUI/HouseArrowLeft")
 onready var kunaSelected = false;
 onready var kuna = get_parent().get_node("House/kuna")
+onready var interactionObjects = get_parent().get_node("House/InteractionObjects")
+onready var down = true;
 
 onready var bigWindow = get_parent().get_node("House/bigWindow2/bigWindow")
 onready var houseOffset = 0
+var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,7 +71,6 @@ func _on_lampAleks2_input_event(viewport, event, shape_idx):
 				var lamp = get_parent().get_node("House/lampAleks2/lampAleks")
 				lamp.frame = !lamp.frame
 
-
 func _on_gramophone2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -79,7 +81,6 @@ func _on_gramophone2_input_event(viewport, event, shape_idx):
 				gramophone.frame = 3
 			else:
 				gramophoneAP.play("playingMusic")
-			
 
 func _on_smallPlant_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -91,7 +92,7 @@ func _on_smallPlant_input_event(viewport, event, shape_idx):
 				smallPlant.frame = 0
 			else:
 				smallPlantAP.play("plant")
-				
+
 func _on_flower2_input_event(viewport, event, shape_idx):
 		if event is InputEventMouseButton:
 			if event.pressed:
@@ -102,8 +103,6 @@ func _on_flower2_input_event(viewport, event, shape_idx):
 					flower.frame = 0
 				else:
 					flowerAP.play("plantMove")
-
-onready var down = true;
 
 func _on_bigWindow_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -116,7 +115,6 @@ func _on_bigWindow_input_event(viewport, event, shape_idx):
 				bigWindow.frame = bigWindow.frame + 1
 				if bigWindow.frame == 3:
 					down = true
-			
 
 func _on_plantBigA_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -129,13 +127,11 @@ func _on_plantBigA_input_event(viewport, event, shape_idx):
 			else:
 				plantBigAP.play("plantMove")
 
-
 func _on_lampBedsideA_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 			if event.pressed:
 				var lamp = get_parent().get_node("House/lampBedsideA/lampBedside")
 				lamp.frame = !lamp.frame
-				
 
 func _on_LittleLampsTop_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -143,24 +139,15 @@ func _on_LittleLampsTop_input_event(viewport, event, shape_idx):
 			var lampsArray = get_parent().get_node("House/LittleLampsTop/lightBubbles").get_children()
 			for lamp in lampsArray:
 				lamp.visible = !lamp.visible
-				
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+#interactable objects are objects that lead to a minigame
+func _on_InteractionObjects_input_event(viewport, event, shape_idx):
+	if !event.is_action_pressed("Click"):
+		return
+	var position = interactionObjects.get_child(shape_idx).get_node("position")
+	if position.get_child_count() == 0:
+		var playBtn = playMinigameBtn.instance()
+		playBtn.init(position.linkToScene)
+		position.add_child(playBtn)
+	else:
+		position.get_child(0).queue_free()

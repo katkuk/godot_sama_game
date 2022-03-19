@@ -14,7 +14,7 @@ onready var animationPlayerSponge = $ColorRect/Sponge/AnimationPlayer
 onready var particles = $ColorRect/Sponge/Particles2D
 
 
-const Colore = preload("res://Scenes/Games/GameCaroline/GameCaroline.tscn")
+const Colore = preload("res://Scenes/Games/GameCaroline/Color.tscn")
 onready var colorSpawnPoints = $ColorRect/ColorSpawnPoints
 onready var colorSetOne = ["#8B58A5", "#1E1717", "#D8BBAE", "#AA645D", "#6D2541", "#D0C1D8"]
 onready var currentColor = Color(colorSetOne[0])

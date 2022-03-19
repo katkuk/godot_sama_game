@@ -18,16 +18,22 @@ _global_script_classes=[ {
 "class": "MemoryCardNew",
 "language": "GDScript",
 "path": "res://Scripts/Games/GameKlek/MemoryCard_new.gd"
+}, {
+"base": "TextureButton",
+"class": "PlayMinigameBtn",
+"language": "GDScript",
+"path": "res://Scripts/GUI/PlayMinigameBtn.gd"
 } ]
 _global_script_class_icons={
 "MemoryCard": "",
-"MemoryCardNew": ""
+"MemoryCardNew": "",
+"PlayMinigameBtn": ""
 }
 
 [application]
 
 config/name="Sama game"
-run/main_scene="res://Scenes/SceneSwitcher.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://Assets/icon.png"
 
 [autoload]

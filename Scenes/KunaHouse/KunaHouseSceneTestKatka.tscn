@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/houseStuff-1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Textures/Kuna/kunaWalking.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Textures/Kuna/kunaSitting.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/KunaHouse/Interactions/InteractionObjPosition.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Textures/KunaHouse/kunaSleeping.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Textures/KunaHouse/houseStuff-3.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Textures/KunaHouse/bigWindow.png" type="Texture" id=16]
@@ -22,6 +23,9 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/plantSmall.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Textures/KunaHouse/plantBig.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 421.03
 
 [sub_resource type="Animation" id=1]
 resource_name = "playingMusic"
@@ -39,6 +43,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 3, 0, 1, 2 ]
 }
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 384.206, 521.21 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 131.516, 384.533 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 232, 206 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 958.639, 826.012 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "plant"
@@ -213,18 +229,16 @@ texture = ExtResource( 16 )
 hframes = 2
 vframes = 2
 frame = 3
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="circle" type="Sprite" parent="House/bigWindow2"]
 self_modulate = Color( 0.141176, 0.215686, 0.501961, 1 )
 show_behind_parent = true
-position = Vector2( 3906.26, 616.688 )
+position = Vector2( 3895, 629 )
 texture = ExtResource( 7 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/bigWindow2"]
-polygon = PoolVector2Array( 3400.34, 669.545, 3589.11, 960.258, 3996.87, 1065.97, 4306.46, 801.687, 4325.33, 435.464, 3974.21, 171.179, 3585.34, 242.914 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House/bigWindow2"]
+position = Vector2( 3890, 603 )
+shape = SubResource( 12 )
 
 [node name="smallBrownWindow" type="Sprite" parent="House"]
 position = Vector2( 5251.91, 330.983 )
@@ -324,21 +338,88 @@ playback_speed = 0.8
 anims/playingMusic = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/gramophone2"]
-polygon = PoolVector2Array( 2170.19, 954.707, 2157.47, 569.062, 2424.46, 424.975, 2721.11, 797.906, 2848.24, 1170.84, 2543.12, 1348.83, 2199.85, 1208.98 )
+polygon = PoolVector2Array( 2157.47, 569.062, 2424.46, 424.975, 2721.11, 797.906, 2848.24, 1170.84, 2543.12, 1348.83, 2199.85, 1208.98 )
 
-[node name="Map" type="Sprite" parent="House"]
-position = Vector2( 1314.31, 609.91 )
-scale = Vector2( 0.644664, 0.644664 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( -8.7395, -22.208, 2026.3, 1767.5 )
+[node name="InteractionObjects" type="Area2D" parent="House"]
 
-[node name="CarolinaPicture" type="Sprite" parent="House"]
-position = Vector2( 4708.93, 768.23 )
+[node name="CarolinePicture" type="CollisionShape2D" parent="House/InteractionObjects"]
+position = Vector2( 4702, 692 )
 scale = Vector2( 0.671515, 0.671515 )
+shape = SubResource( 10 )
+
+[node name="sprite" type="Sprite" parent="House/InteractionObjects/CarolinePicture"]
+position = Vector2( 10.3203, 113.519 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 1.80658, 911.145, 1797.87 )
+
+[node name="position" type="Position2D" parent="House/InteractionObjects/CarolinePicture"]
+position = Vector2( 7.4458, -783.304 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 13 )
+linkToScene = "caroline"
+
+[node name="KlekCards" type="CollisionShape2D" parent="House/InteractionObjects"]
+position = Vector2( 3968, 1338 )
+rotation = -1.59934
+scale = Vector2( 0.630736, 0.735718 )
+shape = SubResource( 11 )
+
+[node name="sprite" type="Sprite" parent="House/InteractionObjects/KlekCards"]
+position = Vector2( -9.06201, -4.95459 )
+rotation = 1.59526
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( -4.84692, 1745.27, 769.311, 307.009 )
+
+[node name="position" type="Position2D" parent="House/InteractionObjects/KlekCards"]
+position = Vector2( 348.588, -0.753418 )
+rotation = 1.60408
+scale = Vector2( 0.912869, 1.06454 )
+script = ExtResource( 13 )
+linkToScene = "klek"
+
+[node name="PlitvicePicture" type="CollisionShape2D" parent="House/InteractionObjects"]
+position = Vector2( 2993, 621 )
+rotation = 1.5708
+shape = SubResource( 13 )
+
+[node name="sprite" type="Sprite" parent="House/InteractionObjects/PlitvicePicture"]
+position = Vector2( 62.4069, -33.8704 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 1113.89, 200.852, 776.774, 515.582 )
+
+[node name="position" type="Position2D" parent="House/InteractionObjects/PlitvicePicture"]
+position = Vector2( -301.996, -244.003 )
+rotation = -1.57081
+scale = Vector2( 0.671516, 0.671578 )
+script = ExtResource( 13 )
+linkToScene = "plitvice"
+
+[node name="Map" type="CollisionShape2D" parent="House/InteractionObjects"]
+position = Vector2( 1300, 590 )
+scale = Vector2( 0.644664, 0.644664 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sprite" type="Sprite" parent="House/InteractionObjects/Map"]
+position = Vector2( -10.8584, 6.20459 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( -8.7395, -22.208, 2026.3, 1767.5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="position" type="Position2D" parent="House/InteractionObjects/Map"]
+position = Vector2( -15.512, -362.98 )
+script = ExtResource( 13 )
+linkToScene = "map"
 
 [node name="Bed" type="Sprite" parent="House"]
 position = Vector2( 6822.31, 1029.44 )
@@ -589,14 +670,11 @@ region_enabled = true
 region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/LittleLampsTop"]
+position = Vector2( 132, 128 )
 polygon = PoolVector2Array( -61.3746, 228.407, 94.6254, 232.407, 304.868, 253.686, 306.625, 132.407, 410.625, -27.5925, 1374.63, -39.5925, 1554.84, 171.807, 1732.38, 97.0559, 2259.64, 190.495, 2295.68, 278.594, 2403.78, 263.769, 2410.48, 201.173, 3186.63, 156.407, 3527.74, 110.404, 3621.18, 162.463, 3714.62, 101.061, 3882.63, -155.593, 5595.1, -87.3093, 5665.66, 164.675, 5857.17, 446.897, 5771.49, 734.159, 5574.95, 693.842, 5569.91, 905.508, 5675.74, 960.945, 5600.14, 1162.53, 5489.27, 1399.4, 5373.36, 1485.07, 5448.95, 1600.98, 5700.94, 1752.18, 5957.96, 1354.04, 6104.11, 1414.52, 6164.59, 1258.29, 6088.99, 996.223, 6109.15, 779.516, 6305.7, 628.326, 6225.06, 492.254, 6290.58, -127.627, 3326.75, -227.503, -176.089, -126.709 )
-
-[node name="plitviceIcon" type="Sprite" parent="House"]
-position = Vector2( 3055.87, 598.407 )
-rotation = 1.5708
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 1113.89, 200.852, 776.774, 515.582 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="flower2" type="Area2D" parent="House"]
 
@@ -611,13 +689,6 @@ polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/flower2"]
 anims/plantMove = SubResource( 5 )
-
-[node name="regocIcon" type="Sprite" parent="House"]
-position = Vector2( 3854.44, 1299.92 )
-scale = Vector2( 0.735776, 0.630668 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( -4.84692, 1745.27, 769.311, 307.009 )
 
 [node name="MoveHouseTween" type="Tween" parent="House"]
 
@@ -717,6 +788,7 @@ texture = ExtResource( 1 )
 
 [connection signal="input_event" from="House/bigWindow2" to="KunaHouseManager" method="_on_bigWindow_input_event"]
 [connection signal="input_event" from="House/gramophone2" to="KunaHouseManager" method="_on_gramophone2_input_event"]
+[connection signal="input_event" from="House/InteractionObjects" to="KunaHouseManager" method="_on_InteractionObjects_input_event"]
 [connection signal="input_event" from="House/smallPlant" to="KunaHouseManager" method="_on_smallPlant_input_event"]
 [connection signal="input_event" from="House/lampAleks2" to="KunaHouseManager" method="_on_lampAleks2_input_event"]
 [connection signal="input_event" from="House/LittleLampsTop" to="KunaHouseManager" method="_on_LittleLampsTop_input_event"]
