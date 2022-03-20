@@ -12,7 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	if scrollRight and position.x < 7177:
-		#position.x += 15
 		position.x = lerp(position.x, position.x + 50, 25 * delta)
 	elif scrollLeft and position.x > 1112:
 		position.x = lerp(position.x, position.x - 50, 25 * delta)
@@ -25,7 +24,6 @@ func scroll(direction):
 	elif direction == "stop":
 		scrollRight = false
 		scrollLeft = false
-	
 
 
 #	elif borderRight.overlaps_area(kuna):

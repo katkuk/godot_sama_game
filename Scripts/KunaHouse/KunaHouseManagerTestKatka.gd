@@ -14,7 +14,6 @@ onready var bigWindow = get_parent().get_node("House/bigWindow2/bigWindow")
 onready var houseOffset = 0
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
