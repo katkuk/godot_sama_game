@@ -4,24 +4,24 @@
 [ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/GUI/xIcon.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 706, 705 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 706, 0, 706, 705 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 705, 706, 705 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "animate",
 "speed": 7.0
@@ -59,7 +59,7 @@ stretch_mode = 5
 
 [node name="PlayBtnAnimation" type="AnimatedSprite" parent="CenterContainer/PlayMinigameBtn"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "animate"
 frame = 2
 playing = true

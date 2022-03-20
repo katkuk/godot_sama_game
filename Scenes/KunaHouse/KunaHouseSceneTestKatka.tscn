@@ -26,11 +26,10 @@
 [ext_resource path="res://Scripts/KunaHouse/Kuna_newMove.gd" type="Script" id=24]
 [ext_resource path="res://Scripts/KunaHouse/Camera_new.gd" type="Script" id=25]
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=1]
 radius = 421.03
 
-[sub_resource type="Animation" id=1]
-resource_name = "playingMusic"
+[sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -46,20 +45,19 @@ tracks/0/keys = {
 "values": [ 3, 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 384.206, 521.21 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 131.516, 384.533 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 232, 206 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 958.639, 826.012 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "plant"
+[sub_resource type="Animation" id=7]
 length = 0.85
 tracks/0/type = "value"
 tracks/0/path = NodePath("plantSmall:frame")
@@ -74,8 +72,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "sitting"
+[sub_resource type="Animation" id=8]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -91,7 +88,7 @@ tracks/0/keys = {
 "values": [ -2.60064, 1.63511, -2.60064 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -107,8 +104,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "plantMove"
+[sub_resource type="Animation" id=10]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("flower:frame")
@@ -123,8 +119,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "plantMove"
+[sub_resource type="Animation" id=11]
 length = 0.85
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -139,8 +134,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "idle"
+[sub_resource type="Animation" id=12]
 length = 4.8
 loop = true
 tracks/0/type = "value"
@@ -156,8 +150,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 2, 0, 5, 6, 7, 6, 7, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walking"
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -244,7 +237,7 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House/bigWindow2"]
 position = Vector2( 3890, 603 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="smallBrownWindow" type="Sprite" parent="House"]
 position = Vector2( 5251.91, 330.983 )
@@ -341,7 +334,7 @@ frame = 3
 
 [node name="gramophoneAP" type="AnimationPlayer" parent="House/gramophone2/gramophone"]
 playback_speed = 0.8
-anims/playingMusic = SubResource( 1 )
+anims/playingMusic = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/gramophone2"]
 polygon = PoolVector2Array( 2157.47, 569.062, 2424.46, 424.975, 2721.11, 797.906, 2848.24, 1170.84, 2543.12, 1348.83, 2199.85, 1208.98 )
@@ -351,7 +344,7 @@ polygon = PoolVector2Array( 2157.47, 569.062, 2424.46, 424.975, 2721.11, 797.906
 [node name="CarolinePicture" type="CollisionShape2D" parent="House/InteractionObjects"]
 position = Vector2( 4702, 692 )
 scale = Vector2( 0.671515, 0.671515 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="sprite" type="Sprite" parent="House/InteractionObjects/CarolinePicture"]
 position = Vector2( 10.3203, 113.519 )
@@ -360,7 +353,7 @@ region_enabled = true
 region_rect = Rect2( 0, 1.80658, 911.145, 1797.87 )
 
 [node name="position" type="Position2D" parent="House/InteractionObjects/CarolinePicture"]
-position = Vector2( 7.4458, -783.304 )
+position = Vector2( 0.561522, -27.9865 )
 script = ExtResource( 13 )
 linkToScene = "caroline"
 
@@ -368,7 +361,7 @@ linkToScene = "caroline"
 position = Vector2( 3968, 1338 )
 rotation = -1.59934
 scale = Vector2( 0.630736, 0.735718 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="sprite" type="Sprite" parent="House/InteractionObjects/KlekCards"]
 position = Vector2( -9.06201, -4.95459 )
@@ -378,7 +371,7 @@ region_enabled = true
 region_rect = Rect2( -4.84692, 1745.27, 769.311, 307.009 )
 
 [node name="position" type="Position2D" parent="House/InteractionObjects/KlekCards"]
-position = Vector2( 348.588, -0.753418 )
+position = Vector2( -4.96094, 43.9453 )
 rotation = 1.60408
 scale = Vector2( 0.912869, 1.06454 )
 script = ExtResource( 13 )
@@ -387,7 +380,7 @@ linkToScene = "klek"
 [node name="PlitvicePicture" type="CollisionShape2D" parent="House/InteractionObjects"]
 position = Vector2( 2993, 621 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="sprite" type="Sprite" parent="House/InteractionObjects/PlitvicePicture"]
 position = Vector2( 62.4069, -33.8704 )
@@ -396,7 +389,7 @@ region_enabled = true
 region_rect = Rect2( 1113.89, 200.852, 776.774, 515.582 )
 
 [node name="position" type="Position2D" parent="House/InteractionObjects/PlitvicePicture"]
-position = Vector2( -301.996, -244.003 )
+position = Vector2( 24.0117, 21.4067 )
 rotation = -1.57081
 scale = Vector2( 0.671516, 0.671578 )
 script = ExtResource( 13 )
@@ -405,7 +398,7 @@ linkToScene = "plitvice"
 [node name="Map" type="CollisionShape2D" parent="House/InteractionObjects"]
 position = Vector2( 1300, 590 )
 scale = Vector2( 0.644664, 0.644664 )
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -434,7 +427,7 @@ region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 [node name="smallPlant" type="Area2D" parent="House"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/smallPlant"]
-anims/plant = SubResource( 2 )
+anims/plant = SubResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/smallPlant"]
 polygon = PoolVector2Array( 3160.45, 1076.21, 3182.33, 1205.25, 3220.86, 1295.18, 3500.24, 1257.43, 3515.34, 1023.35, 3326.57, 819.471 )
@@ -473,7 +466,7 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/kunaChair"]
 autoplay = "sitting"
-anims/sitting = SubResource( 3 )
+anims/sitting = SubResource( 8 )
 
 [node name="kunaSleeping" type="Sprite" parent="House"]
 position = Vector2( 6852.26, 931.638 )
@@ -489,7 +482,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/kunaSleeping"]
 autoplay = "sleeping"
 playback_speed = 0.4
-anims/sleeping = SubResource( 4 )
+anims/sleeping = SubResource( 9 )
 
 [node name="LittleLampsTop" type="Area2D" parent="House"]
 
@@ -691,7 +684,7 @@ hframes = 3
 polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53, 5156.27, 1348.48, 5329.94, 1352.26, 5388.46, 1040.78, 5394.13, 653.793 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/flower2"]
-anims/plantMove = SubResource( 5 )
+anims/plantMove = SubResource( 10 )
 
 [node name="plantBigA" type="Area2D" parent="House"]
 
@@ -706,7 +699,7 @@ texture = ExtResource( 22 )
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/plantBigA/plantBig"]
-anims/plantMove = SubResource( 6 )
+anims/plantMove = SubResource( 11 )
 
 [node name="kuna" type="Area2D" parent="House"]
 position = Vector2( 1554.34, 1061 )
@@ -728,7 +721,7 @@ hframes = 3
 vframes = 3
 
 [node name="kunaIdleAP" type="AnimationPlayer" parent="House/kuna/kunaIdle"]
-anims/idle = SubResource( 7 )
+anims/idle = SubResource( 12 )
 
 [node name="kunaWalking" type="Sprite" parent="House/kuna"]
 visible = false
@@ -740,7 +733,7 @@ vframes = 3
 
 [node name="kunaWalkingAP" type="AnimationPlayer" parent="House/kuna/kunaWalking"]
 playback_speed = 0.9
-anims/walking = SubResource( 8 )
+anims/walking = SubResource( 13 )
 
 [node name="lampBedsideA" type="Area2D" parent="House"]
 
@@ -758,9 +751,9 @@ hframes = 2
 [node name="MoveHouseTween" type="Tween" parent="HouseGUI"]
 
 [node name="HouseArrowRight" type="TextureButton" parent="HouseGUI"]
-margin_left = 1992.0
+margin_left = 1975.18
 margin_top = 1460.0
-margin_right = 2192.0
+margin_right = 2175.18
 margin_bottom = 1640.0
 rect_min_size = Vector2( 200, 180 )
 mouse_default_cursor_shape = 2
@@ -772,16 +765,16 @@ __meta__ = {
 }
 
 [node name="HouseArrowLeft" type="TextureButton" parent="HouseGUI"]
-margin_left = 37.0
-margin_top = 1460.0
-margin_right = 237.0
-margin_bottom = 1640.0
+margin_left = 243.572
+margin_top = 1454.84
+margin_right = 443.572
+margin_bottom = 1634.84
 rect_min_size = Vector2( 200, 180 )
+rect_scale = Vector2( -1, 1 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
-flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
