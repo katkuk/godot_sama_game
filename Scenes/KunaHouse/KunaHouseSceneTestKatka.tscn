@@ -23,7 +23,7 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/plantSmall.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Textures/KunaHouse/plantBig.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
-[ext_resource path="res://Scripts/KunaHouse/kuna_new.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/KunaHouse/Kuna_newMove.gd" type="Script" id=24]
 [ext_resource path="res://Scripts/KunaHouse/Camera_new.gd" type="Script" id=25]
 
 [sub_resource type="CircleShape2D" id=12]
@@ -795,6 +795,7 @@ __meta__ = {
 [connection signal="input_event" from="House/flower2" to="KunaHouseManager" method="_on_flower2_input_event"]
 [connection signal="input_event" from="House/plantBigA" to="KunaHouseManager" method="_on_plantBigA_input_event"]
 [connection signal="input_event" from="House/kuna" to="House/kuna" method="_on_kuna_input_event"]
+[connection signal="animation_finished" from="House/kuna/kunaIdle/kunaIdleAP" to="House/kuna" method="_on_kunaIdleAP_animation_finished"]
 [connection signal="input_event" from="House/lampBedsideA" to="KunaHouseManager" method="_on_lampBedsideA_input_event"]
 [connection signal="button_down" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_down" binds= [ "right" ]]
 [connection signal="button_up" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_up"]
