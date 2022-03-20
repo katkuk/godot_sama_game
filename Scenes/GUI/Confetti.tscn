@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/confettiTexture.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="ParticlesMaterial" id=2]
+next_pass = SubResource( 1 )
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 984.06
+initial_velocity_random = 0.53
+angular_velocity = -38.08
+angular_velocity_random = 0.27
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 30.62
+linear_accel_random = 0.48
+radial_accel = 20.06
+radial_accel_random = 0.14
+damping = 0.99
+damping_random = 0.32
+angle = -341.1
+angle_random = 1.0
+scale_random = 0.26
+color = Color( 0.705882, 0.501961, 0.901961, 1 )
+hue_variation = -1.0
+hue_variation_random = 1.0
+anim_speed = 40.0
+anim_speed_random = 0.26
+anim_offset = 0.2
+anim_offset_random = 0.1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 648.528, 667.247 )
+scale = Vector2( 0.1, 0.1 )
+amount = 100
+lifetime = 25.62
+preprocess = 45.37
+speed_scale = 5.79
+explosiveness = 0.51
+randomness = 0.37
+process_material = SubResource( 2 )
+texture = ExtResource( 1 )
