@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var houseTween = get_parent().get_node("House/MoveHouseTween")
+onready var houseTween = get_parent().get_node("HouseGUI/MoveHouseTween")
 onready var house = get_parent().get_node("House")
 onready var currentHousePosition = house.position;
 onready var arrowRight = get_parent().get_node("HouseGUI/HouseArrowRight")
@@ -18,51 +18,51 @@ var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 func _ready():
 	pass
 	
-func _process(delta):
-	if kunaSelected:
-		followMouse()
-		
-func followMouse():
-	kuna.position = get_global_mouse_position() + Vector2(houseOffset, 0)
-			
-
-func _on_kuna_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			kunaSelected = true
-			kuna.get_node("kunaIdle").visible = false
-			kuna.get_node("kunaWalking").visible = true
-			kuna.get_node("kunaWalking/kunaWalkingAP").play("walking")
-		else:
-			kuna.get_node("kunaIdle").visible = true;
-			kuna.get_node("kunaWalking").visible = false;
-			kunaSelected = false
+#func _process(delta):
+#	if kunaSelected:
+#		followMouse()
+#
+#func followMouse():
+#	kuna.position = get_global_mouse_position() + Vector2(houseOffset, 0)
+#
+#
+#func _on_kuna_input_event(viewport, event, shape_idx):
+#	if event is InputEventMouseButton:
+#		if event.pressed:
+#			kunaSelected = true
+#			kuna.get_node("kunaIdle").visible = false
+#			kuna.get_node("kunaWalking").visible = true
+#			kuna.get_node("kunaWalking/kunaWalkingAP").play("walking")
+#		else:
+#			kuna.get_node("kunaIdle").visible = true;
+#			kuna.get_node("kunaWalking").visible = false;
+#			kunaSelected = false
 	
 
-func _on_HouseArrowRight_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var nextHousePosition = currentHousePosition - Vector2(1000,0);
-			if nextHousePosition.x == -7000:
-				nextHousePosition = Vector2(-6000,0);
-			else:
-				houseOffset = houseOffset + 1000
-			houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
-			houseTween.start()
-			currentHousePosition = nextHousePosition
-
-
-func _on_HouseArrowLeft_input_event(viewport, event, shape_idx):
-		if event is InputEventMouseButton:
-			if event.pressed:
-				var nextHousePosition = currentHousePosition + Vector2(1000,0);
-				if nextHousePosition.x == 1000:
-					nextHousePosition = Vector2(0,0);
-				else:
-					houseOffset = houseOffset - 1000
-				houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
-				houseTween.start()
-				currentHousePosition = nextHousePosition
+#func _on_HouseArrowRight_input_event(viewport, event, shape_idx):
+#	if event is InputEventMouseButton:
+#		if event.pressed:
+#			var nextHousePosition = currentHousePosition - Vector2(1000,0);
+#			if nextHousePosition.x == -7000:
+#				nextHousePosition = Vector2(-6000,0);
+#			else:
+#				houseOffset = houseOffset + 1000
+#			houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
+#			houseTween.start()
+#			currentHousePosition = nextHousePosition
+#
+#
+#func _on_HouseArrowLeft_input_event(viewport, event, shape_idx):
+#		if event is InputEventMouseButton:
+#			if event.pressed:
+#				var nextHousePosition = currentHousePosition + Vector2(1000,0);
+#				if nextHousePosition.x == 1000:
+#					nextHousePosition = Vector2(0,0);
+#				else:
+#					houseOffset = houseOffset - 1000
+#				houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
+#				houseTween.start()
+#				currentHousePosition = nextHousePosition
 
 
 func _on_lampAleks2_input_event(viewport, event, shape_idx):

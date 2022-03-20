@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/plantSmall.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Textures/KunaHouse/plantBig.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
+[ext_resource path="res://Scripts/KunaHouse/kuna_new.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/KunaHouse/Camera_new.gd" type="Script" id=25]
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 421.03
@@ -171,13 +173,17 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 160.122, 99.2835 )
-
 [node name="KunaHouseScene" type="Node"]
 
 [node name="KunaHouseManager" type="Node2D" parent="."]
 script = ExtResource( 6 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 1112, 834 )
+current = true
+script = ExtResource( 25 )
+
+[node name="ShiftTween" type="Tween" parent="Camera"]
 
 [node name="House" type="Node2D" parent="."]
 
@@ -349,14 +355,12 @@ shape = SubResource( 10 )
 
 [node name="sprite" type="Sprite" parent="House/InteractionObjects/CarolinePicture"]
 position = Vector2( 10.3203, 113.519 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 1.80658, 911.145, 1797.87 )
 
 [node name="position" type="Position2D" parent="House/InteractionObjects/CarolinePicture"]
 position = Vector2( 7.4458, -783.304 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 13 )
 linkToScene = "caroline"
 
@@ -408,7 +412,6 @@ __meta__ = {
 
 [node name="sprite" type="Sprite" parent="House/InteractionObjects/Map"]
 position = Vector2( -10.8584, 6.20459 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( -8.7395, -22.208, 2026.3, 1767.5 )
@@ -690,8 +693,6 @@ polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/flower2"]
 anims/plantMove = SubResource( 5 )
 
-[node name="MoveHouseTween" type="Tween" parent="House"]
-
 [node name="plantBigA" type="Area2D" parent="House"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/plantBigA"]
@@ -708,14 +709,15 @@ hframes = 3
 anims/plantMove = SubResource( 6 )
 
 [node name="kuna" type="Area2D" parent="House"]
-position = Vector2( 1554.34, 1061.55 )
+position = Vector2( 1554.34, 1061 )
 scale = Vector2( 1.08616, 1.08616 )
 z_index = 4
+script = ExtResource( 24 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/kuna"]
+[node name="kunaCollision" type="CollisionPolygon2D" parent="House/kuna"]
 polygon = PoolVector2Array( -126.298, -443.239, -188.937, -311.001, -161.097, -146.284, -172.697, 53.2321, -112.378, 452.265, 166.017, 459.224, 168.337, 296.827, 177.616, -58.126, 182.256, -290.122, 133.537, -443.239 )
 
 [node name="kunaIdle" type="Sprite" parent="House/kuna"]
@@ -751,40 +753,38 @@ scale = Vector2( 0.533623, 0.533623 )
 texture = ExtResource( 23 )
 hframes = 2
 
-[node name="HouseGUI" type="Node2D" parent="."]
+[node name="HouseGUI" type="CanvasLayer" parent="."]
+
+[node name="MoveHouseTween" type="Tween" parent="HouseGUI"]
+
+[node name="HouseArrowRight" type="TextureButton" parent="HouseGUI"]
+margin_left = 1992.0
+margin_top = 1460.0
+margin_right = 2192.0
+margin_bottom = 1640.0
+rect_min_size = Vector2( 200, 180 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 __meta__ = {
-"_edit_lock_": true
+"_edit_use_anchors_": false
 }
 
-[node name="HouseArrowRight" type="Area2D" parent="HouseGUI"]
-position = Vector2( 2063.44, 1558.14 )
-scale = Vector2( 0.8, 0.8 )
-z_index = 200
+[node name="HouseArrowLeft" type="TextureButton" parent="HouseGUI"]
+margin_left = 37.0
+margin_top = 1460.0
+margin_right = 237.0
+margin_bottom = 1640.0
+rect_min_size = Vector2( 200, 180 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+flip_h = true
 __meta__ = {
-"_edit_group_": true
+"_edit_use_anchors_": false
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseGUI/HouseArrowRight"]
-shape = SubResource( 9 )
-
-[node name="right" type="Sprite" parent="HouseGUI/HouseArrowRight"]
-scale = Vector2( 0.391171, 0.391171 )
-texture = ExtResource( 1 )
-
-[node name="HouseArrowLeft" type="Area2D" parent="HouseGUI"]
-position = Vector2( 159.258, 1556.86 )
-scale = Vector2( -0.8, 0.8 )
-z_index = 200
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseGUI/HouseArrowLeft"]
-shape = SubResource( 9 )
-
-[node name="right" type="Sprite" parent="HouseGUI/HouseArrowLeft"]
-scale = Vector2( 0.391171, 0.391171 )
-texture = ExtResource( 1 )
 
 [connection signal="input_event" from="House/bigWindow2" to="KunaHouseManager" method="_on_bigWindow_input_event"]
 [connection signal="input_event" from="House/gramophone2" to="KunaHouseManager" method="_on_gramophone2_input_event"]
@@ -794,7 +794,11 @@ texture = ExtResource( 1 )
 [connection signal="input_event" from="House/LittleLampsTop" to="KunaHouseManager" method="_on_LittleLampsTop_input_event"]
 [connection signal="input_event" from="House/flower2" to="KunaHouseManager" method="_on_flower2_input_event"]
 [connection signal="input_event" from="House/plantBigA" to="KunaHouseManager" method="_on_plantBigA_input_event"]
-[connection signal="input_event" from="House/kuna" to="KunaHouseManager" method="_on_kuna_input_event"]
+[connection signal="input_event" from="House/kuna" to="House/kuna" method="_on_kuna_input_event"]
 [connection signal="input_event" from="House/lampBedsideA" to="KunaHouseManager" method="_on_lampBedsideA_input_event"]
-[connection signal="input_event" from="HouseGUI/HouseArrowRight" to="KunaHouseManager" method="_on_HouseArrowRight_input_event"]
-[connection signal="input_event" from="HouseGUI/HouseArrowLeft" to="KunaHouseManager" method="_on_HouseArrowLeft_input_event"]
+[connection signal="button_down" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_down" binds= [ "right" ]]
+[connection signal="button_up" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_up"]
+[connection signal="pressed" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_pressed" binds= [ "right" ]]
+[connection signal="button_down" from="HouseGUI/HouseArrowLeft" to="Camera" method="_on_HouseArrow_button_down" binds= [ "left" ]]
+[connection signal="button_up" from="HouseGUI/HouseArrowLeft" to="Camera" method="_on_HouseArrow_button_up"]
+[connection signal="pressed" from="HouseGUI/HouseArrowLeft" to="Camera" method="_on_HouseArrow_pressed" binds= [ "left" ]]
