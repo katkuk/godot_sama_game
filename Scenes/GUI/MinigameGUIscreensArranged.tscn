@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/confettiTexture.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GUI/GUIelements-2.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Textures/GUI/GUIelements-1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/GUI/Pictures/KlekSleeping.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/GUI/Pictures/KlekAwake.png" type="Texture" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -41,17 +43,47 @@ anim_speed_random = 0.26
 anim_offset = 0.2
 anim_offset_random = 0.1
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "WakeUP"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 3, 4, 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "sleeping\\"
+length = 0.85
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 3, 2, 1, 0, 0 ]
+}
+
+[sub_resource type="DynamicFont" id=5]
 size = 80
 font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="WinPopUp" type="Node2D" parent="."]
-position = Vector2( 23.9731, 5.99316 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 2.84096, -4.07698 )
 
 [node name="Particles2D" type="Particles2D" parent="WinPopUp"]
 position = Vector2( 674.447, 562.276 )
@@ -93,6 +125,19 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1708.94, 985.164, 170.712, 829.485 )
 
+[node name="KlekAwake" type="Sprite" parent="WinPopUp"]
+position = Vector2( 1114.12, 1029.24 )
+scale = Vector2( 1.01117, 1.01117 )
+texture = ExtResource( 8 )
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WinPopUp/KlekAwake"]
+autoplay = "WakeUP"
+playback_speed = 0.5
+anims/WakeUP = SubResource( 3 )
+
 [node name="Circle" type="Sprite" parent="WinPopUp"]
 self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
 position = Vector2( 1119.11, 1049.4 )
@@ -129,7 +174,6 @@ region_rect = Rect2( 1495.63, 875.203, 394.287, 432.889 )
 self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
 position = Vector2( 16.7034, -3.41772 )
 rotation = 1.61262
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 513.9, 1654.83, 366.934, 301.816 )
@@ -141,6 +185,29 @@ position = Vector2( 1142.46, 786.875 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( -22.428, -13.4219, 1520.17, 1309.37 )
+
+[node name="KlekSleeping" type="Sprite" parent="IntroPopUp"]
+position = Vector2( 859.067, 877.462 )
+scale = Vector2( 0.774242, 0.774242 )
+texture = ExtResource( 7 )
+hframes = 2
+vframes = 2
+
+[node name="ColorRect" type="ColorRect" parent="IntroPopUp/KlekSleeping"]
+show_behind_parent = true
+margin_left = -381.724
+margin_top = -510.828
+margin_right = 368.276
+margin_bottom = 522.172
+rect_rotation = -0.123456
+color = Color( 0.384314, 0.243137, 0.396078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IntroPopUp/KlekSleeping"]
+playback_speed = 0.5
+anims/sleeping\ = SubResource( 4 )
 
 [node name="GUIelements-2" type="Sprite" parent="IntroPopUp"]
 self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
@@ -157,7 +224,7 @@ margin_left = 1225.0
 margin_top = 576.0
 margin_right = 1675.0
 margin_bottom = 936.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "Help to wake up Klek by finding all the card pairs!"
 autowrap = true
 __meta__ = {
@@ -206,7 +273,7 @@ margin_left = 534.35
 margin_top = 663.0
 margin_right = 1674.35
 margin_bottom = 1000.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "Are you sure you want to go to the house?"
 align = 1
 autowrap = true
@@ -230,7 +297,7 @@ margin_top = 31.0
 margin_right = 347.0
 margin_bottom = 102.0
 rect_rotation = -180.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "YES"
 align = 1
 autowrap = true
@@ -251,7 +318,6 @@ region_rect = Rect2( 0.796677, 1659.36, 513.686, 222.732 )
 self_modulate = Color( 0.45098, 0.67451, 0.592157, 0.572549 )
 show_behind_parent = true
 position = Vector2( -3.85693, -2.27673 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 876.336, 1711.87, 457.593, 147.42 )
@@ -263,7 +329,7 @@ margin_top = 31.0
 margin_right = 353.0
 margin_bottom = 102.0
 rect_rotation = -180.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "NO"
 align = 1
 autowrap = true
