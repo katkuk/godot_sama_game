@@ -27,7 +27,8 @@ func updatePicture():
 			picture.visible = true
 
 func _on_HomeBtn_pressed():
-	print("Home pressed")
+	queue_free()
+	Global.loadScene("kuna")
 
 func _on_RestartBtn_pressed():
 	queue_free()

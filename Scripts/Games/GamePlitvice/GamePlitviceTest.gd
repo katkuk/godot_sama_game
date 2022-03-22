@@ -2,71 +2,110 @@ extends Node2D
 
 onready var ingredientPositions = $requiredIngPositions
 onready var waterfallOptionsGroup = $waterfallOptions
-onready var currentPath = null
-onready var ingredientArray2 = []
-onready var requiredIngrediendArray = []
-var positionedRequiredIngredients = []
 onready var kunaAP = $Kuna/kuna/AnimationPlayer
-onready var branches = ["res://Scenes/Games/GamePlitvice/branches/branch1.tscn","res://Scenes/Games/GamePlitvice/branches/branch2.tscn","res://Scenes/Games/GamePlitvice/branches/branch3.tscn","res://Scenes/Games/GamePlitvice/branches/branch4.tscn"]
-onready var branchCounter = 3
 
-func _process(delta):
-	pass
+var currentPath
+var ingredientArray = []
+var requiredIngrediendArray = []
+var branches = []
+var positionedRequiredIngredients = []
+var branchCounter #between 2 and 4 - how many branches fall until an ingredient falls
+var timer
+
+var minigameIntroPopUp = preload("res://Scenes/GUI/MinigameIntroPopUp.tscn")
+var minigameWinPopUp = preload("res://Scenes/GUI/MinigameWinPopUp.tscn")
+var introText = "Enjoy Plitvice time!"
+var winText = "You did it!"
 	
 func _ready():
+	setupVars()
+	setupTimer()
+	displayIntroPopup()
+
+func setupVars():
+	for n in range(1,5):
+		var branchScene = "res://Scenes/Games/GamePlitvice/branches/branch"+str(n)+".tscn"
+		branches.push_front(branchScene)
+	
 	for n in range(1,11):
-		var scene = "res://Scenes/Games/GamePlitvice/ingredients/ingredient"+str(n)+".tscn"
-		ingredientArray2.push_front(scene)
+		var ingredientScene = "res://Scenes/Games/GamePlitvice/ingredients/ingredient"+str(n)+".tscn"
+		ingredientArray.push_front(ingredientScene)
+
 	randomize()
-	ingredientArray2.shuffle()
-	requiredIngrediendArray = ingredientArray2.slice(0,4,1)
-	getRequiredIngredients()
+	ingredientArray.shuffle()
+	requiredIngrediendArray = ingredientArray.slice(0,4,1)
+	setBranchCounter()
+
+func setupTimer():
+	timer = Timer.new()
+	timer.set_one_shot(false)
+	timer.wait_time = 4
+	timer.connect("timeout", self, "_on_timer_timeout")
+	add_child(timer)
+
+func displayIntroPopup():
+	var introPopUp = minigameIntroPopUp.instance()
+	introPopUp.init(introText, "plitvice")
+	introPopUp.connect("startMinigame", self, "startGame")
+	add_child(introPopUp)
+
+func startGame():
+	loadRequiredIngredients()
+	timer.start()
+
+func _on_timer_timeout():
 	generateFallingIngredients()
 
-func getRequiredIngredients():
+func restartGame():
+	setupVars()
+	loadRequiredIngredients()
+	timer.start()
+
+func loadRequiredIngredients():
 	var positions = ingredientPositions.get_children()
 	var i = -1
 	for position in positions:
 		i = i+1
-		var whereItBe = ingredientArray2[i];
-		var Ingredient = load(whereItBe)
-		var ingredient = Ingredient.instance()
-		var main = get_tree().current_scene
+		var ingredient = load(requiredIngrediendArray[i]).instance()
 		ingredient.scale = Vector2(0.4, 0.4)
-		main.add_child(ingredient)
+		add_child(ingredient)
 		positionedRequiredIngredients.push_front(ingredient)
 		ingredient.global_position = position.global_position
 
-
 func generateFallingIngredients():
 	var waterfallOptions = waterfallOptionsGroup.get_children()
-	var object = null
+	var object
+	randomize()
 	requiredIngrediendArray.shuffle()
 	randomize()
 	waterfallOptions.shuffle()
-	randomize()
+	
 	if branchCounter > 0:
 		var whichBranch = [0,1,2,3]
-		whichBranch.shuffle()
 		randomize()
+		whichBranch.shuffle()
 		object = branches[whichBranch[0]]
 		branchCounter = branchCounter - 1
 	else:
 		object = requiredIngrediendArray[0]
-		var howManyBranches = [2,3,4]
-		randomize()
-		howManyBranches.shuffle()
-		print("new branch count:" + str(howManyBranches[0]))
-		branchCounter = howManyBranches[0]
+		setBranchCounter()
 	
 	animateFallingObject(waterfallOptions[0], object)
+
+func setBranchCounter():
+	var branchCounterOptions = [2,3,4]
+	#var branchCounterOptions = [1]
+	randomize()
+	branchCounterOptions.shuffle()
+	branchCounter = branchCounterOptions[0]
+	#print("new branch counter:" + str(branchCounter))
 	
 func animateFallingObject(waterfallOption, object):
+	#print(str(object)+ " is falling")
 	var newPathFollow = PathFollow2D.new()
 	waterfallOption.add_child(newPathFollow)
 	currentPath = newPathFollow
-	var FallingIngredient = load(object)
-	var fallingIngredient = FallingIngredient.instance()
+	var fallingIngredient = load(object).instance()
 	fallingIngredient.scale = Vector2(0.4, 0.4)
 	currentPath.add_child(fallingIngredient)
 	#createAnimationplayer and animation
@@ -75,12 +114,8 @@ func animateFallingObject(waterfallOption, object):
 	currentPath.add_child(animationPlayer)
 	animation.set_length(1)
 	animation.add_track(0)
-	var waterfallOptionName = waterfallOption.get_name()
-	#print(newPathFollow.get_path())
-	var newPathFollowName = str(newPathFollow.get_path())
-	newPathFollowName = newPathFollowName.replace("/root/Node2D/waterfallOptions", "")
-	#print(newPathFollowName)
-	animation.track_set_path(0,"/root/Node2D/waterfallOptions"+newPathFollowName +"/:unit_offset")
+	#print("path to follow: " + str(newPathFollow.get_path()))
+	animation.track_set_path(0, str(newPathFollow.get_path()) +"/:unit_offset")
 	animation.track_insert_key(0,0.0,0.0)
 	animation.track_insert_key(0,1.0,1.0)
 	animationPlayer.add_animation("falling", animation)
@@ -89,18 +124,34 @@ func animateFallingObject(waterfallOption, object):
 	#handleRemovingErrything
 	yield(animationPlayer, "animation_finished")
 	newPathFollow.queue_free()
-	
-func _on_Timer_timeout():
-	generateFallingIngredients()
-	pass
 
 func _on_kunaArea2D_area_entered(area):
 	if requiredIngrediendArray.has(area.filename):
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
 				ing.get_child(0).visible = true
+				var ingSceneName = "res://Scenes/Games/GamePlitvice/ingredients/"+ing.name+".tscn"
+				requiredIngrediendArray.erase(ingSceneName)
+				if requiredIngrediendArray == []:
+					resetVars()
+					displayWinPopUp()
 	else:
 		print("NOP")
 		kunaAP.play("bonk")
 		yield(kunaAP, "animation_finished")
 		kunaAP.play("swim")
+
+func resetVars():
+	branches.clear()
+	ingredientArray.clear()
+	timer.stop()
+	for ing in positionedRequiredIngredients:
+		ing.get_child(0).visible = false
+		ing.queue_free()
+	positionedRequiredIngredients.clear()
+
+func displayWinPopUp():
+	var winPopUp = minigameWinPopUp.instance()
+	winPopUp.init(winText, "plitvice")
+	winPopUp.connect("restartMinigame", self, "restartGame")
+	add_child(winPopUp)

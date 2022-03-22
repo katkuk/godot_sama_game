@@ -177,13 +177,14 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2002.1, 4.03174, 3.7755, -30.204, -3.7755, 30.204, 2022.86, 676.07, 39.6427, -26.4285, -39.6427, 26.4285, 1881.28, 711.938, 3.7755, -94.3874, -3.7755, 94.3874, 1820.87, 893.161, 0, 0, 0, 0, 1813.32, 1242.39 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="GamePlitvice" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_top = -27.0
 margin_right = 1836.0
 margin_bottom = 282.0
+mouse_filter = 2
 color = Color( 0.105882, 0.756863, 0.741176, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -206,6 +207,7 @@ margin_left = -1044.0
 margin_top = 104.0
 margin_right = 1043.0
 margin_bottom = 1086.0
+mouse_filter = 2
 color = Color( 0.666667, 0.223529, 0.321569, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -217,6 +219,7 @@ margin_left = -1046.0
 margin_top = 1079.0
 margin_right = 1054.0
 margin_bottom = 1532.0
+mouse_filter = 2
 color = Color( 0, 0.694118, 0.482353, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -235,7 +238,6 @@ position = Vector2( 1114.52, 1200.18 )
 scale = Vector2( 1.09944, 1 )
 texture = ExtResource( 7 )
 vframes = 3
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="waves"]
 autoplay = "waves"
@@ -267,19 +269,19 @@ region_rect = Rect2( 309.783, 1978.98, 244.311, 74.8693 )
 
 [node name="requiredIngPositions" type="Node2D" parent="."]
 
-[node name="Position2D" type="Position2D" parent="requiredIngPositions"]
+[node name="Position1" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 754.571, 1509.02 )
 
-[node name="Position2D2" type="Position2D" parent="requiredIngPositions"]
+[node name="Position2" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 917.706, 1514.07 )
 
-[node name="Position2D3" type="Position2D" parent="requiredIngPositions"]
+[node name="Position3" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 1090.93, 1514.07 )
 
-[node name="Position2D4" type="Position2D" parent="requiredIngPositions"]
+[node name="Position4" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 1267.52, 1510.71 )
 
-[node name="Position2D5" type="Position2D" parent="requiredIngPositions"]
+[node name="Position5" type="Position2D" parent="requiredIngPositions"]
 position = Vector2( 1430.65, 1510.71 )
 
 [node name="Kuna" type="KinematicBody2D" parent="."]
@@ -381,9 +383,4 @@ curve = SubResource( 22 )
 [node name="Path2D19" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 23 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [connection signal="area_entered" from="Kuna/kunaArea2D" to="." method="_on_kunaArea2D_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

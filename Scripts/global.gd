@@ -2,7 +2,7 @@ extends Node
 var current_scene
 
 var sceneList = {
-	"kuna" : "res://Scenes/KunaHouse/KunaHouseScene.tscn",
+	"kuna" : "res://Scenes/KunaHouse/KunaHouseSceneTestKatka.tscn",
 	"map" : "res://Scenes/Map/Map.tscn",
 	"klek" : "res://Scenes/Games/GameKlek/Klek_MemoryGame.tscn",
 	"caroline" : "res://Scenes/Games/GameCaroline/GameCaroline.tscn",

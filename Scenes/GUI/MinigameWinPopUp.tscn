@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/confettiTexture.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GUI/GUIelements-0.png" type="Texture" id=2]
@@ -48,6 +48,22 @@ size = 200
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=3]
+resource_name = "WakeUP"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 3, 4, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
 resource_name = "WakeUP"
 loop = true
 tracks/0/type = "value"
@@ -128,6 +144,19 @@ frame = 1
 autoplay = "WakeUP"
 playback_speed = 0.5
 anims/WakeUP = SubResource( 3 )
+
+[node name="Plitvice" type="Sprite" parent="Pictures"]
+position = Vector2( 1114.12, 1029.24 )
+scale = Vector2( 1.01117, 1.01117 )
+texture = ExtResource( 3 )
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pictures/Plitvice"]
+autoplay = "WakeUP"
+playback_speed = 0.5
+anims/WakeUP = SubResource( 5 )
 
 [node name="Frame" type="Sprite" parent="."]
 self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
