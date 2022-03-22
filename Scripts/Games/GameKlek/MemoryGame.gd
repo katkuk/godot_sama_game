@@ -13,16 +13,34 @@ var score = 0
 var scoreText
 var restartBtn
 var shuffleBtn
+var minigameIntroPopUp = preload("res://Scenes/GUI/MinigameIntroPopUp.tscn")
+var minigameWinPopUp = preload("res://Scenes/GUI/MinigameWinPopUp.tscn")
+var introText = "Help to wake up Klek by finding all the card pairs!"
+var winText = "You did it!"
 
 func _ready():
-	print_tree()
+	displayIntroPopup()
+
+func displayIntroPopup():
+	var introPopUp = minigameIntroPopUp.instance()
+	introPopUp.init(introText, "klek")
+	introPopUp.connect("startMinigame", self, "startGame")
+	add_child(introPopUp)
+
+func displayWinPopUp():
+	var winPopUp = minigameWinPopUp.instance()
+	winPopUp.init(winText, "klek")
+	winPopUp.connect("restartMinigame", self, "restartGame")
+	add_child(winPopUp)
+
+func startGame():
 	getPositions()
 	shufflePositions()
 	dealDeck()
 	setupTimers()
 	setupHUD()
 
-func restartMemoryGame():
+func restartGame():
 	for c in range(positions.size()):
 		positions[c].get_child(0).queue_free()
 	positions.clear()
@@ -35,10 +53,6 @@ func restartMemoryGame():
 func setupHUD():
 	scoreText = get_node('MemoryGameHUD/Panel/Columns/ScoreColumn/Score')
 	scoreText.text = str(score) + " from " + str(positions.size()/2)
-	restartBtn = get_node('MemoryGameHUD/Panel/Columns/BtnsColumn/RestartGameBtn')
-	shuffleBtn = get_node('MemoryGameHUD/Panel/Columns/BtnsColumn/ShuffleGameBtn')
-	restartBtn.connect("pressed", self, "restartMemoryGame")
-	shuffleBtn.connect("pressed", self, "reshuffleDeck")
 
 func setupTimers():
 	flipTimer.connect("timeout", self, "turnOverCards")
@@ -56,30 +70,6 @@ func shufflePositions():
 	randomize()
 	positions.shuffle()
 
-#func fillDeck():
-#	var s = 1
-#	var v = 1
-#	while v < 3:
-#		s = 1
-#		while s < 6:
-#			deck.append("res://Scenes/Games/GameKlek/MemoryCards/MemoryCard"+str(s)+".tscn")
-#
-#			#deck.append(MemoryCardNew.new(s,v))
-#			#deckArgs.append(s,v)
-#			s += 1
-#		v += 1
-#	print(deck)
-#
-#func shuffleDeck():
-#	randomize()
-#	deck.shuffle()
-
-func reshuffleDeck():
-	print("TIME TO RESHUFFLE! (doesnt work yet)")
-#	for c in range(deck.size()):
-#		if deck[c].matched == false:
-#			print(deck[c].value)
-
 func dealDeck():
 	var s = 1
 	var v = 1
@@ -88,7 +78,6 @@ func dealDeck():
 		s = 1
 		while s < 6:
 			var klekCard = load("res://Scenes/Games/GameKlek/MemoryCards/MemoryCard"+str(s)+".tscn").instance()
-			#var klekCard = load("res://Scenes/Games/GameKlek/MemoryCards/MemoryCard2.tscn").instance()
 			klekCard.init(s,v)
 			positions[c].add_child(klekCard)
 			if c < 5:
@@ -129,8 +118,7 @@ func matchCardsAndScore():
 	card1 = null
 	card2 = null
 	if score == positions.size()/2:
-		restartMemoryGame()
-
+		displayWinPopUp()
 
 
 

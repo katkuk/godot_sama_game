@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/Pictures/KlekSleeping.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/GUIelements-1.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/GUI/MinigameIntroPopUp.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=4]
+resource_name = "sleeping\\"
+length = 0.85
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 3, 2, 1, 0, 0 ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 706, 705 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 706, 0, 706, 705 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 705, 706, 705 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "animate",
+"speed": 7.0
+} ]
+
+[node name="IntroPopUp" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1142.46, 786.875 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -22.428, -13.4219, 1520.17, 1309.37 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pictures" type="Node2D" parent="."]
+
+[node name="Klek" type="Sprite" parent="Pictures"]
+visible = false
+position = Vector2( 859.067, 877.462 )
+scale = Vector2( 0.774242, 0.774242 )
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pictures/Klek"]
+show_behind_parent = true
+margin_left = -381.724
+margin_top = -510.828
+margin_right = 368.276
+margin_bottom = 522.172
+rect_rotation = -0.123456
+color = Color( 0.384314, 0.243137, 0.396078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pictures/Klek"]
+playback_speed = 0.5
+anims/sleeping\ = SubResource( 4 )
+
+[node name="PictureFrame" type="Sprite" parent="."]
+self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
+position = Vector2( 857.428, 881.364 )
+rotation = -1.57079
+scale = Vector2( 0.949086, 0.949086 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -18.2762, 1322.56, 884.47, 654.437 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text" type="Label" parent="."]
+self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+margin_left = 1225.0
+margin_top = 576.0
+margin_right = 1675.0
+margin_bottom = 936.0
+custom_fonts/font = SubResource( 5 )
+text = "Lorem ipsum dolor amet sind durum kebab a kales"
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayMinigameBtn" type="TextureButton" parent="."]
+margin_left = 1325.0
+margin_top = 983.0
+margin_right = 1604.0
+margin_bottom = 1235.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animation" type="AnimatedSprite" parent="PlayMinigameBtn"]
+self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
+position = Vector2( -15, -15 )
+scale = Vector2( 0.42, 0.42 )
+frames = SubResource( 6 )
+animation = "animate"
+playing = true
+centered = false
+
+[connection signal="pressed" from="PlayMinigameBtn" to="." method="_on_PlayMinigameBtn_pressed"]
