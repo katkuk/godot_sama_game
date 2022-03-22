@@ -4,18 +4,20 @@ var pressed = false
 var active_line
 #onready var color = $ColorRect/Color
 var spongeSelected = false
+var brushSelected = true
+
+
 onready var sponge = $ColorRect/Sponge
 onready var originalSpongePosition = sponge.get_position()
 onready var brush = $ColorRect/Brush
 onready var originalBrushPosition = brush.get_position()
 onready var brushTip = $ColorRect/Brush/BrushTip
 onready var canvas = $Area2D
-onready var animationPlayerSponge = $ColorRect/Sponge/AnimationPlayer
 onready var particles = $ColorRect/Sponge/Particles2D
 
 
 const Colore = preload("res://Scenes/Games/GameCaroline/Color.tscn")
-onready var colorSpawnPoints = $ColorRect/ColorSpawnPoints
+onready var colorSpawnPoints = $ColorRect/Palette/ColorSpawnPoints
 onready var colorSetOne = ["#8B58A5", "#1E1717", "#D8BBAE", "#AA645D", "#6D2541", "#D0C1D8"]
 onready var currentColor = Color(colorSetOne[0])
 
@@ -40,8 +42,6 @@ func _process(delta):
 	followMouse()
 	
 func onColorChanged(message):
-	#print('game also knows that color has been clicked')
-	#print(message)
 	currentColor = message
 	brushTip.self_modulate = currentColor;
 	
@@ -54,9 +54,9 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			active_line.width = 50
 			active_line.set_texture(load("res://Assets/Textures/GameCaroline/export_ready-12.png"))
 			active_line.set_texture_mode(2)
-			if spongeSelected and event is InputEventMouseMotion:
+			if spongeSelected:
 				active_line.width = 130
-				currentColor = "#dfdece"
+				currentColor = "#fefce0"
 			active_line.default_color = currentColor
 			add_child(active_line)
 		else:
@@ -72,11 +72,9 @@ func _on_Sponge_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			spongeSelected = true
-			animationPlayerSponge.play("rotate")
 			particles.emitting = true
 		else:
 			spongeSelected = false
-			animationPlayerSponge.play("rotateBack")
 			particles.emitting = false
 			sponge.set_global_position(originalSpongePosition)
 				
@@ -90,7 +88,19 @@ func followMouse():
 		brush.rotation_degrees = -131.6
 			
 			
-			
-			
-			
-			
+func _on_SpongePalette_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.pressed:
+			spongeSelected = true;
+			brushSelected = false;
+			$ColorRect/Palette/SpongePalette/highlightSponge.visible = true
+			$ColorRect/Palette/BrushPalette/highlightBrush.visible = false
+	
+
+func _on_BrushPalette_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.pressed:
+			spongeSelected = false;
+			brushSelected = true;
+			$ColorRect/Palette/SpongePalette/highlightSponge.visible = false
+			$ColorRect/Palette/BrushPalette/highlightBrush.visible = true

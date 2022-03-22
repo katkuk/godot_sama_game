@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Games/GameCaroline/Color.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 7.65151
 
 [node name="Color" type="Area2D"]
 script = ExtResource( 2 )
@@ -11,6 +12,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.168627, 0.133333, 0.560784, 1 )
 rotation = -1.55742
+scale = Vector2( 0.677416, 0.677416 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 655.777, 1747.52, 142.478, 150.086 )
