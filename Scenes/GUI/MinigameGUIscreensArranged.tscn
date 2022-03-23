@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/GUI/MinigameWinPopUp.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Textures/GUI/GUIelements-2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/GUI/GUIelements-1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/GUI/MinigameOnScreenGui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GUI/MinigameIntroPopUp.tscn" type="PackedScene" id=6]
-
-[sub_resource type="DynamicFont" id=5]
-size = 80
-font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,102 +12,4 @@ visible = false
 [node name="IntroPopUp" parent="." instance=ExtResource( 6 )]
 visible = false
 
-[node name="OnScreenGui" type="Node2D" parent="."]
-visible = false
-
-[node name="restart" type="Sprite" parent="OnScreenGui"]
-position = Vector2( 2054.57, 1516.36 )
-rotation = -5.11296e-05
-scale = Vector2( 0.60121, 0.601209 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 513.9, 1654.83, 366.934, 301.816 )
-
-[node name="home" type="Sprite" parent="OnScreenGui"]
-position = Vector2( 197.497, 1492.45 )
-rotation = -1.57079
-scale = Vector2( 0.589505, 0.589506 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 1512.01, 419.086, 385.675, 457.411 )
-
-[node name="ConfirmPopUp" type="Node2D" parent="."]
-visible = false
-
-[node name="GUIelements-2" type="Sprite" parent="ConfirmPopUp"]
-position = Vector2( 1117.75, 733.518 )
-rotation = -1.57971
-scale = Vector2( 0.883491, 0.883491 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( -13.5533, 0, 970.892, 1655.94 )
-
-[node name="Label2" type="Label" parent="ConfirmPopUp"]
-self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
-margin_left = 534.35
-margin_top = 663.0
-margin_right = 1674.35
-margin_bottom = 1000.0
-custom_fonts/font = SubResource( 5 )
-text = "Are you sure you want to go to the house?"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="buttonNO" type="Sprite" parent="ConfirmPopUp"]
-self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
-position = Vector2( 841.818, 947.392 )
-rotation = 3.13818
-scale = Vector2( 0.883491, 0.883491 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0.796677, 1659.36, 513.686, 222.732 )
-
-[node name="Label3" type="Label" parent="ConfirmPopUp/buttonNO"]
-self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
-margin_left = 113.0
-margin_top = 31.0
-margin_right = 347.0
-margin_bottom = 102.0
-rect_rotation = -180.0
-custom_fonts/font = SubResource( 5 )
-text = "YES"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="buttonYES" type="Sprite" parent="ConfirmPopUp"]
-self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
-position = Vector2( 1354.06, 951.392 )
-rotation = 3.13818
-scale = Vector2( 0.883491, 0.883491 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0.796677, 1659.36, 513.686, 222.732 )
-
-[node name="backgroundColor" type="Sprite" parent="ConfirmPopUp/buttonYES"]
-self_modulate = Color( 0.45098, 0.67451, 0.592157, 0.572549 )
-show_behind_parent = true
-position = Vector2( -3.85693, -2.27673 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 876.336, 1711.87, 457.593, 147.42 )
-
-[node name="Label3" type="Label" parent="ConfirmPopUp/buttonYES"]
-self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
-margin_left = 113.0
-margin_top = 31.0
-margin_right = 353.0
-margin_bottom = 102.0
-rect_rotation = -180.0
-custom_fonts/font = SubResource( 5 )
-text = "NO"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="OnScreenGui" parent="." instance=ExtResource( 2 )]

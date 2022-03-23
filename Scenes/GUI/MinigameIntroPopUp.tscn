@@ -67,8 +67,12 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[node name="IntroPopUp" type="Node2D"]
+[node name="IntroPopUp" type="Control"]
+mouse_filter = 2
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 1142.46, 786.875 )
@@ -79,7 +83,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Pictures" type="Node2D" parent="."]
+[node name="Pictures" type="Control" parent="."]
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Klek" type="Sprite" parent="Pictures"]
 visible = false
@@ -177,7 +185,7 @@ position = Vector2( -15, -15 )
 scale = Vector2( 0.42, 0.42 )
 frames = SubResource( 6 )
 animation = "animate"
-frame = 1
+frame = 2
 playing = true
 centered = false
 

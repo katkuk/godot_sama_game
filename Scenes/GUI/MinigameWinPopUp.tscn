@@ -79,9 +79,12 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 3, 4, 3 ]
 }
 
-[node name="WinPopUp" type="Node2D"]
-position = Vector2( 2.84096, -4.07698 )
+[node name="WinPopUp" type="Control"]
+mouse_filter = 2
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 674.447, 562.276 )
@@ -128,9 +131,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pictures" type="Node2D" parent="."]
-position = Vector2( -0.000139713, -4.62532e-05 )
-scale = Vector2( 1, 1 )
+[node name="Pictures" type="Control" parent="."]
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Klek" type="Sprite" parent="Pictures"]
 position = Vector2( 1114.12, 1029.24 )

@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-0.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Games/GamePlitvice/GamePlitviceTest.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/GamePlitvice/kunaAnimations.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/GamePlitvice/waves.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Games/GamePlitvice/KunaSwimming.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Textures/GamePlitvice/kunaAnimations.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Games/GamePlitvice/GamePlitvice.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Textures/GamePlitvice/plitviceSprites-1.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Textures/GamePlitvice/waves.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "waves"
@@ -178,7 +178,7 @@ _data = {
 }
 
 [node name="GamePlitvice" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_top = -27.0
@@ -194,7 +194,7 @@ __meta__ = {
 [node name="purpleBg" type="Sprite" parent="."]
 position = Vector2( 1111.13, 94.3233 )
 scale = Vector2( 1.16668, 1.05654 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -19.315, -30.3247, 2086.08, 233.963 )
 __meta__ = {
@@ -229,14 +229,14 @@ __meta__ = {
 [node name="waterfalls" type="Sprite" parent="."]
 position = Vector2( 1019.26, 616.168 )
 scale = Vector2( 1.05412, 1.13049 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 8.13278, 443.306, 2057.31, 1098.15 )
 
 [node name="waves" type="Sprite" parent="."]
 position = Vector2( 1114.52, 1200.18 )
 scale = Vector2( 1.09944, 1 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="waves"]
@@ -255,7 +255,7 @@ region_rect = Rect2( -5.89432, -8.87155, 926.082, 215.775 )
 position = Vector2( 1563.57, 1505.83 )
 rotation = 1.56658
 scale = Vector2( 0.910054, 0.910054 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -3.87964, 1975.83, 250.615, 80.386 )
 
@@ -263,7 +263,7 @@ region_rect = Rect2( -3.87964, 1975.83, 250.615, 80.386 )
 position = Vector2( 639.75, 1505.83 )
 rotation = 1.56658
 scale = Vector2( 0.910054, 0.910054 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 309.783, 1978.98, 244.311, 74.8693 )
 
@@ -303,7 +303,7 @@ polygon = PoolVector2Array( 56.7317, -70.925, -2.06851, -73.0439, -26.4362, -83.
 [node name="kuna" type="Sprite" parent="Kuna"]
 position = Vector2( 12.4037, -12.341 )
 scale = Vector2( 0.733711, 0.733711 )
-texture = ExtResource( 5 )
+texture = ExtResource( 2 )
 hframes = 4
 vframes = 6
 frame = 14

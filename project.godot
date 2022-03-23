@@ -19,12 +19,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Games/GameKlek/MemoryCard_new.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
 "class": "MinigameIntroPopUp",
 "language": "GDScript",
 "path": "res://Scripts/GUI/MinigameIntroPopUp.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
+"class": "MinigameOnScreenGUI",
+"language": "GDScript",
+"path": "res://Scripts/GUI/MinigameOnScreenGui.gd"
+}, {
+"base": "Control",
 "class": "MinigameWinPopUp",
 "language": "GDScript",
 "path": "res://Scripts/GUI/MinigameWinPopUp.gd"
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "MemoryCard": "",
 "MemoryCardNew": "",
 "MinigameIntroPopUp": "",
+"MinigameOnScreenGUI": "",
 "MinigameWinPopUp": "",
 "PlayMinigameBtn": ""
 }

@@ -6,7 +6,7 @@ var sceneList = {
 	"map" : "res://Scenes/Map/Map.tscn",
 	"klek" : "res://Scenes/Games/GameKlek/Klek_MemoryGame.tscn",
 	"caroline" : "res://Scenes/Games/GameCaroline/GameCaroline.tscn",
-	"plitvice" : "res://Scenes/Games/GamePlitvice/GamePlitviceTest.tscn"
+	"plitvice" : "res://Scenes/Games/GamePlitvice/GamePlitvice.tscn"
 	}
 
 func _ready():

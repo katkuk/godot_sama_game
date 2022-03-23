@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name MinigameIntroPopUp
 var minigamePic
 var text

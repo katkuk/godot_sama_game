@@ -14,13 +14,20 @@ var timer
 
 var minigameIntroPopUp = preload("res://Scenes/GUI/MinigameIntroPopUp.tscn")
 var minigameWinPopUp = preload("res://Scenes/GUI/MinigameWinPopUp.tscn")
+var minigameOnScreenGUI = preload("res://Scenes/GUI/MinigameOnScreenGui.tscn")
 var introText = "Enjoy Plitvice time!"
 var winText = "You did it!"
+var onScreenPopUpText = "Are you sure you want to leave the minigame?"
+var onScreenYesText = "Yes"
+var onScreenNoText = "No"
+var onScreenGui
 	
 func _ready():
 	setupVars()
 	setupTimer()
 	displayIntroPopup()
+	addOnScreenGui()
+	onScreenGuiVisible(false)
 
 func setupVars():
 	for n in range(1,5):
@@ -49,7 +56,17 @@ func displayIntroPopup():
 	introPopUp.connect("startMinigame", self, "startGame")
 	add_child(introPopUp)
 
+func addOnScreenGui():
+	onScreenGui = minigameOnScreenGUI.instance()
+	onScreenGui.init(onScreenPopUpText, onScreenYesText, onScreenNoText)
+	onScreenGui.connect("restartMinigame", self, "restartGame")
+	add_child(onScreenGui)
+
+func onScreenGuiVisible(visible):
+	onScreenGui.visible = visible
+
 func startGame():
+	onScreenGuiVisible(true)
 	loadRequiredIngredients()
 	timer.start()
 
@@ -57,6 +74,8 @@ func _on_timer_timeout():
 	generateFallingIngredients()
 
 func restartGame():
+	onScreenGuiVisible(true)
+	resetVars()
 	setupVars()
 	loadRequiredIngredients()
 	timer.start()
@@ -93,8 +112,9 @@ func generateFallingIngredients():
 	animateFallingObject(waterfallOptions[0], object)
 
 func setBranchCounter():
-	var branchCounterOptions = [2,3,4]
-	#var branchCounterOptions = [1]
+	#var branchCounterOptions = [2,3,4]
+	#FOR DEBUGGING
+	var branchCounterOptions = [1]
 	randomize()
 	branchCounterOptions.shuffle()
 	branchCounter = branchCounterOptions[0]
@@ -108,6 +128,7 @@ func animateFallingObject(waterfallOption, object):
 	var fallingIngredient = load(object).instance()
 	fallingIngredient.scale = Vector2(0.4, 0.4)
 	currentPath.add_child(fallingIngredient)
+	print("falling ingredient: " + str(fallingIngredient))
 	#createAnimationplayer and animation
 	var animationPlayer = AnimationPlayer.new()
 	var animation = Animation.new()
@@ -129,11 +150,15 @@ func _on_kunaArea2D_area_entered(area):
 	if requiredIngrediendArray.has(area.filename):
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
+				print("removing ing: " + str(ing))
+				print("required ingredients before: ", requiredIngrediendArray)
 				ing.get_child(0).visible = true
 				var ingSceneName = "res://Scenes/Games/GamePlitvice/ingredients/"+ing.name+".tscn"
 				requiredIngrediendArray.erase(ingSceneName)
+				print("required ingredients after: ", requiredIngrediendArray)
 				if requiredIngrediendArray == []:
 					resetVars()
+					onScreenGuiVisible(false)
 					displayWinPopUp()
 	else:
 		print("NOP")
@@ -144,6 +169,7 @@ func _on_kunaArea2D_area_entered(area):
 func resetVars():
 	branches.clear()
 	ingredientArray.clear()
+	requiredIngrediendArray.clear()
 	timer.stop()
 	for ing in positionedRequiredIngredients:
 		ing.get_child(0).visible = false

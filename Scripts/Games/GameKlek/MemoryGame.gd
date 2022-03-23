@@ -15,11 +15,18 @@ var restartBtn
 var shuffleBtn
 var minigameIntroPopUp = preload("res://Scenes/GUI/MinigameIntroPopUp.tscn")
 var minigameWinPopUp = preload("res://Scenes/GUI/MinigameWinPopUp.tscn")
+var minigameOnScreenGUI = preload("res://Scenes/GUI/MinigameOnScreenGui.tscn")
 var introText = "Help to wake up Klek by finding all the card pairs!"
 var winText = "You did it!"
+var onScreenPopUpText = "Are you sure you want to leave the minigame?"
+var onScreenYesText = "Yes"
+var onScreenNoText = "No"
+var onScreenGui
 
 func _ready():
 	displayIntroPopup()
+	addOnScreenGui()
+	onScreenGuiVisible(false)
 
 func displayIntroPopup():
 	var introPopUp = minigameIntroPopUp.instance()
@@ -33,7 +40,17 @@ func displayWinPopUp():
 	winPopUp.connect("restartMinigame", self, "restartGame")
 	add_child(winPopUp)
 
+func addOnScreenGui():
+	onScreenGui = minigameOnScreenGUI.instance()
+	onScreenGui.init(onScreenPopUpText, onScreenYesText, onScreenNoText)
+	onScreenGui.connect("restartMinigame", self, "restartGame")
+	add_child(onScreenGui)
+
+func onScreenGuiVisible(visible):
+	onScreenGui.visible = visible
+
 func startGame():
+	onScreenGuiVisible(true)
 	getPositions()
 	shufflePositions()
 	dealDeck()
@@ -41,6 +58,7 @@ func startGame():
 	setupHUD()
 
 func restartGame():
+	onScreenGuiVisible(true)
 	for c in range(positions.size()):
 		positions[c].get_child(0).queue_free()
 	positions.clear()
@@ -118,6 +136,7 @@ func matchCardsAndScore():
 	card1 = null
 	card2 = null
 	if score == positions.size()/2:
+		onScreenGuiVisible(false)
 		displayWinPopUp()
 
 
