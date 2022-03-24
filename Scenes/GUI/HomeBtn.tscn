@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/GUIelements-2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Textures/GUI/confirmPopUpBtnTexture.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GUI/HomeBtn.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Textures/GUI/homeBtnTexture.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="HomeBtn" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HomeBtn" type="TextureButton" parent="."]
+margin_left = 60.0
+margin_top = 1357.0
+margin_right = 330.0
+margin_bottom = 1627.0
+rect_min_size = Vector2( 270, 270 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmPopUp" type="Control" parent="."]
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="ConfirmPopUp"]
+position = Vector2( 1117.75, 733.518 )
+rotation = -1.57971
+scale = Vector2( 0.883491, 0.883491 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -13.5533, 0, 970.892, 1655.94 )
+
+[node name="Text" type="Label" parent="ConfirmPopUp"]
+self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+margin_left = 534.35
+margin_top = 663.0
+margin_right = 1674.35
+margin_bottom = 1000.0
+custom_fonts/font = SubResource( 5 )
+text = "Are you sure you want to go to the house?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesBtn" type="TextureButton" parent="ConfirmPopUp"]
+self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
+margin_left = 614.0
+margin_top = 848.0
+margin_right = 1064.0
+margin_bottom = 1061.0
+rect_min_size = Vector2( 450, 213 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesText" type="Label" parent="ConfirmPopUp/YesBtn"]
+self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+margin_left = 34.0
+margin_top = 46.0
+margin_right = 420.0
+margin_bottom = 168.0
+rect_rotation = -0.583448
+custom_fonts/font = SubResource( 5 )
+text = "YES"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoBtn" type="TextureButton" parent="ConfirmPopUp"]
+self_modulate = Color( 0.627451, 0.25098, 0.243137, 1 )
+margin_left = 1129.0
+margin_top = 848.0
+margin_right = 1579.0
+margin_bottom = 1061.0
+rect_min_size = Vector2( 450, 213 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoText" type="Label" parent="ConfirmPopUp/NoBtn"]
+self_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+margin_left = 34.0
+margin_top = 46.0
+margin_right = 420.0
+margin_bottom = 168.0
+rect_rotation = -0.583448
+custom_fonts/font = SubResource( 5 )
+text = "NO"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backgroundColor" type="Sprite" parent="ConfirmPopUp/NoBtn"]
+self_modulate = Color( 0.45098, 0.67451, 0.592157, 0.572549 )
+show_behind_parent = true
+position = Vector2( 228.474, 105.392 )
+rotation = 3.13818
+scale = Vector2( 0.883491, 0.883491 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 876.336, 1711.87, 457.593, 147.42 )
+
+[connection signal="pressed" from="HomeBtn" to="." method="_on_HomeBtn_pressed"]
+[connection signal="pressed" from="ConfirmPopUp/YesBtn" to="." method="_on_YesBtn_pressed"]
+[connection signal="pressed" from="ConfirmPopUp/NoBtn" to="." method="_on_NoBtn_pressed"]

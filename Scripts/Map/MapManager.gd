@@ -3,16 +3,6 @@ extends Node2D
 var current_scene #used to store the scene which is being displayed, if no scene is displayed this should be null
 var next_scene #used for storing next scene
 var current_story #used for storing current story, when no story is playing this is null
-
-#var storyList = {
-#	"caroline" : { 1 : "res://Scenes/TestScenes/CarolineWindowSceneTest.tscn",
-#			2 : "res://Scenes/TestScenes/DragonTest2.tscn",
-#			3 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
-#	"dragon": { 1 : "res://Scenes/TestScenes/DragonTest2.tscn",
-#			2 : "res://Scenes/TestScenes/CarolineShipSceneTest.tscn"},
-#	"kuna": {1 : "res://Scenes/KunaHouseScene.tscn"}
-#	}
-
 var storyList = {
 	"caroline" : { 1 : "res://Scenes/Stories/StoryCaroline/CarolineShipScene.tscn",
 			2 : "res://Scenes/Stories/StoryCaroline/RijekaAttackedScene.tscn",
@@ -28,16 +18,25 @@ var storyList = {
 			5: "res://Scenes/Stories/StoryKlek/KlekBecameMountain.tscn",
 			6: "res://Scenes/Stories/StoryKlek/KlekBookGameScreen.tscn"}
 	}
-
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
 onready var transitionShaderAP = get_parent().get_node("Book1/Node2D/TransitionShader/TransitionShaderAP")
 onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
 onready var scenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
+onready var homeBtn = preload("res://Scenes/GUI/HomeBtn.tscn")
+var homeBtnPopUpText = "Are you sure you want to leave the minigame?"
+var homeBtnYesText = "Yes"
+var homeBtnNoText = "No"
 
 func _ready():
 	bookGUI.visible = false;
+	displayHomeBtn()
+
+func displayHomeBtn():
+	var homeBtnScene = homeBtn.instance()
+	homeBtnScene.init(homeBtnPopUpText, homeBtnYesText, homeBtnNoText, "#a0403e")
+	add_child(homeBtnScene)
 
 func _on_MapIcon_pressed(story: String):
 	#print("clicked on btn with story: " + story)
