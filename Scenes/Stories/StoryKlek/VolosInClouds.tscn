@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scenes/Stories/StoryKlek/VolosInClouds.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Map/AddBookGuiColorField.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -15,6 +15,7 @@ font_data = ExtResource( 7 )
 
 [node name="VolosInClouds" type="Node2D"]
 script = ExtResource( 8 )
+GUIColorHex = "#61429d"
 
 [node name="Sky" type="ColorRect" parent="."]
 margin_right = 2226.0

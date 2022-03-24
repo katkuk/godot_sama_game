@@ -12,8 +12,6 @@ var yesText
 var noText
 var color
 
-signal restartMinigame
-
 func _ready():
 	confirmPopUp.visible = false
 	updateText()

@@ -6,7 +6,6 @@ var active_line
 var spongeSelected = false
 var brushSelected = true
 
-
 onready var sponge = $ColorRect/Sponge
 onready var originalSpongePosition = sponge.get_position()
 onready var brush = $ColorRect/Brush
@@ -15,11 +14,16 @@ onready var brushTip = $ColorRect/Brush/BrushTip
 onready var canvas = $Area2D
 onready var particles = $ColorRect/Sponge/Particles2D
 
-
 const Colore = preload("res://Scenes/Games/GameCaroline/Color.tscn")
 onready var colorSpawnPoints = $ColorRect/Palette/ColorSpawnPoints
 onready var colorSetOne = ["#8B58A5", "#1E1717", "#D8BBAE", "#AA645D", "#6D2541", "#D0C1D8"]
 onready var currentColor = Color(colorSetOne[0])
+
+var minigameOnScreenGUI = preload("res://Scenes/GUI/MinigameOnScreenGui.tscn")
+var onScreenPopUpText = "Are you sure you want to leave the minigame?"
+var onScreenYesText = "Yes"
+var onScreenNoText = "No"
+var onScreenGui
 
 func generateColors() :
 	var spawnpoints = colorSpawnPoints.get_children()
@@ -29,13 +33,22 @@ func generateColors() :
 			var currentColor = Colore.instance()
 			#print(currentColor.get_child(0).self_modulate)
 			currentColor.get_child(0).self_modulate = color
-			var main = get_tree().current_scene
-			main.add_child(currentColor)
+			add_child(currentColor)
 			currentColor.global_position = spawnpoints[i].global_position
 			currentColor.connect("colorChanged", self, "onColorChanged")
 			
 func _ready():
 	generateColors()
+	addOnScreenGui()
+
+func addOnScreenGui():
+	onScreenGui = minigameOnScreenGUI.instance()
+	onScreenGui.init(onScreenPopUpText, onScreenYesText, onScreenNoText)
+	onScreenGui.connect("restartMinigame", self, "restartGame")
+	add_child(onScreenGui)
+
+func restartGame():
+	print("restart minigame called")
 	
 func _process(delta):
 	#if spongeSelected:

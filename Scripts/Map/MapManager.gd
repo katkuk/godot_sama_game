@@ -10,13 +10,13 @@ var storyList = {
 			4: "res://Scenes/Stories/StoryCaroline/RijekaCircleScene.tscn",
 			5: "res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.tscn",
 			6: "res://Scenes/Stories/StoryCaroline/RijekaSavedScene.tscn",
-			7: "res://Scenes/Stories/StoryCaroline/CarolineBookGameScreen.tscn"},
+			7: "res://Scenes/Stories/PlayMinigameBookScreen.tscn"},
 	"klek" : { 1 : "res://Scenes/Stories/StoryKlek/VolosInClouds.tscn",
 			2 : "res://Scenes/Stories/StoryKlek/KlekSittingOnHill.tscn",
 			3 : "res://Scenes/Stories/StoryKlek/KlekAndVolos.tscn",
 			4: "res://Scenes/Stories/StoryKlek/MagicStuff.tscn",
 			5: "res://Scenes/Stories/StoryKlek/KlekBecameMountain.tscn",
-			6: "res://Scenes/Stories/StoryKlek/KlekBookGameScreen.tscn"}
+			6: "res://Scenes/Stories/PlayMinigameBookScreen.tscn"}
 	}
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
@@ -25,22 +25,29 @@ onready var bookBackground = get_parent().get_node("Book1/BookBackground")
 onready var bookGUI = get_parent().get_node("BookGUI")
 onready var scenePlaceholder = get_parent().get_node("Book1/ScenePlaceholder")
 onready var homeBtn = preload("res://Scenes/GUI/HomeBtn.tscn")
-var homeBtnPopUpText = "Are you sure you want to leave the minigame?"
+var homeBtnPopUpText = "Are you sure you want to go back to house?"
 var homeBtnYesText = "Yes"
 var homeBtnNoText = "No"
+var homeBtnInstantiatedScene
 
 func _ready():
 	bookGUI.visible = false;
 	displayHomeBtn()
+	homeBtnVisibility(true)
 
 func displayHomeBtn():
-	var homeBtnScene = homeBtn.instance()
-	homeBtnScene.init(homeBtnPopUpText, homeBtnYesText, homeBtnNoText, "#a0403e")
-	add_child(homeBtnScene)
+	homeBtnInstantiatedScene = homeBtn.instance()
+	homeBtnInstantiatedScene.init(homeBtnPopUpText, homeBtnYesText, homeBtnNoText, "#a0403e")
+	add_child(homeBtnInstantiatedScene)
+
+func homeBtnVisibility(visible):
+	homeBtnInstantiatedScene.visible = visible
 
 func _on_MapIcon_pressed(story: String):
 	#print("clicked on btn with story: " + story)
+	homeBtnVisibility(false)
 	current_story = story
+	Global.updateStory(current_story)
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
 	bookAnimationPlayer.play("bookCoverOpen")
@@ -60,6 +67,7 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 	next_scene.set_global_position(Vector2(70,35))
 	next_scene.rotate(deg2rad(1.5))
 	current_scene = next_scene
+	#print("current scene is " + str(current_scene))
 	updateBookGUI()
 
 func displayBookGUI(display : bool):
@@ -75,10 +83,11 @@ func updateBookGUI():
 	bookGUI.get_node("Container/NextSceneButton").set_modulate(Color(GUIcolor))
 	bookGUI.get_node("Container/PreviousSceneButton").set_modulate(Color(GUIcolor))
 	bookGUI.get_node("Container/CloseSceneButton").set_modulate(Color(GUIcolor))
-	
 	#update visibility
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
+			#print("this scene index: " + str(scene))
+			#print("number of scenes in this story: " + str(storyList[current_story].size()))
 			if scene >= storyList[current_story].size():
 				#print("this is the last scene in the story")
 				bookGUI.get_node("Container/NextSceneButton").visible = false;
@@ -92,11 +101,13 @@ func updateBookGUI():
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 
 func _on_CloseSceneButton_pressed():
+	homeBtnVisibility(true)
 	bookAnimationPlayer.play_backwards("animateIn")
 	current_scene.queue_free()
 	current_scene = null
 	current_story = null
 	displayBookGUI(false)
+	Global.updateStory(current_story)
 
 func _on_NextSceneButton_pressed():
 	for scene in storyList[current_story]:
@@ -111,5 +122,3 @@ func _on_PreviousSceneButton_pressed():
 			var new_index = scene - 1
 			loadScene(current_story, new_index, false)
 			break
-
-

@@ -30,7 +30,7 @@ color = Color( 1, 1, 1, 0.929412 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 597.532, 722.437 )
 
-[node name="Node2D" type="Node2D"]
+[node name="GameCaroline" type="Node2D"]
 position = Vector2( -3.77551, 15.102 )
 script = ExtResource( 2 )
 
