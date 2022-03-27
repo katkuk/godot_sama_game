@@ -10,6 +10,5 @@ func _ready():
 func _on_Color_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.is_pressed():
-		print("i have been clicked")
 		emit_signal("colorChanged", myColor)
 		
