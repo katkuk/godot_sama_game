@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
 [ext_resource path="res://Scripts/KunaHouse/Kuna_newMove.gd" type="Script" id=24]
 [ext_resource path="res://Scripts/KunaHouse/Camera_new.gd" type="Script" id=25]
+[ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=26]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 421.03
@@ -76,7 +77,7 @@ tracks/0/keys = {
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("KunaChair:rotation_degrees")
+tracks/0/path = NodePath("chairWithKuna:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -417,13 +418,6 @@ position = Vector2( -15.512, -362.98 )
 script = ExtResource( 13 )
 linkToScene = "map"
 
-[node name="Bed" type="Sprite" parent="House"]
-position = Vector2( 6822.31, 1029.44 )
-scale = Vector2( 0.728786, 0.728786 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
-
 [node name="smallPlant" type="Area2D" parent="House"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/smallPlant"]
@@ -454,19 +448,39 @@ hframes = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/lampAleks2"]
 polygon = PoolVector2Array( 227.233, 341.43, 141.61, 595.92, 324.748, 691.057, 519.778, 624.461, 474.588, 322.402 )
 
-[node name="kunaChair" type="Area2D" parent="House"]
+[node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="KunaChair" type="Sprite" parent="House/kunaChair"]
+[node name="kunaChair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+
+[node name="chairEmpty" type="Sprite" parent="House/KunaObjects/kunaChair"]
+position = Vector2( 667.5, 1156.48 )
+scale = Vector2( 0.810841, 0.810841 )
+texture = ExtResource( 26 )
+
+[node name="chairWithKuna" type="Sprite" parent="House/KunaObjects/kunaChair"]
+visible = false
 position = Vector2( 642.659, 1513.63 )
-rotation = -0.0453898
-scale = Vector2( 1.50593, 1.52715 )
+rotation = -0.0453897
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 12 )
 offset = Vector2( -5.16536, -278.475 )
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="House/kunaChair"]
+[node name="animation" type="AnimationPlayer" parent="House/KunaObjects/kunaChair"]
 autoplay = "sitting"
 anims/sitting = SubResource( 8 )
+
+[node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/kunaChair"]
+polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
+
+[node name="bedEmpty" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+
+[node name="bed" type="Sprite" parent="House/KunaObjects/bedEmpty"]
+position = Vector2( 6822.31, 1029.44 )
+scale = Vector2( 0.728786, 0.728786 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
 
 [node name="kunaSleeping" type="Sprite" parent="House"]
 position = Vector2( 6852.26, 931.638 )
@@ -787,6 +801,8 @@ __meta__ = {
 [connection signal="input_event" from="House/LittleLampsTop" to="KunaHouseManager" method="_on_LittleLampsTop_input_event"]
 [connection signal="input_event" from="House/flower2" to="KunaHouseManager" method="_on_flower2_input_event"]
 [connection signal="input_event" from="House/plantBigA" to="KunaHouseManager" method="_on_plantBigA_input_event"]
+[connection signal="area_entered" from="House/kuna" to="House/kuna" method="_on_kuna_area_entered"]
+[connection signal="area_exited" from="House/kuna" to="House/kuna" method="_on_kuna_area_exited"]
 [connection signal="input_event" from="House/kuna" to="House/kuna" method="_on_kuna_input_event"]
 [connection signal="animation_finished" from="House/kuna/kunaIdle/kunaIdleAP" to="House/kuna" method="_on_kunaIdleAP_animation_finished"]
 [connection signal="input_event" from="House/lampBedsideA" to="KunaHouseManager" method="_on_lampBedsideA_input_event"]

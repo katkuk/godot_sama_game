@@ -128,6 +128,7 @@ func animateFallingObject(waterfallOption, object):
 	var fallingIngredient = load(object).instance()
 	fallingIngredient.scale = Vector2(0.4, 0.4)
 	currentPath.add_child(fallingIngredient)
+	print("------------------------------------------")
 	print("falling ingredient: " + str(fallingIngredient))
 	#createAnimationplayer and animation
 	var animationPlayer = AnimationPlayer.new()
