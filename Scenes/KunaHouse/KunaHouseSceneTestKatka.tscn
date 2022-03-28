@@ -414,7 +414,7 @@ __meta__ = {
 }
 
 [node name="position" type="Position2D" parent="House/InteractionObjects/Map"]
-position = Vector2( -15.512, -362.98 )
+position = Vector2( -21.3686, 11.8383 )
 script = ExtResource( 13 )
 linkToScene = "map"
 
@@ -450,7 +450,9 @@ polygon = PoolVector2Array( 227.233, 341.43, 141.61, 595.92, 324.748, 691.057, 5
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="kunaChair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="kunaChair" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 
 [node name="chairEmpty" type="Sprite" parent="House/KunaObjects/kunaChair"]
 position = Vector2( 667.5, 1156.48 )
@@ -473,7 +475,9 @@ anims/sitting = SubResource( 8 )
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/kunaChair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bedEmpty" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="bedEmpty" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 
 [node name="bed" type="Sprite" parent="House/KunaObjects/bedEmpty"]
 position = Vector2( 6822.31, 1029.44 )
