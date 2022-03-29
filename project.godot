@@ -64,6 +64,10 @@ config/icon="res://Assets/icon.png"
 
 Global="*res://Scripts/global.gd"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+
 [display]
 
 window/size/width=2224
