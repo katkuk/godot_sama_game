@@ -39,7 +39,6 @@ __meta__ = {
 material = SubResource( 1 )
 position = Vector2( 2157.88, 390.255 )
 scale = Vector2( 0.6, 0.6 )
-emitting = false
 amount = 20
 lifetime = 50.0
 preprocess = 50.0

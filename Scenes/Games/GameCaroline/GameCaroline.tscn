@@ -78,16 +78,20 @@ z_index = 200
 texture = ExtResource( 13 )
 
 [node name="Palette" type="Sprite" parent="ColorRect"]
-position = Vector2( 349.401, 852.165 )
+position = Vector2( 349.401, 893.742 )
 rotation = -1.57079
-scale = Vector2( 0.838534, 0.838534 )
+scale = Vector2( 0.906806, 0.838534 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( -12.6992, 1482.52, 1218.26, 504.458 )
 
 [node name="BrushPalette" type="Area2D" parent="ColorRect/Palette"]
-position = Vector2( -264.745, -120.336 )
+position = Vector2( -292.533, -105.311 )
 rotation = 4.54747e-13
+scale = Vector2( 0.911778, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColorRect/Palette/BrushPalette"]
 polygon = PoolVector2Array( 30.4598, -40.8851, 135.143, -62.2727, 216.188, 1.88742, 120.51, 57.0436, 78.8622, 61.5464, 37.2139, 33.406, -41.5797, 42.4115, -137.258, 49.1659, -225.057, -5.98918, -114.746, -48.7636, -28.0729, -51.0154 )
@@ -118,10 +122,13 @@ region_enabled = true
 region_rect = Rect2( 1634.56, 613.914, 103.504, 149.889 )
 
 [node name="SpongePalette" type="Area2D" parent="ColorRect/Palette"]
-position = Vector2( -361.809, 75.2513 )
+position = Vector2( -424.535, 83.2982 )
 rotation = -1.55797
 scale = Vector2( 0.752862, 0.785649 )
 z_index = 101
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="highlightSponge" type="Sprite" parent="ColorRect/Palette/SpongePalette"]
 visible = false
@@ -156,31 +163,40 @@ region_enabled = true
 region_rect = Rect2( 1526.08, 210.914, 212.717, 297.661 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Palette/SpongePalette"]
-position = Vector2( -3.04327, 101.503 )
+position = Vector2( -3.09576, 97.9663 )
 rotation = -0.0113279
 shape = SubResource( 2 )
 
 [node name="ColorSpawnPoints" type="Node2D" parent="ColorRect/Palette"]
-position = Vector2( 887.388, -468.565 )
+position = Vector2( 848.322, -468.565 )
 rotation = 1.57079
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Position2D" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 383.901, 462.378 )
+position = Vector2( 381.895, 406.22 )
 
 [node name="Position2D2" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 539.8, 463.362 )
+position = Vector2( 537.794, 407.204 )
 
 [node name="Position2D3" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 374.791, 614.628 )
+position = Vector2( 372.785, 540.46 )
 
 [node name="Position2D4" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 535.699, 620.653 )
+position = Vector2( 538.196, 537.48 )
 
 [node name="Position2D5" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 368.975, 782.263 )
+position = Vector2( 369.221, 676.578 )
 
 [node name="Position2D6" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
-position = Vector2( 535.71, 779.596 )
+position = Vector2( 544.961, 680.664 )
+
+[node name="Position2D7" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
+position = Vector2( 367.237, 816.761 )
+
+[node name="Position2D8" type="Position2D" parent="ColorRect/Palette/ColorSpawnPoints"]
+position = Vector2( 557.977, 818.767 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 1355.57, 767.754 )
@@ -209,16 +225,15 @@ region_rect = Rect2( -14.1702, -8.14651, 1503.81, 1316.31 )
 position = Vector2( 579.095, -314.709 )
 scale = Vector2( 0.179705, 0.179705 )
 
-[node name="box1" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
+[node name="boxCaroline" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/box1"]
-visible = false
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/boxCaroline"]
 position = Vector2( -5405.14, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
 polygon = PoolVector2Array( -193.063, -198.563, -202.661, 183.656, 199.955, 196.373, 200.943, -200.522 )
 
-[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box1"]
+[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxCaroline"]
 position = Vector2( -5405.14, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
@@ -226,7 +241,7 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1327.16, 1323.9, 427.4, 438.249 )
 
-[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box1"]
+[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxCaroline"]
 self_modulate = Color( 0.956863, 0.662745, 0.105882, 0.596078 )
 position = Vector2( -5428.71, 1296.62 )
 rotation = 9.70515e-10
@@ -235,21 +250,21 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1511.94, -1.90791, 422.402, 425.256 )
 
-[node name="lineArt-1" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box1"]
+[node name="lineArt-1" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxCaroline"]
 position = Vector2( -5397.74, 1256.41 )
 rotation = -0.00984092
 scale = Vector2( 1.07624, 1.07624 )
 texture = ExtResource( 13 )
 
-[node name="box2" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
+[node name="boxGeneral" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/box2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/boxGeneral"]
 position = Vector2( -3224.69, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
 polygon = PoolVector2Array( -195.806, -198.59, -196.65, 183.715, 197.27, 190.51, 204.065, -203.41 )
 
-[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box2"]
+[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxGeneral"]
 position = Vector2( -3224.69, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
@@ -257,7 +272,7 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1327.16, 1323.9, 427.4, 438.249 )
 
-[node name="selectedHighlight2" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box2"]
+[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxGeneral"]
 visible = false
 self_modulate = Color( 0.956863, 0.662745, 0.105882, 0.596078 )
 position = Vector2( -3231.5, 1263.48 )
@@ -267,21 +282,21 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1511.94, -1.90791, 422.402, 425.256 )
 
-[node name="lineArt-0" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box2"]
+[node name="lineArt-0" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxGeneral"]
 position = Vector2( -3273.47, 1279.41 )
 rotation = -0.00984092
 scale = Vector2( 1.07154, 1.07154 )
 texture = ExtResource( 11 )
 
-[node name="box3" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
+[node name="boxBuilding" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/box3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/boxBuilding"]
 position = Vector2( -1044.24, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
 polygon = PoolVector2Array( -204.328, -204.51, -199.594, 204.115, 206.084, 202.27, 201.322, -203.437 )
 
-[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box3"]
+[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBuilding"]
 position = Vector2( -1044.24, 1305.48 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
@@ -289,7 +304,7 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1327.16, 1323.9, 427.4, 438.249 )
 
-[node name="selectedHighlight2" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box3"]
+[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBuilding"]
 visible = false
 self_modulate = Color( 0.956863, 0.662745, 0.105882, 0.596078 )
 position = Vector2( -1051.23, 1306.67 )
@@ -299,21 +314,21 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1511.94, -1.90791, 422.402, 425.256 )
 
-[node name="lineArt-2" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box3"]
+[node name="lineArt-2" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBuilding"]
 position = Vector2( -1069.57, 1291.16 )
 rotation = -0.00984092
 scale = Vector2( 0.993741, 0.993741 )
 texture = ExtResource( 9 )
 
-[node name="box4" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
+[node name="boxBoat" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/box4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/boxBoat"]
 position = Vector2( -4282.94, 3459.86 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
 polygon = PoolVector2Array( -201.12, -210.431, -213.751, 183.431, 209.321, 193.431, 207.419, -206.411 )
 
-[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box4"]
+[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBoat"]
 position = Vector2( -4282.94, 3459.86 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
@@ -321,7 +336,7 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1327.16, 1323.9, 427.4, 438.249 )
 
-[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box4"]
+[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBoat"]
 visible = false
 self_modulate = Color( 0.956863, 0.662745, 0.105882, 0.596078 )
 position = Vector2( -4291.19, 3426.37 )
@@ -331,21 +346,21 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1511.94, -1.90791, 422.402, 425.256 )
 
-[node name="lineArt-3" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box4"]
+[node name="lineArt-3" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxBoat"]
 position = Vector2( -4265.8, 3442.46 )
 rotation = -0.00984092
 scale = Vector2( 0.990812, 0.990812 )
 texture = ExtResource( 10 )
 
-[node name="box5" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
+[node name="boxEmpty" type="Area2D" parent="ChangeOutlinePopup/background/boxes"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/box5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChangeOutlinePopup/background/boxes/boxEmpty"]
 position = Vector2( -2071.49, 3459.86 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
 polygon = PoolVector2Array( -201.732, -207.519, -202.719, 189.376, 194.147, 193.282, 197.967, -194.83 )
 
-[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box5"]
+[node name="box" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxEmpty"]
 position = Vector2( -2071.49, 3459.86 )
 rotation = -0.00984092
 scale = Vector2( 4.70096, 4.70096 )
@@ -353,7 +368,7 @@ texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 1327.16, 1323.9, 427.4, 438.249 )
 
-[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/box5"]
+[node name="selectedHighlight" type="Sprite" parent="ChangeOutlinePopup/background/boxes/boxEmpty"]
 visible = false
 self_modulate = Color( 0.956863, 0.662745, 0.105882, 0.596078 )
 position = Vector2( -2076.99, 3427.16 )
@@ -385,13 +400,15 @@ texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 1239.1, 1409.14, 492.116, 477.874 )
 
+[node name="lines" type="Node2D" parent="."]
+
 [connection signal="input_event" from="ColorRect/Palette/BrushPalette" to="." method="_on_BrushPalette_input_event"]
 [connection signal="input_event" from="ColorRect/Palette/SpongePalette" to="." method="_on_SpongePalette_input_event"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
-[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/box1" to="." method="_on_box1_input_event"]
-[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/box2" to="." method="_on_box2_input_event"]
-[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/box3" to="." method="_on_box3_input_event"]
-[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/box4" to="." method="_on_box4_input_event"]
-[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/box5" to="." method="_on_box5_input_event"]
+[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/boxCaroline" to="." method="_on_box1_input_event"]
+[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/boxGeneral" to="." method="_on_box2_input_event"]
+[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/boxBuilding" to="." method="_on_box3_input_event"]
+[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/boxBoat" to="." method="_on_box4_input_event"]
+[connection signal="input_event" from="ChangeOutlinePopup/background/boxes/boxEmpty" to="." method="_on_box5_input_event"]
 [connection signal="input_event" from="ChangeOutlinePopup/background/boxes/Close" to="." method="_on_Close_input_event"]
 [connection signal="input_event" from="colorbookOptions" to="." method="_on_colorbookOptions_input_event"]

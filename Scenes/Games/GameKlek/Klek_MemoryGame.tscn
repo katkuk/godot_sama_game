@@ -109,7 +109,7 @@ region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 position = Vector2( 1078.05, 737.93 )
 frames = SubResource( 1 )
 animation = "sleeping"
-frame = 3
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -292,5 +292,6 @@ __meta__ = {
 }
 
 [node name="MemoryGameHUD" parent="Game" instance=ExtResource( 4 )]
+visible = false
 
 [editable path="Game/MemoryGameHUD"]
