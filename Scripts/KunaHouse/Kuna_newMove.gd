@@ -1,5 +1,5 @@
 extends Area2D
-enum State {UNSELECTED, IDLING, SELECTED, WALKING, INTERACTING, HOLDING}
+enum State {UNSELECTED, IDLING, SELECTED, WALKING, HOVERING, INTERACTING, HOLDING}
 var state : int = State.UNSELECTED
 var idleTimer = null
 export(int) var max_idle_delay = 15
@@ -9,6 +9,7 @@ onready var camera = get_parent().get_parent().get_node("Camera")
 onready var kunaWalking = get_node("kunaWalking")
 onready var kunaIdle = get_node("kunaIdle")
 signal scroll
+signal kunaInteracting
 var hoveredObject
 var interactingWithObject
 
@@ -18,9 +19,13 @@ func _ready():
 	idleTimer.connect("timeout", self, "_on_idleTimer_timeout")
 	add_child(idleTimer)
 	change_state(State.UNSELECTED)
+	
+	for obj in get_tree().get_nodes_in_group("KunaObjects"):
+		obj.connect("kunaHovering", self, "kunaHovering")
+		obj.connect("kunaUnhovered", self, "kunaUnhovered")
 
 func _physics_process(delta):
-	if state == State.SELECTED or state == State.WALKING:
+	if state == State.SELECTED or state == State.WALKING or state == State.HOVERING:
 		followMouse(delta)
 	if state == State.UNSELECTED:
 		#drop it like its hot
@@ -28,38 +33,38 @@ func _physics_process(delta):
 
 func followMouse(delta):
 	global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-	if get_global_transform_with_canvas()[2].x > 1800:
-		walkingDirection = "right"
-		change_state(State.WALKING)
-		emit_signal("scroll", "right")
-	elif get_global_transform_with_canvas()[2].x < 424:
-		walkingDirection = "left"
-		change_state(State.WALKING)
-		emit_signal("scroll", "left")
+	if state == State.HOVERING:
+		change_state(State.HOVERING)
 	else:
-		change_state(State.SELECTED)
-		emit_signal("scroll", "stop")
+		if get_global_transform_with_canvas()[2].x > 1800:
+			walkingDirection = "right"
+			change_state(State.WALKING)
+			emit_signal("scroll", "right")
+		elif get_global_transform_with_canvas()[2].x < 424:
+			walkingDirection = "left"
+			change_state(State.WALKING)
+			emit_signal("scroll", "left")
+		else:
+			change_state(State.SELECTED)
+			emit_signal("scroll", "stop")
+
 
 func _on_kuna_input_event(viewport, event, shape_idx):
+	#when clicking on kuna
 	if Input.is_action_just_pressed("Click"):
 		change_state(State.SELECTED)
-	else:
-		return
-
-func _input(event):
-	if event is InputEventMouseButton:
-		#when unclicking
-		if event.button_index == BUTTON_LEFT and not event.pressed:
-			if hoveredObject != null:
-				change_state(State.INTERACTING)
-				interactingWithObject = hoveredObject
-				#hoveredObject = null
-			else:
-				change_state(State.UNSELECTED)
-#		elif Input.is_action_just_pressed("Click") and interactingWithObject != null:
-#			print("state: ", state)
-#			print("hovered object: ", hoveredObject)
-#			print("interacting with: ", interactingWithObject)
+	#declicking on kuna
+	elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
+		#when kuna is hovering kuna object
+		if hoveredObject != null:
+			change_state(State.INTERACTING)
+			interactingWithObject = hoveredObject
+			hoveredObject = null
+			#signal to update the sprite of hovered object and update its interacting state
+			emit_signal("kunaInteracting")
+		#declicking on kuna when its not hovering anything
+		else:
+			change_state(State.UNSELECTED)
 	else:
 		return
 
@@ -92,7 +97,6 @@ func change_state(newState):
 			kunaIdle.get_node("kunaIdleAP").get_animation("idle").set_loop(false)
 			kunaIdle.get_node("kunaIdleAP").play("idle")
 		State.SELECTED:
-			kunaIdle.visible = true
 			idleTimer.stop()
 			kunaIdle.get_node("kunaIdleAP").stop()
 			kunaIdle.visible = true
@@ -105,31 +109,27 @@ func change_state(newState):
 			elif walkingDirection == "right":
 				kunaWalking.flip_h = false
 			kunaWalking.get_node("kunaWalkingAP").play("walking")
-		State.INTERACTING:
-			#visible = false
+		State.HOVERING:
 			kunaIdle.visible = false
-			print(state)
+			kunaWalking.visible = false
+			for sprite in get_node("interactionSprites").get_children():
+				if str(sprite.name.to_lower()) == str(hoveredObject.name.to_lower()):
+					sprite.visible = true
+		State.INTERACTING:
+			visible = false
 		State.HOLDING:
 			print(state)
 
+func kunaHovering(object):
+	#print("kuna hovering over: ", object)
+	if visible == false:
+		visible = true
+	hoveredObject = object
+	change_state(State.HOVERING)
 
-func _on_kuna_area_entered(area):
-	if area.is_in_group("KunaObjects"):
-		hoveredObject = area
-		#print(hoveredObject)
-		area.get_node("chairEmpty").visible = false
-		area.get_node("chairWithKuna").visible = true
-		kunaIdle.visible = false
-	else:
-		return
-
-
-func _on_kuna_area_exited(area):
-	if area.is_in_group("KunaObjects"):
-		hoveredObject = null
-		#print(hoveredObject)
-		area.get_node("chairEmpty").visible = true
-		area.get_node("chairWithKuna").visible = false
-		kunaIdle.visible = true
-	else:
-		return
+func kunaUnhovered():
+	for sprite in get_node("interactionSprites").get_children():
+				if str(sprite.name.to_lower()) == str(hoveredObject.name.to_lower()):
+					sprite.visible = false
+	hoveredObject = null
+	change_state(State.SELECTED)
