@@ -7,21 +7,23 @@ onready var yesTextLabel = get_node("ConfirmPopUp/YesBtn/YesText")
 onready var noTextLabel = get_node("ConfirmPopUp/NoBtn/NoText")
 onready var homeBtn = get_node("HomeBtn")
 
-var text
-var yesText
-var noText
-var color
+var text : String
+var yesText : String
+var noText : String
+var color : String
+var wantsPopup : bool
 
 func _ready():
 	confirmPopUp.visible = false
 	updateText()
 	updateColor()
 
-func init(var t, var yt, var nt, var c):
+func init(var t, var yt, var nt, var c, var w):
 	text = t
 	yesText = yt
 	noText = nt
 	color = c
+	wantsPopup = w
 
 func updateText():
 	textLabel.set_text(text)
@@ -32,7 +34,11 @@ func updateColor():
 	homeBtn.set_modulate(Color(color))
 
 func _on_HomeBtn_pressed():
-	confirmPopUp.visible = true
+	if wantsPopup:
+		confirmPopUp.visible = true
+	else:
+		queue_free()
+		Global.loadScene("kuna")
 
 func _on_YesBtn_pressed():
 	queue_free()

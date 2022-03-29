@@ -37,7 +37,7 @@ func _ready():
 
 func displayHomeBtn():
 	homeBtnInstantiatedScene = homeBtn.instance()
-	homeBtnInstantiatedScene.init(homeBtnPopUpText, homeBtnYesText, homeBtnNoText, "#a0403e")
+	homeBtnInstantiatedScene.init(homeBtnPopUpText, homeBtnYesText, homeBtnNoText, "#a0403e", false)
 	add_child(homeBtnInstantiatedScene)
 
 func homeBtnVisibility(visible):
@@ -53,6 +53,7 @@ func _on_MapIcon_pressed(story: String):
 	bookAnimationPlayer.play("bookCoverOpen")
 	yield(bookAnimationPlayer, "animation_finished")
 	displayBookGUI(true)
+	disableMapIcons(true)
 	loadScene(story, 1, true)
 
 func loadScene(story : String, index : int, keepOldScene : bool):
@@ -72,6 +73,12 @@ func loadScene(story : String, index : int, keepOldScene : bool):
 
 func displayBookGUI(display : bool):
 	bookGUI.visible = display
+
+func disableMapIcons(disable):
+	for btn in get_parent().get_node("MapIcons").get_children():
+		if btn is TextureButton:
+			#had to do visible because when disabled btns still consume input -.-
+			btn.visible = !disable
 
 func updateBookGUI():
 	var GUIcolor
@@ -106,6 +113,7 @@ func _on_CloseSceneButton_pressed():
 	current_scene.queue_free()
 	current_scene = null
 	current_story = null
+	disableMapIcons(false)
 	displayBookGUI(false)
 	Global.updateStory(current_story)
 

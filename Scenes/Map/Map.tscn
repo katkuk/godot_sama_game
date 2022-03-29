@@ -557,7 +557,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlinkAP" type="AnimationPlayer" parent="MapIcons"]
+[node name="BlinkAP" type="AnimationPlayer" parent="MapIcons/Klek"]
+root_node = NodePath("../..")
 autoplay = "blink"
 anims/blink = SubResource( 9 )
 
