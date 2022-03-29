@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim2.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
 length = 0.8
@@ -43,7 +43,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fish1"
 anims/Fish1 = SubResource( 1 )
 anims/Wave1 = SubResource( 2 )

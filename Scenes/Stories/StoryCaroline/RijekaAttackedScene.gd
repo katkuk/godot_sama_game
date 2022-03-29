@@ -2,19 +2,26 @@ extends Node2D
 
 const Bird = preload("res://Scenes/Stories/StoryCaroline/blackBird.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var timer1 = get_node("Timer1")
+onready var counter = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	timer1.start()
+	timer1.connect("timeout", self, "onTimerTimeout")
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func onTimerTimeout():
+	if counter == 1:
+		$boom1/AnimationPlayer.play("explosion")
+	elif counter == 2:
+		$boom2/AnimationPlayer.play("explosion")
+	else:
+		$boom3/AnimationPlayer.play("explosion")
+	counter = counter + 1
+	if counter == 4:
+		counter = 1
+		
 
 
 func _on_barrels_input_event(viewport, event, shape_idx):
@@ -39,3 +46,6 @@ func _on_clickForBlackBirds_input_event(viewport, event, shape_idx):
 			else:
 				bird.get_node("CarolineSmallAnim1/AnimationPlayer3").play("direction")
 			direction = !direction
+			yield(get_tree().create_timer(1.0), "timeout")
+			bird.queue_free()
+

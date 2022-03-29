@@ -43,7 +43,7 @@ tracks/2/keys = {
 }
 
 [node name="Shoot" type="Sprite"]
-position = Vector2( 190.919, -207.182 )
+position = Vector2( 73.5391, -53.7401 )
 scale = Vector2( 0.48928, 0.48928 )
 texture = ExtResource( 1 )
 hframes = 5

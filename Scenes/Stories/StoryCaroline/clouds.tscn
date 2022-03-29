@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=9]
+resource_name = "cloudsMoving"
+length = 2.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cloud4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 186.826, 690.656 ), Vector2( 211.185, 684.306 ), Vector2( 186.826, 690.656 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cloud1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 867.581, 552.477 ), Vector2( 921.321, 552.477 ), Vector2( 867.581, 552.477 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cloud2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1672.14, 641.349 ), Vector2( 1728.71, 641.349 ), Vector2( 1672.14, 641.349 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cloud3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1249.47, 387.794 ), Vector2( 1303.21, 387.794 ), Vector2( 1249.47, 387.794 ) ]
+}
+
+[node name="clouds" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "cloudsMoving"
+playback_speed = 0.5
+anims/cloudsMoving = SubResource( 9 )
+
+[node name="Cloud1" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 888.255, 552.477 )
+rotation = -1.61487
+scale = Vector2( 0.888431, 0.734198 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1605.89, 608.548, 384.512, 1336.33 )
+
+[node name="Cloud2" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 1689.07, 641.349 )
+rotation = -1.55795
+scale = Vector2( 0.685856, 0.508316 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1091.41, 1057.35, 366.243, 722.994 )
+
+[node name="Cloud3" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 1267.56, 387.794 )
+rotation = -1.55795
+scale = Vector2( 1.04351, 1.01137 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 964.649, 1345.54, 117.395, 172.995 )
+
+[node name="Cloud4" type="Sprite" parent="."]
+modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 195.026, 688.518 )
+rotation = -1.54285
+scale = Vector2( 0.551613, 0.395574 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1091.41, 1057.35, 366.243, 722.994 )
