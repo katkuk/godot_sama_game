@@ -35,6 +35,7 @@ tracks/1/keys = {
 [node name="CarolineAnimSmalls" type="Sprite"]
 visible = false
 position = Vector2( 0.8909, 0 )
+z_index = 20
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 5
