@@ -12,6 +12,7 @@ signal scroll
 signal kunaInteracting
 var hoveredObject
 var interactingWithObject
+export var group := "clickable"
 
 func _ready():
 	idleTimer = Timer.new()
@@ -20,9 +21,25 @@ func _ready():
 	add_child(idleTimer)
 	change_state(State.UNSELECTED)
 	
+	connect("mouse_entered", self, "mouse_entered")
+	connect("mouse_exited", self, "mouse_exited")
+	add_to_group(group)
+	
 	for obj in get_tree().get_nodes_in_group("KunaObjects"):
 		obj.connect("kunaHovering", self, "kunaHovering")
 		obj.connect("kunaUnhovered", self, "kunaUnhovered")
+
+func mouse_entered():
+	add_to_group(group + "hovered")
+
+func mouse_exited():
+	remove_from_group(group + "hovered")
+
+func is_on_top() -> bool:
+	for clickable in get_tree().get_nodes_in_group(group + "hovered"):
+		if clickable.get_index() > get_index():
+			return false
+	return true
 
 func _physics_process(delta):
 	if state == State.SELECTED or state == State.WALKING or state == State.HOVERING:
@@ -50,21 +67,24 @@ func followMouse(delta):
 
 
 func _on_kuna_input_event(viewport, event, shape_idx):
-	#when clicking on kuna
-	if Input.is_action_just_pressed("Click"):
-		change_state(State.SELECTED)
-	#declicking on kuna
-	elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
-		#when kuna is hovering kuna object
-		if hoveredObject != null:
-			change_state(State.INTERACTING)
-			interactingWithObject = hoveredObject
-			hoveredObject = null
-			#signal to update the sprite of hovered object and update its interacting state
-			emit_signal("kunaInteracting")
-		#declicking on kuna when its not hovering anything
+	if is_on_top():
+		#when clicking on kuna
+		if Input.is_action_just_pressed("Click"):
+			change_state(State.SELECTED)
+		#declicking on kuna
+		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
+			#when kuna is hovering kuna object
+			if hoveredObject != null:
+				change_state(State.INTERACTING)
+				interactingWithObject = hoveredObject
+				hoveredObject = null
+				#signal to update the sprite of hovered object and update its interacting state
+				emit_signal("kunaInteracting")
+			#declicking on kuna when its not hovering anything
+			else:
+				change_state(State.UNSELECTED)
 		else:
-			change_state(State.UNSELECTED)
+			return
 	else:
 		return
 
