@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -105,6 +105,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 3, 2, 1, 0 ]
 }
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 300.0
 
 [sub_resource type="Animation" id=10]
 length = 0.8
@@ -687,9 +690,21 @@ texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/LittleLampsTop"]
-position = Vector2( 132, 128 )
-polygon = PoolVector2Array( -61.3746, 228.407, 94.6254, 232.407, 304.868, 253.686, 306.625, 132.407, 410.625, -27.5925, 1374.63, -39.5925, 1554.84, 171.807, 1732.38, 97.0559, 2259.64, 190.495, 2295.68, 278.594, 2403.78, 263.769, 2410.48, 201.173, 3186.63, 156.407, 3527.74, 110.404, 3621.18, 162.463, 3714.62, 101.061, 3882.63, -155.593, 5595.1, -87.3093, 5665.66, 164.675, 5857.17, 446.897, 5771.49, 734.159, 5574.95, 693.842, 5569.91, 905.508, 5675.74, 960.945, 5600.14, 1162.53, 5489.27, 1399.4, 5373.36, 1485.07, 5448.95, 1600.98, 5700.94, 1752.18, 5957.96, 1354.04, 6104.11, 1414.52, 6164.59, 1258.29, 6088.99, 996.223, 6109.15, 779.516, 6305.7, 628.326, 6225.06, 492.254, 6290.58, -127.627, 3326.75, -227.503, -176.089, -126.709 )
+[node name="CornerLamp" type="CollisionShape2D" parent="House/LittleLampsTop"]
+position = Vector2( 166, 50 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopLamps" type="CollisionPolygon2D" parent="House/LittleLampsTop"]
+polygon = PoolVector2Array( 1387, -41, 1501, 189, 2325, 312, 3053, 234, 3699, 198, 3937, -29 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TreeWithLamps" type="CollisionPolygon2D" parent="House/LittleLampsTop"]
+polygon = PoolVector2Array( 5639, -8, 5616, 250, 5807, 468, 5553, 706, 5589, 1106, 5380, 1398, 5477, 1715, 6002, 1717, 6173, 1406, 6173, 954, 6306, 644, 6171, 333, 6253, -8 )
 __meta__ = {
 "_edit_lock_": true
 }
