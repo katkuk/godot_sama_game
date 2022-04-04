@@ -10,11 +10,22 @@ var sceneList = {
 	"plitvice" : "res://Scenes/Games/GamePlitvice/GamePlitvice.tscn"
 	}
 
+var kunaSceneState = {
+	"kunaPos" : 1554,
+	"kunaInteractingWith" : null,
+	"gramophone" : false,
+	"hangingLights" : true,
+	"bigLampAleks" : false,
+	"smallBedSideLamp" : false
+}
+
 func _ready():
-	#print(get_tree().current_scene. get_child(0))
 	current_scene = get_tree().current_scene.get_child(0)
+	#print(current_scene)
 
 func loadScene(newScene : String):
+	if current_scene.name == "KunaHouseScene":
+		saveKunaScene()
 	current_scene.queue_free()
 	var nextScene = load(sceneList[newScene]).instance()
 	add_child(nextScene)
@@ -24,3 +35,6 @@ func loadScene(newScene : String):
 func updateStory(story):
 	current_story = story
 	#print("global current story is: " + str(current_story))
+
+func saveKunaScene():
+	current_scene.get_node("KunaHouseManager").saveScene()

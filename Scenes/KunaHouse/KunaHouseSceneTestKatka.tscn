@@ -778,26 +778,26 @@ anims/sleeping = SubResource( 9 )
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/bed"]
 polygon = PoolVector2Array( 6963, 1444, 7463, 1304, 7484, 1048, 7311, 963, 7295, 669, 6824, 539, 6417, 699, 6417, 946, 6113, 1124, 6205, 1319, 6429, 1425 )
 
-[node name="kuna" type="Area2D" parent="House"]
+[node name="Kuna" type="Area2D" parent="House"]
 position = Vector2( 1554.34, 1061 )
 scale = Vector2( 1.08616, 1.08616 )
 z_index = 4
 script = ExtResource( 24 )
 
-[node name="kunaCollision" type="CollisionPolygon2D" parent="House/kuna"]
+[node name="kunaCollision" type="CollisionPolygon2D" parent="House/Kuna"]
 polygon = PoolVector2Array( -126.298, -443.239, -188.937, -311.001, -161.097, -146.284, -172.697, 53.2321, -112.378, 452.265, 166.017, 459.224, 168.337, 296.827, 177.616, -58.126, 182.256, -290.122, 133.537, -443.239 )
 
-[node name="kunaIdle" type="Sprite" parent="House/kuna"]
+[node name="kunaIdle" type="Sprite" parent="House/Kuna"]
 position = Vector2( -13.6317, -4.56982 )
 scale = Vector2( 1.45982, 1.45982 )
 texture = ExtResource( 9 )
 hframes = 3
 vframes = 3
 
-[node name="kunaIdleAP" type="AnimationPlayer" parent="House/kuna/kunaIdle"]
+[node name="kunaIdleAP" type="AnimationPlayer" parent="House/Kuna/kunaIdle"]
 anims/idle = SubResource( 12 )
 
-[node name="kunaWalking" type="Sprite" parent="House/kuna"]
+[node name="kunaWalking" type="Sprite" parent="House/Kuna"]
 visible = false
 position = Vector2( -13.6317, -4.56982 )
 scale = Vector2( 1.45982, 1.45982 )
@@ -805,13 +805,13 @@ texture = ExtResource( 11 )
 hframes = 3
 vframes = 3
 
-[node name="kunaWalkingAP" type="AnimationPlayer" parent="House/kuna/kunaWalking"]
+[node name="kunaWalkingAP" type="AnimationPlayer" parent="House/Kuna/kunaWalking"]
 playback_speed = 0.9
 anims/walking = SubResource( 13 )
 
-[node name="interactionSprites" type="Node2D" parent="House/kuna"]
+[node name="interactionSprites" type="Node2D" parent="House/Kuna"]
 
-[node name="chair" type="Sprite" parent="House/kuna/interactionSprites"]
+[node name="chair" type="Sprite" parent="House/Kuna/interactionSprites"]
 visible = false
 position = Vector2( 0.607666, -2.76202 )
 scale = Vector2( 0.737245, 0.737245 )
@@ -819,7 +819,7 @@ texture = ExtResource( 14 )
 hframes = 2
 vframes = 2
 
-[node name="bed" type="Sprite" parent="House/kuna/interactionSprites"]
+[node name="bed" type="Sprite" parent="House/Kuna/interactionSprites"]
 visible = false
 position = Vector2( 0.607666, -2.76202 )
 scale = Vector2( 0.737245, 0.737245 )
@@ -872,8 +872,8 @@ __meta__ = {
 [connection signal="input_event" from="House/ClickableObjects/YellowFlower" to="KunaHouseManager" method="_on_YellowFlower_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/BigPlant" to="KunaHouseManager" method="_on_BigPlant_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/SmallBedSideLamp" to="KunaHouseManager" method="_on_SmallBedSideLamp_input_event"]
-[connection signal="input_event" from="House/kuna" to="House/kuna" method="_on_kuna_input_event"]
-[connection signal="animation_finished" from="House/kuna/kunaIdle/kunaIdleAP" to="House/kuna" method="_on_kunaIdleAP_animation_finished"]
+[connection signal="input_event" from="House/Kuna" to="House/Kuna" method="_on_kuna_input_event"]
+[connection signal="animation_finished" from="House/Kuna/kunaIdle/kunaIdleAP" to="House/Kuna" method="_on_kunaIdleAP_animation_finished"]
 [connection signal="button_down" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_down" binds= [ "right" ]]
 [connection signal="button_up" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_up"]
 [connection signal="button_down" from="HouseGUI/HouseArrowLeft" to="Camera" method="_on_HouseArrow_button_down" binds= [ "left" ]]

@@ -6,7 +6,7 @@ export (NodePath) var interactingSpritePath
 export (NodePath) var defaultSpritePath
 onready var interactingSprite = get_node(interactingSpritePath)
 onready var defaultSprite = get_node(defaultSpritePath)
-onready var kuna = get_parent().get_parent().get_node("kuna")
+onready var kuna = get_parent().get_parent().get_node("Kuna")
 signal kunaHovering
 signal kunaUnhovered
 
@@ -17,14 +17,14 @@ func _ready():
 	connect("input_event", self, "on_input_event")
 
 func area_entered(area):
-	if area.name == "kuna":
+	if area.name.to_lower() == "kuna":
 		setHovered(true)
 		emit_signal("kunaHovering", self)
 	else:
 		return
 
 func area_exited(area):
-	if area.name == "kuna":
+	if area.name.to_lower() == "kuna":
 		setHovered(false)
 		emit_signal("kunaUnhovered")
 	else:

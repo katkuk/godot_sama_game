@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var kuna = get_parent().get_node("House/Kuna")
 #GET INTERACTION OBJECTS
 onready var interactionObjects = get_parent().get_node("House/InteractionObjects")
 onready var carolinePicture = interactionObjects.get_node("CarolinePicture")
@@ -19,6 +20,7 @@ onready var smallBedSideLamp = clickableObjects.get_node("SmallBedSideLamp")
 
 #down is for the big window roller
 var down = true;
+var gramophoneIsPlaying = false
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 
 func _ready():
@@ -30,9 +32,11 @@ func _on_Gramophone_input_event(viewport, event, shape_idx):
 		var sprite = gramophone.get_node("Sprite")
 		var animation = gramophone.get_node("Sprite/Animation")
 		if animation.is_playing():
+			gramophoneIsPlaying = false
 			animation.stop()
 			sprite.frame = 3
 		else:
+			gramophoneIsPlaying = true
 			animation.play("playingMusic")
 
 func _on_BigWindow_input_event(viewport, event, shape_idx):
@@ -63,9 +67,7 @@ func _on_BigLampAleks_input_event(viewport, event, shape_idx):
 
 func _on_HangingLights_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and hangingLights.is_on_top():
-		var lampsArray = hangingLights.get_node("LightBubbles").get_children()
-		for lamp in lampsArray:
-			lamp.visible = !lamp.visible
+		hangingLights.get_node("LightBubbles").visible = !hangingLights.get_node("LightBubbles").visible
 
 func _on_YellowFlower_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and yellowFlower.is_on_top():
@@ -129,3 +131,29 @@ func displayPlayBtnForObject(object):
 		position.add_child(playBtn)
 	else:
 		position.get_child(0).queue_free()
+
+#var kunaSceneState = {
+#	"kunaPos" : 1554,
+#	"kunaInteractingWith" : null,
+#	"gramophone" : false,
+#	"hangingLights" : true,
+#	"bigLampAleks" : false,
+#	"smallSideLamp" : false
+
+func _unhandled_input(event):
+	if Input.is_key_pressed(KEY_SPACE):
+		saveScene()
+	else:
+		return
+
+func saveScene():
+	Global.kunaSceneState.kunaPos = kuna.position.x
+	Global.kunaSceneState.kunaInteractingWith = kuna.interactingWithObject
+	Global.kunaSceneState.gramophone = gramophoneIsPlaying
+	Global.kunaSceneState.hangingLights = (true if hangingLights.get_node("LightBubbles").visible else false)
+	Global.kunaSceneState.bigLampAleks = (true if (bigLampAleks.get_node("Sprite").frame == 1) else false)
+	Global.kunaSceneState.smallBedSideLamp = (true if (smallBedSideLamp.get_node("Sprite").frame == 1) else false)
+	print(Global.kunaSceneState)
+
+func loadScene():
+	pass
