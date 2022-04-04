@@ -13,6 +13,7 @@ var sceneList = {
 
 var kunaSceneState = {
 	"kunaPos" : 1554,
+	"cameraPos" : 1112,
 	"kunaInteractingWith" : "",
 	"kunaState" : kuna.State.UNSELECTED,
 	"gramophone" : false,

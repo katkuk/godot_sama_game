@@ -21,6 +21,7 @@ onready var smallBedSideLamp = clickableObjects.get_node("SmallBedSideLamp")
 var down = true;
 var gramophoneIsPlaying = false
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
+onready var camera = get_parent().get_node("Camera")
 
 func _ready():
 	loadScene()
@@ -96,17 +97,6 @@ func _on_SmallBedSideLamp_input_event(viewport, event, shape_idx):
 #--------- CLICKABLE OBJECTS END
 
 #--------- INTERACTABLE OBJECTS - objects that lead to a minigame
-func _on_InteractionObjects_input_event(viewport, event, shape_idx):
-	if !event.is_action_pressed("Click"):
-		return
-	var position = interactionObjects.get_child(shape_idx).get_node("position")
-	if position.get_child_count() == 0:
-		var playBtn = playMinigameBtn.instance()
-		playBtn.init(position.linkToScene)
-		position.add_child(playBtn)
-	else:
-		position.get_child(0).queue_free()
-
 func _on_CarolinePicture_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and carolinePicture.is_on_top():
 		displayPlayBtnForObject(carolinePicture)
@@ -134,6 +124,7 @@ func displayPlayBtnForObject(object):
 
 func saveScene():
 	Global.kunaSceneState.kunaPos = kuna.position.x
+	Global.kunaSceneState.cameraPos = camera.position.x
 	Global.kunaSceneState.kunaInteractingWith = (kuna.interactingWithObject.name if kuna.interactingWithObject != null else "")
 	Global.kunaSceneState.kunaState = kuna.state
 	Global.kunaSceneState.gramophone = gramophoneIsPlaying
@@ -143,6 +134,7 @@ func saveScene():
 	print(Global.kunaSceneState)
 
 func loadScene():
+	camera.position.x = Global.kunaSceneState.cameraPos
 	#kuna deals with the state on its own
 	if Global.kunaSceneState.kunaInteractingWith != "":
 		var intObjectPath = Global.kunaSceneState.kunaInteractingWith
