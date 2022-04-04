@@ -19,7 +19,10 @@ func _ready():
 	idleTimer.set_one_shot(false)
 	idleTimer.connect("timeout", self, "_on_idleTimer_timeout")
 	add_child(idleTimer)
-	change_state(State.UNSELECTED)
+	
+	if Global.kunaSceneState.kunaState == State.INTERACTING:
+		setInteractingObj(Global.kunaSceneState.kunaInteractingWith)
+	change_state(Global.kunaSceneState.kunaState)
 	
 	connect("mouse_entered", self, "mouse_entered")
 	connect("mouse_exited", self, "mouse_exited")
@@ -76,8 +79,7 @@ func _on_kuna_input_event(viewport, event, shape_idx):
 			#when kuna is hovering kuna object
 			if hoveredObject != null:
 				change_state(State.INTERACTING)
-				interactingWithObject = hoveredObject
-				hoveredObject = null
+				setInteractingObj(hoveredObject.name)
 				#signal to update the sprite of hovered object and update its interacting state
 				emit_signal("kunaInteracting")
 			#declicking on kuna when its not hovering anything
@@ -103,7 +105,7 @@ func _on_kunaIdleAP_animation_finished(anim):
 
 func change_state(newState):
 	state = newState
-	#print("kuna new state: " + str(State.keys()[state]))
+	print("kuna new state: " + str(State.keys()[state]))
 	match state:
 		State.UNSELECTED:
 			idleTimer.set_wait_time(getRandomDelay())
@@ -147,9 +149,15 @@ func kunaHovering(object):
 	hoveredObject = object
 	change_state(State.HOVERING)
 
-func kunaUnhovered():
+func kunaUnhovered(object):
 	for sprite in get_node("interactionSprites").get_children():
-				if str(sprite.name.to_lower()) == str(hoveredObject.name.to_lower()):
+				if str(sprite.name.to_lower()) == str(object.name.to_lower()):
 					sprite.visible = false
 	hoveredObject = null
 	change_state(State.SELECTED)
+
+func setInteractingObj(objName):
+	for obj in get_tree().get_nodes_in_group("KunaObjects"):
+		if obj.name == objName:
+			interactingWithObject = obj
+	hoveredObject = null

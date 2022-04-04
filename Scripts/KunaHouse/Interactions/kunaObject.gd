@@ -26,7 +26,7 @@ func area_entered(area):
 func area_exited(area):
 	if area.name.to_lower() == "kuna":
 		setHovered(false)
-		emit_signal("kunaUnhovered")
+		emit_signal("kunaUnhovered", self)
 	else:
 		return
 
@@ -51,3 +51,8 @@ func setHovered(h):
 
 func setInteracting(i):
 	interacting = i
+
+func setStateInteracting():
+	setInteracting(true)
+	get_node(interactingSpritePath).visible = true
+	get_node(defaultSpritePath).visible = false

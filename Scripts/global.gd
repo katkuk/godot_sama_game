@@ -1,6 +1,7 @@
 extends Node
 var current_scene
 var current_story
+const kuna = preload("res://Scripts/KunaHouse/Kuna_newMove.gd")
 
 var sceneList = {
 	"kuna" : "res://Scenes/KunaHouse/KunaHouseSceneTestKatka.tscn",
@@ -12,7 +13,8 @@ var sceneList = {
 
 var kunaSceneState = {
 	"kunaPos" : 1554,
-	"kunaInteractingWith" : null,
+	"kunaInteractingWith" : "",
+	"kunaState" : kuna.State.UNSELECTED,
 	"gramophone" : false,
 	"hangingLights" : true,
 	"bigLampAleks" : false,
