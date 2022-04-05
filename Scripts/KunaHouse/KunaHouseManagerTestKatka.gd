@@ -41,13 +41,14 @@ func _on_Gramophone_input_event(viewport, event, shape_idx):
 
 func _on_BigWindow_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and bigWindow.is_on_top():
+		var bigWindowSprite = bigWindow.get_node("Sprite")
 		if down == true:
-			bigWindow.frame = bigWindow.frame - 1
-			if bigWindow.frame == 0:
+			bigWindowSprite.frame = bigWindowSprite.frame - 1
+			if bigWindowSprite.frame == 0:
 				down = false
 		elif down == false:
-			bigWindow.frame = bigWindow.frame + 1
-			if bigWindow.frame == 3:
+			bigWindowSprite.frame = bigWindowSprite.frame + 1
+			if bigWindowSprite.frame == 3:
 				down = true
 
 func _on_SmallPlant_input_event(viewport, event, shape_idx):

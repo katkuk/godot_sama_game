@@ -23,8 +23,10 @@ color = Color( 1, 1, 1, 0.929412 )
 [node name="Particles2D" type="Particles2D"]
 self_modulate = Color( 0.945098, 0.917647, 0.917647, 1 )
 rotation = 3.11115
+emitting = false
 amount = 5
 lifetime = 10.0
+one_shot = true
 speed_scale = 6.14
 explosiveness = 0.4
 randomness = 0.21

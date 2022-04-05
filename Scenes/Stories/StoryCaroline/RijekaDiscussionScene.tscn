@@ -137,6 +137,7 @@ anchor_bottom = 1.0
 margin_left = -8.76221
 margin_right = 2257.24
 margin_bottom = 1704.0
+mouse_filter = 2
 color = Color( 0, 0.27451, 0.423529, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -176,7 +177,7 @@ frame = 6
 
 [node name="carolineFace" type="Node2D" parent="Caroline"]
 position = Vector2( -863.541, -579.917 )
-rotation = -0.0468796
+rotation = -0.0468795
 scale = Vector2( 0.501359, 0.501359 )
 __meta__ = {
 "_edit_group_": true
@@ -242,15 +243,35 @@ anims/movement = SubResource( 4 )
 [node name="bubblePositions" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="bubblePositions"]
-position = Vector2( 894.549, 970.331 )
+position = Vector2( 878.888, 887.214 )
+scale = Vector2( 3.29255, 0.888051 )
 
 [node name="Position2D2" type="Position2D" parent="bubblePositions"]
-position = Vector2( 1263.63, 783.082 )
+position = Vector2( 1293.07, 712.218 )
+scale = Vector2( 3.29255, 0.888051 )
 
 [node name="Position2D3" type="Position2D" parent="bubblePositions"]
-position = Vector2( 857.946, 619.8 )
+position = Vector2( 824.876, 616.962 )
+scale = Vector2( 3.29255, 0.888051 )
 
 [node name="Position2D4" type="Position2D" parent="bubblePositions"]
-position = Vector2( 1264.52, 450.632 )
+position = Vector2( 1190.54, 478.397 )
+scale = Vector2( 3.29255, 0.888051 )
+
+[node name="Position2D5" type="Position2D" parent="bubblePositions"]
+position = Vector2( 1004.79, 689.488 )
+scale = Vector2( 3.29255, 0.888051 )
+
+[node name="Position2D6" type="Position2D" parent="bubblePositions"]
+position = Vector2( 1187.14, 572.766 )
+scale = Vector2( 3.29255, 0.888051 )
+
+[node name="Position2D7" type="Position2D" parent="bubblePositions"]
+position = Vector2( 950.195, 493.493 )
+scale = Vector2( 3.29255, 0.888051 )
+
+[node name="Position2D8" type="Position2D" parent="bubblePositions"]
+position = Vector2( 1348.61, 511.236 )
+scale = Vector2( 3.29255, 0.888051 )
 
 [node name="bubbles" type="Node2D" parent="."]

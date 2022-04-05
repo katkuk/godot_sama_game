@@ -1,16 +1,53 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/StoryCaroline/bubbleTriangle.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/SpeechBubble.gd" type="Script" id=6]
 
-[node name="SpeechBubble" type="Sprite"]
+[sub_resource type="Animation" id=1]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.92099 ), Vector2( 0.958791, 0.883037 ), Vector2( 1, 0.92099 ) ]
+}
+
+[node name="SpeechBubble" type="Area2D"]
 rotation = 1.62077
 scale = Vector2( 1, 0.92099 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1518.6, 1449.71, 386.65, 596.282 )
+z_index = 15
+z_as_relative = false
+script = ExtResource( 6 )
+
+[node name="triangleGeneral" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 0.862745, 0.839216, 0.835294, 1 )
+show_behind_parent = true
+position = Vector2( 167.795, 156.598 )
+rotation = -1.6889
+scale = Vector2( 0.551788, 0.551788 )
+texture = ExtResource( 5 )
+
+[node name="triangleCaroline" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 0.862745, 0.839216, 0.835294, 1 )
+show_behind_parent = true
+position = Vector2( 131.954, -219.924 )
+rotation = 1.4527
+scale = Vector2( 0.552, -0.552 )
+texture = ExtResource( 5 )
 
 [node name="bubbleshade" type="Sprite" parent="."]
 self_modulate = Color( 0.92549, 0.905882, 0.905882, 1 )
@@ -22,14 +59,32 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
 
-[node name="1" type="Sprite" parent="."]
+[node name="bubbleshade2" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( -0.556684, -8.47175 )
+rotation = -3.12105
+scale = Vector2( 1.00947, 1.02321 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+
+[node name="blink" type="AnimationPlayer" parent="."]
+autoplay = "blink"
+anims/blink = SubResource( 1 )
+
+[node name="spriteOptions" type="Node2D" parent="."]
+
+[node name="1" type="Sprite" parent="spriteOptions"]
+visible = false
 position = Vector2( 11.4495, -17.7987 )
 rotation = -1.64144
+scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 1485.04, 1251.16, 308.448, 115.353 )
 
-[node name="2" type="Sprite" parent="."]
+[node name="2" type="Sprite" parent="spriteOptions"]
+visible = false
 position = Vector2( 15.1289, -11.0743 )
 rotation = -1.60851
 scale = Vector2( 1, 1 )
@@ -37,15 +92,17 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 232.79, 1847.05, 294.189, 150.003 )
 
-[node name="3" type="Sprite" parent="."]
+[node name="3" type="Sprite" parent="spriteOptions"]
+visible = false
 position = Vector2( 3.99257, 4.19126 )
-rotation = -3.22224
+rotation = 3.06095
 scale = Vector2( 1.27137, 1.27137 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 681.271, 1858.24, 188.444, 146.676 )
 
-[node name="4" type="Sprite" parent="."]
+[node name="4" type="Sprite" parent="spriteOptions"]
+visible = false
 position = Vector2( -15.1224, -9.63555 )
 rotation = -1.63064
 scale = Vector2( 1.27137, 1.27137 )
@@ -53,7 +110,35 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 535.854, 1845.44, 148.53, 177.59 )
 
-[node name="5" type="Sprite" parent="."]
+[node name="8" type="Sprite" parent="spriteOptions"]
+visible = false
+position = Vector2( 5.66741, 1.66936 )
+rotation = 0.0393844
+scale = Vector2( 0.466489, 0.466489 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 289.592, -1.04828, 352.635, 314.853 )
+
+[node name="7" type="Sprite" parent="spriteOptions"]
+visible = false
+position = Vector2( 8.63688, 7.47178 )
+rotation = 3.09862
+scale = Vector2( 0.894182, 0.894182 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1830.04, 1474.3, 209.809, 396.673 )
+
+[node name="6" type="Sprite" parent="spriteOptions"]
+visible = false
+position = Vector2( 0.763855, -12.7206 )
+rotation = -1.63558
+z_index = 1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 912.073, 1889.92, 227.335, 126.422 )
+
+[node name="5" type="Sprite" parent="spriteOptions"]
+visible = false
 position = Vector2( -6.38507, -19.4605 )
 rotation = -1.59914
 scale = Vector2( 1, 1 )
@@ -61,25 +146,7 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( -10.6725, -16.069, 299.88, 223.204 )
 
-[node name="6" type="Sprite" parent="."]
-position = Vector2( 0.763855, -12.7206 )
-rotation = -1.63558
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 912.073, 1889.92, 227.335, 126.422 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 110.702, 285.634, 206.921, 127.294, 190.68, -192.713, 56.7471, -332.038, -102.399, -302.22, -204.902, -117.477, -188.287, 178.076, -39.6145, 311.715 )
 
-[node name="7" type="Sprite" parent="."]
-position = Vector2( 8.63688, 7.47178 )
-rotation = -3.18457
-scale = Vector2( 0.894182, 0.894182 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 1830.04, 1474.3, 209.809, 396.673 )
-
-[node name="8" type="Sprite" parent="."]
-position = Vector2( 5.66741, 1.66936 )
-rotation = 0.0393844
-scale = Vector2( 0.466489, 0.466489 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 289.592, -1.04828, 352.635, 314.853 )
+[connection signal="input_event" from="." to="." method="_on_SpeechBubble_input_event"]
