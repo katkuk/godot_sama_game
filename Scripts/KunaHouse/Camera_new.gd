@@ -1,6 +1,6 @@
 extends Camera2D
 onready var cameraTween = get_node("ShiftTween")
-onready var kuna = get_parent().get_node("House/kuna")
+onready var kuna = get_parent().get_node("House/Kuna")
 const SHIFT_TRANS = Tween.TRANS_SINE
 const SHIFT_EASE = Tween.EASE_OUT
 const SHIFT_DURATION = 0.9
@@ -25,37 +25,11 @@ func scroll(direction):
 		scrollRight = false
 		scrollLeft = false
 
-
-#	elif borderRight.overlaps_area(kuna):
-#		print(borderRight.position.x)
-#		position.x = lerp(position.x, position.x + 50, 25 * delta)
-
-#func _on_HouseArrow_pressed(direction):
-#	#print(direction)
-#	if direction == "right":
-#		var nextCameraPosX = position.x + 1000
-#		#print(nextCameraPosX)
-#		if nextCameraPosX < 7170:
-#			cameraTween.interpolate_property(self, "position:x", position.x, position.x + 1000, SHIFT_DURATION, SHIFT_TRANS, SHIFT_EASE)
-#			cameraTween.start()
-#		else:
-#			return
-#	elif direction == "left":
-#		var nextCameraPosX = position.x - 1000
-#		#print(nextCameraPosX)
-#		if nextCameraPosX > 1111:
-#			cameraTween.interpolate_property(self, "position:x", position.x, position.x - 1000, SHIFT_DURATION, SHIFT_TRANS, SHIFT_EASE)
-#			cameraTween.start()
-#		else:
-#			return
-
-
 func _on_HouseArrow_button_down(direction):
 	if direction == "right":
 		scrollRight = true
 	elif direction == "left":
 		scrollLeft = true
-
 
 func _on_HouseArrow_button_up():
 	scrollRight = false

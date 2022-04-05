@@ -12,17 +12,37 @@ signal scroll
 signal kunaInteracting
 var hoveredObject
 var interactingWithObject
+export var group := "clickable"
 
 func _ready():
 	idleTimer = Timer.new()
 	idleTimer.set_one_shot(false)
 	idleTimer.connect("timeout", self, "_on_idleTimer_timeout")
 	add_child(idleTimer)
-	change_state(State.UNSELECTED)
+	
+	if Global.kunaSceneState.kunaState == State.INTERACTING:
+		setInteractingObj(Global.kunaSceneState.kunaInteractingWith)
+	change_state(Global.kunaSceneState.kunaState)
+	
+	connect("mouse_entered", self, "mouse_entered")
+	connect("mouse_exited", self, "mouse_exited")
+	add_to_group(group)
 	
 	for obj in get_tree().get_nodes_in_group("KunaObjects"):
 		obj.connect("kunaHovering", self, "kunaHovering")
 		obj.connect("kunaUnhovered", self, "kunaUnhovered")
+
+func mouse_entered():
+	add_to_group(group + "hovered")
+
+func mouse_exited():
+	remove_from_group(group + "hovered")
+
+func is_on_top() -> bool:
+	for clickable in get_tree().get_nodes_in_group(group + "hovered"):
+		if clickable.get_index() > get_index():
+			return false
+	return true
 
 func _physics_process(delta):
 	if state == State.SELECTED or state == State.WALKING or state == State.HOVERING:
@@ -50,21 +70,23 @@ func followMouse(delta):
 
 
 func _on_kuna_input_event(viewport, event, shape_idx):
-	#when clicking on kuna
-	if Input.is_action_just_pressed("Click"):
-		change_state(State.SELECTED)
-	#declicking on kuna
-	elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
-		#when kuna is hovering kuna object
-		if hoveredObject != null:
-			change_state(State.INTERACTING)
-			interactingWithObject = hoveredObject
-			hoveredObject = null
-			#signal to update the sprite of hovered object and update its interacting state
-			emit_signal("kunaInteracting")
-		#declicking on kuna when its not hovering anything
+	if is_on_top():
+		#when clicking on kuna
+		if Input.is_action_just_pressed("Click"):
+			change_state(State.SELECTED)
+		#declicking on kuna
+		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
+			#when kuna is hovering kuna object
+			if hoveredObject != null:
+				change_state(State.INTERACTING)
+				setInteractingObj(hoveredObject.name)
+				#signal to update the sprite of hovered object and update its interacting state
+				emit_signal("kunaInteracting")
+			#declicking on kuna when its not hovering anything
+			else:
+				change_state(State.UNSELECTED)
 		else:
-			change_state(State.UNSELECTED)
+			return
 	else:
 		return
 
@@ -83,7 +105,7 @@ func _on_kunaIdleAP_animation_finished(anim):
 
 func change_state(newState):
 	state = newState
-	#print("kuna new state: " + str(State.keys()[state]))
+	print("kuna new state: " + str(State.keys()[state]))
 	match state:
 		State.UNSELECTED:
 			idleTimer.set_wait_time(getRandomDelay())
@@ -127,9 +149,15 @@ func kunaHovering(object):
 	hoveredObject = object
 	change_state(State.HOVERING)
 
-func kunaUnhovered():
+func kunaUnhovered(object):
 	for sprite in get_node("interactionSprites").get_children():
-				if str(sprite.name.to_lower()) == str(hoveredObject.name.to_lower()):
+				if str(sprite.name.to_lower()) == str(object.name.to_lower()):
 					sprite.visible = false
 	hoveredObject = null
 	change_state(State.SELECTED)
+
+func setInteractingObj(objName):
+	for obj in get_tree().get_nodes_in_group("KunaObjects"):
+		if obj.name == objName:
+			interactingWithObject = obj
+	hoveredObject = null

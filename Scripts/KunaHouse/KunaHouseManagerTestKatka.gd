@@ -1,152 +1,155 @@
 extends Node2D
 
-onready var houseTween = get_parent().get_node("HouseGUI/MoveHouseTween")
-onready var house = get_parent().get_node("House")
-onready var currentHousePosition = house.position;
-onready var arrowRight = get_parent().get_node("HouseGUI/HouseArrowRight")
-onready var arrowLeft = get_parent().get_node("HouseGUI/HouseArrowLeft")
-onready var kunaSelected = false;
-onready var kuna = get_parent().get_node("House/kuna")
+onready var kuna = get_parent().get_node("House/Kuna")
+#GET INTERACTION OBJECTS
 onready var interactionObjects = get_parent().get_node("House/InteractionObjects")
-onready var down = true;
-
-onready var bigWindow = get_parent().get_node("House/bigWindow2/bigWindow")
-onready var houseOffset = 0
+onready var carolinePicture = interactionObjects.get_node("CarolinePicture")
+onready var klekCards = interactionObjects.get_node("KlekCards")
+onready var plitvicePicture = interactionObjects.get_node("PlitvicePicture")
+onready var map = interactionObjects.get_node("Map")
+#GET CLICKABLE OBJECTS
+onready var clickableObjects = get_parent().get_node("House/ClickableObjects")
+onready var gramophone = clickableObjects.get_node("Gramophone")
+onready var bigWindow = clickableObjects.get_node("BigWindow")
+onready var smallPlant = clickableObjects.get_node("SmallPlant")
+onready var bigLampAleks = clickableObjects.get_node("BigLampAleks")
+onready var hangingLights = clickableObjects.get_node("HangingLights")
+onready var yellowFlower = clickableObjects.get_node("YellowFlower")
+onready var bigPlant = clickableObjects.get_node("BigPlant")
+onready var smallBedSideLamp = clickableObjects.get_node("SmallBedSideLamp")
+#down is for the big window roller
+var down = true;
+var gramophoneIsPlaying = false
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
+onready var camera = get_parent().get_node("Camera")
 
 func _ready():
-	pass
-	
-#func _process(delta):
-#	if kunaSelected:
-#		followMouse()
-#
-#func followMouse():
-#	kuna.position = get_global_mouse_position() + Vector2(houseOffset, 0)
-#
-#
-#func _on_kuna_input_event(viewport, event, shape_idx):
-#	if event is InputEventMouseButton:
-#		if event.pressed:
-#			kunaSelected = true
-#			kuna.get_node("kunaIdle").visible = false
-#			kuna.get_node("kunaWalking").visible = true
-#			kuna.get_node("kunaWalking/kunaWalkingAP").play("walking")
-#		else:
-#			kuna.get_node("kunaIdle").visible = true;
-#			kuna.get_node("kunaWalking").visible = false;
-#			kunaSelected = false
-	
+	loadScene()
 
-#func _on_HouseArrowRight_input_event(viewport, event, shape_idx):
-#	if event is InputEventMouseButton:
-#		if event.pressed:
-#			var nextHousePosition = currentHousePosition - Vector2(1000,0);
-#			if nextHousePosition.x == -7000:
-#				nextHousePosition = Vector2(-6000,0);
-#			else:
-#				houseOffset = houseOffset + 1000
-#			houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
-#			houseTween.start()
-#			currentHousePosition = nextHousePosition
-#
-#
-#func _on_HouseArrowLeft_input_event(viewport, event, shape_idx):
-#		if event is InputEventMouseButton:
-#			if event.pressed:
-#				var nextHousePosition = currentHousePosition + Vector2(1000,0);
-#				if nextHousePosition.x == 1000:
-#					nextHousePosition = Vector2(0,0);
-#				else:
-#					houseOffset = houseOffset - 1000
-#				houseTween.interpolate_property(house, "position", currentHousePosition, nextHousePosition,1,Tween.TRANS_SINE, Tween.EASE_OUT)
-#				houseTween.start()
-#				currentHousePosition = nextHousePosition
+#--------- CLICKABLE OBJECTS START - objects that do stuff when clicked
+func _on_Gramophone_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and gramophone.is_on_top():
+		var sprite = gramophone.get_node("Sprite")
+		var animation = gramophone.get_node("Sprite/Animation")
+		if animation.is_playing():
+			gramophoneIsPlaying = false
+			animation.stop()
+			sprite.frame = 3
+		else:
+			gramophoneIsPlaying = true
+			animation.play("playingMusic")
 
+func _on_BigWindow_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and bigWindow.is_on_top():
+		if down == true:
+			bigWindow.frame = bigWindow.frame - 1
+			if bigWindow.frame == 0:
+				down = false
+		elif down == false:
+			bigWindow.frame = bigWindow.frame + 1
+			if bigWindow.frame == 3:
+				down = true
 
-func _on_lampAleks2_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-			if event.pressed:
-				var lamp = get_parent().get_node("House/lampAleks2/lampAleks")
-				lamp.frame = !lamp.frame
+func _on_SmallPlant_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and smallPlant.is_on_top():
+		var sprite = smallPlant.get_node("Sprite")
+		var animation = smallPlant.get_node("Sprite/Animation")
+		if animation.is_playing():
+			animation.stop()
+			sprite.frame = 0
+		else:
+			animation.play("plant")
 
-func _on_gramophone2_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var gramophone = get_parent().get_node("House/gramophone2/gramophone")
-			var gramophoneAP = get_parent().get_node("House/gramophone2/gramophone/gramophoneAP")
-			if gramophoneAP.is_playing():
-				gramophoneAP.stop()
-				gramophone.frame = 3
-			else:
-				gramophoneAP.play("playingMusic")
+func _on_BigLampAleks_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and bigLampAleks.is_on_top():
+		var sprite = bigLampAleks.get_node("Sprite")
+		sprite.frame = !sprite.frame
+		#print(sprite.frame)
 
-func _on_smallPlant_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var smallPlant = get_parent().get_node("House/smallPlant/plantSmall")
-			var smallPlantAP = get_parent().get_node("House/smallPlant/AnimationPlayer")
-			if smallPlantAP.is_playing():
-				smallPlantAP.stop()
-				smallPlant.frame = 0
-			else:
-				smallPlantAP.play("plant")
+func _on_HangingLights_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and hangingLights.is_on_top():
+		hangingLights.get_node("LightBubbles").visible = !hangingLights.get_node("LightBubbles").visible
 
-func _on_flower2_input_event(viewport, event, shape_idx):
-		if event is InputEventMouseButton:
-			if event.pressed:
-				var flower = get_parent().get_node("House/flower2/flower")
-				var flowerAP = get_parent().get_node("House/flower2/AnimationPlayer")
-				if flowerAP.is_playing():
-					flowerAP.stop()
-					flower.frame = 0
-				else:
-					flowerAP.play("plantMove")
+func _on_YellowFlower_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and yellowFlower.is_on_top():
+		var sprite = yellowFlower.get_node("Sprite")
+		var animation = yellowFlower.get_node("Sprite/Animation")
+		if animation.is_playing():
+			animation.stop()
+			sprite.frame = 0
+		else:
+			animation.play("plantMove")
 
-func _on_bigWindow_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if down == true:
-				bigWindow.frame = bigWindow.frame - 1
-				if bigWindow.frame == 0:
-					down = false
-			elif down == false:
-				bigWindow.frame = bigWindow.frame + 1
-				if bigWindow.frame == 3:
-					down = true
+func _on_BigPlant_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and bigPlant.is_on_top():
+		var sprite = bigPlant.get_node("Sprite")
+		var animation = bigPlant.get_node("Sprite/Animation")
+		if animation.is_playing():
+			animation.stop()
+			sprite.frame = 0
+		else:
+			animation.play("plantMove")
 
-func _on_plantBigA_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var plantBig = get_parent().get_node("House/plantBigA/plantBig")
-			var plantBigAP = get_parent().get_node("House/plantBigA/plantBig/AnimationPlayer")
-			if plantBigAP.is_playing():
-				plantBigAP.stop()
-				plantBig.frame = 0
-			else:
-				plantBigAP.play("plantMove")
+func _on_SmallBedSideLamp_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and smallBedSideLamp.is_on_top():
+		var sprite = smallBedSideLamp.get_node("Sprite")
+		sprite.frame = !sprite.frame
+#--------- CLICKABLE OBJECTS END
 
-func _on_lampBedsideA_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-			if event.pressed:
-				var lamp = get_parent().get_node("House/lampBedsideA/lampBedside")
-				lamp.frame = !lamp.frame
+#--------- INTERACTABLE OBJECTS - objects that lead to a minigame
+func _on_CarolinePicture_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and carolinePicture.is_on_top():
+		displayPlayBtnForObject(carolinePicture)
 
-func _on_LittleLampsTop_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			var lampsArray = get_parent().get_node("House/LittleLampsTop/lightBubbles").get_children()
-			for lamp in lampsArray:
-				lamp.visible = !lamp.visible
+func _on_KlekCards_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and klekCards.is_on_top():
+		displayPlayBtnForObject(klekCards)
 
-#interactable objects are objects that lead to a minigame
-func _on_InteractionObjects_input_event(viewport, event, shape_idx):
-	if !event.is_action_pressed("Click"):
-		return
-	var position = interactionObjects.get_child(shape_idx).get_node("position")
+func _on_PlitvicePicture_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and plitvicePicture.is_on_top():
+		displayPlayBtnForObject(plitvicePicture)
+
+func _on_Map_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and map.is_on_top():
+		displayPlayBtnForObject(map)
+
+func displayPlayBtnForObject(object):
+	var position = object.get_node("Position")
 	if position.get_child_count() == 0:
 		var playBtn = playMinigameBtn.instance()
 		playBtn.init(position.linkToScene)
 		position.add_child(playBtn)
 	else:
 		position.get_child(0).queue_free()
+
+func saveScene():
+	Global.kunaSceneState.kunaPos = kuna.position.x
+	Global.kunaSceneState.cameraPos = camera.position.x
+	Global.kunaSceneState.kunaInteractingWith = (kuna.interactingWithObject.name if kuna.interactingWithObject != null else "")
+	Global.kunaSceneState.kunaState = kuna.state
+	Global.kunaSceneState.gramophone = gramophoneIsPlaying
+	Global.kunaSceneState.hangingLights = (true if hangingLights.get_node("LightBubbles").visible else false)
+	Global.kunaSceneState.bigLampAleks = (true if (bigLampAleks.get_node("Sprite").frame == 1) else false)
+	Global.kunaSceneState.smallBedSideLamp = (true if (smallBedSideLamp.get_node("Sprite").frame == 1) else false)
+	print(Global.kunaSceneState)
+
+func loadScene():
+	camera.position.x = Global.kunaSceneState.cameraPos
+	#kuna deals with the state on its own
+	if Global.kunaSceneState.kunaInteractingWith != "":
+		var intObjectPath = Global.kunaSceneState.kunaInteractingWith
+		var intObject = get_parent().get_node("House/KunaObjects/"+intObjectPath)
+		intObject.setStateInteracting()
+	else:
+		kuna.position.x = Global.kunaSceneState.kunaPos
+	#clickable objects
+	if Global.kunaSceneState.gramophone:
+		gramophone.get_node("Sprite/Animation").play("playingMusic")
+		gramophoneIsPlaying = true
+	elif !Global.kunaSceneState.gramophone:
+		gramophoneIsPlaying = false
+		gramophone.get_node("Sprite/Animation").stop()
+		gramophone.get_node("Sprite").frame = 3
+	hangingLights.get_node("LightBubbles").visible = Global.kunaSceneState.hangingLights
+	bigLampAleks.get_node("Sprite").frame = 1 if Global.kunaSceneState.bigLampAleks else 0
+	smallBedSideLamp.get_node("Sprite").frame = 1 if Global.kunaSceneState.smallBedSideLamp else 0
