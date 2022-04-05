@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/waveAnimation.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/StoryCaroline/General.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/StoryCaroline/Caroline.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/SpeechBubble.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.gd" type="Script" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -22,7 +25,111 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 22.73
 
+[sub_resource type="Animation" id=3]
+resource_name = "talking"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.6, 0.7, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("carolineFace:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7, 1.2, 1.3, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -863.541, -579.917 ), Vector2( -823.661, -649.159 ), Vector2( -892.19, -529.406 ), Vector2( -823.661, -649.159 ), Vector2( -892.19, -529.406 ), Vector2( -823.661, -649.159 ), Vector2( -863.541, -579.917 ), Vector2( -863.541, -579.917 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("carolineFace:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7, 1.2, 1.3, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -2.686, 1.54289, -6.09716, 1.54289, -6.09716, 1.54289, -2.686, -2.686 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("carolineFace/eyesCaroline2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 4, 3, 9, 7, 5, 4, 6, 9, 3, 4, 5, 9, 3, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.7, 0.8, 0.9, 1.1, 1.2, 1.3, 1.4, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 6, 0, 1, 3, 4, 0, 1, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("generalFace:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( -8.45467, 3.84296 ), Vector2( -8.45467, 3.84296 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -8.45467, 3.84296 ), Vector2( -8.45467, 3.84296 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("generalFace:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 3.92353, 3.92353, 0.0, 0.0, 3.92353, 3.92353, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("generalFace/eyesGeneral2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 10, 13, 16, 10, 11, 13, 16, 10, 12, 13, 16, 11, 14, 16, 11, 13 ]
+}
+
 [node name="RijekaDiscussionScene" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -32,13 +139,16 @@ margin_right = 2257.24
 margin_bottom = 1704.0
 color = Color( 0, 0.27451, 0.423529, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="WaveParticles1" type="Particles2D" parent="."]
+visible = false
 material = SubResource( 1 )
 position = Vector2( 2157.88, 390.255 )
 scale = Vector2( 0.6, 0.6 )
+emitting = false
 amount = 20
 lifetime = 50.0
 preprocess = 50.0
@@ -51,26 +161,96 @@ scale = Vector2( 1.21753, 1.06367 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -14.3905, 2.9931, 2078.81, 1445.74 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Caroline" type="Sprite" parent="."]
-position = Vector2( 1670.43, 1256.33 )
+position = Vector2( 1677.13, 1250.1 )
 rotation = -0.0269285
 scale = Vector2( 1.99458, 1.99458 )
 texture = ExtResource( 4 )
 hframes = 3
 vframes = 3
+frame = 6
 
-[node name="SpeechBubble" type="Sprite" parent="."]
-position = Vector2( 1011.35, 920.062 )
-rotation = 1.58763
-scale = Vector2( 1, 0.92099 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1518.6, 1449.71, 386.65, 596.282 )
+[node name="carolineFace" type="Node2D" parent="Caroline"]
+position = Vector2( -863.541, -579.917 )
+rotation = -0.0468796
+scale = Vector2( 0.501359, 0.501359 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="eyesCaroline" type="Sprite" parent="Caroline/carolineFace"]
+position = Vector2( 1682.97, 952.402 )
+rotation = -0.0727899
+scale = Vector2( 0.422653, 0.422653 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 4
+
+[node name="eyesCaroline2" type="Sprite" parent="Caroline/carolineFace"]
+position = Vector2( 1699.23, 1079.44 )
+rotation = -0.0727899
+scale = Vector2( 0.109973, 0.109973 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 4
+frame = 6
+
+[node name="Caroline" type="AnimationPlayer" parent="Caroline"]
+anims/talking = SubResource( 3 )
+
+[node name="SpeechBubble3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -643.183, 641.703 )
+scale = Vector2( 1.11197, 1.02412 )
 
 [node name="General" type="Sprite" parent="."]
-position = Vector2( 534.22, 1311.58 )
+position = Vector2( 542.398, 1315.92 )
 scale = Vector2( 2.0653, 2.0653 )
 texture = ExtResource( 3 )
 hframes = 3
 vframes = 3
+frame = 8
+
+[node name="generalFace" type="Node2D" parent="General"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="eyesGeneral" type="Sprite" parent="General/generalFace"]
+position = Vector2( -2.50467, -148.725 )
+rotation = -0.0727899
+scale = Vector2( 0.204645, 0.204645 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 4
+
+[node name="eyesGeneral2" type="Sprite" parent="General/generalFace"]
+position = Vector2( -1.13358, -87.04 )
+rotation = -0.0727899
+scale = Vector2( 0.0555212, 0.0555212 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 4
+frame = 14
+
+[node name="General" type="AnimationPlayer" parent="General"]
+anims/movement = SubResource( 4 )
+
+[node name="bubblePositions" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="bubblePositions"]
+position = Vector2( 894.549, 970.331 )
+
+[node name="Position2D2" type="Position2D" parent="bubblePositions"]
+position = Vector2( 1263.63, 783.082 )
+
+[node name="Position2D3" type="Position2D" parent="bubblePositions"]
+position = Vector2( 857.946, 619.8 )
+
+[node name="Position2D4" type="Position2D" parent="bubblePositions"]
+position = Vector2( 1264.52, 450.632 )
+
+[node name="bubbles" type="Node2D" parent="."]

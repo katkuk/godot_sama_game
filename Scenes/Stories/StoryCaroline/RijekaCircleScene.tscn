@@ -1,13 +1,36 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim3.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Stories/StoryCaroline/RijekaCircleScene.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/StoryCaroline/Ship2.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=5]
+resource_name = "rotateClouds"
+length = 16.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 13.049, -4.55854, 13.049 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Sea"
-length = 5.0
+length = 16.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -16,14 +39,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 7.9, 15.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -0.138226, 23.741 ]
+"values": [ -0.138226, 23.741, -0.138226 ]
 }
 
 [sub_resource type="Animation" id=2]
-loop = true
+length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -31,10 +54,198 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 108.052, -108.9 ]
+"values": [ -4.34956, -108.9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Caroline:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "boom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "boom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "boom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Animation" id=10]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -59,6 +270,7 @@ font_data = ExtResource( 4 )
 
 [node name="RijekaCircleScene" type="Node2D"]
 position = Vector2( 77.9121, 0 )
+script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -67,15 +279,105 @@ margin_left = -123.0
 margin_top = -46.0
 margin_right = 2235.0
 margin_bottom = 1716.0
+mouse_filter = 2
 color = Color( 0.0941176, 0.501961, 0.352941, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="clouds" type="Node2D" parent="."]
+position = Vector2( 1010, 1604.48 )
+rotation = 0.227748
+
+[node name="Cloud1" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 26.2372, 5.85034 )
+rotation = 0.00662245
+scale = Vector2( 0.45263, 0.45263 )
+texture = ExtResource( 6 )
+offset = Vector2( 49.282, -2086.76 )
+region_enabled = true
+region_rect = Rect2( -12.6254, -5.26782, 1813.81, 615.841 )
+
+[node name="Cloud2" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( -14.0237, -37.7173 )
+rotation = -0.099209
+scale = Vector2( 0.597753, 0.45263 )
+texture = ExtResource( 6 )
+offset = Vector2( 1629.34, 67.6216 )
+region_enabled = true
+region_rect = Rect2( 1602.04, 607.245, 386.997, 1318.12 )
+
+[node name="Cloud3" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 57.7129, 6.95508 )
+rotation = -0.928688
+scale = Vector2( 0.526432, 0.785146 )
+texture = ExtResource( 6 )
+offset = Vector2( 136.719, -1264.29 )
+region_enabled = true
+region_rect = Rect2( -12.2698, 1349.29, 977.691, 293.536 )
+
+[node name="Cloud4" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 78.6306, -16.7236 )
+rotation = -0.971588
+scale = Vector2( 0.785459, 0.785459 )
+texture = ExtResource( 6 )
+offset = Vector2( 1074.02, 110.44 )
+region_enabled = true
+region_rect = Rect2( 964.314, 1346.56, 115.833, 171.277 )
+
+[node name="Cloud5" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( -83.9259, 49.8195 )
+rotation = -0.657077
+scale = Vector2( 0.632785, 0.553951 )
+texture = ExtResource( 6 )
+offset = Vector2( 1453.53, 66.9595 )
+region_enabled = true
+region_rect = Rect2( 964.314, 1346.56, 115.833, 171.277 )
+
+[node name="Cloud6" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( -17.655, 5.25159 )
+rotation = 0.0218412
+scale = Vector2( 0.860892, 0.683757 )
+texture = ExtResource( 6 )
+offset = Vector2( -988.428, -331.568 )
+region_enabled = true
+region_rect = Rect2( 964.314, 1346.56, 115.833, 171.277 )
+
+[node name="Cloud8" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( 46.278, -9.44409 )
+rotation = 0.30909
+scale = Vector2( 0.860892, 0.683757 )
+texture = ExtResource( 6 )
+offset = Vector2( 1043.44, 135.599 )
+region_enabled = true
+region_rect = Rect2( 964.314, 1346.56, 115.833, 171.277 )
+
+[node name="Cloud7" type="Sprite" parent="clouds"]
+self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
+position = Vector2( -27.0287, 42.2183 )
+rotation = 1.39832
+scale = Vector2( 0.860892, 0.861163 )
+texture = ExtResource( 6 )
+offset = Vector2( -32.1246, 1055.34 )
+region_enabled = true
+region_rect = Rect2( -3.34085, 1641.48, 489.787, 241.11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="clouds"]
+autoplay = "rotateClouds"
+anims/rotateClouds = SubResource( 5 )
+
 [node name="Sea" type="Sprite" parent="."]
-position = Vector2( 1011.4, 1459.47 )
-rotation = 0.0892773
+position = Vector2( 1019.88, 1607.79 )
+rotation = 0.00273287
 scale = Vector2( 1.00688, 1.05608 )
+z_index = 1
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 20.1817, -9.66621, 1471.85, 1386.57 )
@@ -85,27 +387,123 @@ autoplay = "Sea"
 anims/Sea = SubResource( 1 )
 
 [node name="RijekaCircle" type="Sprite" parent="."]
-position = Vector2( 1031.9, 1474.74 )
-rotation = 0.829874
+position = Vector2( 1040.38, 1623.06 )
+rotation = -0.0759141
 scale = Vector2( 0.935522, 0.935522 )
+z_index = 2
 texture = ExtResource( 1 )
 offset = Vector2( -40, -150 )
 region_enabled = true
 region_rect = Rect2( -23.2366, -37.5771, 1997.03, 1525.88 )
 
+[node name="birdClickArea" type="Area2D" parent="RijekaCircle"]
+position = Vector2( -977.298, -1814.27 )
+rotation = 0.0759141
+scale = Vector2( 1.06892, 1.06892 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RijekaCircle/birdClickArea"]
+polygon = PoolVector2Array( 735.307, 1023.28, 845.615, 955.397, 902.184, 969.539, 916.326, 1122.27, 984.208, 1045.91, 1009.66, 890.343, 1204.83, 864.887, 1317.96, 1006.31, 1493.33, 799.833, 1592.32, 856.402, 1425.44, 1102.48, 1597.98, 1249.55, 1592.32, 1311.78, 1640.4, 1359.86, 1838.39, 1345.72, 1524.44, 1566.34, 1533.42, 1662.29, 1452.6, 1967.6, 1160.76, 2115.76, 945.247, 2151.68, 550.141, 1936.17, 155.034, 1922.7, 114.625, 1788, 469.323, 1684.73, 262.79, 1635.35, 195.442, 1455.75, 442.384, 1321.06, 392.996, 1186.36, 586.059, 993.298 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle"]
 autoplay = "Rotate"
-playback_speed = 0.05
 anims/Rotate = SubResource( 2 )
 
+[node name="boom" type="Sprite" parent="RijekaCircle"]
+visible = false
+position = Vector2( 474.702, -553.968 )
+scale = Vector2( 0.567963, 0.567963 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom"]
+playback_speed = 2.0
+anims/boom = SubResource( 6 )
+
+[node name="boom2" type="Sprite" parent="RijekaCircle"]
+visible = false
+position = Vector2( 444.737, 328.638 )
+scale = Vector2( 0.869991, 0.869991 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom2"]
+playback_speed = 2.0
+anims/boom = SubResource( 7 )
+
+[node name="boom3" type="Sprite" parent="RijekaCircle"]
+visible = false
+position = Vector2( -273.098, -500.885 )
+scale = Vector2( 0.509121, 0.509121 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom3"]
+playback_speed = 2.0
+anims/boom = SubResource( 8 )
+
+[node name="boat" type="AnimatedSprite" parent="RijekaCircle"]
+position = Vector2( 812.121, 263.393 )
+rotation = 1.90479
+scale = Vector2( -0.333113, 0.333113 )
+z_index = 1
+frames = SubResource( 9 )
+frame = 2
+playing = true
+
+[node name="CarolineSmallAnim2" type="Sprite" parent="RijekaCircle/boat"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 385.976, 347.592 )
+scale = Vector2( 0.463938, 0.463938 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim2"]
+playback_speed = 1.5
+anims/shoot = SubResource( 10 )
+
+[node name="CarolineSmallAnim3" type="Sprite" parent="RijekaCircle/boat"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 154.823, 406.053 )
+scale = Vector2( 0.463938, 0.463938 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim3"]
+playback_speed = 1.5
+anims/shoot = SubResource( 11 )
+
+[node name="CarolineSmallAnim4" type="Sprite" parent="RijekaCircle/boat"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -101.277, 408.146 )
+scale = Vector2( 0.463938, 0.463938 )
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim4"]
+playback_speed = 1.5
+anims/shoot = SubResource( 12 )
+
+[node name="shootTimer" type="Timer" parent="RijekaCircle/boat"]
+
 [node name="Caroline" type="Sprite" parent="."]
-position = Vector2( 955.651, 853.713 )
+position = Vector2( 964.127, 1002.04 )
 rotation = 0.0020832
 scale = Vector2( 0.935522, 0.935522 )
+z_index = 3
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 4
-frame = 5
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Caroline"]
 autoplay = "Walk"
@@ -125,3 +523,10 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="explosionTimer" type="Timer" parent="."]
+
+[node name="birdContainer" type="Node2D" parent="."]
+z_index = 3
+
+[connection signal="input_event" from="RijekaCircle/birdClickArea" to="." method="_on_birdClickArea_input_event"]

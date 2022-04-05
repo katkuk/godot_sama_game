@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=4]
+
+[node name="SpeechBubble" type="Sprite"]
+rotation = 1.62077
+scale = Vector2( 1, 0.92099 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1518.6, 1449.71, 386.65, 596.282 )
+
+[node name="bubbleshade" type="Sprite" parent="."]
+self_modulate = Color( 0.92549, 0.905882, 0.905882, 1 )
+show_behind_parent = true
+position = Vector2( 11.1897, -17.1161 )
+rotation = -3.12105
+scale = Vector2( 1.00947, 1.02321 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+
+[node name="1" type="Sprite" parent="."]
+position = Vector2( 11.4495, -17.7987 )
+rotation = -1.64144
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1485.04, 1251.16, 308.448, 115.353 )
+
+[node name="2" type="Sprite" parent="."]
+position = Vector2( 15.1289, -11.0743 )
+rotation = -1.60851
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 232.79, 1847.05, 294.189, 150.003 )
+
+[node name="3" type="Sprite" parent="."]
+position = Vector2( 3.99257, 4.19126 )
+rotation = -3.22224
+scale = Vector2( 1.27137, 1.27137 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 681.271, 1858.24, 188.444, 146.676 )
+
+[node name="4" type="Sprite" parent="."]
+position = Vector2( -15.1224, -9.63555 )
+rotation = -1.63064
+scale = Vector2( 1.27137, 1.27137 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 535.854, 1845.44, 148.53, 177.59 )
+
+[node name="5" type="Sprite" parent="."]
+position = Vector2( -6.38507, -19.4605 )
+rotation = -1.59914
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -10.6725, -16.069, 299.88, 223.204 )
+
+[node name="6" type="Sprite" parent="."]
+position = Vector2( 0.763855, -12.7206 )
+rotation = -1.63558
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 912.073, 1889.92, 227.335, 126.422 )
+
+[node name="7" type="Sprite" parent="."]
+position = Vector2( 8.63688, 7.47178 )
+rotation = -3.18457
+scale = Vector2( 0.894182, 0.894182 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1830.04, 1474.3, 209.809, 396.673 )
+
+[node name="8" type="Sprite" parent="."]
+position = Vector2( 5.66741, 1.66936 )
+rotation = 0.0393844
+scale = Vector2( 0.466489, 0.466489 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 289.592, -1.04828, 352.635, 314.853 )

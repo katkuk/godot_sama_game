@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/Caroline.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/CarolineWindowScene.gd" type="Script" id=9]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "walkIn"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1420.5, 968.183 ), Vector2( 1205.28, 968.183 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "caroline"
 length = 2.0
 loop = true
@@ -54,12 +54,11 @@ tracks/1/keys = {
 "values": [ 6, 3, 3, 6 ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "boom"
+[sub_resource type="Animation" id=4]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -87,8 +86,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "boom"
+[sub_resource type="Animation" id=5]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -116,8 +114,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "boom"
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -200,11 +197,11 @@ vframes = 4
 frame = 3
 
 [node name="WalkIn" type="AnimationPlayer" parent="Caroline"]
-anims/walkIn = SubResource( 5 )
+anims/walkIn = SubResource( 1 )
 
 [node name="Caroline" type="AnimationPlayer" parent="Caroline"]
 autoplay = "caroline"
-anims/caroline = SubResource( 6 )
+anims/caroline = SubResource( 2 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 margin_left = -60.0
@@ -353,7 +350,7 @@ margin_left = 395.052
 margin_top = 1359.86
 margin_right = 1852.05
 margin_bottom = 1764.86
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "When a brave young woman called Caroline saw what was going on, she had to do something about it."
 align = 1
 autowrap = true
@@ -373,7 +370,7 @@ frame = 9
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom1"]
 autoplay = "boom"
 playback_speed = 1.5
-anims/boom = SubResource( 2 )
+anims/boom = SubResource( 4 )
 
 [node name="Boom2" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -387,7 +384,7 @@ frame = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom2"]
 autoplay = "boom"
 playback_speed = 1.5
-anims/boom = SubResource( 3 )
+anims/boom = SubResource( 5 )
 
 [node name="Boom3" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -401,7 +398,7 @@ frame = 9
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom3"]
 autoplay = "boom"
 playback_speed = 1.5
-anims/boom = SubResource( 4 )
+anims/boom = SubResource( 6 )
 
 [connection signal="input_event" from="DoorL" to="." method="_on_DoorL_input_event"]
 [connection signal="input_event" from="DoorR" to="." method="_on_DoorR_input_event"]
