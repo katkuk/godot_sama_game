@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -28,20 +28,21 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/KunaHouse-3.png" type="Texture" id=26]
 [ext_resource path="res://Scripts/KunaHouse/Interactions/kunaObject.gd" type="Script" id=27]
 [ext_resource path="res://Scripts/KunaHouse/ClickOnlyTopArea.gd" type="Script" id=28]
+[ext_resource path="res://Assets/Textures/Kuna/kunaSittingMinusChair.png" type="Texture" id=29]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384.206, 521.21 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 131.516, 384.533 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 232, 206 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 958.639, 826.012 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -57,7 +58,7 @@ tracks/0/keys = {
 "values": [ 3, 0, 1, 2 ]
 }
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=6]
 radius = 421.03
 
 [sub_resource type="Animation" id=7]
@@ -75,10 +76,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=8]
 radius = 300.0
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -93,7 +94,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.85
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -108,7 +109,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -124,7 +125,7 @@ tracks/0/keys = {
 "values": [ -2.60064, 1.63511, -2.60064 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -140,7 +141,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 4.8
 loop = true
 tracks/0/type = "value"
@@ -156,7 +157,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 2, 0, 5, 6, 7, 6, 7, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -302,7 +303,7 @@ region_rect = Rect2( 0, 1.80658, 911.145, 1797.87 )
 [node name="Collision" type="CollisionShape2D" parent="House/InteractionObjects/CarolinePicture"]
 position = Vector2( 4702, 692 )
 scale = Vector2( 0.671515, 0.671515 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Position" type="Position2D" parent="House/InteractionObjects/CarolinePicture"]
 position = Vector2( 4702.38, 673.207 )
@@ -325,7 +326,7 @@ region_rect = Rect2( -4.84692, 1745.27, 769.311, 307.009 )
 position = Vector2( 3968, 1338 )
 rotation = -1.59934
 scale = Vector2( 0.630736, 0.735718 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Position" type="Position2D" parent="House/InteractionObjects/KlekCards"]
 position = Vector2( 4000.41, 1340.21 )
@@ -347,7 +348,7 @@ region_rect = Rect2( 1113.89, 200.852, 776.774, 515.582 )
 [node name="Collision" type="CollisionShape2D" parent="House/InteractionObjects/PlitvicePicture"]
 position = Vector2( 2993, 621 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Position" type="Position2D" parent="House/InteractionObjects/PlitvicePicture"]
 position = Vector2( 2971.59, 645.012 )
@@ -372,7 +373,7 @@ __meta__ = {
 [node name="Colision" type="CollisionShape2D" parent="House/InteractionObjects/Map"]
 position = Vector2( 1300, 590 )
 scale = Vector2( 0.644664, 0.644664 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -419,7 +420,7 @@ frame = 3
 
 [node name="Animation" type="AnimationPlayer" parent="House/ClickableObjects/Gramophone/Sprite"]
 playback_speed = 0.8
-anims/playingMusic = SubResource( 2 )
+anims/playingMusic = SubResource( 5 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="House/ClickableObjects/Gramophone"]
 position = Vector2( -74.239, 49.1815 )
@@ -444,7 +445,7 @@ texture = ExtResource( 7 )
 
 [node name="Collision" type="CollisionShape2D" parent="House/ClickableObjects/BigWindow"]
 position = Vector2( 3890, 603 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 
 [node name="SmallPlant" type="Area2D" parent="House/ClickableObjects"]
 script = ExtResource( 28 )
@@ -660,7 +661,7 @@ region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
 
 [node name="CollisionCornerLights" type="CollisionShape2D" parent="House/ClickableObjects/HangingLights"]
 position = Vector2( 166, 50 )
-shape = SubResource( 14 )
+shape = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -688,7 +689,7 @@ hframes = 3
 
 [node name="Animation" type="AnimationPlayer" parent="House/ClickableObjects/YellowFlower/Sprite"]
 root_node = NodePath("../..")
-anims/plantMove = SubResource( 10 )
+anims/plantMove = SubResource( 9 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="House/ClickableObjects/YellowFlower"]
 polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53, 5156.27, 1348.48, 5329.94, 1352.26, 5388.46, 1040.78, 5394.13, 653.793 )
@@ -703,7 +704,7 @@ texture = ExtResource( 22 )
 hframes = 3
 
 [node name="Animation" type="AnimationPlayer" parent="House/ClickableObjects/BigPlant/Sprite"]
-anims/plantMove = SubResource( 11 )
+anims/plantMove = SubResource( 10 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="House/ClickableObjects/BigPlant"]
 position = Vector2( 469.871, 82.5449 )
@@ -723,7 +724,9 @@ polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="chair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="chair" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("chairWithKuna")
 defaultSpritePath = NodePath("chairEmpty")
@@ -744,12 +747,14 @@ hframes = 2
 
 [node name="animation" type="AnimationPlayer" parent="House/KunaObjects/chair"]
 autoplay = "sitting"
-anims/sitting = SubResource( 8 )
+anims/sitting = SubResource( 11 )
 
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="bed" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("kunaSleeping")
 defaultSpritePath = NodePath("bed")
@@ -770,10 +775,18 @@ hframes = 2
 vframes = 2
 frame = 2
 
+[node name="bed2" type="Sprite" parent="House/KunaObjects/bed/kunaSleeping"]
+show_behind_parent = true
+position = Vector2( -37.4014, 122.135 )
+scale = Vector2( 0.910111, 0.910111 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 3.54016, 0, 2000.09, 1353.31 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="House/KunaObjects/bed/kunaSleeping"]
 autoplay = "sleeping"
 playback_speed = 0.4
-anims/sleeping = SubResource( 9 )
+anims/sleeping = SubResource( 12 )
 
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/bed"]
 polygon = PoolVector2Array( 6963, 1444, 7463, 1304, 7484, 1048, 7311, 963, 7295, 669, 6824, 539, 6417, 699, 6417, 946, 6113, 1124, 6205, 1319, 6429, 1425 )
@@ -795,7 +808,7 @@ hframes = 3
 vframes = 3
 
 [node name="kunaIdleAP" type="AnimationPlayer" parent="House/Kuna/kunaIdle"]
-anims/idle = SubResource( 12 )
+anims/idle = SubResource( 13 )
 
 [node name="kunaWalking" type="Sprite" parent="House/Kuna"]
 visible = false
@@ -807,17 +820,15 @@ vframes = 3
 
 [node name="kunaWalkingAP" type="AnimationPlayer" parent="House/Kuna/kunaWalking"]
 playback_speed = 0.9
-anims/walking = SubResource( 13 )
+anims/walking = SubResource( 14 )
 
 [node name="interactionSprites" type="Node2D" parent="House/Kuna"]
 
 [node name="chair" type="Sprite" parent="House/Kuna/interactionSprites"]
 visible = false
 position = Vector2( 0.607666, -2.76202 )
-scale = Vector2( 0.737245, 0.737245 )
-texture = ExtResource( 14 )
-hframes = 2
-vframes = 2
+scale = Vector2( 0.839406, 0.839407 )
+texture = ExtResource( 29 )
 
 [node name="bed" type="Sprite" parent="House/Kuna/interactionSprites"]
 visible = false
