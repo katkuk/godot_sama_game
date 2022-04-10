@@ -63,6 +63,7 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 Global="*res://Scripts/global.gd"
+GlobalSound="*res://Scenes/GlobalSound.tscn"
 
 [debug]
 
