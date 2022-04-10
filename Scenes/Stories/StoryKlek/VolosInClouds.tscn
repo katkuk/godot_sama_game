@@ -1,32 +1,103 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Textures/KlekStory/Untitled_Artwork.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/KlekStory/VolosLayingDown.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/KlekStory/wine.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Scripts/Map/AddBookGuiColorField.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Textures/GameCaroline/empty.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Stories/StoryKlek/VolosInCouds.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1, 1.3, 1.7, 1.9, 2.2, 2.4, 2.6, 3, 3.4, 3.8, 4.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 0, 0, 6, 4, 5, 5, 4, 0, 0, 7, 0, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "eating"
+length = 0.35
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0653055, 0.127835, 0.197304, 0.26261 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 7 )
 
+[sub_resource type="Animation" id=4]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("wine:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -5.14651, 84.5943 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("wine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 4, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7 ]
+}
+
 [node name="VolosInClouds" type="Node2D"]
 script = ExtResource( 8 )
-GUIColorHex = "#61429d"
+GUIColorHex = "#a0403e"
 
 [node name="Sky" type="ColorRect" parent="."]
 margin_right = 2226.0
 margin_bottom = 1671.0
+mouse_filter = 2
 color = Color( 0.117647, 0.690196, 0.811765, 1 )
+script = ExtResource( 10 )
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="clouds1" type="Sprite" parent="Sky"]
-position = Vector2( 961.702, 1222.96 )
+position = Vector2( 958.705, 1222.96 )
 scale = Vector2( 1.71639, 2.41946 )
 texture = ExtResource( 6 )
 region_enabled = true
@@ -55,9 +126,19 @@ texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 965.533, 1347.79, 116.418, 170.086 )
 
-[node name="volosPlaceholder" type="Sprite" parent="."]
-position = Vector2( 1171.72, 886.437 )
+[node name="volos" type="Sprite" parent="."]
+position = Vector2( 1175.08, 899.891 )
+scale = Vector2( 1.49661, 1.49661 )
 texture = ExtResource( 3 )
+hframes = 3
+vframes = 3
+
+[node name="idle" type="AnimationPlayer" parent="volos"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="eating" type="AnimationPlayer" parent="volos"]
+anims/eating = SubResource( 2 )
 
 [node name="cloudsFront" type="Sprite" parent="."]
 position = Vector2( 1108.51, 1233.73 )
@@ -65,48 +146,9 @@ scale = Vector2( 1.09949, 1.1052 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -14.391, 2.10131, 2074.98, 824.161 )
-
-[node name="cookies" type="Sprite" parent="."]
-position = Vector2( 1840.6, 979.214 )
-scale = Vector2( 0.586308, 0.586308 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 762.717, -14.8807, 756.334, 601.016 )
-
-[node name="grapes" type="Sprite" parent="."]
-position = Vector2( 1632.53, 1180.08 )
-scale = Vector2( 0.586308, 0.586308 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 356.011, 478.513, 583.886, 358.102 )
-
-[node name="chicken" type="Sprite" parent="."]
-position = Vector2( 1312.65, 1284.41 )
-scale = Vector2( 0.586308, 0.586308 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( -1.56859, 1228.42, 780.35, 472.379 )
-
-[node name="cake" type="Sprite" parent="."]
-position = Vector2( 542.105, 1132.7 )
-scale = Vector2( 0.547159, 0.547159 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 783.156, 1230.03, 513.804, 433.266 )
-
-[node name="potatos" type="Sprite" parent="."]
-position = Vector2( 1545.62, 1448.11 )
-scale = Vector2( 0.586308, 0.586308 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 746.671, 177.934, 621.347, 300.154 )
-
-[node name="apples" type="Sprite" parent="."]
-position = Vector2( 322.638, 1236.17 )
-scale = Vector2( 0.661377, 0.661377 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 217.309, 243.298, 509.846, 471.221 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="wineCap" type="Sprite" parent="."]
 position = Vector2( 877.138, 1042.97 )
@@ -116,7 +158,193 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( -9.21384, -4.95335, 105.895, 73.3835 )
 
-[node name="wine" type="Sprite" parent="."]
+[node name="Label" type="Label" parent="."]
+margin_left = 113.0
+margin_top = 107.0
+margin_right = 1297.0
+margin_bottom = 431.0
+custom_fonts/font = SubResource( 3 )
+text = "On a sunny day long time ago slavic god Volos was having a delicious feast up in the clouds."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clickFoodArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="clickFoodArea"]
+visible = false
+polygon = PoolVector2Array( -10.7783, 1111.81, 5.22168, 1655.81, 2221.22, 1655.81, 2209.22, 3.81323, -18.7783, -16.1868 )
+
+[node name="empty" type="Sprite" parent="."]
+position = Vector2( -486.778, 1379.81 )
+texture = ExtResource( 9 )
+
+[node name="Cake" type="Area2D" parent="."]
+
+[node name="cakeA" type="Area2D" parent="Cake"]
+visible = false
+
+[node name="single" type="Sprite" parent="Cake/cakeA"]
+scale = Vector2( 0.394321, 0.394321 )
+z_index = 30
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 4.45981, 482.584, 350.138, 319.114 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cake/cakeA"]
+position = Vector2( 385.645, -1038.27 )
+polygon = PoolVector2Array( -451.236, 1105.42, -471.727, 1019, -401.346, 966.437, -313.147, 991.382, -299.784, 1053.74, -305.129, 1086.71, -427.182, 1125.91 )
+
+[node name="cake" type="Sprite" parent="Cake"]
+position = Vector2( 542.105, 1132.7 )
+scale = Vector2( 0.547159, 0.547159 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 783.156, 1230.03, 513.804, 433.266 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cake"]
+polygon = PoolVector2Array( 387.091, 1117.15, 387.091, 1026.64, 627.508, 1002.6, 696.804, 1080.38, 699.632, 1203.42, 494.571, 1250.08, 456.388, 1177.96 )
+
+[node name="Apples" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Apples"]
+polygon = PoolVector2Array( 232.55, 1117.67, 144.55, 1235.67, 176.55, 1363.67, 372.55, 1381.67, 454.55, 1337.67, 490.55, 1209.67, 338.55, 1093.67 )
+
+[node name="apples" type="Sprite" parent="Apples"]
+position = Vector2( 322.638, 1236.17 )
+scale = Vector2( 0.661377, 0.661377 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 217.309, 243.298, 509.846, 471.221 )
+
+[node name="appleA" type="Area2D" parent="Apples"]
+visible = false
+
+[node name="single" type="Sprite" parent="Apples/appleA"]
+rotation = 1.46485
+scale = Vector2( 0.683784, 0.683784 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 562, 6.75, 174.8, 154.85 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Apples/appleA"]
+polygon = PoolVector2Array( -50, -36, -58, 27, -18, 61, 32, 53, 65, 12, 40, -70 )
+
+[node name="Potatoes" type="Area2D" parent="."]
+
+[node name="potatoA" type="Area2D" parent="Potatoes"]
+visible = false
+
+[node name="single" type="Sprite" parent="Potatoes/potatoA"]
+scale = Vector2( 0.554857, 0.554857 )
+z_index = 30
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 746.945, -11.3823, 186.15, 189.474 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Potatoes/potatoA"]
+polygon = PoolVector2Array( -56.4951, 14.2296, -2.31848, 67.1462, 53.118, 45.7276, 49.3383, -32.3875, -18.6975, -60.1058, -64.0546, -32.3875 )
+
+[node name="potatos" type="Sprite" parent="Potatoes"]
+position = Vector2( 1545.62, 1448.11 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 746.671, 177.934, 621.347, 300.154 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Potatoes"]
+polygon = PoolVector2Array( 1375.99, 1457.26, 1469.22, 1387.34, 1581.53, 1370.39, 1731.97, 1427.6, 1708.66, 1512.35, 1570.93, 1552.61, 1445.92, 1542.02 )
+
+[node name="Grapes" type="Area2D" parent="."]
+
+[node name="grapesA" type="Area2D" parent="Grapes"]
+visible = false
+
+[node name="single" type="Sprite" parent="Grapes/grapesA"]
+scale = Vector2( 0.512355, 0.512354 )
+z_index = 30
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -17.9862, 172.817, 278.116, 251.524 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grapes/grapesA"]
+polygon = PoolVector2Array( -59.6588, 10.7501, -38.6364, 55.3176, 62.2712, 79.7036, 84.9754, 49.4314, 47.976, -20.363, 5.09024, -69.135, -31.9092, -40.5446, -60.4997, -67.4532, -69.7495, -51.4762, -53.7725, -25.4084 )
+
+[node name="grapes" type="Sprite" parent="Grapes"]
+position = Vector2( 1632.53, 1180.08 )
+scale = Vector2( 0.586308, 0.586308 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 356.011, 478.513, 583.886, 358.102 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grapes"]
+polygon = PoolVector2Array( 1558.52, 1095.42, 1473.09, 1195.53, 1506.46, 1255.6, 1647.95, 1276.95, 1774.76, 1254.26, 1804.13, 1184.85, 1697.34, 1099.42 )
+
+[node name="Cookies" type="Area2D" parent="."]
+
+[node name="cookieA" type="Area2D" parent="Cookies"]
+visible = false
+
+[node name="single" type="Sprite" parent="Cookies/cookieA"]
+rotation = 0.444907
+scale = Vector2( 0.597708, 0.597708 )
+z_index = 30
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 347.464, -1.00634, 213.762, 148.356 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cookies/cookieA"]
+polygon = PoolVector2Array( -95.98, -13.9073, -38.8336, 48.0013, 57.2042, 39.2706, 84.19, -15.4947, 9.58218, -51.2113 )
+
+[node name="cookies" type="Sprite" parent="Cookies"]
+position = Vector2( 1840.6, 979.214 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 762.717, -14.8807, 756.334, 601.016 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cookies"]
+polygon = PoolVector2Array( 1662.8, 1040.49, 1754.87, 915.081, 1953.3, 929.367, 2007.27, 969.052, 1992.98, 1018.26, 1853.29, 1153.19, 1643.75, 1075.41 )
+
+[node name="Chicken" type="Area2D" parent="."]
+
+[node name="chickenA" type="Area2D" parent="Chicken"]
+visible = false
+
+[node name="single" type="Sprite" parent="Chicken/chickenA"]
+scale = Vector2( 0.552925, 0.552925 )
+z_index = 30
+z_as_relative = false
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1356.97, 193.224, 324.355, 291.06 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chicken/chickenA"]
+polygon = PoolVector2Array( -94.0461, 30.1025, -35.7756, -38.7626, 62.7545, -89.6168, 94.5384, -51.4761, 17.1976, 37.5188, -41.0729, 97.9082, -103.581, 72.481 )
+
+[node name="chicken" type="Sprite" parent="Chicken"]
+position = Vector2( 1312.65, 1284.41 )
+scale = Vector2( 0.586308, 0.586308 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -1.56859, 1228.42, 780.35, 472.379 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chicken"]
+polygon = PoolVector2Array( 1132.43, 1320.84, 1253.21, 1231.85, 1386.71, 1208.54, 1518.08, 1352.63, 1373.99, 1411.96, 1143.03, 1371.7 )
+
+[node name="Wine" type="Area2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wine"]
+anims/wineAnim = SubResource( 4 )
+
+[node name="wine" type="Sprite" parent="Wine"]
 position = Vector2( 811.022, 919.193 )
 rotation = -0.0898235
 scale = Vector2( 0.7305, 0.7305 )
@@ -124,14 +352,29 @@ texture = ExtResource( 4 )
 hframes = 4
 vframes = 2
 
-[node name="Label" type="Label" parent="."]
-margin_left = 113.0
-margin_top = 107.0
-margin_right = 1297.0
-margin_bottom = 431.0
-custom_fonts/font = SubResource( 1 )
-text = "On a sunny day long time ago slavic god Volos was having a delicious feast up in the clouds."
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wine"]
+polygon = PoolVector2Array( 771.258, 724.471, 756.156, 788.654, 722.177, 824.521, 712.738, 1009.52, 788.248, 1062.38, 858.094, 1018.96, 848.656, 803.756, 810.901, 745.236 )
+
+[node name="pour" type="AnimationPlayer" parent="Wine"]
+anims/pour = SubResource( 5 )
+
+[node name="Mouth" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mouth"]
+polygon = PoolVector2Array( 1380.6, 789.732, 1405.82, 808.652, 1431.47, 796.459, 1424.32, 779.221, 1397.41, 777.119 )
+
+[node name="WineArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WineArea"]
+polygon = PoolVector2Array( 1271.9, 593.08, 1301.08, 837.776, 1377.41, 833.286, 1361.7, 357.363, 1258.43, 364.097 )
+
+[connection signal="input_event" from="clickFoodArea" to="Sky" method="_on_clickFoodArea_input_event"]
+[connection signal="input_event" from="Cake" to="Sky" method="_on_Cake_input_event"]
+[connection signal="input_event" from="Apples" to="Sky" method="_on_Apples_input_event"]
+[connection signal="input_event" from="Potatoes" to="Sky" method="_on_Potatoes_input_event"]
+[connection signal="input_event" from="Grapes" to="Sky" method="_on_Grapes_input_event"]
+[connection signal="input_event" from="Cookies" to="Sky" method="_on_Cookies_input_event"]
+[connection signal="input_event" from="Chicken" to="Sky" method="_on_Chicken_input_event"]
+[connection signal="input_event" from="Wine" to="Sky" method="_on_Wine_input_event"]
+[connection signal="area_entered" from="Mouth" to="Sky" method="_on_Mouth_area_entered"]
+[connection signal="area_entered" from="WineArea" to="Sky" method="_on_WineArea_area_entered"]

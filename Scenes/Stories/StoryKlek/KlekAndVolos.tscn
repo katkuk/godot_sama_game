@@ -15,7 +15,7 @@ font_data = ExtResource( 7 )
 
 [node name="KlekAndVolos" type="Node2D"]
 script = ExtResource( 8 )
-GUIColorHex = "#61429d"
+GUIColorHex = "#a0403e"
 
 [node name="Sky" type="ColorRect" parent="."]
 margin_right = 2226.0

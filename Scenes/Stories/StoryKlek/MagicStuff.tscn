@@ -1,78 +1,271 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Textures/KlekStory/spell.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Stories/StoryKlek/MagicStuff.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("star2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("star4:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("star6:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("star3:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("star5:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 0, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("klek:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -4.40404, 4.34384, 62.5787, 139.822, 205.465, 261.973, 319.682, 355.597 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "New Anim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2/star6:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -34.3473, -35.2919, -34.3473 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2/star6:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area1/star2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 11.8397, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area3/star5:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -43.4439, -37.8988, -43.4439 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Area1/star4:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 7.5888, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Area1/mountain1:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.06086, 1.06086 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Area3/mountain2:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.02633, 1.02633 ), Vector2( 1, 1 ) ]
+}
+
 [node name="MagicStuff" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -39.0
 margin_top = -32.0
 margin_right = 2256.0
 margin_bottom = 1704.0
+mouse_filter = 2
 color = Color( 0.741176, 0.431373, 0.266667, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="star2" type="Sprite" parent="."]
+[node name="Area1" type="Area2D" parent="."]
+
+[node name="star2" type="Sprite" parent="Area1"]
+self_modulate = Color( 0.976471, 0.65098, 0.152941, 1 )
 position = Vector2( 306.755, 780.823 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1534.72, 554.347, 369.501, 383.851 )
 
-[node name="star3" type="Sprite" parent="."]
+[node name="star4" type="Sprite" parent="Area1"]
+self_modulate = Color( 0.976471, 0.65098, 0.152941, 1 )
+show_behind_parent = true
+position = Vector2( 990.193, 375.031 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 862.301, 1111.15, 533.257, 549.287 )
+
+[node name="mountain1" type="Sprite" parent="Area1"]
+position = Vector2( 488.212, 443.807 )
+rotation = -0.622951
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 950.451, -4.22548, 688.094, 555.969 )
+
+[node name="CollisionPolygon1" type="CollisionPolygon2D" parent="Area1"]
+visible = false
+polygon = PoolVector2Array( 483.356, 831.36, 486.353, 831.36, 786.014, 612.608, 1016.75, 519.713, 1220.52, 393.855, 1292.44, 85.2035, 285.58, 43.2509, 177.702, 447.794, 90.7998, 735.469, 201.675, 948.228 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area1"]
+"anims/New Anim" = SubResource( 6 )
+
+[node name="Area2" type="Area2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2"]
+"anims/New Anim" = SubResource( 5 )
+
+[node name="star3" type="Sprite" parent="Area2"]
+self_modulate = Color( 0.976471, 0.65098, 0.152941, 1 )
 position = Vector2( 1299.88, 1432.22 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1514.05, 933.449, 190.788, 171.403 )
 
-[node name="star4" type="Sprite" parent="."]
-position = Vector2( 990.193, 375.031 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 862.301, 1099.42, 533.257, 561.015 )
-
-[node name="star5" type="Sprite" parent="."]
-position = Vector2( 1566.42, 662.423 )
-rotation = -0.758239
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( -5.95776, 976.574, 868.527, 977.838 )
-
-[node name="star6" type="Sprite" parent="."]
+[node name="star6" type="Sprite" parent="Area2"]
+self_modulate = Color( 0.729412, 0.298039, 0.211765, 1 )
 position = Vector2( 701.871, 1089.32 )
 rotation = -0.599473
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 948.601, 984.96 )
 
-[node name="mountain1" type="Sprite" parent="."]
-position = Vector2( 488.212, 446.635 )
-rotation = -0.622951
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 950.451, -4.22548, 688.094, 555.969 )
-
-[node name="mountain2" type="Sprite" parent="."]
-position = Vector2( 1776.46, 1238.07 )
-rotation = -0.852285
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 933.346, 548.461, 601.09, 559.086 )
-
-[node name="stones1" type="Sprite" parent="."]
-position = Vector2( 1785.76, 652.678 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1614.22, -13.2472, 191.649, 194.154 )
-
-[node name="stones2" type="Sprite" parent="."]
+[node name="stones2" type="Sprite" parent="Area2"]
 position = Vector2( 583.991, 1165.23 )
 rotation = -0.605148
 scale = Vector2( 1.3927, 1.3927 )
@@ -80,23 +273,88 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1140.3, 1649.4, 230.351, 154.132 )
 
-[node name="klek" type="Sprite" parent="."]
+[node name="CollisionPolygon3" type="CollisionPolygon2D" parent="Area2"]
+visible = false
+polygon = PoolVector2Array( 185.203, 1037.18, 655.067, 756.866, 884.659, 1103.92, 1132.94, 1240.08, 1417.26, 1407.67, 1442.46, 1581.54, 844.614, 1640.53, 478.868, 1491.03, 382.76, 1330.85 )
+
+[node name="Area3" type="Area2D" parent="."]
+
+[node name="star5" type="Sprite" parent="Area3"]
+self_modulate = Color( 0.729412, 0.298039, 0.211765, 1 )
+position = Vector2( 1570.2, 662.423 )
+rotation = -0.758239
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -5.95776, 984.2, 868.527, 970.212 )
+
+[node name="mountain2" type="Sprite" parent="Area3"]
+position = Vector2( 1776.46, 1238.07 )
+rotation = -0.852285
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 933.346, 548.461, 601.09, 559.086 )
+
+[node name="stones1" type="Sprite" parent="Area3"]
+position = Vector2( 1785.76, 652.678 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1614.22, -13.2472, 191.649, 194.154 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon2D" parent="Area3"]
+visible = false
+polygon = PoolVector2Array( 1334.39, 160.119, 1268.47, 504.73, 1397.32, 651.564, 1391.33, 897.286, 1292.44, 1319.81, 1685, 1484.62, 2053.58, 1484.62, 2107.52, 987.184, 2077.56, 420.824, 1870.79, 214.058 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area3"]
+"anims/New Anim" = SubResource( 7 )
+
+[node name="Klek" type="Area2D" parent="."]
+
+[node name="klek" type="Sprite" parent="Klek"]
 position = Vector2( 1109.84, 884.483 )
+rotation = -0.076865
 scale = Vector2( 1.22491, 1.22491 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1391.52, 1103.49, 484.985, 555.34 )
+
+[node name="eyesAndMouths" type="Sprite" parent="Klek/klek"]
+position = Vector2( -14.4021, -19.4745 )
+scale = Vector2( 0.444252, 0.444252 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Klek/klek/eyesAndMouths"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Klek"]
+"anims/New Anim" = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Klek"]
+visible = false
+polygon = PoolVector2Array( 773.232, 700.294, 841.268, 1020.31, 1027.74, 1158.91, 1181.45, 1181.58, 1317.52, 1045.51, 1355.32, 745.651, 1224.28, 536.504, 1115.93, 501.226 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 361.987
 margin_top = 1371.05
 margin_right = 1837.99
 margin_bottom = 1536.05
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Volos thew a powerful spell on Klek. 
 Can you guess what the spell did? "
 align = 1
 autowrap = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Idle" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 4 )
+
+[connection signal="input_event" from="Area1" to="." method="_on_Area1_input_event"]
+[connection signal="input_event" from="Area2" to="." method="_on_Area2_input_event"]
+[connection signal="input_event" from="Area3" to="." method="_on_Area3_input_event"]
+[connection signal="input_event" from="Klek" to="." method="_on_Klek_input_event"]
