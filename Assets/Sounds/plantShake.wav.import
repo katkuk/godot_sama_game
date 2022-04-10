@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/plantShake.wav-76adf1fc362ed22c65e4e16ba3544d62.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/plantShake.wav"
+dest_files=[ "res://.import/plantShake.wav-76adf1fc362ed22c65e4e16ba3544d62.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

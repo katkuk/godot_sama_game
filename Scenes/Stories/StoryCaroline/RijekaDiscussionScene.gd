@@ -6,13 +6,13 @@ const Bubble = preload("res://Scenes/Stories/StoryCaroline/SpeechBubble.tscn")
 onready var bubblePositions = get_node("bubblePositions").get_children()
 const BubbleParticles = preload("res://Scenes/Stories/StoryCaroline/particlesBubble.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	createBubble()
-
 var positionCount = 0
 var spriteCount = 0
+var bubbleClickCounter = 0
+
+func _ready():
+	yield(get_tree().create_timer(1.0), "timeout")
+	createBubble()
 
 func createBubble():
 	var bubble = Bubble.instance()
@@ -31,12 +31,10 @@ func createBubble():
 	$bubbles.add_child(bubble)
 	spriteCount = spriteCount + 1
 	positionCount = positionCount + 1
-	if spriteCount < 8:	
+	if spriteCount < 8:
 		yield(get_tree().create_timer(2.0), "timeout")
 		createBubble()
-		
-var bubbleClickCounter = 0
-		
+
 func onBubbleClicked():
 	print(bubbleClickCounter)
 	bubbleClickCounter = bubbleClickCounter + 1

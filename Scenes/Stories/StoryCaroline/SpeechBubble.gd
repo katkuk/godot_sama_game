@@ -1,17 +1,27 @@
 extends Area2D
 
+export var group := "clickable"
 signal bubbleClicked
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("mouse_entered", self, "mouse_entered")
+	connect("mouse_exited", self, "mouse_exited")
+	add_to_group(group)
 
 
 func _on_SpeechBubble_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			emit_signal("bubbleClicked")
-			queue_free()
+	if event.is_action_pressed("Click") and is_on_top():
+		emit_signal("bubbleClicked")
+		queue_free()
 
+func mouse_entered():
+	add_to_group(group + "hovered")
+
+func mouse_exited():
+	remove_from_group(group + "hovered")
+
+func is_on_top() -> bool:
+	for clickable in get_tree().get_nodes_in_group(group + "hovered"):
+		if clickable.get_index() > get_index():
+			return false
+	return true

@@ -65,11 +65,12 @@ func _on_BigLampAleks_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and bigLampAleks.is_on_top():
 		var sprite = bigLampAleks.get_node("Sprite")
 		sprite.frame = !sprite.frame
-		#print(sprite.frame)
+		GlobalSound.playSound("LightSwitch")
 
 func _on_HangingLights_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and hangingLights.is_on_top():
 		hangingLights.get_node("LightBubbles").visible = !hangingLights.get_node("LightBubbles").visible
+		GlobalSound.playSound("LightSwitch")
 
 func _on_YellowFlower_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and yellowFlower.is_on_top():
@@ -95,6 +96,7 @@ func _on_SmallBedSideLamp_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and smallBedSideLamp.is_on_top():
 		var sprite = smallBedSideLamp.get_node("Sprite")
 		sprite.frame = !sprite.frame
+		GlobalSound.playSound("LightSwitch")
 #--------- CLICKABLE OBJECTS END
 
 #--------- INTERACTABLE OBJECTS - objects that lead to a minigame
