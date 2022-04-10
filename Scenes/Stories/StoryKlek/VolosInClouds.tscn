@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Map/AddBookGuiColorField.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Textures/GameCaroline/empty.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Stories/StoryKlek/VolosInCouds.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Textures/GameCaroline/bubble.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -49,26 +50,27 @@ tracks/0/keys = {
 size = 80
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=4]
-length = 0.3
+[sub_resource type="Animation" id=6]
+resource_name = "back"
+length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath("wine:rotation_degrees")
+tracks/0/path = NodePath("wine/wineSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -5.14651, 84.5943 ]
+"times": PoolRealArray( 0, 0.0730648, 0.143244, 0.216309 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
 }
 
 [sub_resource type="Animation" id=5]
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("wine:frame")
+tracks/0/path = NodePath("wine/wineSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -79,6 +81,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 3, 4, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7, 5, 6, 7 ]
 }
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 8, 0 )
+initial_velocity = 72.15
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+scale = 0.03
+scale_random = 0.06
 
 [node name="VolosInClouds" type="Node2D"]
 script = ExtResource( 8 )
@@ -341,22 +355,31 @@ polygon = PoolVector2Array( 1132.43, 1320.84, 1253.21, 1231.85, 1386.71, 1208.54
 
 [node name="Wine" type="Area2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wine"]
-anims/wineAnim = SubResource( 4 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wine"]
+polygon = PoolVector2Array( 771.258, 724.471, 756.156, 788.654, 722.177, 824.521, 712.738, 1009.52, 788.248, 1062.38, 858.094, 1018.96, 848.656, 803.756, 810.901, 745.236 )
 
-[node name="wine" type="Sprite" parent="Wine"]
-position = Vector2( 811.022, 919.193 )
+[node name="pour" type="AnimationPlayer" parent="Wine"]
+anims/back = SubResource( 6 )
+anims/pour = SubResource( 5 )
+
+[node name="wine" type="Area2D" parent="Wine"]
+position = Vector2( 792.418, 905.813 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="wineSprite" type="Sprite" parent="Wine/wine"]
+position = Vector2( 25.9091, 5.22559 )
 rotation = -0.0898235
 scale = Vector2( 0.7305, 0.7305 )
 texture = ExtResource( 4 )
 hframes = 4
 vframes = 2
+frame = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wine"]
-polygon = PoolVector2Array( 771.258, 724.471, 756.156, 788.654, 722.177, 824.521, 712.738, 1009.52, 788.248, 1062.38, 858.094, 1018.96, 848.656, 803.756, 810.901, 745.236 )
-
-[node name="pour" type="AnimationPlayer" parent="Wine"]
-anims/pour = SubResource( 5 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wine/wine"]
+position = Vector2( -782.116, -913.967 )
+polygon = PoolVector2Array( 652.734, 932.117, 654.853, 883.382, 657.022, 830.381, 746.118, 827.553, 903.096, 827.553, 1014.01, 839.944, 1017.19, 891.857, 915.823, 954.832, 843.699, 977.46, 726.319, 971.803 )
 
 [node name="Mouth" type="Area2D" parent="."]
 
@@ -368,6 +391,18 @@ polygon = PoolVector2Array( 1380.6, 789.732, 1405.82, 808.652, 1431.47, 796.459,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WineArea"]
 polygon = PoolVector2Array( 1271.9, 593.08, 1301.08, 837.776, 1377.41, 833.286, 1361.7, 357.363, 1258.43, 364.097 )
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="crumbs" type="Particles2D" parent="."]
+position = Vector2( 1397.94, 793.439 )
+rotation = 0.445578
+emitting = false
+amount = 3
+lifetime = 0.5
+speed_scale = 1.3
+process_material = SubResource( 7 )
+texture = ExtResource( 11 )
+
 [connection signal="input_event" from="clickFoodArea" to="Sky" method="_on_clickFoodArea_input_event"]
 [connection signal="input_event" from="Cake" to="Sky" method="_on_Cake_input_event"]
 [connection signal="input_event" from="Apples" to="Sky" method="_on_Apples_input_event"]
@@ -378,3 +413,4 @@ polygon = PoolVector2Array( 1271.9, 593.08, 1301.08, 837.776, 1377.41, 833.286, 
 [connection signal="input_event" from="Wine" to="Sky" method="_on_Wine_input_event"]
 [connection signal="area_entered" from="Mouth" to="Sky" method="_on_Mouth_area_entered"]
 [connection signal="area_entered" from="WineArea" to="Sky" method="_on_WineArea_area_entered"]
+[connection signal="area_exited" from="WineArea" to="Sky" method="_on_WineArea_area_exited"]

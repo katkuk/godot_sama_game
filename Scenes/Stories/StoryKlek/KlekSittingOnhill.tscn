@@ -1,24 +1,148 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Textures/KlekStory/klekSitting-0.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/StoryPlitvice/sheep.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-3.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-0.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scenes/Stories/StoryKlek/KlekSittingOnhill.gd" type="Script" id=11]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "sleeping",
-"speed": 3.0
-} ]
+[sub_resource type="Animation" id=11]
+resource_name = "sheep"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.844378, 1.00754, 1.15645, 1.32369, 1.48278, 2.03938, 2.27242, 2.50894, 2.79438, 3.06495, 3.73672 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2498, 0.492073 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -16.8179 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bubble3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.497177, 0.996392 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.215337, 0.649458 ), Vector2( 0.220121, 0.663887 ), Vector2( 0.215337, 0.649458 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "speachBubble"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bubble1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.199686 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bubble2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.199686, 0.391221 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bubble3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.393259, 0.397334, 0.556268 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("cake:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.393259, 0.558305 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idleSitting"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.173354 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idleStanding"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00689816, 0.145613 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "sitting"
@@ -38,8 +162,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "standUp"
-length = 2.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -57,26 +179,248 @@ tracks/0/keys = {
 size = 80
 font_data = ExtResource( 10 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "CloudsMoving"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Clouds12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00203761, 0.495139, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 132.508, 282.955 ), Vector2( 181.589, 282.955 ), Vector2( 132.508, 282.955 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Clouds8:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00407522, 0.495139, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 542.754, 418.533 ), Vector2( 512.55, 422.308 ), Vector2( 542.754, 418.533 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clouds14:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.499215, 0.994354 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 552.484, 144.786 ), Vector2( 597.79, 144.786 ), Vector2( 552.484, 144.786 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Clouds6:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.00407522, 0.499215, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 736.098, 195.78 ), Vector2( 777.628, 195.78 ), Vector2( 736.098, 195.78 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Clouds4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.00203758, 0.509403, 0.998429 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1158.43, 155.716 ), Vector2( 1098.02, 155.716 ), Vector2( 1158.43, 155.716 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Clouds3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.00815044, 0.51144, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1775.76, 202.149 ), Vector2( 1711.58, 202.149 ), Vector2( 1775.76, 202.149 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Clouds9:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.0142632, 0.525704, 0.994354 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1890.02, 449.224 ), Vector2( 1980.63, 449.224 ), Vector2( 1890.02, 449.224 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "sheep"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.928349, 1.09152, 1.24042, 1.40766, 1.56675, 2.12335, 2.35639, 2.59291, 2.87835, 3.14892, 3.82069 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.242861, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -19.0703 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "sheep"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.163166, 0.312069, 0.47931, 0.6384, 1.195, 1.42804, 1.66456, 1.95, 2.22057, 2.89234 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.248412, 0.494049 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -16.9514 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "sheep"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.363876, 0.527042, 0.675944, 0.843185, 1.00228, 1.55888, 1.79192, 2.02843, 2.31388, 2.58445, 3.25622 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.255351, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -23.7842 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "sheep"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.928349, 1.09152, 1.24042, 1.40766, 1.56675, 2.12335, 2.35639, 2.59291, 2.87835, 3.14892, 3.82069 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.219483, 0.489608 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -38.0546 ), Vector2( 0, 0 ) ]
+}
+
 [node name="KlekSittingOnHill" type="Node2D"]
 position = Vector2( 0, 14.2946 )
 script = ExtResource( 11 )
 GUIColorHex = "#a0403e"
 
 [node name="Sky" type="ColorRect" parent="."]
-margin_top = 2.37842
-margin_right = 2215.0
-margin_bottom = 1674.38
+margin_left = -33.5874
+margin_top = -106.02
+margin_right = 2248.41
+margin_bottom = 1600.98
+mouse_filter = 2
 color = Color( 0.117647, 0.690196, 0.811765, 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Sky2" type="ColorRect" parent="."]
+[node name="Grass patch" type="ColorRect" parent="."]
 margin_left = -42.0
 margin_top = 1499.75
 margin_right = 1682.0
 margin_bottom = 1676.75
+mouse_filter = 2
 color = Color( 0.737255, 0.807843, 0.384314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,14 +449,6 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 
-[node name="Clouds2" type="Sprite" parent="."]
-position = Vector2( 976.173, 716.348 )
-rotation = 2.78079
-scale = Vector2( 0.238925, 0.649458 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
-
 [node name="Clouds9" type="Sprite" parent="."]
 position = Vector2( 1890.02, 449.224 )
 rotation = 5.81263
@@ -120,30 +456,6 @@ scale = Vector2( 0.26866, 0.82803 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
-
-[node name="Clouds10" type="Sprite" parent="."]
-position = Vector2( 735.654, 822.313 )
-rotation = 2.30789
-scale = Vector2( 0.0279063, 0.113621 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
-
-[node name="Clouds11" type="Sprite" parent="."]
-position = Vector2( 675.76, 870.94 )
-rotation = 2.30789
-scale = Vector2( 0.0170324, 0.0693476 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
-
-[node name="KlekSleeping" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 1091.77, 905.097 )
-frames = SubResource( 1 )
-animation = "sleeping"
-frame = 4
-playing = true
 
 [node name="hill1" type="Sprite" parent="."]
 position = Vector2( 1093.6, 1282.16 )
@@ -153,34 +465,106 @@ region_enabled = true
 region_rect = Rect2( -19.1007, 1172.28, 1513.82, 591.658 )
 
 [node name="Clouds6" type="Sprite" parent="."]
-position = Vector2( 729.363, 236.189 )
+position = Vector2( 736.098, 195.78 )
 rotation = -1.6269
 scale = Vector2( 1.73332, 1.22393 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 1091.55, 1047.94, 347.693, 746.517 )
 
-[node name="klekSitting-0" type="Sprite" parent="."]
-position = Vector2( 684.703, 776.467 )
-rotation = 0.0313687
-scale = Vector2( 1.64317, 1.64317 )
-texture = ExtResource( 1 )
-hframes = 4
-vframes = 2
-frame = 1
+[node name="Sheep3" type="Area2D" parent="."]
+position = Vector2( 0, -16.8179 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="klekSitting-0"]
-autoplay = "sitting"
-anims/sitting = SubResource( 2 )
-anims/standUp = SubResource( 3 )
+[node name="sheep3" type="Sprite" parent="Sheep3"]
+position = Vector2( 1012.14, 936.911 )
+scale = Vector2( 0.174544, 0.174544 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3/sheep3"]
+autoplay = "sheep"
+anims/sheep = SubResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep3"]
+polygon = PoolVector2Array( 927.997, 906.173, 922.051, 970.39, 957.727, 1026.28, 1047.56, 1020.22, 1115.89, 944.228, 1067.13, 845.523, 941.079, 840.767 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3"]
+anims/jump = SubResource( 15 )
+
+[node name="SpeachBubble" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpeachBubble"]
+anims/bounce = SubResource( 6 )
+anims/speachBubble = SubResource( 7 )
+
+[node name="Bubble3" type="Sprite" parent="SpeachBubble"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 988.54, 628.817 )
+rotation = 2.61409
+scale = Vector2( 0.215337, 0.649458 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="cake" type="Sprite" parent="SpeachBubble"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 985.451, 633.591 )
+rotation = 0.14842
+scale = Vector2( 0.441365, 0.470564 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( -5.06355, 470.697, 362.86, 334.569 )
+
+[node name="Bubble2" type="Sprite" parent="SpeachBubble"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 771.106, 700.666 )
+rotation = 2.30789
+scale = Vector2( 0.0279063, 0.113621 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
+
+[node name="Bubble1" type="Sprite" parent="SpeachBubble"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 715.849, 742.803 )
+rotation = 2.30789
+scale = Vector2( 0.0170324, 0.0693476 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
 
 [node name="Clouds4" type="Sprite" parent="."]
-position = Vector2( 1116.48, 101.777 )
+position = Vector2( 1158.43, 155.716 )
 rotation = -1.53992
 scale = Vector2( 1.25726, 0.705782 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 1091.55, 1047.94, 347.693, 746.517 )
+
+[node name="klekSitting2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="klekSitting2"]
+polygon = PoolVector2Array( 363.735, 545.566, 338.789, 1130, 477.302, 1343.65, 856.311, 1374.76, 935.507, 1284.25, 901.837, 798.581, 848.383, 157.134, 456.388, 182.079 )
+
+[node name="klekSitting" type="Sprite" parent="klekSitting2"]
+position = Vector2( 707.33, 711.413 )
+rotation = 0.0313687
+scale = Vector2( 1.64317, 1.64317 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 2
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="klekSitting2/klekSitting"]
+autoplay = "sitting"
+anims/idleSitting = SubResource( 8 )
+anims/idleStanding = SubResource( 9 )
+anims/sitting = SubResource( 2 )
+anims/standUp = SubResource( 3 )
 
 [node name="hill2" type="Sprite" parent="."]
 position = Vector2( 1312.08, 1314.17 )
@@ -190,7 +574,7 @@ region_enabled = true
 region_rect = Rect2( -3.97583, 701.185, 1269.59, 470.384 )
 
 [node name="Clouds14" type="Sprite" parent="."]
-position = Vector2( 534.504, 147.783 )
+position = Vector2( 552.484, 144.786 )
 rotation = 9.51156
 scale = Vector2( 0.641552, 1.66631 )
 texture = ExtResource( 3 )
@@ -198,7 +582,7 @@ region_enabled = true
 region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
 
 [node name="Clouds15" type="Sprite" parent="."]
-position = Vector2( 809.901, -2.23152 )
+position = Vector2( 815.894, 36.7245 )
 rotation = 6.65134
 scale = Vector2( 0.364486, 1.19463 )
 texture = ExtResource( 3 )
@@ -208,13 +592,13 @@ region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
 [node name="Clouds3" type="Sprite" parent="."]
 position = Vector2( 1775.76, 202.149 )
 rotation = -0.00495451
-scale = Vector2( 0.994627, 1.95555 )
+scale = Vector2( 1.22491, 1.95555 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( -14.998, 1349.12, 983.141, 294.354 )
+region_rect = Rect2( -14.998, 1349.12, 976.887, 294.354 )
 
 [node name="Clouds8" type="Sprite" parent="."]
-position = Vector2( 436.404, 486.241 )
+position = Vector2( 542.754, 418.533 )
 rotation = 2.92887
 scale = Vector2( 0.274132, 0.667797 )
 texture = ExtResource( 3 )
@@ -229,120 +613,205 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 22.6718, 612.343, 1601.19, 441.252 )
 
-[node name="tree1" type="Sprite" parent="."]
+[node name="Label" type="Label" parent="."]
+self_modulate = Color( 0.14902, 0.14902, 0.14902, 1 )
+margin_left = 475.447
+margin_top = 1412.65
+margin_right = 1773.45
+margin_bottom = 1592.65
+custom_fonts/font = SubResource( 4 )
+text = "Klek the giant  was sitting on a hill below. His stomach rumbling from hunger."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="trees" type="Node2D" parent="."]
+
+[node name="tree1" type="Sprite" parent="trees"]
 position = Vector2( 1922.59, 1040.24 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
 
-[node name="tree3" type="Sprite" parent="."]
+[node name="tree3" type="Sprite" parent="trees"]
 position = Vector2( 1668.84, 1145.68 )
 scale = Vector2( 0.817521, 0.790078 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
 
-[node name="tree4" type="Sprite" parent="."]
+[node name="tree4" type="Sprite" parent="trees"]
 position = Vector2( 218.103, 717.39 )
 scale = Vector2( 1.22258, 1.18154 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
 
-[node name="tree5" type="Sprite" parent="."]
+[node name="tree5" type="Sprite" parent="trees"]
 position = Vector2( 121.237, 782.002 )
 scale = Vector2( 0.817521, 0.790078 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 178.52, -4.96997, 78.5014, 127.836 )
 
-[node name="tree12" type="Sprite" parent="."]
+[node name="tree12" type="Sprite" parent="trees"]
 position = Vector2( 1487.53, 1073.38 )
 scale = Vector2( 0.817521, 0.790078 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
 
-[node name="tree13" type="Sprite" parent="."]
-position = Vector2( 1222.73, 1090.35 )
+[node name="tree13" type="Sprite" parent="trees"]
+position = Vector2( 1262.73, 1088.35 )
 scale = Vector2( 0.817521, 0.790078 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 178.52, -4.96997, 78.5014, 127.836 )
 
-[node name="tree8" type="Sprite" parent="."]
+[node name="tree8" type="Sprite" parent="trees"]
 position = Vector2( 1391.48, 1015.83 )
 scale = Vector2( 1.29171, 1.22782 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
 
-[node name="tree6" type="Sprite" parent="."]
-position = Vector2( 130.554, 1281.26 )
+[node name="tree6" type="Sprite" parent="trees"]
+position = Vector2( 139.506, 1045.66 )
 scale = Vector2( 1.6247, 1.57016 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
 
-[node name="tree9" type="Sprite" parent="."]
-position = Vector2( 117.766, 1496.81 )
+[node name="tree9" type="Sprite" parent="trees"]
+position = Vector2( 200.526, 1486.13 )
 scale = Vector2( 1.29801, 1.25443 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
 
-[node name="tree14" type="Sprite" parent="."]
-position = Vector2( 117.766, 1496.81 )
-scale = Vector2( 1.29801, 1.25443 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
-
-[node name="tree2" type="Sprite" parent="."]
-self_modulate = Color( 0.842413, 0.964844, 0.252518, 1 )
-position = Vector2( 2078.99, 1136.31 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 1609.05, -6.76615, 110.585, 202.935 )
-
-[node name="tree7" type="Sprite" parent="."]
-position = Vector2( 199.739, 1343.68 )
+[node name="tree7" type="Sprite" parent="trees"]
+position = Vector2( 209.363, 1097.55 )
 scale = Vector2( 1.32565, 1.28115 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
 
-[node name="tree11" type="Sprite" parent="."]
-position = Vector2( 947.369, 1505.79 )
+[node name="tree11" type="Sprite" parent="trees"]
+position = Vector2( 2080.77, 1188.31 )
 scale = Vector2( 1.23543, 1.19396 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
 
-[node name="tree10" type="Sprite" parent="."]
-position = Vector2( 361.058, 1463.07 )
+[node name="tree10" type="Sprite" parent="trees"]
+position = Vector2( 323.465, 1430.61 )
 scale = Vector2( 1.0616, 1.00909 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
 
-[node name="stuff2" type="Sprite" parent="."]
-position = Vector2( 985.474, 721.007 )
-rotation = 0.14842
-scale = Vector2( 0.533046, 0.470564 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( -5.06355, 470.697, 362.86, 334.569 )
+[node name="CloudsAnimation" type="AnimationPlayer" parent="."]
+autoplay = "CloudsMoving"
+playback_speed = 0.1
+anims/CloudsMoving = SubResource( 5 )
 
-[node name="Label" type="Label" parent="."]
-self_modulate = Color( 0.14902, 0.14902, 0.14902, 1 )
-margin_left = 1185.91
-margin_top = 1332.56
-margin_right = 2061.91
-margin_bottom = 1683.56
-custom_fonts/font = SubResource( 4 )
-text = "Klek the giant  was sitting on a hill below. His stomach rumbling from hunger."
-autowrap = true
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Sheep1" type="Area2D" parent="."]
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep1"]
+polygon = PoolVector2Array( 1230.06, 1222.5, 1276.43, 1335.48, 1492.87, 1324.77, 1509.52, 1208.23, 1456.01, 1091.69, 1289.52, 1097.64 )
+
+[node name="sheep1" type="Sprite" parent="Sheep1"]
+position = Vector2( 1373.64, 1218.31 )
+scale = Vector2( 0.280652, 0.280652 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1/sheep1"]
+autoplay = "sheep"
+anims/sheep = SubResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1"]
+anims/jump = SubResource( 16 )
+
+[node name="Sheep2" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep2"]
+polygon = PoolVector2Array( 1726.41, 1374.07, 1799.48, 1484.95, 2008.63, 1489.99, 2047.69, 1261.94, 1798.22, 1144.77, 1689.87, 1222.88 )
+
+[node name="sheep2" type="Sprite" parent="Sheep2"]
+position = Vector2( 1875, 1338.27 )
+rotation = 3.14159
+scale = Vector2( 0.35545, -0.35545 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2/sheep2"]
+autoplay = "sheep"
+anims/sheep = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2"]
+anims/jump = SubResource( 17 )
+
+[node name="Sheep4" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sheep4" type="Sprite" parent="Sheep4"]
+position = Vector2( 1133.57, 1046.23 )
+rotation = 3.14159
+scale = Vector2( 0.163, -0.163 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep4/sheep4"]
+autoplay = "sheep"
+anims/sheep = SubResource( 14 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep4"]
+polygon = PoolVector2Array( 1046, 1043.71, 1068, 1001.71, 1111, 961.705, 1181, 963.705, 1213, 1018.71, 1213, 1110.71, 1105, 1125.71, 1038, 1075.71 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep4"]
+anims/jump = SubResource( 18 )
+
+[node name="Sheep5" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sheep5" type="Sprite" parent="Sheep5"]
+position = Vector2( 142.831, 1297.6 )
+scale = Vector2( 0.280652, 0.280652 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5/sheep5"]
+autoplay = "sheep"
+anims/sheep = SubResource( 13 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep5"]
+polygon = PoolVector2Array( 14.8309, 1343.45, 86.6464, 1420.3, 193.74, 1408.96, 328.551, 1303.13, 247.916, 1136.82, 41.2892, 1151.94, 7.27136, 1233.83 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5"]
+anims/jump = SubResource( 19 )
+
+[connection signal="input_event" from="Sheep3" to="." method="_on_Sheep3_input_event"]
+[connection signal="input_event" from="klekSitting2" to="." method="_on_klekSitting2_input_event"]
+[connection signal="input_event" from="Sheep1" to="." method="_on_Sheep1_input_event"]
+[connection signal="input_event" from="Sheep2" to="." method="_on_Sheep2_input_event"]
+[connection signal="input_event" from="Sheep4" to="." method="_on_Sheep4_input_event"]
+[connection signal="input_event" from="Sheep5" to="." method="_on_Sheep5_input_event"]
