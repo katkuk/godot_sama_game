@@ -724,9 +724,7 @@ polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="chair" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="chair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("chairWithKuna")
 defaultSpritePath = NodePath("chairEmpty")
@@ -752,9 +750,7 @@ anims/sitting = SubResource( 11 )
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bed" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("kunaSleeping")
 defaultSpritePath = NodePath("bed")
