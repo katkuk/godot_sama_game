@@ -1,21 +1,233 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=23 format=2]
 
+[ext_resource path="res://Assets/Textures/StoryPlitvice/sheep.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Clouds.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/KlekStory/stuff2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/KlekStory/stuff1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-3.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-0.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Textures/KlekStory/sleeping_mountain-1.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Stories/StoryKlek/KlekBecameMountain.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=11]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "sleeping",
 "speed": 3.0
 } ]
+
+[sub_resource type="Animation" id=20]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.163166, 0.312069, 0.47931, 0.6384, 1.195, 1.42804, 1.66456, 1.95, 2.22057, 2.89234 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.251074, 0.495415 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1893.22, 1346.18 ), Vector2( 1893.22, 1308.81 ), Vector2( 1893.22, 1346.18 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.928349, 1.09152, 1.24042, 1.40766, 1.56675, 2.12335, 2.35639, 2.59291, 2.87835, 3.14892, 3.82069 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00192394, 0.24915, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 787.555, 1140.35 ), Vector2( 787.555, 1097.59 ), Vector2( 787.555, 1140.35 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0146155, 0.177786, 0.326686, 0.493926, 0.653017, 1.20962, 1.44266, 1.67918, 1.96462, 2.23519, 2.90696 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00288591, 0.242417, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 506.289, 1080.46 ), Vector2( 506.289, 1056.46 ), Vector2( 506.289, 1080.46 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.420719, 0.58389, 0.73279, 0.90003, 1.05912, 1.61572, 1.84876, 2.08528, 2.37072, 2.64129, 3.31306 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.000961971, 0.255884, 0.495415 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 175.725, 1275.14 ), Vector2( 175.725, 1227.51 ), Vector2( 175.725, 1275.14 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 80
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=25]
+resource_name = "clouds"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Clouds3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0135368, 1.51612, 2.99163 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 889.956, 566.092 ), Vector2( 1026.47, 566.092 ), Vector2( 889.956, 566.092 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Clouds4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0406104, 1.31307, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 107.983, 283.353 ), Vector2( 161.955, 283.353 ), Vector2( 107.983, 283.353 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clouds8:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0609156, 1.49582, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 219.551, 457.918 ), Vector2( 286.222, 457.918 ), Vector2( 219.551, 457.918 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Clouds2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0744524, 1.29276, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1689, 371.091 ), Vector2( 1739.79, 371.091 ), Vector2( 1689, 371.091 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Clouds6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.0270736, 1.47551, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1920.76, 522.398 ), Vector2( 1971.73, 522.398 ), Vector2( 1920.76, 522.398 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Clouds5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.0270736, 1.34691, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2244.18, 269.248 ), Vector2( 2298.92, 269.248 ), Vector2( 2244.18, 269.248 ) ]
+}
 
 [node name="KlekBecameMountain" type="Node2D"]
 script = ExtResource( 10 )
@@ -24,6 +236,7 @@ GUIColorHex = "#a0403e"
 [node name="Sky" type="ColorRect" parent="."]
 margin_right = 2215.0
 margin_bottom = 1672.0
+mouse_filter = 2
 color = Color( 0.439216, 0.207843, 0.443137, 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -59,7 +272,7 @@ region_rect = Rect2( -57.4225, 1062.58, 1146.31, 287.55 )
 
 [node name="Clouds2" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.4 )
-position = Vector2( 1692.17, 367.916 )
+position = Vector2( 1689, 371.091 )
 rotation = 2.78389
 scale = Vector2( 0.127803, 0.390729 )
 texture = ExtResource( 3 )
@@ -93,7 +306,7 @@ region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 
 [node name="KlekSleeping" type="AnimatedSprite" parent="."]
 position = Vector2( 1078.05, 737.93 )
-frames = SubResource( 1 )
+frames = SubResource( 19 )
 animation = "sleeping"
 frame = 3
 playing = true
@@ -101,15 +314,123 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Grass patch" type="ColorRect" parent="."]
+margin_left = -42.0
+margin_top = 1499.75
+margin_right = 1682.0
+margin_bottom = 1676.75
+mouse_filter = 2
+color = Color( 0.737255, 0.807843, 0.384314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sky2" type="ColorRect" parent="."]
 margin_left = -42.0
 margin_top = 1499.75
 margin_right = 1682.0
 margin_bottom = 1676.75
+mouse_filter = 2
 color = Color( 0.737255, 0.807843, 0.384314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="hill1" type="Sprite" parent="."]
+position = Vector2( 1093.6, 1282.16 )
+scale = Vector2( 1.49939, 1.11048 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -19.1007, 1172.28, 1513.82, 591.658 )
+
+[node name="hill2" type="Sprite" parent="."]
+position = Vector2( 1312.08, 1314.17 )
+scale = Vector2( 1.50571, 1.53892 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -3.97583, 701.185, 1269.59, 470.384 )
+
+[node name="tree7" type="Sprite" parent="."]
+position = Vector2( 209.363, 1097.55 )
+scale = Vector2( 1.32565, 1.28115 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="Sheep2" type="Area2D" parent="."]
+position = Vector2( 1893.22, 1346.18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep2"]
+position = Vector2( -1896.61, -1351.83 )
+polygon = PoolVector2Array( 1726.41, 1374.07, 1799.48, 1484.95, 2008.63, 1489.99, 2047.69, 1261.94, 1798.22, 1144.77, 1689.87, 1222.88 )
+
+[node name="sheep2" type="Sprite" parent="Sheep2"]
+position = Vector2( -21.61, -13.563 )
+rotation = 3.14159
+scale = Vector2( 0.35545, -0.35545 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2/sheep2"]
+autoplay = "sheep"
+anims/sheep = SubResource( 20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2"]
+anims/jump = SubResource( 21 )
+
+[node name="Sheep1" type="Area2D" parent="."]
+position = Vector2( 787.555, 1139.35 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep1"]
+position = Vector2( -1378.55, -1209.14 )
+polygon = PoolVector2Array( 1230.06, 1222.5, 1276.43, 1335.48, 1492.87, 1324.77, 1509.52, 1208.23, 1456.01, 1091.69, 1289.52, 1097.64 )
+
+[node name="sheep1" type="Sprite" parent="Sheep1"]
+position = Vector2( -4.90948, 9.17358 )
+scale = Vector2( -0.281, 0.281 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1/sheep1"]
+autoplay = "sheep"
+anims/sheep = SubResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1"]
+anims/jump = SubResource( 22 )
+
+[node name="Sheep3" type="Area2D" parent="."]
+position = Vector2( 506.289, 1077.95 )
+scale = Vector2( -1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep3"]
+position = Vector2( -1380.86, -1212.15 )
+scale = Vector2( 0.994712, 1 )
+polygon = PoolVector2Array( 1264.48, 1211.36, 1329.93, 1305.65, 1469.85, 1301.16, 1481.14, 1229.32, 1465.34, 1114.83, 1305.1, 1117.08 )
+
+[node name="sheep1" type="Sprite" parent="Sheep3"]
+position = Vector2( -7.22394, 6.15991 )
+scale = Vector2( -0.241, 0.241 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3/sheep1"]
+autoplay = "sheep"
+anims/sheep = SubResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3"]
+anims/jump = SubResource( 24 )
 
 [node name="tree5" type="Sprite" parent="."]
 position = Vector2( 121.237, 782.002 )
@@ -124,3 +445,108 @@ scale = Vector2( 1.22258, 1.18154 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="Sheep5" type="Area2D" parent="."]
+position = Vector2( 175.725, 1265.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sheep5" type="Sprite" parent="Sheep5"]
+position = Vector2( 3.69032, 12.1985 )
+scale = Vector2( 0.280652, 0.280652 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5/sheep5"]
+autoplay = "sheep"
+anims/sheep = SubResource( 17 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep5"]
+position = Vector2( -139.141, -1285.4 )
+polygon = PoolVector2Array( 14.8309, 1343.45, 86.6464, 1420.3, 193.74, 1408.96, 328.551, 1303.13, 247.916, 1136.82, 171.119, 1142.44, 41.2892, 1151.94, 7.27136, 1233.83 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5"]
+anims/jump = SubResource( 18 )
+
+[node name="trees" type="Node2D" parent="."]
+
+[node name="tree1" type="Sprite" parent="trees"]
+position = Vector2( 1922.59, 1040.24 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
+
+[node name="tree3" type="Sprite" parent="trees"]
+position = Vector2( 1668.84, 1145.68 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 260.183, 188.883, 124.856, 256.534 )
+
+[node name="tree4" type="Sprite" parent="trees"]
+position = Vector2( 218.103, 717.39 )
+scale = Vector2( 1.22258, 1.18154 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree5" type="Sprite" parent="trees"]
+position = Vector2( 121.237, 782.002 )
+scale = Vector2( 0.817521, 0.790078 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 178.52, -4.96997, 78.5014, 127.836 )
+
+[node name="tree6" type="Sprite" parent="trees"]
+position = Vector2( 139.506, 1045.66 )
+scale = Vector2( 1.6247, 1.57016 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
+
+[node name="tree9" type="Sprite" parent="trees"]
+position = Vector2( 200.526, 1486.13 )
+scale = Vector2( 1.29801, 1.25443 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree11" type="Sprite" parent="trees"]
+position = Vector2( 2080.77, 1188.31 )
+scale = Vector2( 1.23543, 1.19396 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 97.0615, -6.42888, 79.4034, 134.318 )
+
+[node name="tree10" type="Sprite" parent="trees"]
+position = Vector2( 323.465, 1430.61 )
+scale = Vector2( 1.0616, 1.00909 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color( 0.14902, 0.14902, 0.14902, 1 )
+margin_left = 475.447
+margin_top = 1412.65
+margin_right = 1773.45
+margin_bottom = 1592.65
+custom_fonts/font = SubResource( 9 )
+text = "He was turned into a sleeping mountain, and he still sleeps to this day."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloudsAnimationg" type="AnimationPlayer" parent="."]
+autoplay = "clouds"
+playback_speed = 0.2
+anims/clouds = SubResource( 25 )
+
+[connection signal="input_event" from="Sheep2" to="." method="_on_Sheep2_input_event"]
+[connection signal="input_event" from="Sheep1" to="." method="_on_Sheep1_input_event"]
+[connection signal="input_event" from="Sheep3" to="." method="_on_Sheep3_input_event"]
+[connection signal="input_event" from="Sheep5" to="." method="_on_Sheep5_input_event"]

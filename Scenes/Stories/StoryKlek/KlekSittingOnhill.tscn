@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scenes/Stories/StoryKlek/KlekSittingOnhill.gd" type="Script" id=11]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=1]
 resource_name = "sheep"
 length = 4.0
 loop = true
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=2]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -16.8179 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "bounce"
 loop = true
 tracks/0/type = "value"
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.215337, 0.649458 ), Vector2( 0.220121, 0.663887 ), Vector2( 0.215337, 0.649458 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "speachBubble"
 length = 0.6
 tracks/0/type = "value"
@@ -110,7 +110,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "idleSitting"
 length = 0.3
 loop = true
@@ -127,7 +127,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "idleStanding"
 length = 0.3
 loop = true
@@ -144,8 +144,7 @@ tracks/0/keys = {
 "values": [ 6, 7 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "sitting"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -160,8 +159,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "standUp"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -175,12 +173,11 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 6, 7, 6, 7 ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 size = 80
 font_data = ExtResource( 10 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "CloudsMoving"
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Clouds12:position")
@@ -267,8 +264,7 @@ tracks/6/keys = {
 "values": [ Vector2( 1890.02, 449.224 ), Vector2( 1980.63, 449.224 ), Vector2( 1890.02, 449.224 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "sheep"
+[sub_resource type="Animation" id=11]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -284,7 +280,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=12]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -294,14 +290,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.242861, 0.5 ),
+"times": PoolRealArray( 0, 0.252998, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -19.0703 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50.7239 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "sheep"
+[sub_resource type="Animation" id=13]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -317,7 +312,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -327,14 +322,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.248412, 0.494049 ),
+"times": PoolRealArray( 0, 0.252036, 0.494049 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -16.9514 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -56.0632 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "sheep"
+[sub_resource type="Animation" id=15]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -350,7 +344,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=16]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -366,8 +360,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -23.7842 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "sheep"
+[sub_resource type="Animation" id=17]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -377,13 +370,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.928349, 1.09152, 1.24042, 1.40766, 1.56675, 2.12335, 2.35639, 2.59291, 2.87835, 3.14892, 3.82069 ),
+"times": PoolRealArray( 0.420719, 0.58389, 0.73279, 0.90003, 1.05912, 1.61572, 1.84876, 2.08528, 2.37072, 2.64129, 3.31306 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=18]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -393,10 +386,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.219483, 0.489608 ),
+"times": PoolRealArray( 0.000961971, 0.255884, 0.495415 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -38.0546 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 175.725, 1275.14 ), Vector2( 175.725, 1227.51 ), Vector2( 175.725, 1275.14 ) ]
 }
 
 [node name="KlekSittingOnHill" type="Node2D"]
@@ -487,19 +480,19 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3/sheep3"]
 autoplay = "sheep"
-anims/sheep = SubResource( 11 )
+anims/sheep = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep3"]
 polygon = PoolVector2Array( 927.997, 906.173, 922.051, 970.39, 957.727, 1026.28, 1047.56, 1020.22, 1115.89, 944.228, 1067.13, 845.523, 941.079, 840.767 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3"]
-anims/jump = SubResource( 15 )
+anims/jump = SubResource( 2 )
 
 [node name="SpeachBubble" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpeachBubble"]
-anims/bounce = SubResource( 6 )
-anims/speachBubble = SubResource( 7 )
+anims/bounce = SubResource( 3 )
+anims/speachBubble = SubResource( 4 )
 
 [node name="Bubble3" type="Sprite" parent="SpeachBubble"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -561,10 +554,10 @@ frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="klekSitting2/klekSitting"]
 autoplay = "sitting"
-anims/idleSitting = SubResource( 8 )
-anims/idleStanding = SubResource( 9 )
-anims/sitting = SubResource( 2 )
-anims/standUp = SubResource( 3 )
+anims/idleSitting = SubResource( 5 )
+anims/idleStanding = SubResource( 6 )
+anims/sitting = SubResource( 7 )
+anims/standUp = SubResource( 8 )
 
 [node name="hill2" type="Sprite" parent="."]
 position = Vector2( 1312.08, 1314.17 )
@@ -619,7 +612,7 @@ margin_left = 475.447
 margin_top = 1412.65
 margin_right = 1773.45
 margin_bottom = 1592.65
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 9 )
 text = "Klek the giant  was sitting on a hill below. His stomach rumbling from hunger."
 align = 1
 autowrap = true
@@ -715,7 +708,7 @@ region_rect = Rect2( 257.022, -4.96997, 89.6715, 141.489 )
 [node name="CloudsAnimation" type="AnimationPlayer" parent="."]
 autoplay = "CloudsMoving"
 playback_speed = 0.1
-anims/CloudsMoving = SubResource( 5 )
+anims/CloudsMoving = SubResource( 10 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -736,10 +729,10 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1/sheep1"]
 autoplay = "sheep"
-anims/sheep = SubResource( 10 )
+anims/sheep = SubResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1"]
-anims/jump = SubResource( 16 )
+anims/jump = SubResource( 12 )
 
 [node name="Sheep2" type="Area2D" parent="."]
 __meta__ = {
@@ -759,10 +752,10 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2/sheep2"]
 autoplay = "sheep"
-anims/sheep = SubResource( 12 )
+anims/sheep = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2"]
-anims/jump = SubResource( 17 )
+anims/jump = SubResource( 14 )
 
 [node name="Sheep4" type="Area2D" parent="."]
 __meta__ = {
@@ -779,13 +772,13 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep4/sheep4"]
 autoplay = "sheep"
-anims/sheep = SubResource( 14 )
+anims/sheep = SubResource( 15 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep4"]
 polygon = PoolVector2Array( 1046, 1043.71, 1068, 1001.71, 1111, 961.705, 1181, 963.705, 1213, 1018.71, 1213, 1110.71, 1105, 1125.71, 1038, 1075.71 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep4"]
-anims/jump = SubResource( 18 )
+anims/jump = SubResource( 16 )
 
 [node name="Sheep5" type="Area2D" parent="."]
 __meta__ = {
@@ -801,13 +794,13 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5/sheep5"]
 autoplay = "sheep"
-anims/sheep = SubResource( 13 )
+anims/sheep = SubResource( 17 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep5"]
 polygon = PoolVector2Array( 14.8309, 1343.45, 86.6464, 1420.3, 193.74, 1408.96, 328.551, 1303.13, 247.916, 1136.82, 41.2892, 1151.94, 7.27136, 1233.83 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5"]
-anims/jump = SubResource( 19 )
+anims/jump = SubResource( 18 )
 
 [connection signal="input_event" from="Sheep3" to="." method="_on_Sheep3_input_event"]
 [connection signal="input_event" from="klekSitting2" to="." method="_on_klekSitting2_input_event"]
