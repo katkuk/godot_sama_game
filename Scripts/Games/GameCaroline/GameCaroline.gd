@@ -22,6 +22,8 @@ onready var colorSetEmpty = ["#8B58A5", "#1E1717", "#D8BBAE", "#AA645D", "#6D254
 onready var currentColor = Color(colorSetCaroline[0])
 onready var currentColorSet = colorSetCaroline
 
+onready var drawing = true;
+
 var minigameOnScreenGUI = preload("res://Scenes/GUI/MinigameOnScreenGui.tscn")
 var onScreenPopUpText = "Are you sure you want to leave the minigame?"
 var onScreenYesText = "Yes"
@@ -29,17 +31,23 @@ var onScreenNoText = "No"
 var onScreenGui
 
 
+
 func generateColors():
 	var spawnpoints = colorSpawnPoints.get_children()
 	var i = -1
+	for n in $colorContainer.get_children():
+		$colorContainer.remove_child(n)
+		n.queue_free()
 	for color in currentColorSet:
 			i = i+1
 			var currentColor = Colore.instance()
 			#print(currentColor.get_child(0).self_modulate)
 			currentColor.get_child(0).self_modulate = color
-			add_child(currentColor)
+			$colorContainer.add_child(currentColor)
 			currentColor.global_position = spawnpoints[i].global_position
 			currentColor.connect("colorChanged", self, "onColorChanged")
+	brushTip.self_modulate = currentColorSet[0];
+	currentColor = currentColorSet[0]
 		
 func _ready():
 	generateColors()
@@ -89,7 +97,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			pressed = false
 			
 	if event is InputEventMouseMotion:
-		if pressed:
+		if pressed && drawing:
 			active_line.add_point(event.position)
 			
 func _on_SpongePalette_input_event(viewport, event, shape_idx):
@@ -187,9 +195,11 @@ func _on_colorbookOptions_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			$ChangeOutlinePopup.visible = !$ChangeOutlinePopup.visible
+			drawing = false
 
 
 func _on_Close_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			$ChangeOutlinePopup.visible = false
+			drawing = true

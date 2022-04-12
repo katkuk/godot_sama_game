@@ -158,7 +158,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 2, 0, 5, 6, 7, 6, 7, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("../FootstepSound:stream")
@@ -173,7 +173,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 30 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -750,7 +750,9 @@ polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="chair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="chair" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("chairWithKuna")
 defaultSpritePath = NodePath("chairEmpty")
@@ -776,7 +778,9 @@ anims/sitting = SubResource( 11 )
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
+[node name="bed" type="Area2D" parent="House/KunaObjects" groups=[
+"KunaObjects",
+]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("kunaSleeping")
 defaultSpritePath = NodePath("bed")
@@ -842,8 +846,8 @@ vframes = 3
 
 [node name="kunaWalkingAP" type="AnimationPlayer" parent="House/Kuna/kunaWalking"]
 playback_speed = 0.9
-anims/RESET = SubResource( 15 )
-anims/walking = SubResource( 14 )
+anims/RESET = SubResource( 14 )
+anims/walking = SubResource( 15 )
 
 [node name="interactionSprites" type="Node2D" parent="House/Kuna"]
 

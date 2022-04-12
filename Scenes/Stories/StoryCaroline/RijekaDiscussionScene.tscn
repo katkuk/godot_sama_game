@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/waveAnimation.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/SpeechBubble.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Textures/StoryCaroline/bubble2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/StoryCaroline/bubbleTriangle.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/StoryCaroline/shipLeavingBubble.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/GUI/confettiTexture.png" type="Texture" id=12]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -128,6 +132,86 @@ tracks/3/keys = {
 "values": [ 14, 10, 13, 16, 10, 11, 13, 16, 10, 12, 13, 16, 11, 14, 16, 11, 13 ]
 }
 
+[sub_resource type="ParticlesMaterial" id=8]
+lifetime_randomness = 0.13
+emission_shape = 1
+emission_sphere_radius = 9.19
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 34.49
+initial_velocity_random = 0.41
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.8
+scale_random = 1.0
+color = Color( 1, 1, 1, 0.929412 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+[sub_resource type="ParticlesMaterial" id=7]
+next_pass = SubResource( 6 )
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 984.06
+initial_velocity_random = 0.53
+angular_velocity = -38.08
+angular_velocity_random = 0.27
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 30.62
+linear_accel_random = 0.48
+radial_accel = 20.06
+radial_accel_random = 0.14
+damping = 0.99
+damping_random = 0.32
+angle = -341.1
+angle_random = 1.0
+scale_random = 0.26
+color = Color( 0.705882, 0.501961, 0.901961, 1 )
+hue_variation = -1.0
+hue_variation_random = 1.0
+anim_speed = 40.0
+anim_speed_random = 0.26
+anim_offset = 0.2
+anim_offset_random = 0.1
+
+[sub_resource type="Animation" id=5]
+resource_name = "ship"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0244513, 0.134482, 0.238715, 0.338715, 0.438715, 0.538715, 0.638715 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0183385, 0.107993, 0.731502, 0.81912 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
 [node name="RijekaDiscussionScene" type="Node2D"]
 script = ExtResource( 7 )
 
@@ -149,7 +233,6 @@ visible = false
 material = SubResource( 1 )
 position = Vector2( 2157.88, 390.255 )
 scale = Vector2( 0.6, 0.6 )
-emitting = false
 amount = 20
 lifetime = 50.0
 preprocess = 50.0
@@ -275,3 +358,84 @@ position = Vector2( 1348.61, 511.236 )
 scale = Vector2( 3.29255, 0.888051 )
 
 [node name="bubbles" type="Node2D" parent="."]
+
+[node name="FinalSpeechBubble" type="Node2D" parent="."]
+visible = false
+position = Vector2( 1071.81, 708.717 )
+rotation = 1.62077
+scale = Vector2( 1.54872, 1.42635 )
+z_index = 15
+z_as_relative = false
+
+[node name="triangleGeneral" type="Sprite" parent="FinalSpeechBubble"]
+self_modulate = Color( 0.0117647, 0.231373, 0.352941, 1 )
+show_behind_parent = true
+position = Vector2( 167.795, 156.598 )
+rotation = -1.6889
+scale = Vector2( 0.551788, 0.551788 )
+texture = ExtResource( 10 )
+
+[node name="bubbleshade" type="Sprite" parent="FinalSpeechBubble"]
+self_modulate = Color( 0.0117647, 0.231373, 0.352941, 1 )
+show_behind_parent = true
+position = Vector2( 11.1897, -17.1161 )
+rotation = -3.12105
+scale = Vector2( 1.00947, 1.02321 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+
+[node name="bubbleshade2" type="Sprite" parent="FinalSpeechBubble"]
+self_modulate = Color( 0.0392157, 0.431373, 0.643137, 1 )
+show_behind_parent = true
+position = Vector2( -0.556684, -8.47175 )
+rotation = -3.12105
+scale = Vector2( 1.00947, 1.02321 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+
+[node name="BubbleParticles" type="Particles2D" parent="FinalSpeechBubble"]
+self_modulate = Color( 0.0392157, 0.431373, 0.643137, 1 )
+show_behind_parent = true
+rotation = 3.11115
+scale = Vector2( 1, 1.00002 )
+z_as_relative = false
+amount = 7
+lifetime = 10.0
+speed_scale = 6.14
+explosiveness = 0.4
+randomness = 0.21
+local_coords = false
+process_material = SubResource( 8 )
+texture = ExtResource( 9 )
+
+[node name="Confetti" type="Particles2D" parent="FinalSpeechBubble"]
+show_behind_parent = true
+position = Vector2( 35.998, 7.29688 )
+scale = Vector2( 0.1, 0.1 )
+z_as_relative = false
+amount = 30
+lifetime = 25.62
+preprocess = 45.37
+speed_scale = 5.79
+explosiveness = 0.51
+randomness = 0.37
+process_material = SubResource( 7 )
+texture = ExtResource( 12 )
+
+[node name="shipLeavingBubble" type="Sprite" parent="FinalSpeechBubble"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.988623 )
+position = Vector2( 8.41034, -14.575 )
+rotation = -1.6207
+scale = Vector2( 0.881503, 0.881503 )
+texture = ExtResource( 11 )
+hframes = 3
+vframes = 3
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FinalSpeechBubble/shipLeavingBubble"]
+autoplay = "ship"
+playback_speed = 0.5
+anims/ship = SubResource( 5 )

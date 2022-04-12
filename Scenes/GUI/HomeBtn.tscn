@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/GUI/HomeBtn.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Textures/GUI/homeBtnTexture.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 2 )
 
@@ -45,6 +45,8 @@ __meta__ = {
 position = Vector2( 1117.75, 733.518 )
 rotation = -1.57971
 scale = Vector2( 0.883491, 0.883491 )
+z_index = 100
+z_as_relative = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -13.5533, 0, 970.892, 1655.94 )
@@ -55,7 +57,7 @@ margin_left = 534.35
 margin_top = 663.0
 margin_right = 1674.35
 margin_bottom = 1000.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Are you sure you want to go to the house?"
 align = 1
 autowrap = true
@@ -85,7 +87,7 @@ margin_top = 46.0
 margin_right = 420.0
 margin_bottom = 168.0
 rect_rotation = -0.583448
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "YES"
 align = 1
 valign = 1
@@ -116,7 +118,7 @@ margin_top = 46.0
 margin_right = 420.0
 margin_bottom = 168.0
 rect_rotation = -0.583448
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "NO"
 align = 1
 valign = 1

@@ -10,6 +10,12 @@ var positionCount = 0
 var spriteCount = 0
 var bubbleClickCounter = 0
 
+onready var showedLastBubble = false;
+
+func _process(delta):
+	if bubbleClickCounter == 8 && showedLastBubble == false:
+		showLastBubble()
+
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
 	createBubble()
@@ -34,6 +40,10 @@ func createBubble():
 	if spriteCount < 8:
 		yield(get_tree().create_timer(2.0), "timeout")
 		createBubble()
+	elif spriteCount == 9:
+		print("ship")
+		
+onready var shipLeavingAP = $FinalSpeechBubble/shipLeavingBubble/AnimationPlayer
 
 func onBubbleClicked():
 	print(bubbleClickCounter)
@@ -43,8 +53,19 @@ func onBubbleClicked():
 	bubbleParticles.position = self.position
 	bubbleParticles.emitting = true
 	bubbleParticles.position = get_global_mouse_position()
-	if bubbleClickCounter == 8:
-		print("insert success graphics")
+	
+func showLastBubble():
+	showedLastBubble = true
+	yield(get_tree().create_timer(0.5), "timeout")
+	$FinalSpeechBubble.visible = true
+	shipLeavingAP.play("ship")
+	yield(get_tree().create_timer(0.5), "timeout")
+	#$FinalSpeechBubble.visible = false
+	$FinalSpeechBubble/Confetti.visible = true;
+	$FinalSpeechBubble/Confetti.emitting = true
+	$FinalSpeechBubble/BubbleParticles.emitting = true
+	$FinalSpeechBubble/BubbleParticles.visible = true;
+
 
 
 	
