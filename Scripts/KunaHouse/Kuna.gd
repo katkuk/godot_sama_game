@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 export(int) var max_speed = 900
 export(int) var acceleration = 1200
-export(int) var max_idle_delay = 15
-export(int) var min_idle_delay = 5
+export(int) var max_idle_delay = 8
+export(int) var min_idle_delay = 3
 var speed = 0
 var move_direction
 var moving = false #boolean that will activate movement and reset speed to 0 if players is standing still

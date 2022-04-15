@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -30,6 +30,9 @@
 [ext_resource path="res://Scripts/KunaHouse/ClickOnlyTopArea.gd" type="Script" id=28]
 [ext_resource path="res://Assets/Textures/Kuna/kunaSittingMinusChair.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Sounds/footstep.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.wav" type="AudioStream" id=31]
+[ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=32]
+[ext_resource path="res://Assets/Sounds/walking2.wav" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384.206, 521.21 )
@@ -815,7 +818,7 @@ playback_speed = 0.4
 anims/sleeping = SubResource( 12 )
 
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/bed"]
-polygon = PoolVector2Array( 6963, 1444, 7463, 1304, 7484, 1048, 7311, 963, 7295, 669, 6824, 539, 6417, 699, 6417, 946, 6113, 1124, 6205, 1319, 6429, 1425 )
+polygon = PoolVector2Array( 7060.34, 1064.25, 7054.5, 905.001, 7043.81, 794.53, 6835.34, 807.002, 6626.87, 837.293, 6598.36, 988.746, 6629.8, 1081.07 )
 
 [node name="Kuna" type="Area2D" parent="House"]
 position = Vector2( 1554.34, 1061 )
@@ -866,8 +869,8 @@ hframes = 2
 vframes = 2
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="House/Kuna"]
-stream = ExtResource( 30 )
-volume_db = -22.0
+stream = ExtResource( 33 )
+volume_db = 9.064
 
 [node name="HouseGUI" type="CanvasLayer" parent="."]
 
@@ -901,6 +904,16 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 32 )
+volume_db = -20.675
+max_distance = 10000.0
+
+[node name="BGMusicGramophone" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 31 )
+volume_db = -7.518
+max_distance = 10000.0
 
 [connection signal="input_event" from="House/InteractionObjects/CarolinePicture" to="KunaHouseManager" method="_on_CarolinePicture_input_event"]
 [connection signal="input_event" from="House/InteractionObjects/KlekCards" to="KunaHouseManager" method="_on_KlekCards_input_event"]

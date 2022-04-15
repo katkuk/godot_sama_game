@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/yawn.mp3-eed909bd957219459b7579c2f98e6f36.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/yawn.mp3"
+dest_files=[ "res://.import/yawn.mp3-eed909bd957219459b7579c2f98e6f36.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

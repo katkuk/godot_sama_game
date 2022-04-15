@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/angryVolosKlek.wav-c32d21ec665f86d335de4f02a7378ebd.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/angryVolosKlek.wav"
+dest_files=[ "res://.import/angryVolosKlek.wav-c32d21ec665f86d335de4f02a7378ebd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

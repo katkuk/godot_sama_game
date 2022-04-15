@@ -23,9 +23,22 @@ var gramophoneIsPlaying = false
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 onready var camera = get_parent().get_node("Camera")
 
+onready var BGM = get_parent().get_node("BGMusic")
+onready var BGMGramophone = get_parent().get_node("BGMusicGramophone")
+
+
 func _ready():
 	loadScene()
+	playBackgroundMusic()
 
+func playBackgroundMusic():
+	if gramophoneIsPlaying == false:
+		BGM.playing = true
+		BGMGramophone.playing = false
+	elif gramophoneIsPlaying == true:
+		BGM.playing = false
+		BGMGramophone.playing = true
+		
 #--------- CLICKABLE OBJECTS START - objects that do stuff when clicked
 func _on_Gramophone_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and gramophone.is_on_top():
@@ -35,13 +48,17 @@ func _on_Gramophone_input_event(viewport, event, shape_idx):
 			gramophoneIsPlaying = false
 			animation.stop()
 			sprite.frame = 3
+			playBackgroundMusic()
 		else:
 			gramophoneIsPlaying = true
 			animation.play("playingMusic")
+			playBackgroundMusic()
 
 func _on_BigWindow_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and bigWindow.is_on_top():
 		var bigWindowSprite = bigWindow.get_node("Sprite")
+		GlobalSound.playSound("CurtainOne")
+		print('curtain')
 		if down == true:
 			bigWindowSprite.frame = bigWindowSprite.frame - 1
 			if bigWindowSprite.frame == 0:
@@ -55,6 +72,7 @@ func _on_SmallPlant_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and smallPlant.is_on_top():
 		var sprite = smallPlant.get_node("Sprite")
 		var animation = smallPlant.get_node("Sprite/Animation")
+		GlobalSound.playSound("MovePlantTwo")
 		if animation.is_playing():
 			animation.stop()
 			sprite.frame = 0
@@ -76,6 +94,7 @@ func _on_YellowFlower_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and yellowFlower.is_on_top():
 		var sprite = yellowFlower.get_node("Sprite")
 		var animation = yellowFlower.get_node("Sprite/Animation")
+		GlobalSound.playSound("Poing")
 		if animation.is_playing():
 			animation.stop()
 			sprite.frame = 0
@@ -86,6 +105,7 @@ func _on_BigPlant_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and bigPlant.is_on_top():
 		var sprite = bigPlant.get_node("Sprite")
 		var animation = bigPlant.get_node("Sprite/Animation")
+		GlobalSound.playSound("MovePlantOne")
 		if animation.is_playing():
 			animation.stop()
 			sprite.frame = 0
@@ -103,18 +123,22 @@ func _on_SmallBedSideLamp_input_event(viewport, event, shape_idx):
 func _on_CarolinePicture_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and carolinePicture.is_on_top():
 		displayPlayBtnForObject(carolinePicture)
+		GlobalSound.playSound("Pop")
 
 func _on_KlekCards_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and klekCards.is_on_top():
 		displayPlayBtnForObject(klekCards)
+		GlobalSound.playSound("Pop")
 
 func _on_PlitvicePicture_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and plitvicePicture.is_on_top():
 		displayPlayBtnForObject(plitvicePicture)
+		GlobalSound.playSound("Pop")
 
 func _on_Map_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and map.is_on_top():
 		displayPlayBtnForObject(map)
+		GlobalSound.playSound("Pop")
 
 func displayPlayBtnForObject(object):
 	var position = object.get_node("Position")

@@ -2,8 +2,8 @@ extends Area2D
 enum State {UNSELECTED, IDLING, SELECTED, WALKING, HOVERING, INTERACTING, HOLDING}
 var state : int = State.UNSELECTED
 var idleTimer = null
-export(int) var max_idle_delay = 15
-export(int) var min_idle_delay = 5
+export(int) var max_idle_delay = 8
+export(int) var min_idle_delay = 3
 var walkingDirection : String
 onready var camera = get_parent().get_parent().get_node("Camera")
 onready var kunaWalking = get_node("kunaWalking")

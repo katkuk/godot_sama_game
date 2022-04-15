@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ovenMittImpacts.wav-620b9d7e277045890054cd1048bbd67d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/ovenMittImpacts.wav"
+dest_files=[ "res://.import/ovenMittImpacts.wav-620b9d7e277045890054cd1048bbd67d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

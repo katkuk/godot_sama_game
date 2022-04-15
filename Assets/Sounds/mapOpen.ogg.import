@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mapOpen.ogg-34bf3d94fc697609bab1c736c3bfefac.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/mapOpen.ogg"
+dest_files=[ "res://.import/mapOpen.ogg-34bf3d94fc697609bab1c736c3bfefac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/magicBook.ogg-9b883ccbe07ad71a1ac59afbe44e8e30.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/magicBook.ogg"
+dest_files=[ "res://.import/magicBook.ogg-9b883ccbe07ad71a1ac59afbe44e8e30.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

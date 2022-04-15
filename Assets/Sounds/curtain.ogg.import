@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/curtain.ogg-8809b66045ad2f17bbc9d8646c56e713.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/curtain.ogg"
+dest_files=[ "res://.import/curtain.ogg-8809b66045ad2f17bbc9d8646c56e713.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

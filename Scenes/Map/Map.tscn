@@ -60,14 +60,14 @@ tracks/1/keys = {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "bookFlip",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "bookCoverOpen",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "bookFlip",
 "speed": 6.0
 } ]
 
@@ -557,6 +557,7 @@ margin_bottom = 1401.01
 rect_scale = Vector2( 0.7, 0.7 )
 rect_pivot_offset = Vector2( 148.567, 187.233 )
 mouse_default_cursor_shape = 2
+disabled = true
 texture_normal = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -570,6 +571,7 @@ margin_bottom = 1334.38
 rect_scale = Vector2( 0.3, 0.3 )
 rect_pivot_offset = Vector2( 148.567, 187.233 )
 mouse_default_cursor_shape = 2
+disabled = true
 texture_normal = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -583,6 +585,7 @@ margin_bottom = 1041.86
 rect_scale = Vector2( 0.3, 0.3 )
 rect_pivot_offset = Vector2( 148.567, 187.233 )
 mouse_default_cursor_shape = 2
+disabled = true
 texture_normal = ExtResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -596,6 +599,7 @@ margin_bottom = 891.3
 rect_scale = Vector2( 0.3, 0.3 )
 rect_pivot_offset = Vector2( 148.567, 187.233 )
 mouse_default_cursor_shape = 2
+disabled = true
 texture_normal = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -34,6 +34,7 @@ func _ready():
 	bookGUI.visible = false;
 	displayHomeBtn()
 	homeBtnVisibility(true)
+	GlobalSound.playSound("OpenMap")
 
 func displayHomeBtn():
 	homeBtnInstantiatedScene = homeBtn.instance()
@@ -48,6 +49,8 @@ func _on_MapIcon_pressed(story: String):
 	homeBtnVisibility(false)
 	current_story = story
 	Global.updateStory(current_story)
+	GlobalSound.playSound("Swoosh")
+	GlobalSound.playSound("MagicBook")
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
 	bookAnimationPlayer.play("bookCoverOpen")
