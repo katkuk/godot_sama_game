@@ -8,8 +8,10 @@ func playSound(soundNode : String):
 	
 func stopSound(soundNode : String):
 	get_node(soundNode).stop()
-
-func stopAllSounds():
-	var soundsArray = self.get_children()
-	for sound in soundsArray:
-		sound.stop()
+	
+	
+#hmmm this one below doesn't work so I made a hack solution for now
+#func stopAllSounds():
+#	var soundsArray = self.get_children()
+#	for sound in soundsArray:
+#		sound.stop()
