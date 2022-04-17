@@ -93,7 +93,7 @@ func _on_Mouth_area_entered(area):
 			crumbParticles.self_modulate = "#e1af5a"
 		elif area.name == "chickenA":
 			crumbParticles.self_modulate = "#e19d5a"
-			
+		GlobalSound.playSound("Eating")	
 		crumbParticles.emitting = true
 		get_parent().get_node("volos/eating").play("eating")
 		var tween = get_parent().get_node("Tween")
@@ -110,9 +110,11 @@ func _on_WineArea_area_entered(area):
 	if area.name == "wine":
 		print(area.name)
 		get_parent().get_node("Wine/pour").play("pour")
+		GlobalSound.playSound("WinePour")
 
 func _on_WineArea_area_exited(area):
 	print('exited')
 	if area.name == "wine":
 		print(area.name)
 		get_parent().get_node("Wine/pour").play("back")
+		GlobalSound.stopSound("WinePour")

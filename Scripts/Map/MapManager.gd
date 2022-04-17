@@ -49,10 +49,11 @@ func _on_MapIcon_pressed(story: String):
 	homeBtnVisibility(false)
 	current_story = story
 	Global.updateStory(current_story)
-	GlobalSound.playSound("Swoosh")
-	GlobalSound.playSound("MagicBook")
+	GlobalSound.playSound("WhisleUp")
+	#GlobalSound.playSound("MagicBook")
 	bookAnimationPlayer.play("animateIn")
 	yield(bookAnimationPlayer, "animation_finished")
+	GlobalSound.playSound("BookFlip")
 	bookAnimationPlayer.play("bookCoverOpen")
 	yield(bookAnimationPlayer, "animation_finished")
 	displayBookGUI(true)
@@ -111,6 +112,7 @@ func updateBookGUI():
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 
 func _on_CloseSceneButton_pressed():
+	GlobalSound.playSound("WhisleDown")
 	homeBtnVisibility(true)
 	bookAnimationPlayer.play_backwards("animateIn")
 	current_scene.queue_free()
@@ -124,6 +126,7 @@ func _on_NextSceneButton_pressed():
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			var new_index = scene + 1
+			GlobalSound.playSound("BookFlip")
 			loadScene(current_story, new_index, false)
 			break
 
@@ -131,5 +134,6 @@ func _on_PreviousSceneButton_pressed():
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			var new_index = scene - 1
+			GlobalSound.playSound("BookFlip")
 			loadScene(current_story, new_index, false)
 			break

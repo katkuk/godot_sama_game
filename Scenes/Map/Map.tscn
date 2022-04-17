@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Textures/Map/map-0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/Map/map-1.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/Textures/Map/_crna_kraljica_reel.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Textures/Map/dragoon_animation_EXPORT.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Textures/Map/Lock.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=30]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blink"
@@ -802,6 +803,11 @@ margin_top = 1375.57
 margin_right = 882.623
 margin_bottom = 1768.57
 rect_scale = Vector2( -0.3, 0.3 )
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 30 )
+volume_db = -14.488
+autoplay = true
 
 [connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
 [connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]

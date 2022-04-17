@@ -34,30 +34,35 @@ func _on_klekSitting2_input_event(viewport, event, shape_idx):
 func _on_Sheep5_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Jump")
 			get_node("Sheep5/AnimationPlayer").play("jump")
 
 
 func _on_Sheep4_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Jump")
 			get_node("Sheep4/AnimationPlayer").play("jump")
 
 
 func _on_Sheep2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Jump")
 			get_node("Sheep2/AnimationPlayer").play("jump")
 
 
 func _on_Sheep1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Jump")
 			get_node("Sheep1/AnimationPlayer").play("jump")
 
 
 func _on_Sheep3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Jump")
 			get_node("Sheep3/AnimationPlayer").play("jump")
 
 	

@@ -781,12 +781,13 @@ polygon = PoolVector2Array( 1046, 1043.71, 1068, 1001.71, 1111, 961.705, 1181, 9
 anims/jump = SubResource( 16 )
 
 [node name="Sheep5" type="Area2D" parent="."]
+position = Vector2( 175.725, 1275.14 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="sheep5" type="Sprite" parent="Sheep5"]
-position = Vector2( 142.831, 1297.6 )
+position = Vector2( 2.72752, -6.34406 )
 scale = Vector2( 0.280652, 0.280652 )
 texture = ExtResource( 2 )
 hframes = 3
@@ -797,6 +798,7 @@ autoplay = "sheep"
 anims/sheep = SubResource( 17 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep5"]
+position = Vector2( -140.103, -1303.94 )
 polygon = PoolVector2Array( 14.8309, 1343.45, 86.6464, 1420.3, 193.74, 1408.96, 328.551, 1303.13, 247.916, 1136.82, 41.2892, 1151.94, 7.27136, 1233.83 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5"]

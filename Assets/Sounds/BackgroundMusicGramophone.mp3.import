@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BackgroundMusicGramophone.mp3-1b25859a7944d739ea62e8edb777cabb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BackgroundMusicGramophone.mp3"
+dest_files=[ "res://.import/BackgroundMusicGramophone.mp3-1b25859a7944d739ea62e8edb777cabb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
