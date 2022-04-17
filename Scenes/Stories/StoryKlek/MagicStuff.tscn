@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Stories/StoryKlek/MagicStuff.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "New Anim"
 tracks/0/type = "value"
 tracks/0/path = NodePath("star2:self_modulate")
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "values": [ Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "New Anim"
 tracks/0/type = "value"
 tracks/0/path = NodePath("star6:self_modulate")
@@ -59,7 +59,7 @@ tracks/1/keys = {
 "values": [ Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "New Anim"
 tracks/0/type = "value"
 tracks/0/path = NodePath("star5:self_modulate")
@@ -74,8 +74,7 @@ tracks/0/keys = {
 "values": [ Color( 0.729412, 0.298039, 0.211765, 1 ), Color( 0.976471, 0.65098, 0.152941, 1 ), Color( 0.729412, 0.298039, 0.211765, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -91,8 +90,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=5]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("klek:rotation_degrees")
@@ -107,12 +105,11 @@ tracks/0/keys = {
 "values": [ -4.40404, 4.34384, 62.5787, 139.822, 205.465, 261.973, 319.682, 355.597 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 80
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Area2/star6:rotation_degrees")
@@ -243,12 +240,12 @@ visible = false
 polygon = PoolVector2Array( 483.356, 831.36, 486.353, 831.36, 786.014, 612.608, 1016.75, 519.713, 1220.52, 393.855, 1292.44, 85.2035, 285.58, 43.2509, 177.702, 447.794, 90.7998, 735.469, 201.675, 948.228 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area1"]
-"anims/New Anim" = SubResource( 6 )
+"anims/New Anim" = SubResource( 1 )
 
 [node name="Area2" type="Area2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2"]
-"anims/New Anim" = SubResource( 5 )
+"anims/New Anim" = SubResource( 2 )
 
 [node name="star3" type="Sprite" parent="Area2"]
 self_modulate = Color( 0.976471, 0.65098, 0.152941, 1 )
@@ -305,7 +302,7 @@ visible = false
 polygon = PoolVector2Array( 1334.39, 160.119, 1268.47, 504.73, 1397.32, 651.564, 1391.33, 897.286, 1292.44, 1319.81, 1685, 1484.62, 2053.58, 1484.62, 2107.52, 987.184, 2077.56, 420.824, 1870.79, 214.058 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area3"]
-"anims/New Anim" = SubResource( 7 )
+"anims/New Anim" = SubResource( 3 )
 
 [node name="Klek" type="Area2D" parent="."]
 
@@ -326,10 +323,10 @@ vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Klek/klek/eyesAndMouths"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 1 )
+"anims/New Anim" = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Klek"]
-"anims/New Anim" = SubResource( 2 )
+"anims/New Anim" = SubResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Klek"]
 visible = false
@@ -340,7 +337,7 @@ margin_left = 361.987
 margin_top = 1371.05
 margin_right = 1837.99
 margin_bottom = 1536.05
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Volos thew a powerful spell on Klek. 
 Can you guess what the spell did? "
 align = 1
@@ -352,7 +349,7 @@ __meta__ = {
 
 [node name="Idle" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 4 )
+"anims/New Anim" = SubResource( 7 )
 
 [connection signal="input_event" from="Area1" to="." method="_on_Area1_input_event"]
 [connection signal="input_event" from="Area2" to="." method="_on_Area2_input_event"]

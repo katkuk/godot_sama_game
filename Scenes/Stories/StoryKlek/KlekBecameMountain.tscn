@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Stories/StoryKlek/KlekBecameMountain.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=11]
 
-[sub_resource type="SpriteFrames" id=19]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 9 ) ],
 "loop": true,
@@ -20,7 +20,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=2]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=3]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1893.22, 1346.18 ), Vector2( 1893.22, 1308.81 ), Vector2( 1893.22, 1346.18 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=5]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "values": [ Vector2( 787.555, 1140.35 ), Vector2( 787.555, 1097.59 ), Vector2( 787.555, 1140.35 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=7]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -116,7 +116,7 @@ tracks/0/keys = {
 "values": [ Vector2( 506.289, 1080.46 ), Vector2( 506.289, 1056.46 ), Vector2( 506.289, 1080.46 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=8]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -132,7 +132,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0, 1, 2, 1, 2, 0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=9]
 resource_name = "jump"
 length = 0.5
 tracks/0/type = "value"
@@ -148,11 +148,11 @@ tracks/0/keys = {
 "values": [ Vector2( 175.725, 1275.14 ), Vector2( 175.725, 1227.51 ), Vector2( 175.725, 1275.14 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 80
 font_data = ExtResource( 11 )
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=11]
 resource_name = "clouds"
 length = 3.0
 loop = true
@@ -234,7 +234,7 @@ script = ExtResource( 10 )
 GUIColorHex = "#a0403e"
 
 [node name="Sky" type="ColorRect" parent="."]
-margin_right = 2215.0
+margin_right = 2242.0
 margin_bottom = 1672.0
 mouse_filter = 2
 color = Color( 0.439216, 0.207843, 0.443137, 1 )
@@ -306,9 +306,10 @@ region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 
 [node name="KlekSleeping" type="AnimatedSprite" parent="."]
 position = Vector2( 1078.05, 737.93 )
-frames = SubResource( 19 )
+frames = SubResource( 1 )
 animation = "sleeping"
-frame = 3
+frame = 5
+speed_scale = 0.5
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -377,10 +378,10 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2/sheep2"]
 autoplay = "sheep"
-anims/sheep = SubResource( 20 )
+anims/sheep = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep2"]
-anims/jump = SubResource( 21 )
+anims/jump = SubResource( 3 )
 
 [node name="Sheep1" type="Area2D" parent="."]
 position = Vector2( 787.555, 1139.35 )
@@ -401,10 +402,10 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1/sheep1"]
 autoplay = "sheep"
-anims/sheep = SubResource( 11 )
+anims/sheep = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep1"]
-anims/jump = SubResource( 22 )
+anims/jump = SubResource( 5 )
 
 [node name="Sheep3" type="Area2D" parent="."]
 position = Vector2( 506.289, 1077.95 )
@@ -427,10 +428,10 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3/sheep1"]
 autoplay = "sheep"
-anims/sheep = SubResource( 23 )
+anims/sheep = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep3"]
-anims/jump = SubResource( 24 )
+anims/jump = SubResource( 7 )
 
 [node name="tree5" type="Sprite" parent="."]
 position = Vector2( 121.237, 782.002 )
@@ -461,14 +462,14 @@ vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5/sheep5"]
 autoplay = "sheep"
-anims/sheep = SubResource( 17 )
+anims/sheep = SubResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sheep5"]
 position = Vector2( -139.141, -1285.4 )
 polygon = PoolVector2Array( 14.8309, 1343.45, 86.6464, 1420.3, 193.74, 1408.96, 328.551, 1303.13, 247.916, 1136.82, 171.119, 1142.44, 41.2892, 1151.94, 7.27136, 1233.83 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sheep5"]
-anims/jump = SubResource( 18 )
+anims/jump = SubResource( 9 )
 
 [node name="trees" type="Node2D" parent="."]
 
@@ -533,7 +534,7 @@ margin_left = 475.447
 margin_top = 1412.65
 margin_right = 1773.45
 margin_bottom = 1592.65
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "He was turned into a sleeping mountain, and he still sleeps to this day."
 align = 1
 autowrap = true
@@ -544,7 +545,7 @@ __meta__ = {
 [node name="CloudsAnimationg" type="AnimationPlayer" parent="."]
 autoplay = "clouds"
 playback_speed = 0.2
-anims/clouds = SubResource( 25 )
+anims/clouds = SubResource( 11 )
 
 [connection signal="input_event" from="Sheep2" to="." method="_on_Sheep2_input_event"]
 [connection signal="input_event" from="Sheep1" to="." method="_on_Sheep1_input_event"]

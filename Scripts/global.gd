@@ -30,6 +30,7 @@ func loadScene(newScene : String):
 	if current_scene.name == "KunaHouseScene":
 		saveKunaScene()
 	current_scene.queue_free()
+	GlobalSound.stopAllSounds()
 	var nextScene = load(sceneList[newScene]).instance()
 	add_child(nextScene)
 	current_scene = nextScene

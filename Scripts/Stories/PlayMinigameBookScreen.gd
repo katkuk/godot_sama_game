@@ -2,7 +2,7 @@ extends Node2D
 export(String) var GUIColorHex = "#61429d"
 
 func _ready():
-	pass
+	GlobalSound.stopSound("Snoring")
 
 func _on_PlayBtn_pressed():
 	Global.loadScene(Global.current_story)

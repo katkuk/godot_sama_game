@@ -8,7 +8,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalSound.stopSound("AngryVolos")
+	GlobalSound.stopSound("KlekIsSorry")
+	GlobalSound.playSound("Thunder")
+	GlobalSound.playSound("Magic")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,9 +26,11 @@ func _on_Klek_input_event(viewport, event, shape_idx):
 			print("clicked")
 			if klekAnimSide == true:
 				$Klek/AnimationPlayer.play("New Anim")
+				GlobalSound.playSound("WhisleUp")
 				klekAnimSide = false
 			else:
 				$Klek/AnimationPlayer.play_backwards("New Anim")
+				GlobalSound.playSound("WhisleDown")
 				klekAnimSide = true
 			
 
@@ -33,15 +38,18 @@ func _on_Klek_input_event(viewport, event, shape_idx):
 func _on_Area2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Chime")
 			$Area2/AnimationPlayer.play("New Anim")
 
 
 func _on_Area1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Chime")
 			$Area1/AnimationPlayer.play("New Anim")
 
 func _on_Area3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Chime")
 			$Area3/AnimationPlayer.play("New Anim")

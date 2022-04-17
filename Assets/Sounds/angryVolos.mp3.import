@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/angryVolos.mp3-c1306edc474d14829f78431de296c066.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/angryVolos.mp3"
+dest_files=[ "res://.import/angryVolos.mp3-c1306edc474d14829f78431de296c066.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

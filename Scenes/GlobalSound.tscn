@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/lightSwitch.ogg" type="AudioStream" id=2]
@@ -16,6 +16,14 @@
 [ext_resource path="res://Assets/Sounds/eating3.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Sounds/winePouring.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Sounds/sheepJump.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/rumblingStomach.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Sounds/stuffFallingEverywhere.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sounds/angryVolos.mp3" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Sounds/KlekSorrySouds.mp3" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Sounds/thunder.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Sounds/chime.mp3" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Sounds/magic.wav" type="AudioStream" id=23]
+[ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=24]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource( 1 )
@@ -79,3 +87,39 @@ volume_db = -9.967
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -21.446
+
+[node name="RumblingStomach" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -21.446
+
+[node name="StuffFalling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -14.578
+
+[node name="AngryVolos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -7.645
+
+[node name="KlekIsSorry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -8.14
+
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -8.14
+pitch_scale = 0.59
+
+[node name="Magic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -15.574
+pitch_scale = 0.59
+
+[node name="Chime" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -15.574
+pitch_scale = 0.59
+
+[node name="Snoring" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -15.574
+pitch_scale = 0.59

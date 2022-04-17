@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/Textures/KlekStory/VolosRunning.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Stories/StoryKlek/KlekAndVolos.gd" type="Script" id=11]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "klek"
 length = 3.0
 loop = true
@@ -29,7 +29,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 1, 2 ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 80
 font_data = ExtResource( 7 )
 
@@ -130,7 +130,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="klekStoji"]
 autoplay = "klek"
-anims/klek = SubResource( 2 )
+anims/klek = SubResource( 1 )
 
 [node name="cloudsFront" type="Sprite" parent="."]
 position = Vector2( 1109.9, 1231.38 )
@@ -206,7 +206,7 @@ margin_left = 1385.98
 margin_top = 139.018
 margin_right = 2071.98
 margin_bottom = 654.018
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Klek appeared in the middle of the feast, food flew everywhere which made Volos very angry."
 align = 1
 autowrap = true

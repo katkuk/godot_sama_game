@@ -4,6 +4,7 @@ export(String) var GUIColorHex = "#61429d"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalSound.playSound("RumblingStomach")
 	get_node("SpeachBubble/AnimationPlayer").play("speachBubble")
 	yield(get_tree().create_timer(1.0), "timeout")
 	
@@ -18,12 +19,14 @@ func _on_klekSitting2_input_event(viewport, event, shape_idx):
 			if klekDown == true:
 				speechBubbleAP.play_backwards("speachBubble")
 				yield(speechBubbleAP, "animation_finished")
+				GlobalSound.playSound("WhisleUp")
 				klekAP.play("standUp")
 				klekDown = false
 				yield(klekAP, "animation_finished")
 				klekAP.play("idleStanding")
 			else:
 				klekAP.play_backwards("standUp")
+				GlobalSound.playSound("WhisleDown")
 				yield(klekAP, "animation_finished")
 				klekAP.play("idleSitting")	
 				yield(get_tree().create_timer(0.5), "timeout")
