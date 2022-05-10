@@ -83,7 +83,11 @@ func _on_kuna_input_event(viewport, event, shape_idx):
 	if is_on_top():
 		#when clicking on kuna
 		if Input.is_action_just_pressed("Click"):
-			change_state(State.SELECTED)
+			print(interactingWithObject)
+			if interactingWithObject == null:
+				change_state(State.SELECTED)
+			else:
+				change_state(State.HOVERING)
 		#declicking on kuna
 		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
 			#when kuna is hovering kuna object
