@@ -32,7 +32,7 @@
 [ext_resource path="res://Assets/Sounds/footstep.ogg" type="AudioStream" id=30]
 [ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=31]
 [ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=32]
-[ext_resource path="res://Assets/Sounds/walking2.wav" type="AudioStream" id=33]
+[ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384.206, 521.21 )
@@ -753,9 +753,7 @@ polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="chair" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="chair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("chairWithKuna")
 defaultSpritePath = NodePath("chairEmpty")
@@ -781,9 +779,7 @@ anims/sitting = SubResource( 11 )
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bed" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("kunaSleeping")
 defaultSpritePath = NodePath("bed")
@@ -869,8 +865,11 @@ hframes = 2
 vframes = 2
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="House/Kuna"]
-stream = ExtResource( 33 )
+stream = ExtResource( 30 )
 volume_db = 9.064
+
+[node name="SnoringSound" type="AudioStreamPlayer" parent="House/Kuna"]
+stream = ExtResource( 33 )
 
 [node name="HouseGUI" type="CanvasLayer" parent="."]
 

@@ -9,6 +9,7 @@ onready var camera = get_parent().get_parent().get_node("Camera")
 onready var kunaWalking = get_node("kunaWalking")
 onready var kunaIdle = get_node("kunaIdle")
 onready var footstepSound = get_node("FootstepSound")
+onready var snoringSound = get_node("SnoringSound")
 signal scroll
 signal kunaInteracting
 var hoveredObject
@@ -56,26 +57,26 @@ func followMouse(delta):
 	global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	if state == State.HOVERING:
 		change_state(State.HOVERING)
-		if footstepSound.is_playing():
-			footstepSound.stop()
+#		if footstepSound.is_playing():
+#			footstepSound.stop()
 	else:
 		if get_global_transform_with_canvas()[2].x > 1800:
 			walkingDirection = "right"
 			change_state(State.WALKING)
 			emit_signal("scroll", "right")
-			if not footstepSound.is_playing():
-				footstepSound.play()
+#			if not footstepSound.is_playing():
+#				footstepSound.play()
 		elif get_global_transform_with_canvas()[2].x < 424:
 			walkingDirection = "left"
 			change_state(State.WALKING)
 			emit_signal("scroll", "left")
-			if not footstepSound.is_playing():
-				footstepSound.play()
+#			if not footstepSound.is_playing():
+#				footstepSound.play()
 		else:
 			change_state(State.SELECTED)
 			emit_signal("scroll", "stop")
-			if footstepSound.is_playing():
-				footstepSound.stop()
+#			if footstepSound.is_playing():
+#				footstepSound.stop()
 
 
 func _on_kuna_input_event(viewport, event, shape_idx):
@@ -87,8 +88,8 @@ func _on_kuna_input_event(viewport, event, shape_idx):
 		elif event is InputEventMouseButton and event.button_index == BUTTON_LEFT and not event.pressed:
 			#when kuna is hovering kuna object
 			if hoveredObject != null:
-				change_state(State.INTERACTING)
 				setInteractingObj(hoveredObject.name)
+				change_state(State.INTERACTING)
 				#signal to update the sprite of hovered object and update its interacting state
 				emit_signal("kunaInteracting")
 			#declicking on kuna when its not hovering anything
@@ -141,12 +142,16 @@ func change_state(newState):
 				kunaWalking.flip_h = false
 			kunaWalking.get_node("kunaWalkingAP").play("walking")
 		State.HOVERING:
+			if snoringSound.is_playing():
+				snoringSound.stop()
 			kunaIdle.visible = false
 			kunaWalking.visible = false
 			for sprite in get_node("interactionSprites").get_children():
 				if str(sprite.name.to_lower()) == str(hoveredObject.name.to_lower()):
 					sprite.visible = true
 		State.INTERACTING:
+			if interactingWithObject.name == "bed":
+				snoringSound.play()
 			visible = false
 		State.HOLDING:
 			print(state)
