@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=31]
 [ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=32]
 [ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=33]
+[ext_resource path="res://Assets/Sounds/rockingChair.mp3" type="AudioStream" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384.206, 521.21 )
@@ -130,7 +131,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=17]
 resource_name = "empty"
-length = 1.8
+length = 2.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("chairEmpty:rotation_degrees")
 tracks/0/interp = 1
@@ -138,14 +139,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 1.8 ),
+"times": PoolRealArray( 0, 0.8, 2.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -0.7, -6.6, -0.7 ]
 }
 
 [sub_resource type="Animation" id=11]
-length = 2.2
+length = 2.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("chairWithKuna:rotation_degrees")
@@ -154,7 +155,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.1, 2.2 ),
+"times": PoolRealArray( 0, 1.2, 2.4 ),
 "transitions": PoolRealArray( 1, 1.31951, 1 ),
 "update": 0,
 "values": [ -8.6, 1.0, -8.6 ]
@@ -813,6 +814,10 @@ anims/sitting = SubResource( 11 )
 
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
+
+[node name="RockingChairSound" type="AudioStreamPlayer" parent="House/KunaObjects/chair"]
+stream = ExtResource( 34 )
+volume_db = -15.274
 
 [node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
