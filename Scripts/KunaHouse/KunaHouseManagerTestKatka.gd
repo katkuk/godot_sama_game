@@ -3,10 +3,12 @@ extends Node2D
 onready var kuna = get_parent().get_node("House/Kuna")
 #GET INTERACTION OBJECTS
 onready var interactionObjects = get_parent().get_node("House/InteractionObjects")
+onready var kunaObjects = get_parent().get_node("House/KunaObjects")
 onready var carolinePicture = interactionObjects.get_node("CarolinePicture")
 onready var klekCards = interactionObjects.get_node("KlekCards")
 onready var plitvicePicture = interactionObjects.get_node("PlitvicePicture")
 onready var map = interactionObjects.get_node("Map")
+onready var chair = kunaObjects.get_node("chair")
 #GET CLICKABLE OBJECTS
 onready var clickableObjects = get_parent().get_node("House/ClickableObjects")
 onready var gramophone = clickableObjects.get_node("Gramophone")
@@ -180,3 +182,12 @@ func loadScene():
 	hangingLights.get_node("LightBubbles").visible = Global.kunaSceneState.hangingLights
 	bigLampAleks.get_node("Sprite").frame = 1 if Global.kunaSceneState.bigLampAleks else 0
 	smallBedSideLamp.get_node("Sprite").frame = 1 if Global.kunaSceneState.smallBedSideLamp else 0
+
+
+func _on_chair_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("Click") and chair.is_on_top() and not chair.interacting :
+		chair.get_node("animation").play("empty")
+		chair.get_node("RockingChairSound").play()
+
+func _on_chairAnimation_animation_finished(anim_name):
+	chair.get_node("animation").play("sitting")

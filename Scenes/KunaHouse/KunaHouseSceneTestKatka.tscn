@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/arrowIcon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -32,7 +32,8 @@
 [ext_resource path="res://Assets/Sounds/footstep.ogg" type="AudioStream" id=30]
 [ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=31]
 [ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=32]
-[ext_resource path="res://Assets/Sounds/walking2.wav" type="AudioStream" id=33]
+[ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=33]
+[ext_resource path="res://Assets/Sounds/rockingChair.mp3" type="AudioStream" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 384.206, 521.21 )
@@ -113,8 +114,39 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("chairEmpty:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.6 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "empty"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("chairEmpty:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -0.7, -6.6, -0.7 ]
+}
+
 [sub_resource type="Animation" id=11]
-length = 2.0
+length = 2.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("chairWithKuna:rotation_degrees")
@@ -123,10 +155,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1.31951, 1 ),
 "update": 0,
-"values": [ -2.60064, 1.63511, -2.60064 ]
+"values": [ -8.6, 1.0, -8.6 ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -753,22 +785,22 @@ polygon = PoolVector2Array( 7355.49, 320.802, 7320.21, 441.754, 7327.77, 648.381
 
 [node name="KunaObjects" type="Node2D" parent="House"]
 
-[node name="chair" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="chair" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("chairWithKuna")
 defaultSpritePath = NodePath("chairEmpty")
 
 [node name="chairEmpty" type="Sprite" parent="House/KunaObjects/chair"]
-position = Vector2( 667.5, 1156.48 )
+position = Vector2( 679, 1575 )
+rotation = -0.0453786
 scale = Vector2( 0.810841, 0.810841 )
 texture = ExtResource( 26 )
+offset = Vector2( 0, -520 )
 
 [node name="chairWithKuna" type="Sprite" parent="House/KunaObjects/chair"]
 visible = false
 position = Vector2( 642.659, 1513.63 )
-rotation = -0.0453897
+rotation = -0.150098
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 12 )
 offset = Vector2( -5.16536, -278.475 )
@@ -776,14 +808,18 @@ hframes = 2
 
 [node name="animation" type="AnimationPlayer" parent="House/KunaObjects/chair"]
 autoplay = "sitting"
+anims/RESET = SubResource( 16 )
+anims/empty = SubResource( 17 )
 anims/sitting = SubResource( 11 )
 
 [node name="collision" type="CollisionPolygon2D" parent="House/KunaObjects/chair"]
 polygon = PoolVector2Array( 473, 726, 722, 821, 735, 975, 993, 1198, 1048, 1504, 683, 1630, 392, 1514, 477, 1274, 302, 869 )
 
-[node name="bed" type="Area2D" parent="House/KunaObjects" groups=[
-"KunaObjects",
-]]
+[node name="RockingChairSound" type="AudioStreamPlayer" parent="House/KunaObjects/chair"]
+stream = ExtResource( 34 )
+volume_db = -15.274
+
+[node name="bed" type="Area2D" parent="House/KunaObjects" groups=["KunaObjects"]]
 script = ExtResource( 27 )
 interactingSpritePath = NodePath("kunaSleeping")
 defaultSpritePath = NodePath("bed")
@@ -869,8 +905,11 @@ hframes = 2
 vframes = 2
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="House/Kuna"]
-stream = ExtResource( 33 )
+stream = ExtResource( 30 )
 volume_db = 9.064
+
+[node name="SnoringSound" type="AudioStreamPlayer" parent="House/Kuna"]
+stream = ExtResource( 33 )
 
 [node name="HouseGUI" type="CanvasLayer" parent="."]
 
@@ -927,6 +966,8 @@ max_distance = 10000.0
 [connection signal="input_event" from="House/ClickableObjects/YellowFlower" to="KunaHouseManager" method="_on_YellowFlower_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/BigPlant" to="KunaHouseManager" method="_on_BigPlant_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/SmallBedSideLamp" to="KunaHouseManager" method="_on_SmallBedSideLamp_input_event"]
+[connection signal="input_event" from="House/KunaObjects/chair" to="KunaHouseManager" method="_on_chair_input_event"]
+[connection signal="animation_finished" from="House/KunaObjects/chair/animation" to="KunaHouseManager" method="_on_chairAnimation_animation_finished"]
 [connection signal="input_event" from="House/Kuna" to="House/Kuna" method="_on_kuna_input_event"]
 [connection signal="animation_finished" from="House/Kuna/kunaIdle/kunaIdleAP" to="House/Kuna" method="_on_kunaIdleAP_animation_finished"]
 [connection signal="button_down" from="HouseGUI/HouseArrowRight" to="Camera" method="_on_HouseArrow_button_down" binds= [ "right" ]]

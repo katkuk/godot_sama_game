@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rockingChair.mp3-cfd6ac34732428477ef66e601a459273.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/rockingChair.mp3"
+dest_files=[ "res://.import/rockingChair.mp3-cfd6ac34732428477ef66e601a459273.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
