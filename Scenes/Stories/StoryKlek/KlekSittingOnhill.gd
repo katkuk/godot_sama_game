@@ -4,6 +4,8 @@ export(String) var GUIColorHex = "#61429d"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalSound.stopSound("AngryVolos")
+	GlobalSound.stopSound("KlekIsSorry")
 	GlobalSound.playSound("RumblingStomach")
 	get_node("SpeachBubble/AnimationPlayer").play("speachBubble")
 	yield(get_tree().create_timer(1.0), "timeout")

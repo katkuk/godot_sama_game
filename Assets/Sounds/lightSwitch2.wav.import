@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lightSwitch2.wav-efb3ef1617164709e8a201337669889c.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/lightSwitch2.wav"
+dest_files=[ "res://.import/lightSwitch2.wav-efb3ef1617164709e8a201337669889c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

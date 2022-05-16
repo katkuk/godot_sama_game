@@ -8,6 +8,7 @@ onready var volosAngry = get_parent().get_node("Volos/VolosAngry")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalSound.stopSound("RumblingStomach")
+	GlobalSound.stopSound("Thunder")
 	GlobalSound.playSound("StuffFalling")
 	GlobalSound.playSound("KlekIsSorry")
 	yield(get_tree().create_timer(1.5), "timeout")

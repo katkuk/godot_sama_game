@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/winHappyKids.mp3-4445ce3263cda2c50688ec0dd9f4e4bf.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/winHappyKids.mp3"
+dest_files=[ "res://.import/winHappyKids.mp3-4445ce3263cda2c50688ec0dd9f4e4bf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

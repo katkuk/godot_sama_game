@@ -10,6 +10,7 @@ extends Node2D
 func _ready():
 	GlobalSound.stopSound("AngryVolos")
 	GlobalSound.stopSound("KlekIsSorry")
+	GlobalSound.stopSound("Snoring")
 	GlobalSound.playSound("Thunder")
 	GlobalSound.playSound("Magic")
 

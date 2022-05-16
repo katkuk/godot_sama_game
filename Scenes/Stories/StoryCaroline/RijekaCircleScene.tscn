@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/Ship3.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/StoryCaroline/Ship2.png" type="Texture" id=10]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "rotateClouds"
 length = 16.0
 loop = true
@@ -28,8 +28,7 @@ tracks/0/keys = {
 "values": [ 13.049, -4.55854, 13.049 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Sea"
+[sub_resource type="Animation" id=2]
 length = 16.0
 loop = true
 tracks/0/type = "value"
@@ -45,7 +44,7 @@ tracks/0/keys = {
 "values": [ -0.138226, 23.741, -0.138226 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -70,6 +69,62 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "boom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "boom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -100,69 +155,69 @@ tracks/1/keys = {
 "values": [ false, true, true, false ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "boom"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 6, 7, 8, 9 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "boom"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 6, 7, 8, 9 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 8.0
 } ]
+
+[sub_resource type="Animation" id=8]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "shoot"
@@ -193,62 +248,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "shoot"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "shoot"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
-
-[sub_resource type="Animation" id=3]
 length = 0.75
 loop = true
 tracks/0/type = "value"
@@ -264,7 +263,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=12]
 size = 80
 font_data = ExtResource( 4 )
 
@@ -371,7 +370,7 @@ region_rect = Rect2( -3.34085, 1641.48, 489.787, 241.11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="clouds"]
 autoplay = "rotateClouds"
-anims/rotateClouds = SubResource( 5 )
+anims/rotateClouds = SubResource( 1 )
 
 [node name="Sea" type="Sprite" parent="."]
 position = Vector2( 1019.88, 1607.79 )
@@ -384,7 +383,7 @@ region_rect = Rect2( 20.1817, -9.66621, 1471.85, 1386.57 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sea"]
 autoplay = "Sea"
-anims/Sea = SubResource( 1 )
+anims/Sea = SubResource( 2 )
 
 [node name="RijekaCircle" type="Sprite" parent="."]
 position = Vector2( 1040.38, 1623.06 )
@@ -406,7 +405,7 @@ polygon = PoolVector2Array( 735.307, 1023.28, 845.615, 955.397, 902.184, 969.539
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 2 )
+anims/Rotate = SubResource( 3 )
 
 [node name="boom" type="Sprite" parent="RijekaCircle"]
 visible = false
@@ -419,7 +418,7 @@ frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom"]
 playback_speed = 2.0
-anims/boom = SubResource( 6 )
+anims/boom = SubResource( 4 )
 
 [node name="boom2" type="Sprite" parent="RijekaCircle"]
 visible = false
@@ -432,7 +431,7 @@ frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom2"]
 playback_speed = 2.0
-anims/boom = SubResource( 7 )
+anims/boom = SubResource( 5 )
 
 [node name="boom3" type="Sprite" parent="RijekaCircle"]
 visible = false
@@ -445,14 +444,14 @@ frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boom3"]
 playback_speed = 2.0
-anims/boom = SubResource( 8 )
+anims/boom = SubResource( 6 )
 
 [node name="boat" type="AnimatedSprite" parent="RijekaCircle"]
 position = Vector2( 812.121, 263.393 )
 rotation = 1.90479
 scale = Vector2( -0.333113, 0.333113 )
 z_index = 1
-frames = SubResource( 9 )
+frames = SubResource( 7 )
 frame = 2
 playing = true
 
@@ -467,7 +466,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim2"]
 playback_speed = 1.5
-anims/shoot = SubResource( 10 )
+anims/shoot = SubResource( 8 )
 
 [node name="CarolineSmallAnim3" type="Sprite" parent="RijekaCircle/boat"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -479,7 +478,7 @@ vframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim3"]
 playback_speed = 1.5
-anims/shoot = SubResource( 11 )
+anims/shoot = SubResource( 9 )
 
 [node name="CarolineSmallAnim4" type="Sprite" parent="RijekaCircle/boat"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -491,7 +490,7 @@ vframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RijekaCircle/boat/CarolineSmallAnim4"]
 playback_speed = 1.5
-anims/shoot = SubResource( 12 )
+anims/shoot = SubResource( 10 )
 
 [node name="shootTimer" type="Timer" parent="RijekaCircle/boat"]
 
@@ -508,14 +507,14 @@ frame = 9
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Caroline"]
 autoplay = "Walk"
 playback_speed = 0.8
-anims/Walk = SubResource( 3 )
+anims/Walk = SubResource( 11 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 496.48
 margin_top = 234.627
 margin_right = 1635.48
 margin_bottom = 558.627
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 12 )
 text = "She left her house and walked down to the British commander. 
 "
 align = 1

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/gasp.mp3-94df431a276690d3784782ac7121b7bf.mp3str" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

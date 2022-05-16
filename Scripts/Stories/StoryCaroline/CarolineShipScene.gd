@@ -10,11 +10,15 @@ var positionTicker = 0
 func _ready():
 	timer.connect("timeout", self, "onTimerTimeout")
 	timer.start()
+	GlobalSound.playSound("Sea")
+	GlobalSound.stopSound("HorseRunning")
+	GlobalSound.stopSound("Fire")
 	
 func onTimerTimeout():
 	var positions = $Positions.get_children()
 	var boom = Boom.instance()
 	get_node("Booms").add_child(boom)
+	GlobalSound.playSound("CannonBoom")
 	if positionTicker == 0:
 		boom.position = positions[0].position
 	elif positionTicker == 1:
@@ -30,6 +34,7 @@ func onTimerTimeout():
 
 func _on_fishClickArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
+		GlobalSound.playSound("FishJump")
 		if event.pressed:
 			switch = !switch
 			if switch == true:

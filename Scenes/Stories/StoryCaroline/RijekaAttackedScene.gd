@@ -9,9 +9,13 @@ onready var counter = 1
 func _ready():
 	timer1.start()
 	timer1.connect("timeout", self, "onTimerTimeout")
+	GlobalSound.stopSound("Sea")
+	GlobalSound.playSound("HorseRunning")
+	GlobalSound.playSound("Fire")
 	
 
 func onTimerTimeout():
+	GlobalSound.playSound("CannonBoom")
 	if counter == 1:
 		$boom1/AnimationPlayer.play("explosion")
 	elif counter == 2:
@@ -28,6 +32,7 @@ func _on_barrels_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			$ManBehindTheBarrel/AnimationPlayer.play("ManAppears")
+			GlobalSound.playSound("Gasp")
 			$ManBehindTheBarrel/AnimationPlayer.play_backwards("ManAppears")
 			print("clicked")
 
@@ -37,6 +42,7 @@ var direction = true
 func _on_clickForBlackBirds_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("BirdsFlyAway")
 			var bird = Bird.instance()
 			bird.global_position = event.position
 			$birdContainer.add_child(bird)

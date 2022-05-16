@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PavementFootsteps.mp3-447da83747992a42be1058e3ace270af.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/PavementFootsteps.mp3"
+dest_files=[ "res://.import/PavementFootsteps.mp3-447da83747992a42be1058e3ace270af.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

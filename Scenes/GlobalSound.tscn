@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sounds/lightSwitch.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sounds/lightSwitch2.wav" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Sounds/curtain.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sounds/movePlant1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sounds/movePlant2.ogg" type="AudioStream" id=5]
@@ -24,6 +24,16 @@
 [ext_resource path="res://Assets/Sounds/chime.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Assets/Sounds/magic.wav" type="AudioStream" id=23]
 [ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Sounds/cannon.wav" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Sounds/sea.mp3" type="AudioStream" id=26]
+[ext_resource path="res://Assets/Sounds/fishJump.mp3" type="AudioStream" id=27]
+[ext_resource path="res://Assets/Sounds/gasp.mp3" type="AudioStream" id=28]
+[ext_resource path="res://Assets/Sounds/birdsFlyOff.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/Sounds/horseRunning.mp3" type="AudioStream" id=30]
+[ext_resource path="res://Assets/Sounds/fire.mp3" type="AudioStream" id=31]
+[ext_resource path="res://Assets/Sounds/windowOpenClose.mp3" type="AudioStream" id=32]
+[ext_resource path="res://Assets/Sounds/walking2.wav" type="AudioStream" id=33]
+[ext_resource path="res://Assets/Sounds/Pavement.wav" type="AudioStream" id=34]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource( 1 )
@@ -44,9 +54,34 @@ volume_db = -20.0
 stream = ExtResource( 3 )
 volume_db = -20.0
 
+[node name="WalkingSoft" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 33 )
+volume_db = 1.624
+
+[node name="WalkingPavement" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+volume_db = -26.338
+pitch_scale = 1.08
+
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = 3.92
+
+[node name="CannonBoom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -8.248
+
+[node name="FishJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = -6.897
+
+[node name="Gasp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = -6.897
+
+[node name="BirdsFlyAway" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -6.897
 
 [node name="OpenMap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -55,6 +90,10 @@ volume_db = 3.92
 [node name="Poing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.404
+
+[node name="Window" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+volume_db = 14.583
 
 [node name="MagicBook" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -121,5 +160,18 @@ pitch_scale = 0.59
 
 [node name="Snoring" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
-volume_db = -15.574
+volume_db = -15.573
 pitch_scale = 0.59
+
+[node name="Sea" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -12.196
+
+[node name="HorseRunning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = -12.196
+pitch_scale = 0.85
+
+[node name="Fire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = 2.66

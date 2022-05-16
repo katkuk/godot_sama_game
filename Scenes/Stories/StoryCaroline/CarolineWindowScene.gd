@@ -18,6 +18,7 @@ func _ready():
 func _on_DoorR_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Window")
 			if Rclosed == true:
 				doorRclosed.visible = true
 				doorRopen.visible = false
@@ -32,6 +33,7 @@ func _on_DoorR_input_event(viewport, event, shape_idx):
 func _on_DoorL_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("Window")
 			if Lclosed == true:
 				doorLclosed.visible = true
 				doorLopen.visible = false

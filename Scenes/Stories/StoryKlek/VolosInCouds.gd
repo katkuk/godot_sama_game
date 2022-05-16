@@ -6,6 +6,7 @@ onready var initialWinePosition = Vector2(811.022, 919.193)
 onready var crumbParticles = get_parent().get_node("crumbs")
 
 func _ready():
+	GlobalSound.stopSound("RumblingStomach")
 	selectedObject.z_index = 30
 	get_parent().get_node("Wine/wine/wineSprite").frame = 0
 

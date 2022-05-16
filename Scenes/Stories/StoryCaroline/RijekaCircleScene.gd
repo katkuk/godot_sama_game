@@ -15,6 +15,8 @@ func _ready():
 	explosionTimer.connect("timeout", self, "playExplosion")
 	shootTimer.start()
 	shootTimer.connect("timeout", self, "playShoot")
+	GlobalSound.playSound("Sea")
+	GlobalSound.playSound("WalkingPavement")
 	
 	
 func playExplosion():
@@ -31,10 +33,13 @@ func playExplosion():
 	
 func playShoot():
 	if counter2 == 1:
+		GlobalSound.playSound("CannonBoom")
 		$RijekaCircle/boat/CarolineSmallAnim2/AnimationPlayer.play("shoot")
 	elif counter2 == 2:
+		GlobalSound.playSound("CannonBoom")
 		$RijekaCircle/boat/CarolineSmallAnim3/AnimationPlayer.play("shoot")
 	elif counter2 == 3:
+		GlobalSound.playSound("CannonBoom")
 		$RijekaCircle/boat/CarolineSmallAnim4/AnimationPlayer.play("shoot")
 	elif counter2 == 4:
 		counter2 = 1
@@ -45,6 +50,7 @@ func playShoot():
 func _on_birdClickArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			GlobalSound.playSound("BirdsFlyAway")
 			var bird = Bird.instance()
 			bird.global_position = event.position
 			$birdContainer.add_child(bird)
