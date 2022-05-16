@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/horseRunning.mp3-5b0b9eaaf5b97260439286dba23bbd0e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/horseRunning.mp3"
+dest_files=[ "res://.import/horseRunning.mp3-5b0b9eaaf5b97260439286dba23bbd0e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

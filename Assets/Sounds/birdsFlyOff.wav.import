@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/birdsFlyOff.wav-9f33182e49fe0deac38ce8ddbdf3d88a.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/birdsFlyOff.wav"
+dest_files=[ "res://.import/birdsFlyOff.wav-9f33182e49fe0deac38ce8ddbdf3d88a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
