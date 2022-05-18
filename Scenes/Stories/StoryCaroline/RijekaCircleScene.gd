@@ -16,7 +16,7 @@ func _ready():
 	shootTimer.start()
 	shootTimer.connect("timeout", self, "playShoot")
 	GlobalSound.playSound("Sea")
-	GlobalSound.playSound("WalkingPavement")
+
 	
 	
 func playExplosion():

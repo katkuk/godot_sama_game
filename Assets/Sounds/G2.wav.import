@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/G2.wav-5ec7acba3bf59e1e8a5f0a492319bfd1.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/G2.wav"
+dest_files=[ "res://.import/G2.wav-5ec7acba3bf59e1e8a5f0a492319bfd1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
