@@ -57,26 +57,26 @@ func followMouse(delta):
 	global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	if state == State.HOVERING:
 		change_state(State.HOVERING)
-#		if footstepSound.is_playing():
-#			footstepSound.stop()
+		if footstepSound.is_playing():
+			footstepSound.stop()
 	else:
 		if get_global_transform_with_canvas()[2].x > 1800:
 			walkingDirection = "right"
 			change_state(State.WALKING)
 			emit_signal("scroll", "right")
-#			if not footstepSound.is_playing():
-#				footstepSound.play()
+			if not footstepSound.is_playing():
+				footstepSound.play()
 		elif get_global_transform_with_canvas()[2].x < 424:
 			walkingDirection = "left"
 			change_state(State.WALKING)
 			emit_signal("scroll", "left")
-#			if not footstepSound.is_playing():
-#				footstepSound.play()
+			if not footstepSound.is_playing():
+				footstepSound.play()
 		else:
 			change_state(State.SELECTED)
 			emit_signal("scroll", "stop")
-#			if footstepSound.is_playing():
-#				footstepSound.stop()
+			if footstepSound.is_playing():
+				footstepSound.stop()
 
 
 func _on_kuna_input_event(viewport, event, shape_idx):
