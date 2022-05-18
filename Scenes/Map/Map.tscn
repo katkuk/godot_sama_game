@@ -807,7 +807,6 @@ rect_scale = Vector2( -0.3, 0.3 )
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 30 )
 volume_db = -14.488
-autoplay = true
 
 [connection signal="pressed" from="MapIcons/Caroline" to="MapManager" method="_on_MapIcon_pressed" binds= [ "caroline" ]]
 [connection signal="pressed" from="MapIcons/Dragon" to="MapManager" method="_on_MapIcon_pressed" binds= [ "dragon" ]]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/waveAnimation.png" type="Texture" id=2]
@@ -7,10 +7,21 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/SpeechBubble.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Textures/StoryCaroline/bubble2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/StoryCaroline/bubbleTriangle.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Textures/StoryCaroline/shipLeavingBubble.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sounds/G4.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Textures/GUI/confettiTexture.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sounds/C1.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sounds/C4.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/G5.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/Sounds/G6.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sounds/G8.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/Sounds/G3.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sounds/C2.wav" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Sounds/G2.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Sounds/C3.wav" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Sounds/G1.wav" type="AudioStream" id=22]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -132,7 +143,11 @@ tracks/3/keys = {
 "values": [ 14, 10, 13, 16, 10, 11, 13, 16, 10, 12, 13, 16, 11, 14, 16, 11, 13 ]
 }
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=6]
 lifetime_randomness = 0.13
 emission_shape = 1
 emission_sphere_radius = 9.19
@@ -150,10 +165,10 @@ scale = 0.8
 scale_random = 1.0
 color = Color( 1, 1, 1, 0.929412 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=7]
 
-[sub_resource type="ParticlesMaterial" id=7]
-next_pass = SubResource( 6 )
+[sub_resource type="ParticlesMaterial" id=8]
+next_pass = SubResource( 7 )
 lifetime_randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 128.0
@@ -184,34 +199,6 @@ anim_speed_random = 0.26
 anim_offset = 0.2
 anim_offset_random = 0.1
 
-[sub_resource type="Animation" id=5]
-resource_name = "ship"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.0244513, 0.134482, 0.238715, 0.338715, 0.438715, 0.538715, 0.638715 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.0183385, 0.107993, 0.731502, 0.81912 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
 [node name="RijekaDiscussionScene" type="Node2D"]
 script = ExtResource( 7 )
 
@@ -229,7 +216,6 @@ __meta__ = {
 }
 
 [node name="WaveParticles1" type="Particles2D" parent="."]
-visible = false
 material = SubResource( 1 )
 position = Vector2( 2157.88, 390.255 )
 scale = Vector2( 0.6, 0.6 )
@@ -367,8 +353,25 @@ scale = Vector2( 1.54872, 1.42635 )
 z_index = 15
 z_as_relative = false
 
+[node name="Label2" type="Label" parent="FinalSpeechBubble"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = -51.408
+margin_top = 163.704
+margin_right = 399.592
+margin_bottom = 396.704
+rect_rotation = -92.7936
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 5 )
+text = "OK, we 
+will leave."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="triangleGeneral" type="Sprite" parent="FinalSpeechBubble"]
-self_modulate = Color( 0.0117647, 0.231373, 0.352941, 1 )
+self_modulate = Color( 0.92549, 0.905882, 0.905882, 1 )
 show_behind_parent = true
 position = Vector2( 167.795, 156.598 )
 rotation = -1.6889
@@ -376,7 +379,7 @@ scale = Vector2( 0.551788, 0.551788 )
 texture = ExtResource( 10 )
 
 [node name="bubbleshade" type="Sprite" parent="FinalSpeechBubble"]
-self_modulate = Color( 0.0117647, 0.231373, 0.352941, 1 )
+self_modulate = Color( 0.92549, 0.905882, 0.905882, 1 )
 show_behind_parent = true
 position = Vector2( 11.1897, -17.1161 )
 rotation = -3.12105
@@ -384,19 +387,24 @@ scale = Vector2( 1.00947, 1.02321 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bubbleshade2" type="Sprite" parent="FinalSpeechBubble"]
-self_modulate = Color( 0.0392157, 0.431373, 0.643137, 1 )
 show_behind_parent = true
-position = Vector2( -0.556684, -8.47175 )
+position = Vector2( 0.367737, -8.51978 )
 rotation = -3.12105
 scale = Vector2( 1.00947, 1.02321 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1517.47, 1451.33, 386.953, 589.675 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BubbleParticles" type="Particles2D" parent="FinalSpeechBubble"]
-self_modulate = Color( 0.0392157, 0.431373, 0.643137, 1 )
+visible = false
 show_behind_parent = true
 rotation = 3.11115
 scale = Vector2( 1, 1.00002 )
@@ -407,7 +415,7 @@ speed_scale = 6.14
 explosiveness = 0.4
 randomness = 0.21
 local_coords = false
-process_material = SubResource( 8 )
+process_material = SubResource( 6 )
 texture = ExtResource( 9 )
 
 [node name="Confetti" type="Particles2D" parent="FinalSpeechBubble"]
@@ -421,21 +429,64 @@ preprocess = 45.37
 speed_scale = 5.79
 explosiveness = 0.51
 randomness = 0.37
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 texture = ExtResource( 12 )
 
-[node name="shipLeavingBubble" type="Sprite" parent="FinalSpeechBubble"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.988623 )
-position = Vector2( 8.41034, -14.575 )
-rotation = -1.6207
-scale = Vector2( 0.881503, 0.881503 )
-texture = ExtResource( 11 )
-hframes = 3
-vframes = 3
-frame = 6
+[node name="Label" type="Label" parent="."]
+margin_left = 316.0
+margin_top = 1367.03
+margin_right = 1809.0
+margin_bottom = 1600.03
+custom_fonts/font = SubResource( 5 )
+text = "She hoped she can persuade the general to stop attacking Rijeka and go away. They argued and argued..."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FinalSpeechBubble/shipLeavingBubble"]
-autoplay = "ship"
-playback_speed = 0.5
-anims/ship = SubResource( 5 )
+[node name="Gibberish" type="Node2D" parent="."]
+
+[node name="C1" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 13 )
+volume_db = -20.0
+
+[node name="C2" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 19 )
+volume_db = -20.0
+
+[node name="C3" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 21 )
+volume_db = -20.0
+
+[node name="C4" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 14 )
+volume_db = -20.0
+
+[node name="G1" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 22 )
+volume_db = -20.0
+
+[node name="G2" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 20 )
+volume_db = -20.0
+
+[node name="G3" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 18 )
+volume_db = -20.0
+
+[node name="G4" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 11 )
+volume_db = -20.0
+
+[node name="G5" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 15 )
+volume_db = -20.0
+
+[node name="G6" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 16 )
+volume_db = -20.0
+
+[node name="G8" type="AudioStreamPlayer" parent="Gibberish"]
+stream = ExtResource( 17 )
+volume_db = -20.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/G6.wav-d3a79fabaaa79104326e0f0c127bd856.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/G6.wav"
+dest_files=[ "res://.import/G6.wav-d3a79fabaaa79104326e0f0c127bd856.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

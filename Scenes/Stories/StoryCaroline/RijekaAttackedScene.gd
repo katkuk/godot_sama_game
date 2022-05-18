@@ -10,8 +10,8 @@ func _ready():
 	timer1.start()
 	timer1.connect("timeout", self, "onTimerTimeout")
 	GlobalSound.stopSound("Sea")
-	GlobalSound.playSound("HorseRunning")
 	GlobalSound.playSound("Fire")
+	$HorseRunning.play()
 	
 
 func onTimerTimeout():

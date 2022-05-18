@@ -238,6 +238,7 @@ tracks/1/keys = {
 [node name="KunaHouseScene" type="Node"]
 
 [node name="KunaHouseManager" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 6 )
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -911,7 +912,7 @@ vframes = 2
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="House/Kuna"]
 stream = ExtResource( 35 )
-volume_db = 9.064
+volume_db = -3.092
 
 [node name="SnoringSound" type="AudioStreamPlayer" parent="House/Kuna"]
 stream = ExtResource( 33 )

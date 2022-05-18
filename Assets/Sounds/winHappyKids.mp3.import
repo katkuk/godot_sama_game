@@ -11,5 +11,5 @@ dest_files=[ "res://.import/winHappyKids.mp3-4445ce3263cda2c50688ec0dd9f4e4bf.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

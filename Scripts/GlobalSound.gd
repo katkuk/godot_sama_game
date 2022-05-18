@@ -15,3 +15,4 @@ func stopSound(soundNode : String):
 #	var soundsArray = self.get_children()
 #	for sound in soundsArray:
 #		sound.stop()
+

@@ -6,7 +6,9 @@ onready var flowerContainer = $FlowerContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalSound.playSound("happyKids")
+	GlobalSound.playSound("winNotes")
+	GlobalSound.stopSound("Sea")
 
 var counter = 0
 var left = true
@@ -14,6 +16,7 @@ var left = true
 func _on_FlowerClickArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 			if event.pressed:
+				GlobalSound.playSound("throwFlower")
 				var flower = Flower.instance()
 				flower.get_node("flower").frame = counter
 				if left == true:

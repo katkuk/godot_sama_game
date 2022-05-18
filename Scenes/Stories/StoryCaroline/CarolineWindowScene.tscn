@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/Caroline.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/CarolineWindowScene.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Sounds/cannon.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/carolineScarednew.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "walkIn"
@@ -28,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "caroline"
-length = 2.0
+length = 3.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("eyess:frame")
@@ -231,7 +232,7 @@ scale = Vector2( 0.0577021, 0.0577021 )
 texture = ExtResource( 7 )
 hframes = 5
 vframes = 4
-frame = 3
+frame = 6
 
 [node name="WalkIn" type="AnimationPlayer" parent="Caroline"]
 anims/walkIn = SubResource( 1 )
@@ -438,6 +439,12 @@ anims/boom = SubResource( 6 )
 
 [node name="CannonBoom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -33.959
+
+[node name="Gasp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -33.959
+pitch_scale = 1.16
 
 [connection signal="input_event" from="DoorL" to="." method="_on_DoorL_input_event"]
 [connection signal="input_event" from="DoorR" to="." method="_on_DoorR_input_event"]
