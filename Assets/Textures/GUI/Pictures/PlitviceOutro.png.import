@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Picture_GUI.png-bca5f3e4c520d394ad251e88289b6d16.stex"
+path="res://.import/PlitviceOutro.png-8bd19551025fc419a5f02ce886663d30.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/GUI/Pictures/Picture_GUI.png"
-dest_files=[ "res://.import/Picture_GUI.png-bca5f3e4c520d394ad251e88289b6d16.stex" ]
+source_file="res://Assets/Textures/GUI/Pictures/PlitviceOutro.png"
+dest_files=[ "res://.import/PlitviceOutro.png-8bd19551025fc419a5f02ce886663d30.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
