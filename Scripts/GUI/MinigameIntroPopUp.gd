@@ -25,6 +25,9 @@ func updatePicture():
 	for picture in pictures:
 		if picture.name.to_lower() == minigamePic.to_lower():
 			picture.visible = true
+			if picture.has_node("Animation"):
+				picture.get_node("Animation").get_animation("anim").set_loop(true)
+				picture.get_node("Animation").play("anim")
 
 func _on_PlayMinigameBtn_pressed():
 	queue_free()
