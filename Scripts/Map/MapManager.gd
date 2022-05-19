@@ -35,6 +35,7 @@ func _ready():
 	displayHomeBtn()
 	homeBtnVisibility(true)
 	GlobalSound.playSound("OpenMap")
+	GlobalSound.stopSound("Sea")
 
 func displayHomeBtn():
 	homeBtnInstantiatedScene = homeBtn.instance()
