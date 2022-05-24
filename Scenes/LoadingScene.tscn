@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/loadingScreen-0.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "loading"
+tracks/0/type = "value"
+tracks/0/path = NodePath("loadingBar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0549757, 1 ), Vector2( 0.978687, 1 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 2237.0
+margin_bottom = 1682.0
+color = Color( 0.690196, 0.294118, 0.215686, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 1105.27, 689.882 )
+scale = Vector2( 0.483957, 0.483958 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -12.0903, -31.8571, 1815.31, 1697.22 )
+
+[node name="whiteOutline" type="Sprite" parent="."]
+position = Vector2( 1103.51, 1193.05 )
+rotation = -1.57259
+scale = Vector2( 0.483957, 0.483958 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1804.81, 859.177, 143.81, 825.718 )
+
+[node name="Loading" type="AnimationPlayer" parent="whiteOutline"]
+autoplay = "loading"
+anims/loading = SubResource( 1 )
+
+[node name="loadingBar" type="Sprite" parent="whiteOutline"]
+show_behind_parent = true
+position = Vector2( -2.18149, -402.015 )
+rotation = -1.57304
+scale = Vector2( 0.332089, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( -401.921, 1.27954 )
+region_enabled = true
+region_rect = Rect2( -5.07196, 1668.31, 813.717, 127.726 )
+
+[node name="LoadingText" type="Sprite" parent="."]
+position = Vector2( 1103.51, 1345.71 )
+rotation = -1.57259
+scale = Vector2( 0.278012, 0.278012 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1805.65, -18.6369, 225.748, 878.642 )
