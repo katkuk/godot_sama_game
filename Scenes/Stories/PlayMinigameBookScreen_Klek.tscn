@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Stories/PlayMinigameBookScreen.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/bookGameOutline.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/Pictures/klekGameScreenImg.PNG" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "playButton"
+length = 0.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="PlayMinigameBookScreen" type="Node2D"]
+script = ExtResource( 2 )
+GUIColorHex = "#a0403e"
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 2233.0
+margin_bottom = 1698.0
+color = Color( 0.319021, 0.21846, 0.402344, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pictures" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Klek" type="Sprite" parent="Pictures"]
+position = Vector2( 1086, 904 )
+scale = Vector2( 1.31825, 1.31825 )
+texture = ExtResource( 4 )
+
+[node name="lightPurpleInside" type="ColorRect" parent="Pictures"]
+visible = false
+margin_left = 185.0
+margin_top = 230.0
+margin_right = 2071.0
+margin_bottom = 1418.0
+rect_rotation = -0.569198
+color = Color( 0.454902, 0.329412, 0.490196, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderTop" type="ColorRect" parent="."]
+margin_left = -75.0
+margin_top = -52.0
+margin_right = 2308.0
+margin_bottom = 152.0
+color = Color( 0.937255, 0.937255, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderBottom" type="ColorRect" parent="."]
+margin_left = -62.0
+margin_top = 1387.0
+margin_right = 2321.0
+margin_bottom = 1754.0
+color = Color( 0.937255, 0.937255, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderLeft" type="ColorRect" parent="."]
+margin_left = 146.0
+margin_top = -47.0
+margin_right = 1905.0
+margin_bottom = 183.0
+rect_rotation = 89.3178
+color = Color( 0.937255, 0.937255, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BorderRight" type="ColorRect" parent="."]
+margin_left = 2310.0
+margin_top = -33.0
+margin_right = 4076.0
+margin_bottom = 258.0
+rect_rotation = 89.3178
+color = Color( 0.937255, 0.937255, 0.898039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bookGameOutline" type="Sprite" parent="."]
+position = Vector2( 1091.14, 785.774 )
+rotation = -0.0371651
+scale = Vector2( 0.98481, 1.00708 )
+texture = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 227.0
+margin_top = 278.0
+margin_right = 1964.0
+margin_bottom = 1322.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" type="TextureButton" parent="CenterContainer"]
+margin_left = 723.0
+margin_top = 377.0
+margin_right = 1013.0
+margin_bottom = 667.0
+rect_min_size = Vector2( 290, 290 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="Sprite" parent="CenterContainer/PlayBtn"]
+position = Vector2( 145, 145 )
+scale = Vector2( 0.520579, 0.520579 )
+texture = ExtResource( 1 )
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/PlayBtn/play"]
+autoplay = "playButton"
+playback_speed = 0.5
+anims/playButton = SubResource( 1 )
+
+[connection signal="pressed" from="CenterContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
