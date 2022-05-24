@@ -6,7 +6,7 @@ func _ready():
 func _on_settings_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			$SettingPopupContainer/SettingsPopup/SettingsAP.play("appear")
+			$SettingsPopup/SettingsAP.play("appear")
 			
 func _on_closeSettings_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
