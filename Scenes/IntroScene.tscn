@@ -42,21 +42,6 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=5]
 radius = 152.605
 
-[sub_resource type="Animation" id=6]
-resource_name = "appear"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1183.05, 812.072 ), Vector2( 1144.13, 812.072 ) ]
-}
-
 [sub_resource type="DynamicFont" id=7]
 size = 70
 font_data = ExtResource( 14 )
@@ -76,7 +61,22 @@ tracks/0/keys = {
 "values": [ Vector2( 3379.02, 812.072 ), Vector2( 1144.13, 812.072 ) ]
 }
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Animation" id=6]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1183.05, 812.072 ), Vector2( 1144.13, 812.072 ) ]
+}
+
+[node name="IntroScene" type="Node2D"]
 script = ExtResource( 15 )
 
 [node name="Background" type="ColorRect" parent="."]
@@ -210,7 +210,7 @@ position = Vector2( 903.823, 574.595 )
 scale = Vector2( 0.626234, 0.626234 )
 frames = SubResource( 4 )
 animation = "animate"
-frame = 2
+frame = 1
 playing = true
 centered = false
 
@@ -247,6 +247,136 @@ region_rect = Rect2( 1053.3, -7.28311, 337.144, 349.987 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="IntroScreenGUI/intro"]
 position = Vector2( 2014.97, 1485.93 )
 shape = SubResource( 5 )
+
+[node name="InfoPopup" type="Sprite" parent="."]
+position = Vector2( 3379.02, 812.072 )
+scale = Vector2( 1.02456, 1.02456 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( -17.3797, -23.9468, 2028.3, 1497.93 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="closeInfo" type="Area2D" parent="InfoPopup"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="InfoPopup/closeInfo"]
+position = Vector2( 894.062, -629.271 )
+scale = Vector2( 0.976027, 0.976027 )
+shape = SubResource( 5 )
+
+[node name="close" type="Sprite" parent="InfoPopup/closeInfo"]
+position = Vector2( 913.054, -626.015 )
+scale = Vector2( 0.361456, 0.361456 )
+texture = ExtResource( 13 )
+
+[node name="circle" type="Sprite" parent="InfoPopup"]
+position = Vector2( -630.561, 275.209 )
+scale = Vector2( 1.03449, 0.976027 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
+
+[node name="circle2" type="Sprite" parent="InfoPopup"]
+position = Vector2( -228.438, 275.209 )
+scale = Vector2( 1.03449, 0.976027 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
+
+[node name="circle3" type="Sprite" parent="InfoPopup"]
+position = Vector2( 177.589, 275.209 )
+scale = Vector2( 1.03449, 0.976027 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
+
+[node name="circle4" type="Sprite" parent="InfoPopup"]
+position = Vector2( 587.52, 275.209 )
+scale = Vector2( 1.03449, 0.976027 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
+
+[node name="about" type="Sprite" parent="InfoPopup"]
+position = Vector2( 1.59851, -377.35 )
+scale = Vector2( 0.976027, 0.976027 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 1669.42, 1885.79, 232.571, 72.5559 )
+
+[node name="Label" type="Label" parent="InfoPopup"]
+margin_left = -769.776
+margin_top = -283.592
+margin_right = 760.224
+margin_bottom = -44.5922
+custom_fonts/font = SubResource( 7 )
+text = "About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name1" type="Label" parent="InfoPopup"]
+margin_left = -766.522
+margin_top = 455.695
+margin_right = -488.522
+margin_bottom = 584.695
+custom_fonts/font = SubResource( 7 )
+text = "name
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name2" type="Label" parent="InfoPopup"]
+margin_left = -361.316
+margin_top = 455.695
+margin_right = -83.3158
+margin_bottom = 584.695
+custom_fonts/font = SubResource( 7 )
+text = "name
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name3" type="Label" parent="InfoPopup"]
+margin_left = 45.0471
+margin_top = 463.793
+margin_right = 323.047
+margin_bottom = 592.793
+custom_fonts/font = SubResource( 7 )
+text = "name
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name4" type="Label" parent="InfoPopup"]
+margin_left = 473.563
+margin_top = 468.436
+margin_right = 751.563
+margin_bottom = 597.436
+custom_fonts/font = SubResource( 7 )
+text = "name
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoAP" type="AnimationPlayer" parent="InfoPopup"]
+playback_speed = 3.0
+anims/appear = SubResource( 8 )
 
 [node name="SettingsPopup" type="Sprite" parent="."]
 position = Vector2( -1183.05, 812.072 )
@@ -430,137 +560,8 @@ region_rect = Rect2( 939.94, 1694.14, 243.286, 337.125 )
 playback_speed = 3.0
 anims/appear = SubResource( 6 )
 
-[node name="InfoPopup" type="Sprite" parent="."]
-position = Vector2( 3379.02, 812.072 )
-scale = Vector2( 1.02456, 1.02456 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( -17.3797, -23.9468, 2028.3, 1497.93 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="closeInfo" type="Area2D" parent="InfoPopup"]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="InfoPopup/closeInfo"]
-position = Vector2( 894.062, -629.271 )
-scale = Vector2( 0.976027, 0.976027 )
-shape = SubResource( 5 )
-
-[node name="close" type="Sprite" parent="InfoPopup/closeInfo"]
-position = Vector2( 913.054, -626.015 )
-scale = Vector2( 0.361456, 0.361456 )
-texture = ExtResource( 13 )
-
-[node name="circle" type="Sprite" parent="InfoPopup"]
-position = Vector2( -630.561, 275.209 )
-scale = Vector2( 1.03449, 0.976027 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
-
-[node name="circle2" type="Sprite" parent="InfoPopup"]
-position = Vector2( -228.438, 275.209 )
-scale = Vector2( 1.03449, 0.976027 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
-
-[node name="circle3" type="Sprite" parent="InfoPopup"]
-position = Vector2( 177.589, 275.209 )
-scale = Vector2( 1.03449, 0.976027 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
-
-[node name="circle4" type="Sprite" parent="InfoPopup"]
-position = Vector2( 587.52, 275.209 )
-scale = Vector2( 1.03449, 0.976027 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 1049.15, 338.685, 318.529, 315.423 )
-
-[node name="about" type="Sprite" parent="InfoPopup"]
-position = Vector2( 1.59851, -377.35 )
-scale = Vector2( 0.976027, 0.976027 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 1669.42, 1885.79, 232.571, 72.5559 )
-
-[node name="Label" type="Label" parent="InfoPopup"]
-margin_left = -769.776
-margin_top = -283.592
-margin_right = 760.224
-margin_bottom = -44.5922
-custom_fonts/font = SubResource( 7 )
-text = "About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla. About the game blabla."
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="name1" type="Label" parent="InfoPopup"]
-margin_left = -766.522
-margin_top = 455.695
-margin_right = -488.522
-margin_bottom = 584.695
-custom_fonts/font = SubResource( 7 )
-text = "name
-"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="name2" type="Label" parent="InfoPopup"]
-margin_left = -361.316
-margin_top = 455.695
-margin_right = -83.3158
-margin_bottom = 584.695
-custom_fonts/font = SubResource( 7 )
-text = "name
-"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="name3" type="Label" parent="InfoPopup"]
-margin_left = 45.0471
-margin_top = 463.793
-margin_right = 323.047
-margin_bottom = 592.793
-custom_fonts/font = SubResource( 7 )
-text = "name
-"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="name4" type="Label" parent="InfoPopup"]
-margin_left = 473.563
-margin_top = 468.436
-margin_right = 751.563
-margin_bottom = 597.436
-custom_fonts/font = SubResource( 7 )
-text = "name
-"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InfoAP" type="AnimationPlayer" parent="InfoPopup"]
-playback_speed = 3.0
-anims/appear = SubResource( 8 )
-
+[connection signal="input_event" from="IntroScreenGUI/play" to="." method="_on_play_input_event"]
 [connection signal="input_event" from="IntroScreenGUI/settings" to="." method="_on_settings_input_event"]
 [connection signal="input_event" from="IntroScreenGUI/intro" to="." method="_on_intro_input_event"]
-[connection signal="input_event" from="SettingsPopup/closeSettings" to="." method="_on_closeSettings_input_event"]
 [connection signal="input_event" from="InfoPopup/closeInfo" to="." method="_on_closeInfo_input_event"]
+[connection signal="input_event" from="SettingsPopup/closeSettings" to="." method="_on_closeSettings_input_event"]

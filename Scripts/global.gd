@@ -4,6 +4,7 @@ var current_story
 const kuna = preload("res://Scripts/KunaHouse/Kuna_newMove.gd")
 
 var sceneList = {
+	"main" : "res://Scenes/MainScene.tscn",
 	"kuna" : "res://Scenes/KunaHouse/KunaHouseSceneTestKatka.tscn",
 	"map" : "res://Scenes/Map/Map.tscn",
 	"klek" : "res://Scenes/Games/GameKlek/Klek_MemoryGame.tscn",
@@ -23,7 +24,7 @@ var kunaSceneState = {
 }
 
 func _ready():
-	current_scene = get_tree().current_scene.get_child(0)
+	current_scene = get_tree().current_scene
 	#print(current_scene)
 
 func loadScene(newScene : String):

@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sama game"
-run/main_scene="res://Scenes/MainScene.tscn"
+run/main_scene="res://Scenes/IntroScene.tscn"
 config/icon="res://Assets/icon.png"
 
 [autoload]

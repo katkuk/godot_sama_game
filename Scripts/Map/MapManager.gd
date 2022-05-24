@@ -10,13 +10,13 @@ var storyList = {
 			4: "res://Scenes/Stories/StoryCaroline/RijekaCircleScene.tscn",
 			5: "res://Scenes/Stories/StoryCaroline/RijekaDiscussionScene.tscn",
 			6: "res://Scenes/Stories/StoryCaroline/RijekaSavedScene.tscn",
-			7: "res://Scenes/Stories/PlayMinigameBookScreen_Caroline.tscn"},
+			7: "res://Scenes/Stories/StoryCaroline/PlayMinigameBookScreen_Caroline.tscn"},
 	"klek" : { 1 : "res://Scenes/Stories/StoryKlek/VolosInClouds.tscn",
 			2 : "res://Scenes/Stories/StoryKlek/KlekSittingOnHill.tscn",
 			3 : "res://Scenes/Stories/StoryKlek/KlekAndVolos.tscn",
 			4: "res://Scenes/Stories/StoryKlek/MagicStuff.tscn",
 			5: "res://Scenes/Stories/StoryKlek/KlekBecameMountain.tscn",
-			6: "res://Scenes/Stories/PlayMinigameBookScreen_Klek.tscn"}
+			6: "res://Scenes/Stories/StoryKlek/PlayMinigameBookScreen_Klek.tscn"}
 	}
 onready var book = get_parent().get_node("Book1")
 onready var bookAnimationPlayer = get_parent().get_node("Book1/BookAnimationPlayer")
