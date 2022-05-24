@@ -1,6 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/loadingScreen-0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Textures/GUI/loadingBarOver.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/GUI/loadingScreenLogo.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/GUI/loadingBarProgress.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/GUI/LoadingScene.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "loading"
@@ -17,7 +26,13 @@ tracks/0/keys = {
 "values": [ Vector2( 0.0549757, 1 ), Vector2( 0.978687, 1 ) ]
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="LoadingScene" type="Control"]
+margin_right = 2224.0
+margin_bottom = 1668.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 2237.0
@@ -28,14 +43,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="Sprite" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo2" type="Sprite" parent="ColorRect/CenterContainer"]
+visible = false
+self_modulate = Color( 0.0823529, 0.0156863, 0.0156863, 0.615686 )
 position = Vector2( 1105.27, 689.882 )
 scale = Vector2( 0.483957, 0.483958 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -12.0903, -31.8571, 1815.31, 1697.22 )
 
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 668.0
+margin_top = 266.0
+margin_right = 1568.0
+margin_bottom = 1416.0
+
+[node name="Logo" type="TextureRect" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 900, 900 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 904.0
+margin_right = 900.0
+margin_bottom = 1004.0
+rect_min_size = Vector2( 900, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Loading ..."
+align = 1
+
+[node name="LoadingBar" type="TextureProgress" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 1008.0
+margin_right = 819.0
+margin_bottom = 1150.0
+rect_min_size = Vector2( 200, 100 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+
 [node name="whiteOutline" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1103.51, 1193.05 )
 rotation = -1.57259
 scale = Vector2( 0.483957, 0.483958 )
@@ -57,10 +117,8 @@ offset = Vector2( -401.921, 1.27954 )
 region_enabled = true
 region_rect = Rect2( -5.07196, 1668.31, 813.717, 127.726 )
 
-[node name="LoadingText" type="Sprite" parent="."]
-position = Vector2( 1103.51, 1345.71 )
-rotation = -1.57259
-scale = Vector2( 0.278012, 0.278012 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 1805.65, -18.6369, 225.748, 878.642 )
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
