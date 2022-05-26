@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/plitvice_collect.mp3-acc58e11e2bce5e09a98017bc55b2e9a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/plitvice_collect.mp3"
+dest_files=[ "res://.import/plitvice_collect.mp3-acc58e11e2bce5e09a98017bc55b2e9a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

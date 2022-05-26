@@ -23,6 +23,8 @@ var onScreenNoText = "No"
 var onScreenGui
 	
 func _ready():
+	if !GlobalSound.get_node("BgSounds/Waterfall").is_playing():
+		GlobalSound.get_node("BgSounds/Waterfall").play()
 	setupVars()
 	setupTimer()
 	displayIntroPopup()
@@ -145,12 +147,15 @@ func animateFallingObject(waterfallOption, object):
 	animationPlayer.play("falling")
 	#handleRemovingErrything
 	yield(animationPlayer, "animation_finished")
+#	print("ITEM FELL")
+#	GlobalSound.get_node("Plitvice/Drip").play()
 	newPathFollow.queue_free()
 
 func _on_kunaArea2D_area_entered(area):
 	if requiredIngrediendArray.has(area.filename):
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
+				GlobalSound.get_node("Plitvice/Collect").play()
 				print("removing ing: " + str(ing))
 				print("required ingredients before: ", requiredIngrediendArray)
 				ing.get_child(0).visible = true
@@ -162,7 +167,7 @@ func _on_kunaArea2D_area_entered(area):
 					onScreenGuiVisible(false)
 					displayWinPopUp()
 	else:
-		print("NOP")
+		GlobalSound.get_node("Plitvice/Boing").play()
 		kunaAP.play("bonk")
 		yield(kunaAP, "animation_finished")
 		kunaAP.play("swim")

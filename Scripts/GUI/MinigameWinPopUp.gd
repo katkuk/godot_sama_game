@@ -30,6 +30,7 @@ func updatePicture():
 				picture.get_node("Animation").play("anim")
 
 func _on_HomeBtn_pressed():
+	GlobalSound.stopAllBackgroundSounds()
 	queue_free()
 	Global.loadScene("kuna")
 

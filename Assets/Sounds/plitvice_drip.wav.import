@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/plitvice_drip.wav-7e9739a001fe4ef0da8f1ad91c681a2c.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/plitvice_drip.wav"
+dest_files=[ "res://.import/plitvice_drip.wav-7e9739a001fe4ef0da8f1ad91c681a2c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

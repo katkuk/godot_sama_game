@@ -33,6 +33,7 @@ func _on_ResetBtn_pressed():
 	emit_signal("restartMinigame")
 
 func _on_YesBtn_pressed():
+	GlobalSound.stopAllBackgroundSounds()
 	queue_free()
 	Global.loadScene("kuna")
 
