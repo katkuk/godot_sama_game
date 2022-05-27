@@ -10,5 +10,6 @@ func init(var l):
 	linkToScene = l
 
 func _pressed():
-	print("links to this scene: " + str(linkToScene) )
+	#print("links to this scene: " + str(linkToScene) )
+	GlobalSound.stopAllBackgroundSounds()
 	Global.loadScene(linkToScene)

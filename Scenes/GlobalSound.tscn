@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/lightSwitch2.wav" type="AudioStream" id=2]
@@ -42,6 +42,8 @@
 [ext_resource path="res://Assets/Sounds/plitvice_collect.mp3" type="AudioStream" id=40]
 [ext_resource path="res://Assets/Sounds/plitvice_drip.wav" type="AudioStream" id=41]
 [ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=42]
+[ext_resource path="res://Assets/Sounds/plitvice_collect_soft.mp3" type="AudioStream" id=43]
+[ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=44]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource( 1 )
@@ -210,6 +212,9 @@ volume_db = 5.727
 [node name="Collect" type="AudioStreamPlayer" parent="Plitvice"]
 stream = ExtResource( 40 )
 
+[node name="CollectSoft" type="AudioStreamPlayer" parent="Plitvice"]
+stream = ExtResource( 43 )
+
 [node name="Boing" type="AudioStreamPlayer" parent="Plitvice"]
 stream = ExtResource( 38 )
 
@@ -220,6 +225,14 @@ stream = ExtResource( 41 )
 
 [node name="Waterfall" type="AudioStreamPlayer" parent="BgSounds"]
 stream = ExtResource( 39 )
+volume_db = -13.728
 
-[node name="Test" type="AudioStreamPlayer" parent="BgSounds"]
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="BgSounds"]
 stream = ExtResource( 42 )
+volume_db = -20.675
+max_distance = 10000.0
+
+[node name="BGMusicGramophone" type="AudioStreamPlayer2D" parent="BgSounds"]
+stream = ExtResource( 44 )
+volume_db = -7.518
+max_distance = 10000.0

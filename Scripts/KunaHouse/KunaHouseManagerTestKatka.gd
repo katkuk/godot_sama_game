@@ -25,8 +25,8 @@ var gramophoneIsPlaying = false
 var playMinigameBtn = preload("res://Scenes/GUI/PlayMinigameBtn.tscn")
 onready var camera = get_parent().get_node("Camera")
 
-onready var BGM = get_parent().get_node("BGMusic")
-onready var BGMGramophone = get_parent().get_node("BGMusicGramophone")
+onready var BGM = GlobalSound.get_node("BgSounds/BGMusic")
+onready var BGMGramophone = GlobalSound.get_node("BgSounds/BGMusicGramophone")
 
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GameKlek/cloud.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Assets/Textures/StoryRooster/animations/mouthAnims.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/Intro screen/introScreen-0.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Textures/GameKlek/fairy.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Assets/Textures/GUI/xIcon.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Scenes/IntroScene.gd" type="Script" id=15]
@@ -222,12 +221,6 @@ texture = ExtResource( 5 )
 hframes = 3
 vframes = 3
 frame = 7
-
-[node name="BGMusicGramophone" type="AudioStreamPlayer2D" parent="IntroScreen"]
-stream = ExtResource( 12 )
-volume_db = -31.207
-autoplay = true
-max_distance = 10000.0
 
 [node name="IntroScreenGUI" type="Control" parent="."]
 __meta__ = {
