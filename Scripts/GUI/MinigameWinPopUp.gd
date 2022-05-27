@@ -8,9 +8,13 @@ onready var textLabel = get_node("Background/Text")
 onready var pictures = get_node("Pictures").get_children()
 
 func _ready():
+	if !GlobalSound.get_node("UI/WinNotes").is_playing():
+		GlobalSound.get_node("UI/WinNotes").play()
+	if !GlobalSound.get_node("UI/HappyKids").is_playing():
+		GlobalSound.get_node("UI/HappyKids").play()
+	
 	for picture in pictures:
 		picture.visible = false
-
 	updateText()
 	updatePicture()
 
@@ -30,10 +34,18 @@ func updatePicture():
 				picture.get_node("Animation").play("anim")
 
 func _on_HomeBtn_pressed():
+	stopUISounds()
 	GlobalSound.stopAllBackgroundSounds()
 	queue_free()
 	Global.loadScene("kuna")
 
 func _on_RestartBtn_pressed():
+	stopUISounds()
 	queue_free()
 	emit_signal("restartMinigame")
+
+func stopUISounds():
+	if GlobalSound.get_node("UI/WinNotes").is_playing():
+		GlobalSound.get_node("UI/WinNotes").stop()
+	if GlobalSound.get_node("UI/HappyKids").stop():
+		GlobalSound.get_node("UI/HappyKids").play()

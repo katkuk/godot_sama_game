@@ -95,17 +95,9 @@ volume_db = -6.897
 stream = ExtResource( 7 )
 volume_db = 3.92
 
-[node name="happyKids" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 36 )
-volume_db = -33.793
-
 [node name="throwFlower" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 37 )
 volume_db = -22.133
-
-[node name="winNotes" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 35 )
-volume_db = -33.793
 
 [node name="Poing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -194,6 +186,24 @@ volume_db = -37.665
 [node name="Fire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 volume_db = 2.66
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="WhisleUp" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 11 )
+volume_db = -3.597
+
+[node name="WhisleDown" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 13 )
+volume_db = -3.597
+
+[node name="HappyKids" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 36 )
+volume_db = -16.737
+
+[node name="WinNotes" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 35 )
+volume_db = 5.727
 
 [node name="Plitvice" type="Node2D" parent="."]
 
