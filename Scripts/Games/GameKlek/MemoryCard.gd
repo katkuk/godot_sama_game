@@ -44,7 +44,7 @@ func flip():
 
 func wasMatched():
 	#cardAnimationPlayer.play_backwards("fadein")
-	GlobalSound.get_node("Plitvice/CollectSoft").play()
+	#GlobalSound.get_node("Plitvice/CollectSoft").play()
 	if !GlobalSound.get_node("Klek/Cards/Card_" + str(suit)).is_playing():
 		GlobalSound.get_node("Klek/Cards/Card_" + str(suit)).play()
 	cardSprite.set_modulate(Color(0, 0, 0, 0))
