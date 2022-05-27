@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/lightSwitch2.wav" type="AudioStream" id=2]
@@ -44,6 +44,8 @@
 [ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=42]
 [ext_resource path="res://Assets/Sounds/plitvice_collect_soft.mp3" type="AudioStream" id=43]
 [ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=44]
+[ext_resource path="res://Assets/Sounds/Klek_snoring.mp3" type="AudioStream" id=45]
+[ext_resource path="res://Assets/Sounds/rockingChair.mp3" type="AudioStream" id=46]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource( 1 )
@@ -189,6 +191,30 @@ volume_db = -37.665
 stream = ExtResource( 31 )
 volume_db = 2.66
 
+[node name="Klek" type="Node2D" parent="."]
+
+[node name="Cards" type="Node2D" parent="Klek"]
+
+[node name="Card_1" type="AudioStreamPlayer" parent="Klek/Cards"]
+stream = ExtResource( 25 )
+volume_db = 2.66
+
+[node name="Card_2" type="AudioStreamPlayer" parent="Klek/Cards"]
+stream = ExtResource( 23 )
+volume_db = 2.66
+
+[node name="Card_3" type="AudioStreamPlayer" parent="Klek/Cards"]
+stream = ExtResource( 38 )
+volume_db = 2.66
+
+[node name="Card_4" type="AudioStreamPlayer" parent="Klek/Cards"]
+stream = ExtResource( 46 )
+volume_db = 2.66
+
+[node name="Card_5" type="AudioStreamPlayer" parent="Klek/Cards"]
+stream = ExtResource( 28 )
+volume_db = 2.66
+
 [node name="UI" type="Node2D" parent="."]
 
 [node name="WhisleUp" type="AudioStreamPlayer" parent="UI"]
@@ -226,6 +252,10 @@ stream = ExtResource( 41 )
 [node name="Waterfall" type="AudioStreamPlayer" parent="BgSounds"]
 stream = ExtResource( 39 )
 volume_db = -13.728
+
+[node name="KlekSnoring" type="AudioStreamPlayer" parent="BgSounds"]
+stream = ExtResource( 45 )
+volume_db = -18.304
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="BgSounds"]
 stream = ExtResource( 42 )

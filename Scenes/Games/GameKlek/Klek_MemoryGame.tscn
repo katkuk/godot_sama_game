@@ -109,7 +109,7 @@ region_rect = Rect2( -29.1277, 827.889, 2093.12, 826.862 )
 position = Vector2( 1078.05, 737.93 )
 frames = SubResource( 1 )
 animation = "sleeping"
-frame = 4
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true

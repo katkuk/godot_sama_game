@@ -1,38 +1,51 @@
-extends TextureButton
-
-class_name MemoryCard
-onready var MemoryGameManager = get_tree().get_root().get_node("MemoryGame/Game")
-
+extends Area2D
+class_name MemoryCardNew
+onready var cardAnimationPlayer = get_node("Card/CardAnimation")
+onready var suitAnimationPlayer = get_node("Suit/SuitAnimation")
+onready var suitSprite = get_node("Suit")
+onready var cardSprite = get_node("Card")
+onready var MemoryGameManager = get_parent().get_parent().get_parent()
 #suit is int value 1-5, reffers to the image e.g. cloud, witch etc
 var suit
 #value is 1-2, because we need 2 identical cards from each suit
 var value
-var faceTexture
-var backTexture
 var matched
 
 #constructor
-func _init(var s, var v):
+func init(var s, var v):
 	suit = s
 	value = v
 	matched = false
-	faceTexture = load("res://Assets/Textures/KlekStory/MemoryCardFace_"+str(suit)+".png")
-	backTexture = preload("res://Assets/Textures/KlekStory/MemoryCardBackTexture.png")
-	set_normal_texture(backTexture)
 
 func _ready():
-	set_h_size_flags(3)
-	set_v_size_flags(3)
-	set_expand(true)
-	set_stretch_mode(TextureButton.STRETCH_KEEP_ASPECT_CENTERED)
+	#print(MemoryGameManager)
+	cardAnimationPlayer.play("fadein")
+	suitSprite.modulate = Color(255,255,255,0)
+	var anim = suitAnimationPlayer.get_animation("animate")
+	anim.set_loop(true)
 
-func _pressed():
+func _on_MemoryCard_input_event(viewport, event, shape_idx):
+	#print(event)
+	if !event.is_action_pressed("Click"):
+		return
 	MemoryGameManager.chooseCard(self)
 
 func flip():
-	if get_normal_texture() == backTexture:
-		set_normal_texture(faceTexture)
+	print("Flipped card suit: " + str(suit) + ", and value: " + str(value))
+	input_pickable = false
+	if cardSprite.get_frame() == 0:
+		cardAnimationPlayer.play("flip")
+		yield(cardAnimationPlayer, "animation_finished")
+		suitAnimationPlayer.play("fadein")
 	else:
-		set_normal_texture(backTexture)
+		suitAnimationPlayer.play_backwards("fadein")
+		cardAnimationPlayer.play_backwards("flip")
+		input_pickable = true
 
-
+func wasMatched():
+	#cardAnimationPlayer.play_backwards("fadein")
+	GlobalSound.get_node("Plitvice/CollectSoft").play()
+	if !GlobalSound.get_node("Klek/Cards/Card_" + str(suit)).is_playing():
+		GlobalSound.get_node("Klek/Cards/Card_" + str(suit)).play()
+	cardSprite.set_modulate(Color(0, 0, 0, 0))
+	suitAnimationPlayer.play("animate")

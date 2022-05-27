@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Klek_snoring.mp3-e3d4f0501278132b1ef4c5e154a6f75a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Klek_snoring.mp3"
+dest_files=[ "res://.import/Klek_snoring.mp3-e3d4f0501278132b1ef4c5e154a6f75a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -14,15 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/GUI/HomeBtn.gd"
 }, {
-"base": "TextureButton",
-"class": "MemoryCard",
-"language": "GDScript",
-"path": "res://Scripts/Games/GameKlek/MemoryCard.gd"
-}, {
 "base": "Area2D",
 "class": "MemoryCardNew",
 "language": "GDScript",
-"path": "res://Scripts/Games/GameKlek/MemoryCard_new.gd"
+"path": "res://Scripts/Games/GameKlek/MemoryCard.gd"
 }, {
 "base": "Control",
 "class": "MinigameIntroPopUp",
@@ -46,7 +41,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "HomeBtn": "",
-"MemoryCard": "",
 "MemoryCardNew": "",
 "MinigameIntroPopUp": "",
 "MinigameOnScreenGUI": "",

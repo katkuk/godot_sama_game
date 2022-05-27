@@ -24,6 +24,8 @@ var onScreenNoText = "No"
 var onScreenGui
 
 func _ready():
+	if !GlobalSound.get_node("BgSounds/KlekSnoring").is_playing():
+		GlobalSound.get_node("BgSounds/KlekSnoring").play()
 	displayIntroPopup()
 	addOnScreenGui()
 	onScreenGuiVisible(false)
