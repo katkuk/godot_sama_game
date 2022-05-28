@@ -61,7 +61,6 @@ stretch_mode = 5
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
 animation = "animate"
-frame = 2
 playing = true
 centered = false
 

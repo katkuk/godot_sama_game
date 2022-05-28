@@ -34,6 +34,7 @@ func updateColor():
 	homeBtn.set_modulate(Color(color))
 
 func _on_HomeBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if wantsPopup:
 		confirmPopUp.visible = true
 	else:
@@ -41,9 +42,11 @@ func _on_HomeBtn_pressed():
 		Global.loadScene("kuna")
 
 func _on_YesBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	queue_free()
 	Global.loadScene("kuna")
 
 func _on_NoBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	confirmPopUp.visible = false
 

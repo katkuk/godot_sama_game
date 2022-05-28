@@ -5,4 +5,5 @@ func _ready():
 	GlobalSound.stopSound("Snoring")
 
 func _on_PlayBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	Global.loadScene(Global.current_story)

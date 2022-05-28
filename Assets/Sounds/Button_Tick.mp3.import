@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Button_Tick.mp3-a4d88d883973e0ab2f0a37772650db44.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Button_Tick.mp3"
+dest_files=[ "res://.import/Button_Tick.mp3-a4d88d883973e0ab2f0a37772650db44.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

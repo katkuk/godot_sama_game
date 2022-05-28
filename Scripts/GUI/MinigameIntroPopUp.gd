@@ -30,5 +30,6 @@ func updatePicture():
 				picture.get_node("Animation").play("anim")
 
 func _on_PlayMinigameBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	queue_free()
 	emit_signal("startMinigame")

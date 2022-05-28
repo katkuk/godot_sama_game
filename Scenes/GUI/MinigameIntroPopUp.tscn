@@ -163,6 +163,7 @@ position = Vector2( -15, -15 )
 scale = Vector2( 0.42, 0.42 )
 frames = SubResource( 6 )
 animation = "animate"
+frame = 2
 playing = true
 centered = false
 

@@ -34,12 +34,14 @@ func updatePicture():
 				picture.get_node("Animation").play("anim")
 
 func _on_HomeBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	stopUISounds()
 	GlobalSound.stopAllBackgroundSounds()
 	queue_free()
 	Global.loadScene("kuna")
 
 func _on_RestartBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	stopUISounds()
 	queue_free()
 	emit_signal("restartMinigame")

@@ -26,6 +26,7 @@ func scroll(direction):
 		scrollLeft = false
 
 func _on_HouseArrow_button_down(direction):
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if direction == "right":
 		scrollRight = true
 	elif direction == "left":

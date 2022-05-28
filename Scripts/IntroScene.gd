@@ -6,9 +6,11 @@ func _ready():
 	GlobalSound.get_node("BgSounds/BGMusicGramophone").play()
 
 func _on_Play_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	Global.loadScene("main")
 
 func _on_Settings_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if GlobalSound.get_node("UI/WhisleDown").is_playing():
 		GlobalSound.get_node("UI/WhisleDown").stop()
 	if !GlobalSound.get_node("UI/WhisleUp").is_playing():
@@ -16,6 +18,7 @@ func _on_Settings_pressed():
 	$SettingsPanel/SettingsPopup/SettingsAP.play("appear")
 
 func _on_Info_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if GlobalSound.get_node("UI/WhisleDown").is_playing():
 		GlobalSound.get_node("UI/WhisleDown").stop()
 	if !GlobalSound.get_node("UI/WhisleUp").is_playing():
@@ -23,6 +26,7 @@ func _on_Info_pressed():
 	$InfoPanel/InfoPopup/InfoAP.play("appear")
 
 func _on_CloseInfoBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if GlobalSound.get_node("UI/WhisleUp").is_playing():
 		GlobalSound.get_node("UI/WhisleUp").stop()
 	if !GlobalSound.get_node("UI/WhisleDown").is_playing():
@@ -30,6 +34,7 @@ func _on_CloseInfoBtn_pressed():
 	$InfoPanel/InfoPopup/InfoAP.play_backwards("appear")
 
 func _on_CloseSettingsBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	if GlobalSound.get_node("UI/WhisleUp").is_playing():
 		GlobalSound.get_node("UI/WhisleUp").stop()
 	if !GlobalSound.get_node("UI/WhisleDown").is_playing():

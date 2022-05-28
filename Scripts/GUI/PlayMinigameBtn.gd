@@ -11,5 +11,6 @@ func init(var l):
 
 func _pressed():
 	#print("links to this scene: " + str(linkToScene) )
+	GlobalSound.get_node("UI/ButtonClick").play()
 	GlobalSound.stopAllBackgroundSounds()
 	Global.loadScene(linkToScene)

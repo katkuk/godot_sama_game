@@ -27,15 +27,19 @@ func updateText():
 	noTextLabel.set_text(noText)
 
 func _on_HomeBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	confirmPopUp.visible = true
 
 func _on_ResetBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	emit_signal("restartMinigame")
 
 func _on_YesBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	GlobalSound.stopAllBackgroundSounds()
 	queue_free()
 	Global.loadScene("kuna")
 
 func _on_NoBtn_pressed():
+	GlobalSound.get_node("UI/ButtonClick").play()
 	confirmPopUp.visible = false
