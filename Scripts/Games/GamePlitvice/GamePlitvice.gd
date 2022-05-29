@@ -9,12 +9,14 @@ var ingredientArray = []
 var requiredIngrediendArray = []
 var branches = []
 var positionedRequiredIngredients = []
+var allFallingNow = []
 var branchCounter #between 2 and 4 - how many branches fall until an ingredient falls
 var timer
 
 var minigameIntroPopUp = preload("res://Scenes/GUI/MinigameIntroPopUp.tscn")
 var minigameWinPopUp = preload("res://Scenes/GUI/MinigameWinPopUp.tscn")
 var minigameOnScreenGUI = preload("res://Scenes/GUI/MinigameOnScreenGui.tscn")
+var bloop = preload("res://Scenes/Games/GamePlitvice/bloop.tscn")
 var introText = "Enjoy Plitvice time!"
 var winText = "You did it!"
 var onScreenPopUpText = "Are you sure you want to leave the minigame?"
@@ -48,7 +50,7 @@ func setupVars():
 func setupTimer():
 	timer = Timer.new()
 	timer.set_one_shot(false)
-	timer.wait_time = 4
+	timer.wait_time = 1.5
 	timer.connect("timeout", self, "_on_timer_timeout")
 	add_child(timer)
 
@@ -75,13 +77,6 @@ func startGame():
 func _on_timer_timeout():
 	generateFallingIngredients()
 
-func restartGame():
-	onScreenGuiVisible(true)
-	resetVars()
-	setupVars()
-	loadRequiredIngredients()
-	timer.start()
-
 func loadRequiredIngredients():
 	var positions = ingredientPositions.get_children()
 	var i = -1
@@ -93,6 +88,13 @@ func loadRequiredIngredients():
 		positionedRequiredIngredients.push_front(ingredient)
 		ingredient.global_position = position.global_position
 
+func restartGame():
+	onScreenGuiVisible(true)
+	resetVars()
+	setupVars()
+	loadRequiredIngredients()
+	timer.start()
+
 func generateFallingIngredients():
 	var waterfallOptions = waterfallOptionsGroup.get_children()
 	var object
@@ -100,7 +102,7 @@ func generateFallingIngredients():
 	requiredIngrediendArray.shuffle()
 	randomize()
 	waterfallOptions.shuffle()
-	
+
 	if branchCounter > 0:
 		var whichBranch = [0,1,2,3]
 		randomize()
@@ -109,19 +111,26 @@ func generateFallingIngredients():
 		branchCounter = branchCounter - 1
 	else:
 		object = requiredIngrediendArray[0]
+		#if there are more than 1 left to collect make sure to not 
+		#have multiple ing of same type falling
+		if requiredIngrediendArray.size() > 1:
+			for obj in allFallingNow:
+				if obj.collectable:
+					if str(obj.name) in str(object):
+						object = requiredIngrediendArray[1]
 		setBranchCounter()
-	
+
 	animateFallingObject(waterfallOptions[0], object)
 
 func setBranchCounter():
 	#var branchCounterOptions = [2,3,4]
 	#FOR DEBUGGING
-	var branchCounterOptions = [1]
+	var branchCounterOptions = [2]
 	randomize()
 	branchCounterOptions.shuffle()
 	branchCounter = branchCounterOptions[0]
 	#print("new branch counter:" + str(branchCounter))
-	
+
 func animateFallingObject(waterfallOption, object):
 	#print(str(object)+ " is falling")
 	var newPathFollow = PathFollow2D.new()
@@ -130,8 +139,9 @@ func animateFallingObject(waterfallOption, object):
 	var fallingIngredient = load(object).instance()
 	fallingIngredient.scale = Vector2(0.4, 0.4)
 	currentPath.add_child(fallingIngredient)
-	print("------------------------------------------")
-	print("falling ingredient: " + str(fallingIngredient))
+	allFallingNow.push_back(fallingIngredient)
+	#print("------------------------------------------")
+	#print("falling ingredient: " + str(fallingIngredient))
 	#createAnimationplayer and animation
 	var animationPlayer = AnimationPlayer.new()
 	var animation = Animation.new()
@@ -148,11 +158,26 @@ func animateFallingObject(waterfallOption, object):
 	#handleRemovingErrything
 	yield(animationPlayer, "animation_finished")
 #	print("ITEM FELL")
-#	GlobalSound.get_node("Plitvice/Drip").play()
+	if !fallingIngredient.collidedWithKuna:
+		GlobalSound.get_node("Plitvice/Drip").play()
+		#SEND HELP THIS NO WORKE
+#		var drip = bloop.instance()
+#		waterfallOption.get_node("Position").add_child(drip)
+#		print(waterfallOption.get_node("Position").get_children())
+#		print(drip.visible)
+#		drip.position = waterfallOption.get_node("Position").position
+#		print(drip.position)
+		#print(currentPath.get_children())
+		#yield(drip.get_node("AnimationPlayerBloop"), "animation_finished")
+		#drip.queue_free()
+		#print(currentPath.get_children())
+		
 	newPathFollow.queue_free()
+	allFallingNow.erase(fallingIngredient)
 
 func _on_kunaArea2D_area_entered(area):
-	if requiredIngrediendArray.has(area.filename):
+	area.collidedWithKuna = true
+	if requiredIngrediendArray.has(area.filename) && area.collectable:
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
 				GlobalSound.get_node("Plitvice/CollectSoft").play()
@@ -163,6 +188,8 @@ func _on_kunaArea2D_area_entered(area):
 				requiredIngrediendArray.erase(ingSceneName)
 				print("required ingredients after: ", requiredIngrediendArray)
 				if requiredIngrediendArray == []:
+					for obj in allFallingNow:
+						obj.collectable = false
 					resetVars()
 					onScreenGuiVisible(false)
 					displayWinPopUp()
@@ -173,6 +200,8 @@ func _on_kunaArea2D_area_entered(area):
 		kunaAP.play("swim")
 
 func resetVars():
+#	for obj in allFallingNow:
+#		obj.collectable = false
 	branches.clear()
 	ingredientArray.clear()
 	requiredIngrediendArray.clear()

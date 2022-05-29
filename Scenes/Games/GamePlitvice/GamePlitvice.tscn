@@ -327,60 +327,117 @@ polygon = PoolVector2Array( -43.8566, -68.8956, -27.9646, -73.6631, -16.3105, -6
 [node name="Path2D" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 5 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D"]
+position = Vector2( 474, 1331 )
+
 [node name="Path2D2" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 6 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D2"]
+position = Vector2( 744, 1333 )
 
 [node name="Path2D3" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 7 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D3"]
+position = Vector2( 924, 1331 )
+
 [node name="Path2D4" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 8 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D4"]
+position = Vector2( 611, 1332 )
 
 [node name="Path2D5" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 9 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D5"]
+position = Vector2( 1249, 1312 )
+
 [node name="Path2D6" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 10 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D6"]
+position = Vector2( 1107, 1318 )
+
 [node name="Path2D7" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 11 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D7"]
+position = Vector2( 720, 1328 )
 
 [node name="Path2D8" type="Path2D" parent="waterfallOptions"]
 position = Vector2( 10.0908, 1.68182 )
 curve = SubResource( 12 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D8"]
+position = Vector2( 191.909, 1328.32 )
+
 [node name="Path2D9" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 13 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D9"]
+position = Vector2( 350, 1328 )
+
 [node name="Path2D10" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 14 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D10"]
+position = Vector2( 467, 1337 )
 
 [node name="Path2D11" type="Path2D" parent="waterfallOptions"]
 position = Vector2( 5.66333, -7.55103 )
 curve = SubResource( 15 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D11"]
+position = Vector2( 1247.34, 1328.55 )
+
 [node name="Path2D12" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 16 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D12"]
+position = Vector2( 1337, 1315 )
 
 [node name="Path2D13" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 17 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D13"]
+position = Vector2( 1512, 1308 )
+
 [node name="Path2D14" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 18 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D14"]
+position = Vector2( 1673, 1312 )
 
 [node name="Path2D15" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 19 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D15"]
+position = Vector2( 1675, 1332 )
+
 [node name="Path2D16" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 20 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D16"]
+position = Vector2( 1832, 1316 )
 
 [node name="Path2D17" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 21 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D17"]
+position = Vector2( 1927, 1330 )
+
 [node name="Path2D18" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 22 )
 
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D18"]
+position = Vector2( 2053, 1324 )
+
 [node name="Path2D19" type="Path2D" parent="waterfallOptions"]
 curve = SubResource( 23 )
+
+[node name="Position" type="Position2D" parent="waterfallOptions/Path2D19"]
+position = Vector2( 1813, 1331 )
 
 [connection signal="area_entered" from="Kuna/kunaArea2D" to="." method="_on_kunaArea2D_area_entered"]
