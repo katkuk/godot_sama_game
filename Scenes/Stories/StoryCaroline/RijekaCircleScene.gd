@@ -8,8 +8,17 @@ onready var counter2 = 1
 const Bird = preload("res://Scenes/Stories/StoryCaroline/blackBird.tscn")
 onready var direction = true
 
+var soundsUsed = [
+	"Caroline/Sea",
+	"Caroline/CannonBoom",
+	"Caroline/BirdsFlyAway"
+]
 
-# Called when the node enters the scene tree for the first time.
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
+
 func _ready():
 	explosionTimer.start()
 	explosionTimer.connect("timeout", self, "playExplosion")
@@ -17,8 +26,6 @@ func _ready():
 	shootTimer.connect("timeout", self, "playShoot")
 	GlobalSound.playSound("Caroline/Sea")
 
-	
-	
 func playExplosion():
 	if counter == 1:
 		$RijekaCircle/boom/AnimationPlayer.play("boom")

@@ -125,22 +125,22 @@ func _on_SmallBedSideLamp_input_event(viewport, event, shape_idx):
 func _on_CarolinePicture_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and carolinePicture.is_on_top():
 		displayPlayBtnForObject(carolinePicture)
-		GlobalSound.playSound("Pop")
+		GlobalSound.playSound("UI/Pop")
 
 func _on_KlekCards_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and klekCards.is_on_top():
 		displayPlayBtnForObject(klekCards)
-		GlobalSound.playSound("Pop")
+		GlobalSound.playSound("UI/Pop")
 
 func _on_PlitvicePicture_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and plitvicePicture.is_on_top():
 		displayPlayBtnForObject(plitvicePicture)
-		GlobalSound.playSound("Pop")
+		GlobalSound.playSound("UI/Pop")
 
 func _on_Map_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and map.is_on_top():
 		displayPlayBtnForObject(map)
-		GlobalSound.playSound("Pop")
+		GlobalSound.playSound("UI/Pop")
 
 func displayPlayBtnForObject(object):
 	var position = object.get_node("Position")

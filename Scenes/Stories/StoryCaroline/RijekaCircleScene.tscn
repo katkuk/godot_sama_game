@@ -309,7 +309,7 @@ __meta__ = {
 
 [node name="clouds" type="Node2D" parent="."]
 position = Vector2( 1010, 1604.48 )
-rotation = 0.227748
+rotation = 0.223907
 
 [node name="Cloud1" type="Sprite" parent="clouds"]
 self_modulate = Color( 0.145098, 0.392157, 0.262745, 1 )
@@ -397,7 +397,7 @@ anims/rotateClouds = SubResource( 1 )
 
 [node name="Sea" type="Sprite" parent="."]
 position = Vector2( 1019.88, 1607.79 )
-rotation = 0.00273287
+rotation = 0.00286308
 scale = Vector2( 1.00688, 1.05608 )
 z_index = 1
 texture = ExtResource( 3 )
@@ -492,7 +492,6 @@ playback_speed = 1.5
 anims/shoot = SubResource( 8 )
 
 [node name="CarolineSmallAnim3" type="Sprite" parent="RijekaCircle/boat"]
-self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 154.823, 406.053 )
 scale = Vector2( 0.463938, 0.463938 )
 texture = ExtResource( 7 )
@@ -504,7 +503,6 @@ playback_speed = 1.5
 anims/shoot = SubResource( 9 )
 
 [node name="CarolineSmallAnim4" type="Sprite" parent="RijekaCircle/boat"]
-self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -101.277, 408.146 )
 scale = Vector2( 0.463938, 0.463938 )
 texture = ExtResource( 7 )
@@ -526,7 +524,7 @@ z_index = 3
 texture = ExtResource( 2 )
 hframes = 5
 vframes = 4
-frame = 9
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Caroline"]
 autoplay = "Walk"

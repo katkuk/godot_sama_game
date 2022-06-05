@@ -76,10 +76,6 @@ volume_db = -20.0
 stream = ExtResource( 33 )
 volume_db = 1.624
 
-[node name="Pop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = 3.92
-
 [node name="WalkingPavement" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 34 )
 volume_db = -22.119
@@ -88,10 +84,6 @@ pitch_scale = 1.24
 [node name="OpenMap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 3.92
-
-[node name="throwFlower" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 37 )
-volume_db = -22.133
 
 [node name="Poing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -205,6 +197,18 @@ volume_db = -6.897
 stream = ExtResource( 32 )
 volume_db = -9.825
 
+[node name="Pop" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 6 )
+volume_db = 3.92
+
+[node name="FlowerThrow" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 37 )
+volume_db = -22.133
+
+[node name="PaperRustling" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 12 )
+volume_db = -3.597
+
 [node name="Klek" type="Node2D" parent="."]
 
 [node name="Cards" type="Node2D" parent="Klek"]
@@ -250,6 +254,10 @@ volume_db = -16.737
 [node name="WinNotes" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 35 )
 volume_db = 5.727
+
+[node name="Pop" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 6 )
+volume_db = 3.92
 
 [node name="Plitvice" type="Node2D" parent="."]
 

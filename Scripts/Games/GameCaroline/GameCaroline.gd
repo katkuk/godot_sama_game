@@ -204,8 +204,8 @@ func _on_box5_input_event(viewport, event, shape_idx):
 func _on_colorbookOptions_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			if !GlobalSound.get_node("BookFlip").is_playing():
-				GlobalSound.get_node("BookFlip").play()
+			if !GlobalSound.get_node("Caroline/PaperRustling").is_playing():
+				GlobalSound.get_node("Caroline/PaperRustling").play()
 			$ChangeOutlinePopup.visible = !$ChangeOutlinePopup.visible
 			drawing = false
 

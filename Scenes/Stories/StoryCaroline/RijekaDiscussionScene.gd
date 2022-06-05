@@ -12,6 +12,16 @@ var bubbleClickCounter = 0
 
 onready var showedLastBubble = false;
 
+var soundsUsed = [
+	"Caroline/Sea",
+	"Caroline/Pop"
+]
+
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
+
 func _process(delta):
 	if bubbleClickCounter == 8 && showedLastBubble == false:
 		showLastBubble()
@@ -64,13 +74,10 @@ func createBubble():
 	if spriteCount < 8:
 		yield(get_tree().create_timer(2.0), "timeout")
 		createBubble()
-	
-		
-	
 
 func onBubbleClicked():
 	print(bubbleClickCounter)
-	GlobalSound.playSound("Pop")
+	GlobalSound.playSound("Caroline/Pop")
 	bubbleClickCounter = bubbleClickCounter + 1
 	var bubbleParticles = BubbleParticles.instance()
 	add_child(bubbleParticles)
@@ -85,7 +92,3 @@ func showLastBubble():
 	#$FinalSpeechBubble.visible = false
 	$FinalSpeechBubble/Confetti.visible = true;
 	$FinalSpeechBubble/Confetti.emitting = true
-
-
-
-	
