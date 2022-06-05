@@ -60,6 +60,9 @@ func startGame():
 	setupHUD()
 
 func restartGame():
+	if !GlobalSound.get_node("BgSounds/KlekSnoring").is_playing():
+		GlobalSound.get_node("BgSounds/KlekSnoring").play()
+	GlobalSound.stopAllCardSounds()
 	onScreenGuiVisible(true)
 	for c in range(positions.size()):
 		positions[c].get_child(0).queue_free()
@@ -139,6 +142,7 @@ func matchCardsAndScore():
 	card2 = null
 	if score == positions.size()/2:
 		onScreenGuiVisible(false)
+		GlobalSound.get_node("BgSounds/KlekSnoring").stop()
 		displayWinPopUp()
 
 

@@ -11,6 +11,13 @@ func _ready():
 	kuna.connect("scroll", self, "scroll")
 
 func _physics_process(delta):
+	if position.x <= 1112:
+		get_parent().get_node("HouseGUI/HouseArrowLeft").visible = false
+		get_parent().get_node("HouseGUI/HouseArrowRight").visible = true
+	elif position.x >7177:
+		get_parent().get_node("HouseGUI/HouseArrowLeft").visible = true
+		get_parent().get_node("HouseGUI/HouseArrowRight").visible = false
+		
 	if scrollRight and position.x < 7177:
 		position.x = lerp(position.x, position.x + 50, 25 * delta)
 	elif scrollLeft and position.x > 1112:

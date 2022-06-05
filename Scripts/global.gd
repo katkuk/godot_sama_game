@@ -5,7 +5,7 @@ const kuna = preload("res://Scripts/KunaHouse/Kuna_newMove.gd")
 
 var sceneList = {
 	"main" : "res://Scenes/MainScene.tscn",
-	"kuna" : "res://Scenes/KunaHouse/KunaHouseSceneTestKatka.tscn",
+	"kuna" : "res://Scenes/KunaHouse/KunaHouseScene.tscn",
 	"map" : "res://Scenes/Map/Map.tscn",
 	"klek" : "res://Scenes/Games/GameKlek/Klek_MemoryGame.tscn",
 	"caroline" : "res://Scenes/Games/GameCaroline/GameCaroline.tscn",
