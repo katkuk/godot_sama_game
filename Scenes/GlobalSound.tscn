@@ -80,10 +80,6 @@ stream = ExtResource( 34 )
 volume_db = -22.119
 pitch_scale = 1.24
 
-[node name="OpenMap" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = 3.92
-
 [node name="Poing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -23.777
@@ -94,18 +90,6 @@ volume_db = -10.404
 
 [node name="Swoosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -3.597
-
-[node name="WhisleUp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = -3.597
-
-[node name="WhisleDown" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-volume_db = -3.597
-
-[node name="BookFlip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
 volume_db = -3.597
 
 [node name="Caroline" type="Node2D" parent="."]
@@ -286,3 +270,13 @@ max_distance = 10000.0
 stream = ExtResource( 44 )
 volume_db = -7.518
 max_distance = 10000.0
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="BookFlip" type="AudioStreamPlayer" parent="Map"]
+stream = ExtResource( 12 )
+volume_db = -3.597
+
+[node name="OpenMap" type="AudioStreamPlayer" parent="Map"]
+stream = ExtResource( 7 )
+volume_db = 3.92
