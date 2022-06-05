@@ -5,14 +5,13 @@ const Bird = preload("res://Scenes/Stories/StoryCaroline/blackBird.tscn")
 onready var timer1 = get_node("Timer1")
 onready var counter = 1
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	timer1.start()
 	timer1.connect("timeout", self, "onTimerTimeout")
 	GlobalSound.stopSound("Sea")
 	GlobalSound.playSound("Fire")
 	$HorseRunning.play()
-	
 
 func onTimerTimeout():
 	GlobalSound.playSound("CannonBoom")
@@ -25,17 +24,15 @@ func onTimerTimeout():
 	counter = counter + 1
 	if counter == 4:
 		counter = 1
-		
-
 
 func _on_barrels_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			$ManBehindTheBarrel/AnimationPlayer.play("ManAppears")
-			GlobalSound.playSound("Gasp")
+			if !GlobalSound.get_node("Caroline/FunnyScream").is_playing():
+				GlobalSound.get_node("Caroline/FunnyScream").play()
 			$ManBehindTheBarrel/AnimationPlayer.play_backwards("ManAppears")
 			print("clicked")
-
 
 var direction = true
 

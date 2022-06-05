@@ -6,8 +6,8 @@ onready var flowerContainer = $FlowerContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GlobalSound.playSound("happyKids")
-	GlobalSound.playSound("winNotes")
+	GlobalSound.playSound("UI/HappyKids")
+	GlobalSound.playSound("UI/WinNotes")
 	GlobalSound.stopSound("Sea")
 
 var counter = 0

@@ -7,13 +7,9 @@ onready var doorLopen = $DoorL/DoorLopen;
 onready var Rclosed = true
 onready var Lclosed = true
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalSound.stopSound("HorseRunning")
 	GlobalSound.stopSound("Fire")
-		
-		
 
 func _on_DoorR_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -29,7 +25,7 @@ func _on_DoorR_input_event(viewport, event, shape_idx):
 				Rclosed = true
 		if Rclosed == false && Lclosed == false:
 				$Caroline/WalkIn.play_backwards("walkIn")
-			
+
 func _on_DoorL_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -44,7 +40,3 @@ func _on_DoorL_input_event(viewport, event, shape_idx):
 				Lclosed = true
 		if Rclosed == true && Lclosed == true:
 				$Caroline/WalkIn.play("walkIn")
-					
-					
-					
-					

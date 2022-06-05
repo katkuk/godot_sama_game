@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/lightSwitch2.wav" type="AudioStream" id=2]
@@ -50,6 +50,8 @@
 [ext_resource path="res://Assets/Sounds/drum_loop2.wav" type="AudioStream" id=48]
 [ext_resource path="res://Assets/Sounds/gnome_loop.wav" type="AudioStream" id=49]
 [ext_resource path="res://Assets/Sounds/Button_Tick.mp3" type="AudioStream" id=50]
+[ext_resource path="res://Assets/Sounds/WetClick.mp3" type="AudioStream" id=51]
+[ext_resource path="res://Assets/Sounds/FunnyScream.wav" type="AudioStream" id=52]
 
 [node name="GlobalSound" type="Node2D"]
 script = ExtResource( 1 )
@@ -195,6 +197,14 @@ volume_db = -37.665
 stream = ExtResource( 31 )
 volume_db = 2.66
 
+[node name="Caroline" type="Node2D" parent="."]
+
+[node name="FunnyScream" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 52 )
+
+[node name="WetClick" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 51 )
+
 [node name="Klek" type="Node2D" parent="."]
 
 [node name="Cards" type="Node2D" parent="Klek"]
@@ -227,7 +237,7 @@ volume_db = -3.597
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 50 )
-volume_db = -3.597
+volume_db = -14.413
 
 [node name="WhisleDown" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 13 )

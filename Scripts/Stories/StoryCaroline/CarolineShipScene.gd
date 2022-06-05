@@ -39,15 +39,13 @@ func _on_fishClickArea_input_event(viewport, event, shape_idx):
 			switch = !switch
 			if switch == true:
 				var fish = Fish1.instance()
-				var main = get_tree().current_scene
-				main.add_child(fish)
+				add_child(fish)
 				fish.position = event.position
 				yield(get_tree().create_timer(1.0), "timeout")
 				fish.queue_free()
 			else:
 				var fish = Fish2.instance()
-				var main = get_tree().current_scene
-				main.add_child(fish)
+				add_child(fish)
 				fish.position = event.position
 				yield(get_tree().create_timer(1.0), "timeout")
 				fish.queue_free()

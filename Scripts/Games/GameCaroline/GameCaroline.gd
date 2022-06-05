@@ -30,8 +30,6 @@ var onScreenYesText = "Yes"
 var onScreenNoText = "No"
 var onScreenGui
 
-
-
 func generateColors():
 	var spawnpoints = colorSpawnPoints.get_children()
 	var i = -1
@@ -59,19 +57,17 @@ func addOnScreenGui():
 	onScreenGui.init(onScreenPopUpText, onScreenYesText, onScreenNoText)
 	onScreenGui.connect("restartMinigame", self, "restartGame")
 	add_child(onScreenGui)
-	
+
 onready var lines = $lines
 
 func restartGame():
 	for n in lines.get_children():
 		lines.remove_child(n)
 		n.queue_free()
-	
-	
-func _process(delta):
-	pass
-	
+
 func onColorChanged(message):
+	if !GlobalSound.get_node("Caroline/WetClick").is_playing():
+		GlobalSound.get_node("Caroline/WetClick").play()
 	currentColor = message
 	brushTip.self_modulate = currentColor;
 	spongeSelected = false
@@ -79,7 +75,7 @@ func onColorChanged(message):
 	particles.emitting = false;
 	$ColorRect/Palette/SpongePalette/highlightSponge.visible = false
 	$ColorRect/Palette/BrushPalette/highlightBrush.visible = true
-	
+
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -99,10 +95,12 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion:
 		if pressed && drawing:
 			active_line.add_point(event.position)
-			
+
 func _on_SpongePalette_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("Caroline/WetClick").is_playing():
+				GlobalSound.get_node("Caroline/WetClick").play()
 			spongeSelected = true;
 			brushSelected = false;
 			rememberLastColor = currentColor
@@ -113,6 +111,8 @@ func _on_SpongePalette_input_event(viewport, event, shape_idx):
 func _on_BrushPalette_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("Caroline/WetClick").is_playing():
+				GlobalSound.get_node("Caroline/WetClick").play()
 			spongeSelected = false;
 			brushSelected = true;
 			currentColor = rememberLastColor
@@ -129,6 +129,8 @@ onready var onCanvas = $ColorRect/canvas/currentOutline
 func _on_box1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			previousColorBook = currentColorBook
 			currentColorBook = $"ChangeOutlinePopup/background/boxes/boxCaroline"
 			if previousColorBook != currentColorBook:
@@ -142,6 +144,8 @@ func _on_box1_input_event(viewport, event, shape_idx):
 func _on_box2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			previousColorBook = currentColorBook
 			currentColorBook = $"ChangeOutlinePopup/background/boxes/boxGeneral"
 			if previousColorBook != currentColorBook:
@@ -155,6 +159,8 @@ func _on_box2_input_event(viewport, event, shape_idx):
 func _on_box3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			previousColorBook = currentColorBook
 			currentColorBook = $"ChangeOutlinePopup/background/boxes/boxBuilding"
 			if previousColorBook != currentColorBook:
@@ -168,6 +174,8 @@ func _on_box3_input_event(viewport, event, shape_idx):
 func _on_box4_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			previousColorBook = currentColorBook
 			currentColorBook = $"ChangeOutlinePopup/background/boxes/boxBoat"
 			if previousColorBook != currentColorBook:
@@ -181,6 +189,8 @@ func _on_box4_input_event(viewport, event, shape_idx):
 func _on_box5_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			previousColorBook = currentColorBook
 			currentColorBook = $"ChangeOutlinePopup/background/boxes/boxEmpty"
 			if previousColorBook != currentColorBook:
@@ -194,12 +204,15 @@ func _on_box5_input_event(viewport, event, shape_idx):
 func _on_colorbookOptions_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("BookFlip").is_playing():
+				GlobalSound.get_node("BookFlip").play()
 			$ChangeOutlinePopup.visible = !$ChangeOutlinePopup.visible
 			drawing = false
-
 
 func _on_Close_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			if !GlobalSound.get_node("UI/ButtonClick").is_playing():
+				GlobalSound.get_node("UI/ButtonClick").play()
 			$ChangeOutlinePopup.visible = false
 			drawing = true

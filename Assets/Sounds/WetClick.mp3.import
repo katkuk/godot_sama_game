@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WetClick.mp3-075efec2d882ec82492cbcf47b03df12.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/WetClick.mp3"
+dest_files=[ "res://.import/WetClick.mp3-075efec2d882ec82492cbcf47b03df12.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
