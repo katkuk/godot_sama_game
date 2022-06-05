@@ -7,6 +7,7 @@ onready var timer = get_node("ShootTimer")
 const Boom = preload("res://Scenes/Stories/StoryCaroline/Shoot.tscn")
 var positionTicker = 0
 
+
 func _ready():
 	timer.connect("timeout", self, "onTimerTimeout")
 	timer.start()
@@ -30,7 +31,6 @@ func onTimerTimeout():
 		positionTicker = 0
 	yield(get_tree().create_timer(1.0), "timeout")
 	boom.queue_free()
-	
 
 func _on_fishClickArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -49,7 +49,3 @@ func _on_fishClickArea_input_event(viewport, event, shape_idx):
 				fish.position = event.position
 				yield(get_tree().create_timer(1.0), "timeout")
 				fish.queue_free()
-
-				
-
-		
