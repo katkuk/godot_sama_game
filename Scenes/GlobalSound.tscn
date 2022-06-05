@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Scripts/GlobalSound.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/lightSwitch2.wav" type="AudioStream" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Assets/Sounds/thunder.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Assets/Sounds/chime.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Assets/Sounds/magic.wav" type="AudioStream" id=23]
-[ext_resource path="res://Assets/Sounds/snoring.mp3" type="AudioStream" id=24]
 [ext_resource path="res://Assets/Sounds/cannon.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/Sounds/sea.mp3" type="AudioStream" id=26]
 [ext_resource path="res://Assets/Sounds/fishJump.mp3" type="AudioStream" id=27]
@@ -109,54 +108,6 @@ volume_db = -3.597
 stream = ExtResource( 12 )
 volume_db = -3.597
 
-[node name="Eating" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-volume_db = -4.048
-
-[node name="WinePour" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
-volume_db = -9.967
-
-[node name="Jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-volume_db = -21.446
-
-[node name="RumblingStomach" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
-volume_db = -21.446
-
-[node name="StuffFalling" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
-volume_db = -14.578
-
-[node name="AngryVolos" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
-volume_db = -7.645
-
-[node name="KlekIsSorry" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
-volume_db = -8.14
-
-[node name="Thunder" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
-volume_db = -8.14
-pitch_scale = 0.59
-
-[node name="Magic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 23 )
-volume_db = -15.574
-pitch_scale = 0.59
-
-[node name="Chime" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 22 )
-volume_db = -15.574
-pitch_scale = 0.59
-
-[node name="Snoring" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 24 )
-volume_db = -15.573
-pitch_scale = 0.59
-
 [node name="Caroline" type="Node2D" parent="."]
 
 [node name="FunnyScream" type="AudioStreamPlayer" parent="Caroline"]
@@ -232,6 +183,49 @@ volume_db = 2.66
 [node name="Card_5" type="AudioStreamPlayer" parent="Klek/Cards"]
 stream = ExtResource( 21 )
 volume_db = 2.66
+
+[node name="Eating" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 14 )
+volume_db = -4.048
+
+[node name="WinePour" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 15 )
+volume_db = -9.967
+
+[node name="RumblingStomach" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 17 )
+volume_db = -21.446
+
+[node name="Jump" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 16 )
+volume_db = -21.446
+
+[node name="AngryVolos" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 19 )
+volume_db = -7.645
+
+[node name="KlekIsSorry" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 20 )
+volume_db = -8.14
+
+[node name="StuffFalling" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 18 )
+volume_db = -14.578
+
+[node name="Thunder" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 21 )
+volume_db = -8.14
+pitch_scale = 0.59
+
+[node name="Magic" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 23 )
+volume_db = -15.574
+pitch_scale = 0.59
+
+[node name="Chime" type="AudioStreamPlayer" parent="Klek"]
+stream = ExtResource( 22 )
+volume_db = -15.574
+pitch_scale = 0.59
 
 [node name="UI" type="Node2D" parent="."]
 

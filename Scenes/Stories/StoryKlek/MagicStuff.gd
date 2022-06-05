@@ -1,56 +1,49 @@
 extends Node2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	GlobalSound.stopSound("AngryVolos")
-	GlobalSound.stopSound("KlekIsSorry")
-	GlobalSound.stopSound("Snoring")
-	GlobalSound.playSound("Thunder")
-	GlobalSound.playSound("Magic")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 var klekAnimSide = true
+
+var soundsUsed = [
+	"Klek/Thunder",
+	"Klek/Magic",
+	"Klek/Chime",
+	"UI/WhisleUp",
+	"UI/WhisleDown"
+]
+
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
+
+func _ready():
+	GlobalSound.playSound("Klek/Thunder")
+	GlobalSound.playSound("Klek/Magic")
 
 func _on_Klek_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			print("clicked")
 			if klekAnimSide == true:
 				$Klek/AnimationPlayer.play("New Anim")
-				GlobalSound.playSound("WhisleUp")
+				GlobalSound.playSound("UI/WhisleUp")
 				klekAnimSide = false
 			else:
 				$Klek/AnimationPlayer.play_backwards("New Anim")
-				GlobalSound.playSound("WhisleDown")
+				GlobalSound.playSound("UI/WhisleDown")
 				klekAnimSide = true
-			
-
 
 func _on_Area2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			GlobalSound.playSound("Chime")
+			GlobalSound.playSound("Klek/Chime")
 			$Area2/AnimationPlayer.play("New Anim")
-
 
 func _on_Area1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			GlobalSound.playSound("Chime")
+			GlobalSound.playSound("Klek/Chime")
 			$Area1/AnimationPlayer.play("New Anim")
 
 func _on_Area3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			GlobalSound.playSound("Chime")
+			GlobalSound.playSound("Klek/Chime")
 			$Area3/AnimationPlayer.play("New Anim")

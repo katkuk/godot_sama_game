@@ -31,7 +31,7 @@ func _on_MemoryCard_input_event(viewport, event, shape_idx):
 	MemoryGameManager.chooseCard(self)
 
 func flip():
-	print("Flipped card suit: " + str(suit) + ", and value: " + str(value))
+	#print("Flipped card suit: " + str(suit) + ", and value: " + str(value))
 	input_pickable = false
 	if cardSprite.get_frame() == 0:
 		cardAnimationPlayer.play("flip")

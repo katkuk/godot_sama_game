@@ -144,6 +144,3 @@ func matchCardsAndScore():
 		onScreenGuiVisible(false)
 		GlobalSound.get_node("BgSounds/KlekSnoring").stop()
 		displayWinPopUp()
-
-
-

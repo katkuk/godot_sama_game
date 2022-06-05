@@ -1,27 +1,35 @@
-extends ColorRect
+extends Node2D
+export(String) var GUIColorHex = "#a0403e"
 
 var selected = false
-onready var selectedObject = get_parent().get_node("empty")
+onready var selectedObject = get_node("empty")
 onready var initialWinePosition = Vector2(811.022, 919.193)
-onready var crumbParticles = get_parent().get_node("crumbs")
+onready var crumbParticles = get_node("crumbs")
+
+var soundsUsed = [
+	"Klek/Eating",
+	"Klek/WinePour"
+]
+
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
 
 func _ready():
-	GlobalSound.stopSound("RumblingStomach")
 	selectedObject.z_index = 30
-	get_parent().get_node("Wine/wine/wineSprite").frame = 0
-
+	get_node("Wine/wine/wineSprite").frame = 0
 
 func _process(delta):
 	if selected:
 		followMouse()
 	else:
-		if selectedObject == get_parent().get_node("Wine/wine"):
-			selectedObject = get_parent().get_node("empty")
-			get_parent().get_node("Wine/wine").position = initialWinePosition
+		if selectedObject == get_node("Wine/wine"):
+			selectedObject = get_node("empty")
+			get_node("Wine/wine").position = initialWinePosition
 		else:
 			selectedObject.visible = false;
-			selectedObject = get_parent().get_node("empty")
-		
+			selectedObject = get_node("empty")
 
 func followMouse():
 	selectedObject.visible = true;
@@ -37,43 +45,43 @@ func _on_clickFoodArea_input_event(viewport, event, shape_idx):
 func _on_Apples_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Apples/appleA")
+			selectedObject = get_node("Apples/appleA")
 			selectedObject.scale = Vector2(1,1)
 
 func _on_Potatoes_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Potatoes/potatoA")
+			selectedObject = get_node("Potatoes/potatoA")
 			selectedObject.scale = Vector2(1,1)
 
 func _on_Grapes_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Grapes/grapesA")
+			selectedObject = get_node("Grapes/grapesA")
 			selectedObject.scale = Vector2(1,1)
 			
 func _on_Cookies_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Cookies/cookieA")
+			selectedObject = get_node("Cookies/cookieA")
 			selectedObject.scale = Vector2(1,1)
 			
 func _on_Cake_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Cake/cakeA")
+			selectedObject = get_node("Cake/cakeA")
 			selectedObject.scale = Vector2(1,1)
 
 func _on_Chicken_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Chicken/chickenA")
+			selectedObject = get_node("Chicken/chickenA")
 			selectedObject.scale = Vector2(1,1)
 
 func _on_Wine_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selectedObject = get_parent().get_node("Wine/wine")
+			selectedObject = get_node("Wine/wine")
 			
 func _on_Mouth_area_entered(area):
 	if area.name == "cakeA" or \
@@ -94,28 +102,28 @@ func _on_Mouth_area_entered(area):
 			crumbParticles.self_modulate = "#e1af5a"
 		elif area.name == "chickenA":
 			crumbParticles.self_modulate = "#e19d5a"
-		GlobalSound.playSound("Eating")	
+		GlobalSound.playSound("Klek/Eating")
 		crumbParticles.emitting = true
-		get_parent().get_node("volos/eating").play("eating")
-		var tween = get_parent().get_node("Tween")
+		get_node("volos/eating").play("eating")
+		var tween = get_node("Tween")
 		tween.interpolate_property(area, "scale",
 		Vector2(1, 1), Vector2(0, 0), 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		tween.start()
 		yield(get_tree().create_timer(0.5), "timeout")
-		selectedObject = get_parent().get_node("empty")
-		get_parent().get_node("volos/eating").stop()
+		selectedObject = get_node("empty")
+		get_node("volos/eating").stop()
 		crumbParticles.emitting = false
 
 func _on_WineArea_area_entered(area):
 	if area.name == "wine":
 		print(area.name)
-		get_parent().get_node("Wine/pour").play("pour")
-		GlobalSound.playSound("WinePour")
+		get_node("Wine/pour").play("pour")
+		GlobalSound.playSound("Klek/WinePour")
 
 func _on_WineArea_area_exited(area):
 	print('exited')
 	if area.name == "wine":
 		print(area.name)
-		get_parent().get_node("Wine/pour").play("back")
-		GlobalSound.stopSound("WinePour")
+		get_node("Wine/pour").play("back")
+		GlobalSound.stopSound("Klek/WinePour")
