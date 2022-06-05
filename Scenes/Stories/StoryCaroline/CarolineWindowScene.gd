@@ -10,14 +10,25 @@ onready var timer = get_node("Timer")
 onready var counter = 1
 var CarolineIsOut = false
 
+var soundsUsed = [
+	"Caroline/Fire",
+	"Caroline/Window",
+	"Caroline/CannonBoom"
+]
+
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
+
 func _ready():
 	timer.start()
 	timer.connect("timeout", self, "onTimerTimeout")
-	pass
+	GlobalSound.playSound("Caroline/Fire")
 
 func _on_DoorR_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click"):
-		GlobalSound.playSound("Window")
+		GlobalSound.playSound("Caroline/Window")
 		if Rclosed == true:
 			doorRclosed.visible = false
 			doorRopen.visible = true
@@ -36,7 +47,7 @@ func _on_DoorR_input_event(viewport, event, shape_idx):
 
 func _on_DoorL_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click"):
-		GlobalSound.playSound("Window")
+		GlobalSound.playSound("Caroline/Window")
 		if Lclosed == true:
 			doorLclosed.visible = false
 			doorLopen.visible = true
@@ -57,13 +68,10 @@ func onTimerTimeout():
 	GlobalSound.playSound("Caroline/CannonBoom")
 	if counter == 1:
 		get_node("Boom1/AnimationPlayer").play("boom")
-		print("boom1")
 	elif counter == 2:
 		get_node("Boom2/AnimationPlayer").play("boom")
-		print("boom2")
 	else:
 		get_node("Boom3/AnimationPlayer").play("boom")
-		print("boom3")
 	var newWait = rand_range(0.5, 3)
 	timer.wait_time = newWait
 	counter = counter + 1
@@ -71,6 +79,5 @@ func onTimerTimeout():
 		counter = 1
 
 func _on_WalkIn_animation_finished(anim_name):
-	print("anim finished")
 	if CarolineIsOut:
 		$Caroline/Caroline.play("caroline")
