@@ -25,7 +25,7 @@ func _process(delta):
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
 	createBubble()
-	GlobalSound.playSound("Sea")
+	GlobalSound.playSound("Caroline/Sea")
 
 func createBubble():
 	var bubble = Bubble.instance()

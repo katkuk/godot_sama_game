@@ -35,7 +35,6 @@ func _ready():
 	displayHomeBtn()
 	homeBtnVisibility(true)
 	GlobalSound.playSound("OpenMap")
-	GlobalSound.stopSound("Sea")
 
 func displayHomeBtn():
 	homeBtnInstantiatedScene = homeBtn.instance()
@@ -113,6 +112,8 @@ func updateBookGUI():
 				bookGUI.get_node("Container/PreviousSceneButton").visible = true;
 
 func _on_CloseSceneButton_pressed():
+	if current_scene.has_method("stopSounds"):
+		current_scene.stopSounds()
 	GlobalSound.playSound("WhisleDown")
 	homeBtnVisibility(true)
 	bookAnimationPlayer.play_backwards("animateIn")
@@ -124,6 +125,8 @@ func _on_CloseSceneButton_pressed():
 	Global.updateStory(current_story)
 
 func _on_NextSceneButton_pressed():
+	if current_scene.has_method("stopSounds"):
+		current_scene.stopSounds()
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			var new_index = scene + 1
@@ -132,6 +135,8 @@ func _on_NextSceneButton_pressed():
 			break
 
 func _on_PreviousSceneButton_pressed():
+	if current_scene.has_method("stopSounds"):
+		current_scene.stopSounds()
 	for scene in storyList[current_story]:
 		if current_scene.name in storyList[current_story][scene]:
 			var new_index = scene - 1

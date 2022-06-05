@@ -85,22 +85,6 @@ stream = ExtResource( 34 )
 volume_db = -22.119
 pitch_scale = 1.24
 
-[node name="CannonBoom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 25 )
-volume_db = -24.166
-
-[node name="FishJump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 27 )
-volume_db = -6.897
-
-[node name="Gasp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
-volume_db = -6.897
-
-[node name="BirdsFlyAway" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 29 )
-volume_db = -6.897
-
 [node name="OpenMap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 3.92
@@ -185,18 +169,6 @@ stream = ExtResource( 24 )
 volume_db = -15.573
 pitch_scale = 0.59
 
-[node name="Sea" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 26 )
-volume_db = -32.359
-
-[node name="HorseRunning" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 30 )
-volume_db = -37.665
-
-[node name="Fire" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 31 )
-volume_db = 2.66
-
 [node name="Caroline" type="Node2D" parent="."]
 
 [node name="FunnyScream" type="AudioStreamPlayer" parent="Caroline"]
@@ -204,6 +176,34 @@ stream = ExtResource( 52 )
 
 [node name="WetClick" type="AudioStreamPlayer" parent="Caroline"]
 stream = ExtResource( 51 )
+
+[node name="Sea" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 26 )
+volume_db = -32.359
+
+[node name="CannonBoom" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 25 )
+volume_db = -24.166
+
+[node name="FishJump" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 27 )
+volume_db = -6.897
+
+[node name="HorseRunning" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 30 )
+volume_db = -27.681
+
+[node name="Fire" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 31 )
+volume_db = 2.66
+
+[node name="BirdsFlyAway" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 29 )
+volume_db = -6.897
+
+[node name="Gasp" type="AudioStreamPlayer" parent="Caroline"]
+stream = ExtResource( 28 )
+volume_db = -6.897
 
 [node name="Klek" type="Node2D" parent="."]
 

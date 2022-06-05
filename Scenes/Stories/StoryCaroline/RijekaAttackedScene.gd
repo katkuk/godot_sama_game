@@ -4,17 +4,27 @@ const Bird = preload("res://Scenes/Stories/StoryCaroline/blackBird.tscn")
 
 onready var timer1 = get_node("Timer1")
 onready var counter = 1
+var soundsUsed = [
+	"Caroline/Fire",
+	"Caroline/HorseRunning",
+	"Caroline/CannonBoom",
+	"Caroline/FunnyScream",
+	"Caroline/BirdsFlyAway"
+]
 
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
 
 func _ready():
 	timer1.start()
 	timer1.connect("timeout", self, "onTimerTimeout")
-	GlobalSound.stopSound("Sea")
-	GlobalSound.playSound("Fire")
-	$HorseRunning.play()
+	GlobalSound.playSound("Caroline/Fire")
+	GlobalSound.playSound("Caroline/HorseRunning")
 
 func onTimerTimeout():
-	GlobalSound.playSound("CannonBoom")
+	GlobalSound.playSound("Caroline/CannonBoom")
 	if counter == 1:
 		$boom1/AnimationPlayer.play("explosion")
 	elif counter == 2:
@@ -39,7 +49,7 @@ var direction = true
 func _on_clickForBlackBirds_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			GlobalSound.playSound("BirdsFlyAway")
+			GlobalSound.playSound("Caroline/BirdsFlyAway")
 			var bird = Bird.instance()
 			bird.global_position = event.position
 			$birdContainer.add_child(bird)

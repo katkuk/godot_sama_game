@@ -475,6 +475,7 @@ rotation = 1.90479
 scale = Vector2( -0.333113, 0.333113 )
 z_index = 1
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="CarolineSmallAnim2" type="Sprite" parent="RijekaCircle/boat"]

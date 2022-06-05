@@ -8,7 +8,6 @@ onready var flowerContainer = $FlowerContainer
 func _ready():
 	GlobalSound.playSound("UI/HappyKids")
 	GlobalSound.playSound("UI/WinNotes")
-	GlobalSound.stopSound("Sea")
 
 var counter = 0
 var left = true

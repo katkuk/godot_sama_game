@@ -6,20 +6,27 @@ var switch = true
 onready var timer = get_node("ShootTimer")
 const Boom = preload("res://Scenes/Stories/StoryCaroline/Shoot.tscn")
 var positionTicker = 0
+var soundsUsed = [
+	"Caroline/Sea",
+	"Caroline/CannonBoom",
+	"Caroline/FishJump"
+]
 
+func stopSounds():
+	for sound in soundsUsed:
+		if GlobalSound.get_node(sound).is_playing():
+			GlobalSound.get_node(sound).stop()
 
 func _ready():
 	timer.connect("timeout", self, "onTimerTimeout")
 	timer.start()
-	GlobalSound.playSound("Sea")
-	GlobalSound.stopSound("HorseRunning")
-	GlobalSound.stopSound("Fire")
+	GlobalSound.playSound("Caroline/Sea")
 	
 func onTimerTimeout():
 	var positions = $Positions.get_children()
 	var boom = Boom.instance()
 	get_node("Booms").add_child(boom)
-	GlobalSound.playSound("CannonBoom")
+	GlobalSound.playSound("Caroline/CannonBoom")
 	if positionTicker == 0:
 		boom.position = positions[0].position
 	elif positionTicker == 1:
@@ -34,7 +41,7 @@ func onTimerTimeout():
 
 func _on_fishClickArea_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
-		GlobalSound.playSound("FishJump")
+		GlobalSound.playSound("Caroline/FishJump")
 		if event.pressed:
 			switch = !switch
 			if switch == true:

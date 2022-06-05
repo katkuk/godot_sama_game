@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-2.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim1.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineSmallAnim2.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sounds/horseRunning.mp3" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1095.59, 219.003 )
@@ -381,10 +380,6 @@ anims/explosion = SubResource( 8 )
 
 [node name="Timer1" type="Timer" parent="."]
 autostart = true
-
-[node name="HorseRunning" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = -37.665
 
 [connection signal="input_event" from="clickForBlackBirds" to="." method="_on_clickForBlackBirds_input_event"]
 [connection signal="input_event" from="barrels" to="." method="_on_barrels_input_event"]

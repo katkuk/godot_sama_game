@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/StoryCaroline/CarolineStatic-0.png" type="Texture" id=2]
@@ -9,8 +9,7 @@
 [ext_resource path="res://Assets/Textures/StoryCaroline/eyesAndMouths.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/StoryCaroline/Caroline.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Stories/StoryCaroline/CarolineWindowScene.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Sounds/cannon.wav" type="AudioStream" id=10]
-[ext_resource path="res://Assets/Sounds/carolineScarednew.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/gasp.mp3" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "walkIn"
@@ -30,7 +29,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "caroline"
 length = 3.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("eyess:frame")
 tracks/0/interp = 1
@@ -55,14 +53,27 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 6, 3, 3, 6 ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("../Gasp")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 0.2 )
+}
 
 [sub_resource type="DynamicFont" id=3]
 size = 80
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=4]
-length = 7.0
-loop = true
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -70,7 +81,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"times": PoolRealArray( 0.025, 0.125, 0.225, 0.325, 0.425, 0.525 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 5, 5, 6, 7, 8, 9 ]
@@ -82,27 +93,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 1.1, 1.6, 1.7 ),
+"times": PoolRealArray( 0.025, 0.125, 0.625, 0.725 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("../CannonBoom:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 1, 2.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, true ]
-}
 
 [sub_resource type="Animation" id=5]
-length = 7.0
-loop = true
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -127,22 +125,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("../CannonBoom:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=6]
-length = 7.0
-loop = true
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -150,7 +135,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2, 2.1, 2.2, 2.3, 2.4, 2.5 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 5, 5, 6, 7, 8, 9 ]
@@ -162,22 +147,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2, 2.1, 2.6, 2.7 ),
+"times": PoolRealArray( 0, 0.1, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../CannonBoom:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 1,
-"values": [  ]
 }
 
 [node name="CarolineWindowScene" type="Node2D"]
@@ -211,7 +184,7 @@ __meta__ = {
 }
 
 [node name="Caroline" type="Sprite" parent="."]
-position = Vector2( 1420.5, 968.183 )
+position = Vector2( 1377.46, 968.183 )
 scale = Vector2( 1.09968, 1.09968 )
 texture = ExtResource( 8 )
 hframes = 3
@@ -224,6 +197,7 @@ scale = Vector2( 0.213583, 0.213583 )
 texture = ExtResource( 7 )
 hframes = 5
 vframes = 4
+frame = 1
 
 [node name="mouth" type="Sprite" parent="Caroline"]
 position = Vector2( 16.4131, -83.3662 )
@@ -238,7 +212,6 @@ frame = 6
 anims/walkIn = SubResource( 1 )
 
 [node name="Caroline" type="AnimationPlayer" parent="Caroline"]
-autoplay = "caroline"
 anims/caroline = SubResource( 2 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
@@ -406,7 +379,6 @@ vframes = 5
 frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom1"]
-autoplay = "boom"
 playback_speed = 1.5
 anims/boom = SubResource( 4 )
 
@@ -420,31 +392,27 @@ vframes = 5
 frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom2"]
-autoplay = "boom"
 playback_speed = 1.5
 anims/boom = SubResource( 5 )
 
 [node name="Boom3" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 2233.84, 932.573 )
 scale = Vector2( 2.51021, 2.51021 )
 texture = ExtResource( 5 )
 hframes = 5
 vframes = 5
-frame = 5
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boom3"]
-autoplay = "boom"
 playback_speed = 1.5
 anims/boom = SubResource( 6 )
 
-[node name="CannonBoom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
-volume_db = -33.959
+[node name="Timer" type="Timer" parent="."]
 
 [node name="Gasp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = -33.959
-pitch_scale = 1.16
+stream = ExtResource( 10 )
 
+[connection signal="animation_finished" from="Caroline/WalkIn" to="." method="_on_WalkIn_animation_finished"]
 [connection signal="input_event" from="DoorL" to="." method="_on_DoorL_input_event"]
 [connection signal="input_event" from="DoorR" to="." method="_on_DoorR_input_event"]
