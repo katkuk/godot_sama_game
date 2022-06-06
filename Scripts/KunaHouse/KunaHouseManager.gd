@@ -15,7 +15,7 @@ onready var gramophone = clickableObjects.get_node("Gramophone")
 onready var bigWindow = clickableObjects.get_node("BigWindow")
 onready var smallPlant = clickableObjects.get_node("SmallPlant")
 onready var bigLampAleks = clickableObjects.get_node("BigLampAleks")
-onready var hangingLights = clickableObjects.get_node("HangingLights")
+onready var hangingLights = clickableObjects.get_node("ParallaxBackground/ParallaxLayer/HangingLights")
 onready var yellowFlower = clickableObjects.get_node("YellowFlower")
 onready var bigPlant = clickableObjects.get_node("BigPlant")
 onready var smallBedSideLamp = clickableObjects.get_node("SmallBedSideLamp")
@@ -88,6 +88,7 @@ func _on_BigLampAleks_input_event(viewport, event, shape_idx):
 		GlobalSound.playSound("LightSwitch")
 
 func _on_HangingLights_input_event(viewport, event, shape_idx):
+	print(hangingLights.is_on_top())
 	if event.is_action_pressed("Click") and hangingLights.is_on_top():
 		hangingLights.get_node("LightBubbles").visible = !hangingLights.get_node("LightBubbles").visible
 		GlobalSound.playSound("LightSwitch")

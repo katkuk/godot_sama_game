@@ -77,4 +77,3 @@ func is_on_top() -> bool:
 		if clickable.get_index() > get_index():
 			return false
 	return true
-

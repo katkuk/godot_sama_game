@@ -79,9 +79,6 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
 
-[sub_resource type="CircleShape2D" id=8]
-radius = 300.0
-
 [sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
@@ -96,6 +93,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 1, 0, 1, 2, 1, 0 ]
 }
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 300.0
 
 [sub_resource type="Animation" id=10]
 length = 0.85
@@ -565,208 +565,8 @@ hframes = 2
 [node name="Collision" type="CollisionPolygon2D" parent="House/ClickableObjects/BigLampAleks"]
 polygon = PoolVector2Array( 227.233, 341.43, 141.61, 595.92, 324.748, 691.057, 519.778, 624.461, 474.588, 322.402 )
 
-[node name="HangingLights" type="Area2D" parent="House/ClickableObjects"]
-script = ExtResource( 31 )
-
-[node name="LightBubbles" type="Node2D" parent="House/ClickableObjects/HangingLights"]
-
-[node name="bubble" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
-position = Vector2( 1577.05, 99.0923 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble2" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble"]
-self_modulate = Color( 0.952941, 0.635294, 0.980392, 0.341176 )
-position = Vector2( 1.57062, 0.785301 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble3" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
-position = Vector2( 253.05, 191.092 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble4" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble3"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
-position = Vector2( -1.37356, 0.099823 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble5" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
-position = Vector2( 2329.05, 211.092 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble6" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble5"]
-self_modulate = Color( 0.968627, 0.780392, 0.611765, 0.341176 )
-position = Vector2( 1.41827, -0.633087 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble7" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
-position = Vector2( 3025.05, 91.0923 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble8" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble7"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
-position = Vector2( -2.44934, 2.8186 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble9" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
-position = Vector2( 3617.05, 83.0923 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble10" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble9"]
-self_modulate = Color( 0.560784, 0.972549, 0.694118, 0.341176 )
-position = Vector2( -2.03345, 0.322594 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble11" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
-position = Vector2( 5740.75, 177.379 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble12" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble11"]
-self_modulate = Color( 0.952941, 0.458824, 0.968627, 0.341176 )
-position = Vector2( 0.880615, -2.31644 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble13" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
-position = Vector2( 6164.26, 632.364 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble14" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble13"]
-self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
-position = Vector2( -0.785156, 4.34705 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble15" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
-position = Vector2( 5674.26, 778.364 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble16" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble15"]
-self_modulate = Color( 0.996078, 0.784314, 0.45098, 0.341176 )
-position = Vector2( -0.785645, 3.23645 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble17" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
-position = Vector2( 6066.26, 1318.36 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble18" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble17"]
-self_modulate = Color( 0.784314, 0.505882, 0.972549, 0.341176 )
-position = Vector2( -0.7854, 3.05307 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble19" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles"]
-self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
-position = Vector2( 5512.27, 1440.37 )
-scale = Vector2( 2.69824, 2.69824 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="bubble20" type="Sprite" parent="House/ClickableObjects/HangingLights/LightBubbles/bubble19"]
-self_modulate = Color( 0.631373, 0.94902, 0.568627, 0.341176 )
-position = Vector2( 3.18469, 7.63971 )
-scale = Vector2( 0.199193, 0.206397 )
-z_index = 6
-texture = ExtResource( 28 )
-
-[node name="Tree" type="Sprite" parent="House/ClickableObjects/HangingLights"]
-position = Vector2( 5883.53, 843.106 )
-rotation = -3.13527
-scale = Vector2( 1.32011, 1.32646 )
-z_index = 5
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 571.723, 204.061, 543.766, 1330.12 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TreeLights" type="Sprite" parent="House/ClickableObjects/HangingLights/Tree"]
-position = Vector2( 29.5708, 16.3884 )
-z_index = 7
-z_as_relative = false
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( -7.63174, 191.78, 581.361, 1338.35 )
-
-[node name="CornerLights" type="Sprite" parent="House/ClickableObjects/HangingLights"]
-position = Vector2( 186.008, 174.26 )
-rotation = 1.02378
-scale = Vector2( 1.22482, 1.22482 )
-z_index = 7
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 395.254, 197.04, 189.114, 435.287 )
-
-[node name="TopLights" type="Sprite" parent="House/ClickableObjects/HangingLights"]
-position = Vector2( 2600.85, 122.123 )
-scale = Vector2( 1.22482, 1.22482 )
-z_index = 7
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
-
-[node name="CollisionCornerLights" type="CollisionShape2D" parent="House/ClickableObjects/HangingLights"]
-position = Vector2( 166, 50 )
-shape = SubResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionTopLights" type="CollisionPolygon2D" parent="House/ClickableObjects/HangingLights"]
-polygon = PoolVector2Array( 1387, -41, 1501, 189, 2325, 312, 3053, 234, 3699, 198, 3937, -29 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionTreeLights" type="CollisionPolygon2D" parent="House/ClickableObjects/HangingLights"]
-polygon = PoolVector2Array( 5639, -8, 5616, 250, 5807, 468, 5553, 706, 5589, 1106, 5380, 1398, 5477, 1715, 6002, 1717, 6173, 1406, 6173, 954, 6306, 644, 6171, 333, 6253, -8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="YellowFlower" type="Area2D" parent="House/ClickableObjects"]
+position = Vector2( 699, -11 )
 script = ExtResource( 31 )
 
 [node name="Sprite" type="Sprite" parent="House/ClickableObjects/YellowFlower"]
@@ -781,6 +581,215 @@ anims/plantMove = SubResource( 9 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="House/ClickableObjects/YellowFlower"]
 polygon = PoolVector2Array( 5169.48, 629.252, 5088.31, 778.384, 5129.84, 1280.53, 5156.27, 1348.48, 5329.94, 1352.26, 5388.46, 1040.78, 5394.13, 653.793 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="House/ClickableObjects"]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="House/ClickableObjects/ParallaxBackground"]
+z_index = 1
+motion_scale = Vector2( 1.1, 1 )
+
+[node name="HangingLights" type="Area2D" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer"]
+z_index = 1
+script = ExtResource( 31 )
+
+[node name="LightBubbles" type="Node2D" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+
+[node name="bubble" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 1577.05, 99.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble2" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble"]
+self_modulate = Color( 0.952941, 0.635294, 0.980392, 0.341176 )
+position = Vector2( 1.57062, 0.785301 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble3" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 253.05, 191.092 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble4" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble3"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -1.37356, 0.099823 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble5" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
+position = Vector2( 2329.05, 211.092 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble6" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble5"]
+self_modulate = Color( 0.968627, 0.780392, 0.611765, 0.341176 )
+position = Vector2( 1.41827, -0.633087 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble7" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 3025.05, 91.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble8" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble7"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -2.44934, 2.8186 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble9" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
+position = Vector2( 3617.05, 83.0923 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble10" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble9"]
+self_modulate = Color( 0.560784, 0.972549, 0.694118, 0.341176 )
+position = Vector2( -2.03345, 0.322594 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble11" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 5740.75, 177.379 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble12" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble11"]
+self_modulate = Color( 0.952941, 0.458824, 0.968627, 0.341176 )
+position = Vector2( 0.880615, -2.31644 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble13" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.341176 )
+position = Vector2( 6164.26, 632.364 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble14" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble13"]
+self_modulate = Color( 0.996078, 0.937255, 0.45098, 0.423529 )
+position = Vector2( -0.785156, 4.34705 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble15" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.996078, 0.45098, 0.45098, 0.341176 )
+position = Vector2( 5674.26, 778.364 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble16" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble15"]
+self_modulate = Color( 0.996078, 0.784314, 0.45098, 0.341176 )
+position = Vector2( -0.785645, 3.23645 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble17" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.556863, 0.360784, 0.937255, 0.341176 )
+position = Vector2( 6066.26, 1318.36 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble18" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble17"]
+self_modulate = Color( 0.784314, 0.505882, 0.972549, 0.341176 )
+position = Vector2( -0.7854, 3.05307 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble19" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles"]
+self_modulate = Color( 0.45098, 0.996078, 0.701961, 0.341176 )
+position = Vector2( 5512.27, 1440.37 )
+scale = Vector2( 2.69824, 2.69824 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="bubble20" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/LightBubbles/bubble19"]
+self_modulate = Color( 0.631373, 0.94902, 0.568627, 0.341176 )
+position = Vector2( 3.18469, 7.63971 )
+scale = Vector2( 0.199193, 0.206397 )
+z_index = 6
+texture = ExtResource( 28 )
+
+[node name="Tree" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+position = Vector2( 5883.53, 843.106 )
+rotation = -3.13527
+scale = Vector2( 1.32011, 1.32646 )
+z_index = 5
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 571.723, 204.061, 543.766, 1330.12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TreeLights" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights/Tree"]
+position = Vector2( 29.5708, 16.3884 )
+z_index = 7
+z_as_relative = false
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( -7.63174, 191.78, 581.361, 1338.35 )
+
+[node name="CornerLights" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+position = Vector2( 186.008, 174.26 )
+rotation = 1.02378
+scale = Vector2( 1.22482, 1.22482 )
+z_index = 7
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 395.254, 197.04, 189.114, 435.287 )
+
+[node name="TopLights" type="Sprite" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+position = Vector2( 2600.85, 122.123 )
+scale = Vector2( 1.22482, 1.22482 )
+z_index = 7
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( -83.8651, -17.5003, 2044.53, 220.975 )
+
+[node name="CollisionCornerLights" type="CollisionShape2D" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+position = Vector2( 166, 50 )
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionTopLights" type="CollisionPolygon2D" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+polygon = PoolVector2Array( 1387, -41, 1501, 189, 2325, 312, 3053, 234, 3699, 198, 3937, -29 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionTreeLights" type="CollisionPolygon2D" parent="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights"]
+polygon = PoolVector2Array( 5639, -8, 5616, 250, 5807, 468, 5553, 706, 5589, 1106, 5380, 1398, 5477, 1715, 6002, 1717, 6173, 1406, 6173, 954, 6306, 644, 6171, 333, 6253, -8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BigPlant" type="Area2D" parent="House/ClickableObjects"]
 script = ExtResource( 31 )
@@ -979,8 +988,8 @@ __meta__ = {
 [connection signal="input_event" from="House/ClickableObjects/BigWindow" to="KunaHouseManager" method="_on_BigWindow_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/SmallPlant" to="KunaHouseManager" method="_on_SmallPlant_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/BigLampAleks" to="KunaHouseManager" method="_on_BigLampAleks_input_event"]
-[connection signal="input_event" from="House/ClickableObjects/HangingLights" to="KunaHouseManager" method="_on_HangingLights_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/YellowFlower" to="KunaHouseManager" method="_on_YellowFlower_input_event"]
+[connection signal="input_event" from="House/ClickableObjects/ParallaxBackground/ParallaxLayer/HangingLights" to="KunaHouseManager" method="_on_HangingLights_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/BigPlant" to="KunaHouseManager" method="_on_BigPlant_input_event"]
 [connection signal="input_event" from="House/ClickableObjects/SmallBedSideLamp" to="KunaHouseManager" method="_on_SmallBedSideLamp_input_event"]
 [connection signal="input_event" from="House/KunaObjects/chair" to="KunaHouseManager" method="_on_chair_input_event"]
