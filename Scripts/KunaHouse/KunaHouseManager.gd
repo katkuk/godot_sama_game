@@ -187,7 +187,7 @@ func loadScene():
 func _on_chair_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("Click") and chair.is_on_top() and not chair.interacting :
 		chair.get_node("animation").play("empty")
-		chair.get_node("RockingChairSound").play()
 
 func _on_chairAnimation_animation_finished(anim_name):
-	chair.get_node("animation").play("sitting")
+	#chair.get_node("animation").play("sitting")
+	pass

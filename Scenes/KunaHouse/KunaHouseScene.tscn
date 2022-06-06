@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Assets/Textures/KunaHouse/circle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampAleks.png" type="Texture" id=2]
@@ -23,8 +23,6 @@
 [ext_resource path="res://Assets/Textures/KunaHouse/plantSmall.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Textures/KunaHouse/plantBig.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Textures/KunaHouse/lampBedside.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Sounds/BackgroundMusic.mp3" type="AudioStream" id=24]
-[ext_resource path="res://Assets/Sounds/BackgroundMusicGramophone.mp3" type="AudioStream" id=25]
 [ext_resource path="res://Scripts/KunaHouse/Camera_KunaHouse.gd" type="Script" id=26]
 [ext_resource path="res://Assets/Sounds/footstep.ogg" type="AudioStream" id=27]
 [ext_resource path="res://Assets/Textures/GameCaroline/bubble.png" type="Texture" id=28]
@@ -144,6 +142,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ -0.7, -6.6, -0.7 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("RockingChairSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=13]
 length = 2.4
@@ -159,6 +171,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1.31951, 1 ),
 "update": 0,
 "values": [ -8.6, 1.0, -8.6 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("RockingChairSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 29 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=14]
@@ -808,7 +834,6 @@ offset = Vector2( -5.16536, -278.475 )
 hframes = 2
 
 [node name="animation" type="AnimationPlayer" parent="House/KunaObjects/chair"]
-autoplay = "sitting"
 anims/RESET = SubResource( 11 )
 anims/empty = SubResource( 12 )
 anims/sitting = SubResource( 13 )
@@ -945,16 +970,6 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 24 )
-volume_db = -20.675
-max_distance = 10000.0
-
-[node name="BGMusicGramophone" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 25 )
-volume_db = -7.518
-max_distance = 10000.0
 
 [connection signal="input_event" from="House/InteractionObjects/CarolinePicture" to="KunaHouseManager" method="_on_CarolinePicture_input_event"]
 [connection signal="input_event" from="House/InteractionObjects/KlekCards" to="KunaHouseManager" method="_on_KlekCards_input_event"]

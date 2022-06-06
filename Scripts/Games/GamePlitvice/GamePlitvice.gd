@@ -174,12 +174,12 @@ func _on_kunaArea2D_area_entered(area):
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
 				GlobalSound.get_node("Plitvice/CollectSoft").play()
-				print("removing ing: " + str(ing))
-				print("required ingredients before: ", requiredIngrediendArray)
+				#print("removing ing: " + str(ing))
+				#print("required ingredients before: ", requiredIngrediendArray)
 				ing.get_child(0).visible = true
 				var ingSceneName = "res://Scenes/Games/GamePlitvice/ingredients/"+ing.name+".tscn"
 				requiredIngrediendArray.erase(ingSceneName)
-				print("required ingredients after: ", requiredIngrediendArray)
+				#print("required ingredients after: ", requiredIngrediendArray)
 				if requiredIngrediendArray == []:
 					for obj in allFallingNow:
 						obj.collectable = false

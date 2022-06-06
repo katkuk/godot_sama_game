@@ -40,6 +40,8 @@ func kunaInteracting():
 		setInteracting(true)
 		defaultSprite.visible = false
 		interactingSprite.visible = true
+		if interactingSprite.name == "chairWithKuna":
+			interactingSprite.get_parent().get_node("animation").play("sitting")
 
 func on_input_event(viewport, event, shape_idx):
 	if interacting and Input.is_action_just_pressed("Click"):
@@ -47,6 +49,8 @@ func on_input_event(viewport, event, shape_idx):
 		setHovered(true)
 		defaultSprite.visible = true
 		interactingSprite.visible = false
+		if interactingSprite.name == "chairWithKuna":
+			interactingSprite.get_parent().get_node("animation").stop()
 		emit_signal("kunaHovering", self)
 	else:
 		return
