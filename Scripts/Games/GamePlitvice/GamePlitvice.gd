@@ -23,6 +23,7 @@ var onScreenPopUpText = "Are you sure you want to leave the minigame?"
 var onScreenYesText = "Yes"
 var onScreenNoText = "No"
 var onScreenGui
+var activeBloop
 	
 func _ready():
 	if !GlobalSound.get_node("BgSounds/Waterfall").is_playing():
@@ -160,23 +161,15 @@ func animateFallingObject(waterfallOption, object):
 #	print("ITEM FELL")
 	if !fallingIngredient.collidedWithKuna:
 		GlobalSound.get_node("Plitvice/Drip").play()
-		#SEND HELP THIS NO WORKE
-#		var drip = bloop.instance()
-#		waterfallOption.get_node("Position").add_child(drip)
-#		print(waterfallOption.get_node("Position").get_children())
-#		print(drip.visible)
-#		drip.position = waterfallOption.get_node("Position").position
-#		print(drip.position)
-		#print(currentPath.get_children())
-		#yield(drip.get_node("AnimationPlayerBloop"), "animation_finished")
-		#drip.queue_free()
-		#print(currentPath.get_children())
-		
+		activeBloop = waterfallOption.get_node("bloop")
+		activeBloop.visible = true
+		activeBloop.get_node("AnimationPlayerBloop").play("bloop")
 	newPathFollow.queue_free()
 	allFallingNow.erase(fallingIngredient)
 
 func _on_kunaArea2D_area_entered(area):
 	area.collidedWithKuna = true
+	area.visible = false
 	if requiredIngrediendArray.has(area.filename) && area.collectable:
 		for ing in positionedRequiredIngredients:
 			if ing.filename == area.filename:
@@ -200,8 +193,6 @@ func _on_kunaArea2D_area_entered(area):
 		kunaAP.play("swim")
 
 func resetVars():
-#	for obj in allFallingNow:
-#		obj.collectable = false
 	branches.clear()
 	ingredientArray.clear()
 	requiredIngrediendArray.clear()
@@ -216,3 +207,10 @@ func displayWinPopUp():
 	winPopUp.init(winText, "plitvice")
 	winPopUp.connect("restartMinigame", self, "restartGame")
 	add_child(winPopUp)
+
+
+func _on_AnimationPlayerBloop_animation_finished(anim_name):
+	print("ANIMATION FINISHED")
+	activeBloop.visible = false
+	activeBloop = null
+	

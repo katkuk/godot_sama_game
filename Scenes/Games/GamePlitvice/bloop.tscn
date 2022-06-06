@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="waterCircles" type="Sprite"]
+[node name="bloop" type="Sprite"]
 visible = false
 position = Vector2( -11.2, 10.6366 )
 texture = ExtResource( 1 )
@@ -54,6 +54,5 @@ vframes = 2
 frame = 5
 
 [node name="AnimationPlayerBloop" type="AnimationPlayer" parent="."]
-autoplay = "bloop"
 anims/RESET = SubResource( 2 )
 anims/bloop = SubResource( 1 )
