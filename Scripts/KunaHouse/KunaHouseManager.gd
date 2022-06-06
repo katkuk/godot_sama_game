@@ -88,7 +88,6 @@ func _on_BigLampAleks_input_event(viewport, event, shape_idx):
 		GlobalSound.playSound("LightSwitch")
 
 func _on_HangingLights_input_event(viewport, event, shape_idx):
-	print(hangingLights.is_on_top())
 	if event.is_action_pressed("Click") and hangingLights.is_on_top():
 		hangingLights.get_node("LightBubbles").visible = !hangingLights.get_node("LightBubbles").visible
 		GlobalSound.playSound("LightSwitch")

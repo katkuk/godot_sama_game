@@ -3,7 +3,7 @@ extends Area2D
 export var group := "clickable"
 
 #READ BEFORE JUDGING OKE :D
-#below is absolut insanity - since hanginglights are on paralax I had to force
+#since hanginglights are on paralax I had to force
 #the code to check the original parent index - paralaxbackground index instead of
 #the index of hanging lights since that will always be 0
 
