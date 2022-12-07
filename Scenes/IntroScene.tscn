@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Textures/GUI/PlayMinigameAnimated.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Textures/GameKlek/cloud.png" type="Texture" id=2]
@@ -11,10 +11,14 @@
 [ext_resource path="res://Assets/Textures/StoryRooster/animations/mouthAnims.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Textures/GUI/Intro screen/introScreen-0.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Textures/GameKlek/fairy.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/GUI/Intro screen/katka.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Textures/GUI/xIcon.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Katkuk-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Scripts/IntroScene.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Textures/GUI/Intro screen/infoIcon.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Textures/GUI/Intro screen/saska.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Textures/GUI/Intro screen/melina.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Textures/GUI/Intro screen/aleks.png" type="Texture" id=19]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -242,6 +246,7 @@ __meta__ = {
 scale = Vector2( 0.629787, 0.629787 )
 frames = SubResource( 9 )
 animation = "animate"
+frame = 1
 playing = true
 centered = false
 
@@ -301,6 +306,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Katka" type="Sprite" parent="InfoPanel/InfoPopup"]
+position = Vector2( -629.238, 280.579 )
+scale = Vector2( 0.415193, 0.415193 )
+texture = ExtResource( 12 )
+
+[node name="Saska" type="Sprite" parent="InfoPanel/InfoPopup"]
+position = Vector2( -222.662, 275.17 )
+scale = Vector2( 0.415193, 0.415193 )
+texture = ExtResource( 17 )
+
+[node name="Aleks" type="Sprite" parent="InfoPanel/InfoPopup"]
+position = Vector2( 177.51, 280.579 )
+scale = Vector2( 0.415193, 0.415193 )
+texture = ExtResource( 19 )
+
+[node name="Melina" type="Sprite" parent="InfoPanel/InfoPopup"]
+position = Vector2( 588.418, 280.579 )
+scale = Vector2( 0.415193, 0.415193 )
+texture = ExtResource( 18 )
+
 [node name="circle" type="Sprite" parent="InfoPanel/InfoPopup"]
 position = Vector2( -630.561, 275.209 )
 scale = Vector2( 1.03449, 0.976027 )
@@ -355,7 +380,7 @@ margin_top = 455.695
 margin_right = -488.522
 margin_bottom = 584.695
 custom_fonts/font = SubResource( 7 )
-text = "name
+text = "Katarina Kukavica
 "
 align = 1
 autowrap = true
@@ -369,7 +394,7 @@ margin_top = 455.695
 margin_right = -83.3158
 margin_bottom = 584.695
 custom_fonts/font = SubResource( 7 )
-text = "name
+text = "Alexandra Labusova
 "
 align = 1
 autowrap = true
@@ -378,12 +403,12 @@ __meta__ = {
 }
 
 [node name="name3" type="Label" parent="InfoPanel/InfoPopup"]
-margin_left = 45.0471
-margin_top = 463.793
-margin_right = 323.047
-margin_bottom = 592.793
+margin_left = 42.819
+margin_top = 455.695
+margin_right = 351.819
+margin_bottom = 650.695
 custom_fonts/font = SubResource( 7 )
-text = "name
+text = "Aleksandar Komitov
 "
 align = 1
 autowrap = true
@@ -397,8 +422,8 @@ margin_top = 468.436
 margin_right = 751.563
 margin_bottom = 597.436
 custom_fonts/font = SubResource( 7 )
-text = "name
-"
+text = "Melina 
+Cuk Pajki"
 align = 1
 autowrap = true
 __meta__ = {
